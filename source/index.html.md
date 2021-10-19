@@ -3,16 +3,16 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
   - python
   - javascript
 
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
+# toc_footers:
+#   - <a href='#'>Sign Up for a Developer Key</a>
+#   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - errors
+  - clasificador
+  - errores
 
 search: true
 
@@ -23,52 +23,37 @@ meta:
     content: Documentation for the Kittn API
 ---
 
-# Introduction
+# Introducción
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Bienvenido a nuestra documentación de API Megatime! Puedes usar nuestra API REST para acceder a endpoints de varios servicios, los cuales interactúan en forma directa con información de nuestra base de datos.
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+Tenemos ejemplos para los lenguajes Python, JavaScript y Shell! Puedes ver el código a la derecha (área oscura), y puedes cambiar entre los distintos lenguajes de programación usando los tabs de la zona superior derecha.
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+<!-- # Autenticación
 
-# Authentication
-
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+> Ejemplo de llamada con API Key:
 
 ```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
+-
 ```
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
+curl "https://ejemplo-url.com/api/endpoint" \
+  -H "Authorization: SECRET_API_KEY"
 ```
 
 ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
+-
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Reemplazar `SECRET_API_KEY` con tu API key.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+Megatime usa _API keys_ para permitir el acceso a las API.
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+Para obtener tu _API Key_ debes de solicitar acceso al equipo Megatime.
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
 
 # Kittens
@@ -95,9 +80,9 @@ curl "http://example.com/api/kittens" \
 ```
 
 ```javascript
-const kittn = require('kittn');
+const kittn = require("kittn");
 
-let api = kittn.authorize('meowmeowmeow');
+let api = kittn.authorize("meowmeowmeow");
 let kittens = api.kittens.get();
 ```
 
@@ -130,10 +115,10 @@ This endpoint retrieves all kittens.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+| Parameter    | Default | Description                                                                      |
+| ------------ | ------- | -------------------------------------------------------------------------------- |
+| include_cats | false   | If set to true, the result will also include cats.                               |
+| available    | true    | If set to false, the result will include kittens that have already been adopted. |
 
 <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
@@ -161,9 +146,9 @@ curl "http://example.com/api/kittens/2" \
 ```
 
 ```javascript
-const kittn = require('kittn');
+const kittn = require("kittn");
 
-let api = kittn.authorize('meowmeowmeow');
+let api = kittn.authorize("meowmeowmeow");
 let max = api.kittens.get(2);
 ```
 
@@ -189,9 +174,9 @@ This endpoint retrieves a specific kitten.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+| Parameter | Description                      |
+| --------- | -------------------------------- |
+| ID        | The ID of the kitten to retrieve |
 
 ## Delete a Specific Kitten
 
@@ -216,9 +201,9 @@ curl "http://example.com/api/kittens/2" \
 ```
 
 ```javascript
-const kittn = require('kittn');
+const kittn = require("kittn");
 
-let api = kittn.authorize('meowmeowmeow');
+let api = kittn.authorize("meowmeowmeow");
 let max = api.kittens.delete(2);
 ```
 
@@ -227,7 +212,7 @@ let max = api.kittens.delete(2);
 ```json
 {
   "id": 2,
-  "deleted" : ":("
+  "deleted": ":("
 }
 ```
 
@@ -239,7 +224,6 @@ This endpoint deletes a specific kitten.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
+| Parameter | Description                    |
+| --------- | ------------------------------ |
+| ID        | The ID of the kitten to delete | -->
