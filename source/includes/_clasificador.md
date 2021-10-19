@@ -94,7 +94,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 ```python
 import requests
 
-url = "clasificador.megatime.cl/api/group"
+url = "clasificador.megatime.cl/api/groups"
 
 payload={}
 headers = {
@@ -108,7 +108,7 @@ print(response.json())
 ```
 
 ```shell
-curl --location --request GET 'clasificador.megatime.cl/api/group' \
+curl --location --request GET 'clasificador.megatime.cl/api/groups' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -116,7 +116,7 @@ curl --location --request GET 'clasificador.megatime.cl/api/group' \
 var request = require("request");
 var options = {
   method: "GET",
-  url: "clasificador.megatime.cl/api/group",
+  url: "clasificador.megatime.cl/api/groups",
   headers: {
     Authorization: "SECRET_API_KEY",
   },
@@ -199,7 +199,7 @@ Retorna todos los grupos.
 
 ### Llamada HTTP
 
-`GET clasificador.megatime.cl/api/group`
+`GET clasificador.megatime.cl/api/groups`
 
 ### Atributos Respuesta
 
@@ -237,7 +237,7 @@ Retorna todos los grupos.
 ```python
 import requests
 
-url = "clasificador.megatime.cl/api/classifier"
+url = "clasificador.megatime.cl/api/classifiers"
 
 payload={}
 headers = {
@@ -250,7 +250,7 @@ print(response.json())
 ```
 
 ```shell
-curl --location --request GET 'clasificador.megatime.cl/api/classifier' \
+curl --location --request GET 'clasificador.megatime.cl/api/classifiers' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -258,7 +258,7 @@ curl --location --request GET 'clasificador.megatime.cl/api/classifier' \
 var request = require("request");
 var options = {
   method: "GET",
-  url: "clasificador.megatime.cl/api/classifier",
+  url: "clasificador.megatime.cl/api/classifiers",
   headers: {
     Authorization: "SECRET_API_KEY",
   },
@@ -328,7 +328,7 @@ Retorna todos los clasificadores.
 
 ### Llamada HTTP
 
-`GET clasificador.megatime.cl/api/classifier`
+`GET clasificador.megatime.cl/api/classifiers`
 
 ### Atributos Respuesta
 
@@ -359,7 +359,7 @@ Retorna todos los clasificadores.
 ```python
 import requests
 
-url = "clasificador.megatime.cl/api/ad?group_id=10&start_date=13-09-2021&end_date=13-10-2021"
+url = "clasificador.megatime.cl/api/ads/group/10?start_date=13-09-2021&end_date=13-10-2021"
 
 payload={}
 headers = {
@@ -372,7 +372,7 @@ print(response.json())
 ```
 
 ```shell
-curl --location --request GET 'clasificador.megatime.cl/api/ad?group_id=10&start_date=13-09-2021&end_date=13-10-2021' \
+curl --location --request GET 'clasificador.megatime.cl/api/ads/group/10?start_date=13-09-2021&end_date=13-10-2021' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -380,7 +380,7 @@ curl --location --request GET 'clasificador.megatime.cl/api/ad?group_id=10&start
 var request = require("request");
 var options = {
   method: "GET",
-  url: "clasificador.megatime.cl/api/ad?group_id=10&start_date=13-09-2021&end_date=13-10-2021",
+  url: "clasificador.megatime.cl/api/ads/group/10?start_date=13-09-2021&end_date=13-10-2021",
   headers: {
     Authorization: "SECRET_API_KEY",
   },
@@ -396,6 +396,9 @@ request(options, function (error, response) {
 ```json
 {
   "ok": true,
+  "group": "Supermercados",
+  "start_date": "13-09-2021",
+  "end_date": "13-10-2021",
   "data": [
     {
       "ID": 270366,
@@ -492,15 +495,14 @@ Retorna todos los avisos con actividad en cierto periodo con sus opciones asigna
 
 ### Llamada HTTP
 
-`GET /ad`
+`GET clasificador.megatime.cl/api/ads/group/{groupID}`
 
 ### Parámetros URL
 
 | Nombre     | Requerido | Descripción                                        |
 | ---------- | --------- | -------------------------------------------------- |
-| group_id   | Sí        | El ID del grupo como filtro                        |
-| start_date | Sí        | Fecha inicial de la búsqueda en formato dd-MM-YYYY |
-| end_date   | Sí        | Fecha término de la búsqueda en formato dd-MM-YYYY |
+| start_date | Sí        | Fecha inicial de la búsqueda en formato DD-MM-YYYY |
+| end_date   | Sí        | Fecha término de la búsqueda en formato DD-MM-YYYY |
 
 ### Atributos Respuesta
 
