@@ -64,7 +64,7 @@ Retorna key que permite el acceso al API del clasificador.
 
 ### Llamada HTTP
 
-`POST https://cuenta.megatime.cl/api/auth/key`
+`POST cuenta.megatime.cl/api/auth/key`
 
 ### Parámetros Body
 
