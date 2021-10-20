@@ -403,7 +403,7 @@ request(options, function (error, response) {
     {
       "ID": 270366,
       "description": "TOTTUS,PRECIAZOS,SON PRECIOS BAJOS TODOS LOS DIAS POR TODO",
-      "media_name": "Radio",
+      "media": "Radio",
       "appeared_date": "19/04/2021",
       "industry": "SUPER E HIPERMERCADOS",
       "company": "TOTTUS",
@@ -456,7 +456,7 @@ request(options, function (error, response) {
     {
       "ID": 585673,
       "description": "JUMBO,FELIZ 18,SOBRECOSTILLA-HUACHALOMO $5890-TJ",
-      "media_name": "TV Abierta",
+      "media": "TV Abierta",
       "appeared_date": "13/09/2021",
       "industry": "SUPER E HIPERMERCADOS",
       "company": "JUMBO",
@@ -491,7 +491,7 @@ request(options, function (error, response) {
 }
 ```
 
-Retorna todos los avisos con actividad en cierto periodo con sus opciones asignadas.
+Retorna todos los avisos con sus datos y opciones que tuvieron alguna actividad en cierto periodo en base al Grupo seleccionado.
 
 ### Llamada HTTP
 
@@ -502,14 +502,17 @@ Retorna todos los avisos con actividad en cierto periodo con sus opciones asigna
 | Nombre     | Requerido | Descripción                                        |
 | ---------- | --------- | -------------------------------------------------- |
 | start_date | Sí        | Fecha inicial de la búsqueda en formato DD-MM-YYYY |
-| end_date   | Sí        | Fecha término de la búsqueda en formato DD-MM-YYYY |
+| end_date   | Sí        | Fecha final de la búsqueda en formato DD-MM-YYYY   |
 
 ### Atributos Respuesta
 
-| Nombre | Tipo    | Descripción                      |
-| ------ | ------- | -------------------------------- |
-| ok     | Boolean | Verificador de respuesta         |
-| data   | String  | Lista de objetos de tipo `Aviso` |
+| Nombre     | Tipo    | Descripción                                        |
+| ---------- | ------- | -------------------------------------------------- |
+| ok         | Boolean | Verificador de respuesta                           |
+| group      | String  | Nombre del grupo seleccionado                      |
+| start_date | Date    | Fecha inicial de la búsqueda en formato DD-MM-YYYY |
+| end_date   | Date    | Fecha final de la búsqueda en formato DD-MM-YYYY   |
+| data       | String  | Lista de objetos de tipo `Aviso`                   |
 
 ### Atributos Aviso
 
@@ -517,7 +520,7 @@ Retorna todos los avisos con actividad en cierto periodo con sus opciones asigna
 | ------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | ID            | Integer | Identificador del aviso                                                                                                               |
 | description   | String  | Descripción del aviso                                                                                                                 |
-| media_name    | String  | Nombre de los medios en donde aparece el aviso                                                                                        |
+| media         | String  | Nombre de los medios en donde aparece el aviso                                                                                        |
 | appeared_date | Date    | Fecha donde aparece el aviso por primera vez                                                                                          |
 | industry      | String  | Nombre del Rubro asignado al aviso                                                                                                    |
 | company       | String  | Nombre de la Empresa asignada al aviso                                                                                                |
