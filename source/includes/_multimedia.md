@@ -88,7 +88,9 @@ La API espera que las llamadas estén autenticadas con la Api key en la url con 
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
 
-## Obtener Ruta Multimedia
+## Obtener Multimedia
+
+Retorna multimedia de un aviso.
 
 ### Llamada HTTP
 
