@@ -1031,7 +1031,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">270366</span><span class="p">,</span><span class="w">
       </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TOTTUS,PRECIAZOS,SON PRECIOS BAJOS TODOS LOS DIAS POR TODO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"media_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Radio"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Radio"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"appeared_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19/04/2021"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUPER E HIPERMERCADOS"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TOTTUS"</span><span class="p">,</span><span class="w">
@@ -1084,7 +1084,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">585673</span><span class="p">,</span><span class="w">
       </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JUMBO,FELIZ 18,SOBRECOSTILLA-HUACHALOMO $5890-TJ"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"media_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TV Abierta"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TV Abierta"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"appeared_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13/09/2021"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUPER E HIPERMERCADOS"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JUMBO"</span><span class="p">,</span><span class="w">
@@ -1118,7 +1118,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Retorna todos los avisos con actividad en cierto periodo con sus opciones asignadas.</p>
+<p>Retorna todos los avisos con sus datos y opciones que tuvieron alguna actividad en cierto periodo en base al Grupo seleccionado.</p>
 <h3 id='llamada-http-4'>Llamada HTTP</h3>
 <p><code>GET clasificador.megatime.cl/api/ads/group/{groupID}</code></p>
 <h3 id='parametros-url'>Parámetros URL</h3>
@@ -1137,7 +1137,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <tr>
 <td>end_date</td>
 <td>Sí</td>
-<td>Fecha término de la búsqueda en formato DD-MM-YYYY</td>
+<td>Fecha final de la búsqueda en formato DD-MM-YYYY</td>
 </tr>
 </tbody></table>
 <h3 id='atributos-respuesta-4'>Atributos Respuesta</h3>
@@ -1152,6 +1152,21 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>ok</td>
 <td>Boolean</td>
 <td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>group</td>
+<td>String</td>
+<td>Nombre del grupo seleccionado</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Date</td>
+<td>Fecha inicial de la búsqueda en formato DD-MM-YYYY</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Date</td>
+<td>Fecha final de la búsqueda en formato DD-MM-YYYY</td>
 </tr>
 <tr>
 <td>data</td>
@@ -1178,7 +1193,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>Descripción del aviso</td>
 </tr>
 <tr>
-<td>media_name</td>
+<td>media</td>
 <td>String</td>
 <td>Nombre de los medios en donde aparece el aviso</td>
 </tr>
