@@ -497,6 +497,8 @@ Retorna todos los avisos con sus datos y opciones que tuvieron alguna actividad 
 
 `GET clasificador.megatime.cl/api/ads/group/{groupID}`
 
+La variable `groupID` corresponde al ID del Grupo clasificador el cual contiene los filtros de marcas y clasificadores.
+
 ### Parámetros URL
 
 | Nombre     | Requerido | Descripción                                        |

@@ -12,6 +12,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 includes:
   - clasificador
+  - multimedia
   - errores
 
 search: true
@@ -27,7 +28,7 @@ meta:
 
 Bienvenido a nuestra documentación de API Megatime! Puedes usar nuestra API REST para acceder a endpoints de varios servicios, los cuales interactúan en forma directa con información de nuestra base de datos.
 
-Tenemos ejemplos para cURL, Python y JavaScript! Puedes ver el código a la derecha (área oscura), y puedes cambiar entre los distintos lenguajes de programación usando los tabs de la zona superior derecha.
+Tenemos ejemplos para cURL, Python y JavaScript. Puedes ver el código a la derecha (área oscura), y puedes cambiar entre los distintos lenguajes de programación usando los tabs de la zona superior derecha.
 
 <!-- # Autenticación
 
