@@ -335,6 +335,17 @@
               </ul>
           </li>
           <li>
+            <a href="#multimedia" class="toc-h1 toc-link" data-title="Multimedia">Multimedia</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#obtener-api-key" class="toc-h2 toc-link" data-title="Obtener API Key">Obtener API Key</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-ruta-multimedia" class="toc-h2 toc-link" data-title="Obtener Ruta Multimedia">Obtener Ruta Multimedia</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errores" class="toc-h1 toc-link" data-title="Errores">Errores</a>
           </li>
       </ul>
@@ -345,7 +356,7 @@
         <h1 id='introduccion'>Introducción</h1>
 <p>Bienvenido a nuestra documentación de API Megatime! Puedes usar nuestra API REST para acceder a endpoints de varios servicios, los cuales interactúan en forma directa con información de nuestra base de datos.</p>
 
-<p>Tenemos ejemplos para cURL, Python y JavaScript! Puedes ver el código a la derecha (área oscura), y puedes cambiar entre los distintos lenguajes de programación usando los tabs de la zona superior derecha.</p>
+<p>Tenemos ejemplos para cURL, Python y JavaScript. Puedes ver el código a la derecha (área oscura), y puedes cambiar entre los distintos lenguajes de programación usando los tabs de la zona superior derecha.</p>
 
 <!-- # Autenticación
 
@@ -1121,6 +1132,8 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <p>Retorna todos los avisos con sus datos y opciones que tuvieron alguna actividad en cierto periodo en base al Grupo seleccionado.</p>
 <h3 id='llamada-http-4'>Llamada HTTP</h3>
 <p><code>GET clasificador.megatime.cl/api/ads/group/{groupID}</code></p>
+
+<p>La variable <code>groupID</code> corresponde al ID del Grupo clasificador el cual contiene los filtros de marcas y clasificadores.</p>
 <h3 id='parametros-url'>Parámetros URL</h3>
 <table><thead>
 <tr>
@@ -1295,6 +1308,145 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>Todas sus opciones son &#39;No Aplica&#39;</td>
 </tr>
 </tbody></table>
+<h1 id='multimedia'>Multimedia</h1><h2 id='obtener-api-key'>Obtener API Key</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">iimport</span> <span class="n">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"cuenta.megatime.cl/api/auth/key"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"email"</span><span class="p">:</span> <span class="s">"user@example.com"</span><span class="p">,</span>
+  <span class="s">"password"</span><span class="p">:</span> <span class="s">"**********"</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'cuenta.megatime.cl/api/auth/key'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "email": "user@example.com",
+    "password": "**********"
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">cuenta.megatime.cl/api/auth/key</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">Content-Type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="na">email</span><span class="p">:</span> <span class="dl">"</span><span class="s2">user@example.com</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">password</span><span class="p">:</span> <span class="dl">"</span><span class="s2">**********</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">}),</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x71e1db8n090am63ca69606c4slb8b6ta"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna key que permite el acceso al API del clasificador.</p>
+<h3 id='llamada-http'>Llamada HTTP</h3>
+<p><code>POST cuenta.megatime.cl/api/auth/key</code></p>
+<h3 id='parametros-body'>Parámetros Body</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Requerido</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>Correo asociado a credencial de Megatime</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>password</td>
+<td>String</td>
+<td>Contraseña asociado a credencial de Megatime</td>
+<td>Sí</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-respuesta'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>key</td>
+<td>String</td>
+<td>Llave de acceso a API</td>
+</tr>
+</tbody></table>
+
+<p>La API espera que las llamadas estén autenticadas con la Api key en la url con el parámetro <code>key</code></p>
+
+<p><code>?key=SECRET_API_KEY</code></p>
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
+<h2 id='obtener-ruta-multimedia'>Obtener Ruta Multimedia</h2><h3 id='llamada-http-2'>Llamada HTTP</h3><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"multimedia.megatime.cl/file/1/569810?key=SECRET_API_KEY"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">multimedia.megatime.cl/file/1/569810?key=SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{},</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'multimedia.megatime.cl/file/1/569810?key=SECRET_API_KEY'</span>
+</code></pre></div>
+<blockquote>
+<p>Retorno de multimedia Video, Audio o Imagen</p>
+</blockquote>
+
+<p><code>GET multimedia.megatime.cl/file/{TagMultimedia}</code></p>
+
+<p>La variable <code>TagMultimedia</code> es proporcionada como columna en el SP del Verificador Diario.</p>
+<h3 id='medios-soportados'>Medios soportados</h3>
+<ul>
+<li>TV Abierta</li>
+<li>TV Paga</li>
+<li>Prensa</li>
+<li>Revista</li>
+<li>Radio</li>
+</ul>
 <h1 id='errores'>Errores</h1>
 <p>Nuestras API REST utilizan los siguientes códigos de error:</p>
 
