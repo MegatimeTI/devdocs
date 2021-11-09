@@ -330,7 +330,7 @@
                     <a href="#obtener-clasificadores" class="toc-h2 toc-link" data-title="Obtener Clasificadores">Obtener Clasificadores</a>
                   </li>
                   <li>
-                    <a href="#obtener-avisos" class="toc-h2 toc-link" data-title="Obtener Avisos">Obtener Avisos</a>
+                    <a href="#obtener-avisos-por-grupo" class="toc-h2 toc-link" data-title="Obtener Avisos por Grupo">Obtener Avisos por Grupo</a>
                   </li>
               </ul>
           </li>
@@ -1003,7 +1003,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>Nombre de la opción</td>
 </tr>
 </tbody></table>
-<h2 id='obtener-avisos'>Obtener Avisos</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<h2 id='obtener-avisos-por-grupo'>Obtener Avisos por Grupo</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"clasificador.megatime.cl/api/ads/group/10?start_date=13-09-2021&amp;end_date=13-10-2021"</span>
 
@@ -1187,7 +1187,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>Lista de objetos de tipo <code>Aviso</code></td>
 </tr>
 </tbody></table>
-<h3 id='atributos-aviso'>Atributos Aviso</h3>
+<h3 id='atributos-aviso-por-grupo'>Atributos Aviso por Grupo</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -1354,7 +1354,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x71e1db8n090am63ca69606c4slb8b6ta"</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x48e1db8n090am63ca69606c4slb8b6ta"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna key que permite el acceso al API del clasificador.</p>
@@ -1413,7 +1413,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <p>Retorna multimedia de un aviso.</p>
 <h3 id='llamada-http-2'>Llamada HTTP</h3><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"multimedia.megatime.cl/file/1/569810?key=SECRET_API_KEY"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"multimedia.megatime.cl/file/spot/0xea3e07b0ef1e6e698af73db5ce37da8d?key=SECRET_API_KEY"</span>
 
 <span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1425,22 +1425,46 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">multimedia.megatime.cl/file/1/569810?key=SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">multimedia.megatime.cl/file/spot/0xea3e07b0ef1e6e698af73db5ce37da8d?key=SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{},</span>
 <span class="p">};</span>
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'multimedia.megatime.cl/file/1/569810?key=SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'multimedia.megatime.cl/file/spot/0xea3e07b0ef1e6e698af73db5ce37da8d?key=SECRET_API_KEY'</span>
 </code></pre></div>
 <blockquote>
 <p>Retorno de multimedia Video, Audio o Imagen</p>
 </blockquote>
 
-<p><code>GET multimedia.megatime.cl/file/{TagMultimedia}</code></p>
+<p><code>GET multimedia.megatime.cl/file/spot/{codigo}</code></p>
 
-<p>La variable <code>TagMultimedia</code> es proporcionada como columna en el SP del Verificador Diario.</p>
+<p>La variable <code>codigo</code> corresponde al código único de cada avisaje.</p>
+
+<aside class="success">
+En forma alternativa, se puede usar la variable <code>TagMultimedia</code> que es proporcionada como columna en SP del Verificador Diario. Es equivalente a la composición <code>spot/{codigo}</code>.
+<br>
+<br>
+Luego la llamada a la API queda: <code>GET multimedia.megatime.cl/file/{TagMultimedia}</code>
+
+</aside>
+<h3 id='parametros-url'>Parámetros URL</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Requerido</th>
+<th>Valores</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>thumbnail</td>
+<td>No</td>
+<td><code>true</code> ó <code>false</code> (por defecto)</td>
+<td>Retorna thumbnail de multimedia</td>
+</tr>
+</tbody></table>
 <h3 id='medios-soportados'>Medios soportados</h3>
 <ul>
 <li>TV Abierta</li>
@@ -1448,6 +1472,8 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <li>Prensa</li>
 <li>Revista</li>
 <li>Radio</li>
+<li>Vía Pública</li>
+<li>Metro</li>
 </ul>
 <h1 id='errores'>Errores</h1>
 <p>Nuestras API REST utilizan los siguientes códigos de error:</p>
