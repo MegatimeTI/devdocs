@@ -56,7 +56,7 @@ request(options, function (error, response) {
 ```json
 {
   "ok": true,
-  "key": "0x71e1db8n090am63ca69606c4slb8b6ta"
+  "key": "0x48e1db8n090am63ca69606c4slb8b6ta"
 }
 ```
 
@@ -97,7 +97,7 @@ Retorna multimedia de un aviso.
 ```python
 import requests
 
-url = "multimedia.megatime.cl/file/1/569810?key=SECRET_API_KEY"
+url = "multimedia.megatime.cl/file/spot/0xea3e07b0ef1e6e698af73db5ce37da8d?key=SECRET_API_KEY"
 
 payload={}
 headers = {}
@@ -112,7 +112,7 @@ print(response)
 var request = require("request");
 var options = {
   method: "GET",
-  url: "multimedia.megatime.cl/file/1/569810?key=SECRET_API_KEY",
+  url: "multimedia.megatime.cl/file/spot/0xea3e07b0ef1e6e698af73db5ce37da8d?key=SECRET_API_KEY",
   headers: {},
 };
 request(options, function (error, response) {
@@ -122,14 +122,28 @@ request(options, function (error, response) {
 ```
 
 ```shell
-curl --location --request GET 'multimedia.megatime.cl/file/1/569810?key=SECRET_API_KEY'
+curl --location --request GET 'multimedia.megatime.cl/file/spot/0xea3e07b0ef1e6e698af73db5ce37da8d?key=SECRET_API_KEY'
 ```
 
 > Retorno de multimedia Video, Audio o Imagen
 
-`GET multimedia.megatime.cl/file/{TagMultimedia}`
+`GET multimedia.megatime.cl/file/spot/{codigo}`
 
-La variable `TagMultimedia` es proporcionada como columna en el SP del Verificador Diario.
+La variable `codigo` corresponde al código único de cada avisaje.
+
+<aside class="success">
+En forma alternativa, se puede usar la variable <code>TagMultimedia</code> que es proporcionada como columna en SP del Verificador Diario. Es equivalente a la composición <code>spot/{codigo}</code>.
+<br>
+<br>
+Luego la llamada a la API queda: <code>GET multimedia.megatime.cl/file/{TagMultimedia}</code>
+
+</aside>
+
+### Parámetros URL
+
+| Nombre    | Requerido | Valores                        | Descripción                     |
+| --------- | --------- | ------------------------------ | ------------------------------- |
+| thumbnail | No        | `true` ó `false` (por defecto) | Retorna thumbnail de multimedia |
 
 ### Medios soportados
 
@@ -138,3 +152,5 @@ La variable `TagMultimedia` es proporcionada como columna en el SP del Verifica
 - Prensa
 - Revista
 - Radio
+- Vía Pública
+- Metro

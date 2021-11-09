@@ -354,7 +354,7 @@ Retorna todos los clasificadores.
 | ID     | Integer | Identificador de la opción |
 | name   | String  | Nombre de la opción        |
 
-## Obtener Avisos
+## Obtener Avisos por Grupo
 
 ```python
 import requests
@@ -516,7 +516,7 @@ La variable `groupID` corresponde al ID del Grupo clasificador el cual contiene 
 | end_date   | Date    | Fecha final de la búsqueda en formato DD-MM-YYYY   |
 | data       | String  | Lista de objetos de tipo `Aviso`                   |
 
-### Atributos Aviso
+### Atributos Aviso por Grupo
 
 | Nombre        | Tipo    | Descripción                                                                                                                           |
 | ------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------- |
