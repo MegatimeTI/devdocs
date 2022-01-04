@@ -14,6 +14,7 @@ includes:
   - clasificador
   - multimedia
   - errores
+  - spots
 
 search: true
 
