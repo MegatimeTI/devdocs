@@ -1,4 +1,94 @@
-# Spot Data
+# DataSuite
+
+## Obtener API Key
+
+```python
+iimport requests
+import json
+
+url = "cuenta.megatime.cl/api/auth/key"
+
+payload = json.dumps({
+  "email": "user@example.com",
+  "password": "**********"
+})
+headers = {
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+print(response.json())
+
+
+```
+
+```shell
+curl --location --request POST 'cuenta.megatime.cl/api/auth/key' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email": "user@example.com",
+    "password": "**********"
+}'
+```
+
+```javascript
+var request = require("request");
+var options = {
+  method: "POST",
+  url: "cuenta.megatime.cl/api/auth/key",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    email: "user@example.com",
+    password: "**********",
+  }),
+};
+request(options, function (error, response) {
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
+
+> Ejemplo de retorno en formato JSON:
+
+```json
+{
+  "ok": true,
+  "key": "0x71e1db8n090am63ca69606c4slb8b6ta"
+}
+```
+
+Retorna key que permite el acceso al API del clasificador.
+
+### Llamada HTTP
+
+`POST cuenta.megatime.cl/api/auth/key`
+
+### Parámetros Body
+
+| Nombre   | Tipo   | Descripción                                  | Requerido |
+| -------- | ------ | -------------------------------------------- | --------- |
+| email    | String | Correo asociado a credencial de Megatime     | Sí        |
+| password | String | Contraseña asociado a credencial de Megatime | Sí        |
+
+### Atributos Respuesta
+
+| Nombre | Tipo    | Descripción              |
+| ------ | ------- | ------------------------ |
+| ok     | Boolean | Verificador de respuesta |
+| key    | String  | Llave de acceso a API    |
+
+La API espera que todas las llamadas estén autenticadas con la Api key
+en el Authorization header:
+
+`Authorization: SECRET_API_KEY`
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
+
 
 ## Obtener Pauta
 
@@ -6,7 +96,7 @@
 import requests
 import json
 
-url = "spots.megatime.cl"
+url = "datasuite.megatime.cl/spots"
 
 payload = json.dumps({
   "include": 0,
@@ -34,7 +124,7 @@ print(response.text)
 
 
 ```shell
-curl --location --request POST 'spots.megatime.cl' \
+curl --location --request POST 'datasuite.megatime.cl/spots' \
 --header 'Authorization: SECRET_API_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -56,7 +146,7 @@ curl --location --request POST 'spots.megatime.cl' \
 var request = require('request');
 var options = {
   'method': 'POST',
-  'url': 'spots.megatime.cl',
+  'url': 'datasuite.megatime.cl/spots',
   'headers': {
     'Authorization': 'SECRET_API_KEY',
     'Content-Type': 'application/json'
@@ -125,7 +215,7 @@ request(options, function (error, response) {
          "ad_supplier_id":0,
          "ad_supplier":"",
          "megatime_hour":14,
-         "chanel_TIME":4,
+         "channel_KANTAR":4,
          "e_type_media":1,
          "section":"SIN SECCION",
          "section_id":0,
@@ -205,7 +295,7 @@ Retorna una lista de spots asociados a los filtros que se indique.
 
 ### Llamada HTTP
 
-`POST spots.megatime.cl`
+`POST datasuite.megatime.cl/spots`
 
 
 ### Parámetros Body
@@ -223,9 +313,14 @@ Retorna una lista de spots asociados a los filtros que se indique.
 | group | Integer | ID grupo clasificador | No |
 | target | Integer | ID grupo objectivo | No |
 
-Debe exisiir al menos un parametro de los siguientes, para que los demas sean opcionales: `brands, companies, industries, subIndustries, products, group`
 
-Para `startDate y endDate` existe un máximo de 31 dias
+<aside class="warning-yellow">
+Debe existir al menos un parámetro de los siguientes, para que los demas sean opcionales: <b>brands, companies, industries, subIndustries, products, group.</b>
+</aside>
+
+<aside class="warning-yellow">
+Para <b>startDate y endDate</b>  existe un máximo de 31 dias
+</aside>
 
 ### Atributos Respuesta
 
@@ -245,7 +340,7 @@ Para `startDate y endDate` existe un máximo de 31 dias
 | date | String | Fecha de aparición, en formato YYYY-MM-DD |
 | support_id | Integer | ID Soporte |
 | support | String | Soporte |
-| weekday | String | Dia de la semana de su aparición |
+| weekday | String | Día de la semana de su aparición |
 | supplement | String | Suplemento (Prensa) |
 | supplement_id | Integer | ID Suplemento |
 | advertisement | String | Aviso asocicado |
@@ -254,7 +349,7 @@ Para `startDate y endDate` existe un máximo de 31 dias
 | quality_short | String | Calidad abreviada |
 | hour | String | Hora de aparición en formato HH:MM:SS |
 | real_duration | Integer | Duración real de la aparición |
-| page | Integer | En caso de ser publicidad en papel, indica el numero de la pagina |
+| page | Integer | En caso de ser publicidad en papel, indica el número de la pagina |
 | size | Integer | En caso de ser publicidad en papel, indica el tamaño físico de la página |
 | module | String | En caso de ser publicidad en papel, indica el tipo de hoja |
 | element | String | En caso de publicidad vial, indica el elemento donde esta montada la publicidad |
@@ -275,16 +370,16 @@ Para `startDate y endDate` existe un máximo de 31 dias
 | ad_supplier_id | Integer | ID Suplemento |
 | ad_supplier | String | En caso de ser publicidad en papel, indica el nombre del suplemento |
 | megatime_hour | Integer | Hora megatime (Dias de 26 horas) |
-| chanel_TIME | Integer | ID Soporte de la empresa Time  |
-| e_type_media | Integer | ID Megatime para diferenciar tipo de avisos |
+| channel_KANTAR | Integer | ID Soporte de la empresa Time  |
+| e_type_media | Integer | ID Megatime para identificar el area de la verificacion |
 | section | String | En caso de ser publicidad en papel, indica en que sección de la página se encuentra |
 | section_id | Integer | ID Sección |
 | normal_duration | Integer | Duración normal del aviso |
-| round_number | Integer | En caso de publicidad televisiva o radial, indica el numero de la tanda publicitaria |
+| round_number | Integer | En caso de publicidad televisiva o radial, indica el número de la tanda publicitaria |
 | round_location | Integer | En caso de publicidad televisiva o radial, indica la posición en la tanda publicitaria |
 | spots_in_round | Integer | En caso de publicidad televisiva o radial, indica la cantidad de spot en la tanda publicitaria |
 | schedule_id | Integer | En caso de publicidad televisiva, indica el id el Horario  |
-| schedule | Integer | En caso de publicidad televisiva, descripcion del Horario |
+| schedule | Integer | En caso de publicidad televisiva, descripción del Horario |
 | media_agency | String | Nombre de la Agencia de medios |
 | media_agency_id | Integer | ID Agrencia de medios |
 | creative_agency | String | Nombre de la Agencia creativa |
@@ -301,13 +396,13 @@ Para `startDate y endDate` existe un máximo de 31 dias
 | program_id | Integer | ID Programa |
 | centimeter | Integer | En caso de ser publicidad en papel, indica los centimetros que abarca  |
 | columns | Integer | En caso de ser publicidad en papel, indica el número de columnas |
-| impressions | Integer | En caso de ser publicidad en papel, indica el numero de impresiones |
+| impressions | Integer | En caso de ser publicidad en papel, indica el número de impresiones |
 | station_id | Integer | ID Estación de Metro |
 | station | String | En caso de publicidad en Metro, indica el nombre de la Estación |
 | code | String | Codigo interno para identificación de multimedia |
 | banner_URL | String | En caso de publicidad de Internet, indica la url del banner |
-| rating | Float | (Opcional) Solo se devuelve en caso de entregar un parámetro `target`. Indica el rating para el grupo objetivo |
-| options | Array | (Opcional) Solo se devuelve en caso de entregar un parámetro `group`. Lista de objetos `Clasificación`, indica las clasificacion y sus respectivas opciones|
+| rating | Float | <b>(Opcional)</b> Solo se devuelve en caso de entregar un parámetro `target`. Indica el rating para el grupo objetivo |
+| options | Array | <b>(Opcional)</b> Solo se devuelve en caso de entregar un parámetro `group`. Lista de objetos `Clasificación`, indica las clasificacion y sus respectivas opciones|
 
 
 ### Atributos Clasificación
@@ -341,7 +436,7 @@ Para `startDate y endDate` existe un máximo de 31 dias
 import requests
 import json
 
-url = "spots.megatime.cl/verifier"
+url = "datasuite.megatime.cl/verifier"
 
 payload = json.dumps({
   "media": [ 1, 2, 3, 4, 5, 6, 7, 8 ],
@@ -360,7 +455,7 @@ print(response.text)
 
 
 ```shell
-curl --location --request POST 'spots.megatime.cl/verifier' \
+curl --location --request POST 'datasuite.megatime.cl/verifier' \
 --header 'Authorization: SECRET_API_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -374,7 +469,7 @@ curl --location --request POST 'spots.megatime.cl/verifier' \
 var request = require('request');
 var options = {
   'method': 'POST',
-  'url': 'spots.megatime.cl/verifier',
+  'url': 'datasuite.megatime.cl/verifier',
   'headers': {
     'Authorization': 'SECRET_API_KEY',
     'Content-Type': 'application/json'
@@ -437,7 +532,7 @@ request(options, function (error, response) {
          "ad_supplier_id":0,
          "ad_supplier":"",
          "megatime_hour":26,
-         "chanel_TIME":135,
+         "channel_KANTAR":135,
          "e_type_media":1,
          "section":"SIN SECCION",
          "section_id":0,
@@ -482,11 +577,11 @@ request(options, function (error, response) {
 }
 ```
 
-Retorna una lista con todos los spots del dia o intervalo indicado. 
+Retorna una lista con todos los spots del día o intervalo indicado. 
 
 ### Llamada HTTP
 
-`POST spots.megatime.cl/verifier`
+`POST datasuite.megatime.cl/verifier`
 
 
 ### Parámetros Body
@@ -498,7 +593,9 @@ Retorna una lista con todos los spots del dia o intervalo indicado.
 | date | String | Fecha de formato DD-MM-YYYY | Si |
 
 
-Si se decea un intervalo de tiempo debe ingresar `startDate y endDate` (máximo 31 dias), si desea un dia ingrese solamente `date`
+<aside class="warning-yellow">
+Si se desea un intervalo de tiempo debe ingresar <b>startDate y endDate (máximo 31 dias)</b>, si desea un día ingrese solamente <b>date</b>
+</aside>
 
 
 ### Atributos Respuesta
@@ -506,14 +603,87 @@ Si se decea un intervalo de tiempo debe ingresar `startDate y endDate` (máximo 
 | Nombre | Tipo    | Descripción              |
 | ------ | ------- | ------------------------ |
 | ok     | Boolean | Verificador de respuesta |
-| result    | Array  | Lista de objetos tipo Spot (sin los atributos opcionales)|
+| result    | Array  | Lista de objetos tipo Verificador|
+
+
+### Atributos Verificador
+
+| Nombre | Tipo    | Descripción              |
+| ------ | ------- | ------------------------ |
+| ID | Integer | Identificador de Spot |
+| media | String | Nombre del Medio donde fue encontrado |
+| media_id | Integer | ID Medio |
+| date | String | Fecha de aparición, en formato YYYY-MM-DD |
+| support_id | Integer | ID Soporte |
+| support | String | Soporte |
+| weekday | String | Día de la semana de su aparición |
+| supplement | String | Suplemento (Prensa) |
+| supplement_id | Integer | ID Suplemento |
+| advertisement | String | Aviso asocicado |
+| advertisement_id | Integer | ID Aviso |
+| quality | String | Calidad del emisor |
+| quality_short | String | Calidad abreviada |
+| hour | String | Hora de aparición en formato HH:MM:SS |
+| real_duration | Integer | Duración real de la aparición |
+| page | Integer | En caso de ser publicidad en papel, indica el número de la pagina |
+| size | Integer | En caso de ser publicidad en papel, indica el tamaño físico de la página |
+| module | String | En caso de ser publicidad en papel, indica el tipo de hoja |
+| element | String | En caso de publicidad vial, indica el elemento donde esta montada la publicidad |
+| element_id | Integer | ID Elemento |
+| investment | Integer | Inversión |
+| brand_id | Integer | ID Marca |
+| brand | String | Marca asociada al producto |
+| product_id | Integer | ID Producto |
+| product | String | Nombre del Producto asignado al aviso |
+| company_id | Integer | ID Empresa |
+| company | String | Nombre de la Empresa asignada al aviso |
+| industry_id | Integer | ID Rubro |
+| industry | String | Nombre del Rubro asignado al aviso |
+| sub_industry_id | Integer | ID Sub-Rubro |
+| sub_industry | String | Nombre del Sub-Rubro asignado al Rubro |
+| universal_id | Integer | Código universal |
+| universal_program_id | Integer | Código de programa universal |
+| ad_supplier_id | Integer | ID Suplemento |
+| ad_supplier | String | En caso de ser publicidad en papel, indica el nombre del suplemento |
+| megatime_hour | Integer | Hora megatime (Dias de 26 horas) |
+| channel_KANTAR | Integer | ID Soporte de la empresa Time  |
+| e_type_media | Integer | ID Megatime para identificar el area de la verificacion |
+| section | String | En caso de ser publicidad en papel, indica en que sección de la página se encuentra |
+| section_id | Integer | ID Sección |
+| normal_duration | Integer | Duración normal del aviso |
+| round_number | Integer | En caso de publicidad televisiva o radial, indica el número de la tanda publicitaria |
+| round_location | Integer | En caso de publicidad televisiva o radial, indica la posición en la tanda publicitaria |
+| spots_in_round | Integer | En caso de publicidad televisiva o radial, indica la cantidad de spot en la tanda publicitaria |
+| schedule_id | Integer | En caso de publicidad televisiva, indica el id el Horario  |
+| schedule | Integer | En caso de publicidad televisiva, descripción del Horario |
+| media_agency | String | Nombre de la Agencia de medios |
+| media_agency_id | Integer | ID Agrencia de medios |
+| creative_agency | String | Nombre de la Agencia creativa |
+| creative_agency_id | Integer | ID Agencia creativa |
+| category | String | Indica la categoria del Rubro |
+| category_id | Integer | ID Categoria |
+| first_apparition | String | Primera aparición del aviso, en formato YYYY-MM-DD |
+| failure | String | Descripción de falla |
+| failure_id | Integer | ID Falla |
+| auspice | String | 'X' en caso de ser un auspicio  |
+| location | String | En caso de Via pública, indica la dirección. En caso de Metro, indica el lugar donde se encuentra dentro de la estación |
+| location_id | Integer | ID Ubicación |
+| program | String | Para publicidad televisiva y radial indica el nombre del Programa |
+| program_id | Integer | ID Programa |
+| centimeter | Integer | En caso de ser publicidad en papel, indica los centimetros que abarca  |
+| columns | Integer | En caso de ser publicidad en papel, indica el número de columnas |
+| impressions | Integer | En caso de ser publicidad en papel, indica el número de impresiones |
+| station_id | Integer | ID Estación de Metro |
+| station | String | En caso de publicidad en Metro, indica el nombre de la Estación |
+| code | String | Codigo interno para identificación de multimedia |
+| banner_URL | String | En caso de publicidad de Internet, indica la url del banner |
 
 ## Obtener Medios
 
 ```python
 import requests
 
-url = "spots.megatime.cl/filters/media"
+url = "datasuite.megatime.cl/filters/media"
 
 payload={}
 headers = {
@@ -527,7 +697,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'spots.megatime.cl/filters/media' \
+curl --location --request GET 'datasuite.megatime.cl/filters/media' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -535,7 +705,7 @@ curl --location --request GET 'spots.megatime.cl/filters/media' \
 var request = require('request');
 var options = {
   'method': 'GET',
-  'url': 'spots.megatime.cl/filters/media',
+  'url': 'datasuite.megatime.cl/filters/media',
   'headers': {
     'Authorization': 'SECRET_API_KEY'
   }
@@ -564,28 +734,27 @@ Retorna una lista con todos los medios disponibles.
 
 ### Llamada HTTP
 
-`GET spots.megatime.cl/filters/media`
+`GET datasuite.megatime.cl/filters/media`
 
 ### Atributos Respuesta
 | Nombre | Tipo    | Descripción              |
 | ------ | ------- | ------------------------ |
 | ok     | Boolean | Verificador de respuesta |
-| result    | Array  | Lista de objetos tipo `Filter`|
+| result    | Array  | Lista de objetos tipo `Medio`|
 
 
-### Atributos Filter
+### Atributos Medio
 
 | Nombre | Tipo | Descripción |
 | -------- | ------ | -------------------------------------------- | --------- |
 | ID | Integer | ID |
 | name | String | Nombre |
 
-
 ## Obtener Marcas
 ```python
 import requests
 
-url = "spots.megatime.cl/filters/brands"
+url = "datasuite.megatime.cl/filters/brands"
 
 payload={}
 headers = {
@@ -598,7 +767,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'spots.megatime.cl/filters/brands' \
+curl --location --request GET 'datasuite.megatime.cl/filters/brands' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -606,7 +775,7 @@ curl --location --request GET 'spots.megatime.cl/filters/brands' \
 var request = require('request');
 var options = {
   'method': 'GET',
-  'url': 'spots.megatime.cl/filters/brands',
+  'url': 'datasuite.megatime.cl/filters/brands',
   'headers': {
     'Authorization': 'SECRET_API_KEY'
   }
@@ -636,14 +805,21 @@ Retorna una lista con todas las marcas
 
 ### Llamada HTTP
 
-`GET spots.megatime.cl/filters/brands`
+`GET datasuite.megatime.cl/filters/brands`
 
 ### Atributos Respuesta
 | Nombre | Tipo    | Descripción              |
 | ------ | ------- | ------------------------ |
 | ok     | Boolean | Verificador de respuesta |
-| result    | Array  | Lista de objetos tipo `Filter`|
+| result    | Array  | Lista de objetos tipo Marca |
 
+
+### Atributos Marca
+
+| Nombre | Tipo | Descripción |
+| -------- | ------ | -------------------------------------------- | --------- |
+| ID | Integer | ID |
+| name | String | Nombre |
 
 
 ## Obtener Empresas
@@ -651,7 +827,7 @@ Retorna una lista con todas las marcas
 ```python
 import requests
 
-url = "spots.megatime.cl/filters/companies"
+url = "datasuite.megatime.cl/filters/companies"
 
 payload={}
 headers = {
@@ -664,7 +840,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'spots.megatime.cl/filters/companies' \
+curl --location --request GET 'datasuite.megatime.cl/filters/companies' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -672,7 +848,7 @@ curl --location --request GET 'spots.megatime.cl/filters/companies' \
 var request = require('request');
 var options = {
   'method': 'GET',
-  'url': 'spots.megatime.cl/filters/companies',
+  'url': 'datasuite.megatime.cl/filters/companies',
   'headers': {
     'Authorization': 'SECRET_API_KEY'
   }
@@ -702,14 +878,20 @@ Retorna una lista con todas las Empresas
 
 ### Llamada HTTP
 
-`GET spots.megatime.cl/filters/companies`
+`GET datasuite.megatime.cl/filters/companies`
 
 ### Atributos Respuesta
 | Nombre | Tipo    | Descripción              |
 | ------ | ------- | ------------------------ |
 | ok     | Boolean | Verificador de respuesta |
-| result    | Array  | Lista de objetos tipo `Filter`|
+| result    | Array  | Lista de objetos tipo `Empresa`|
 
+### Atributos Empresa
+
+| Nombre | Tipo | Descripción |
+| -------- | ------ | -------------------------------------------- | --------- |
+| ID | Integer | ID |
+| name | String | Nombre |
 
 
 ## Obtener Rubros
@@ -717,7 +899,7 @@ Retorna una lista con todas las Empresas
 ```python
 import requests
 
-url = "spots.megatime.cl/filters/industries"
+url = "datasuite.megatime.cl/filters/industries"
 
 payload={}
 headers = {
@@ -730,7 +912,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'spots.megatime.cl/filters/industries' \
+curl --location --request GET 'datasuite.megatime.cl/filters/industries' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -738,7 +920,7 @@ curl --location --request GET 'spots.megatime.cl/filters/industries' \
 var request = require('request');
 var options = {
   'method': 'GET',
-  'url': 'spots.megatime.cl/filters/industries',
+  'url': 'datasuite.megatime.cl/filters/industries',
   'headers': {
     'Authorization': 'SECRET_API_KEY'
   }
@@ -768,14 +950,21 @@ Retorna una lista con todos los Rubros
 
 ### Llamada HTTP
 
-`GET spots.megatime.cl/filters/industries`
+`GET datasuite.megatime.cl/filters/industries`
 
 ### Atributos Respuesta
 | Nombre | Tipo    | Descripción              |
 | ------ | ------- | ------------------------ |
 | ok     | Boolean | Verificador de respuesta |
-| result    | Array  | Lista de objetos tipo `Filter`|
+| result    | Array  | Lista de objetos tipo `Rubro`|
 
+
+### Atributos Rubro
+
+| Nombre | Tipo | Descripción |
+| -------- | ------ | -------------------------------------------- | --------- |
+| ID | Integer | ID |
+| name | String | Nombre |
 
 
 ## Obtener Sub-Rubros
@@ -783,7 +972,7 @@ Retorna una lista con todos los Rubros
 ```python
 import requests
 
-url = "spots.megatime.cl/filters/subIndustries"
+url = "datasuite.megatime.cl/filters/subIndustries"
 
 payload={}
 headers = {
@@ -796,7 +985,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'spots.megatime.cl/filters/subIndustries' \
+curl --location --request GET 'datasuite.megatime.cl/filters/subIndustries' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -804,7 +993,7 @@ curl --location --request GET 'spots.megatime.cl/filters/subIndustries' \
 var request = require('request');
 var options = {
   'method': 'GET',
-  'url': 'spots.megatime.cl/filters/subIndustries',
+  'url': 'datasuite.megatime.cl/filters/subIndustries',
   'headers': {
     'Authorization': 'SECRET_API_KEY'
   }
@@ -835,16 +1024,16 @@ Retorna una lista con todos los Sub-Rubros
 
 ### Llamada HTTP
 
-`GET spots.megatime.cl/filters/subIndustries`
+`GET datasuite.megatime.cl/filters/subIndustries`
 
 ### Atributos Respuesta
 | Nombre | Tipo    | Descripción              |
 | ------ | ------- | ------------------------ |
 | ok     | Boolean | Verificador de respuesta |
-| result    | Array  | Lista de objetos tipo `FilterSubIndustry`|
+| result    | Array  | Lista de objetos tipo `Sub-Rubro`|
 
 
-### Atributos FilterSubIndustry 
+### Atributos Sub-Rubro
 
 | Nombre | Tipo | Descripción |
 | -------- | ------ | -------------------------------------------- | --------- |
@@ -858,7 +1047,7 @@ Retorna una lista con todos los Sub-Rubros
 ```python
 import requests
 
-url = "spots.megatime.cl/filters/products"
+url = "datasuite.megatime.cl/filters/products"
 
 payload={}
 headers = {
@@ -871,7 +1060,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'spots.megatime.cl/filters/products' \
+curl --location --request GET 'datasuite.megatime.cl/filters/products' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -879,7 +1068,7 @@ curl --location --request GET 'spots.megatime.cl/filters/products' \
 var request = require('request');
 var options = {
   'method': 'GET',
-  'url': 'spots.megatime.cl/filters/products',
+  'url': 'datasuite.megatime.cl/filters/products',
   'headers': {
     'Authorization': 'SECRET_API_KEY'
   }
@@ -912,16 +1101,16 @@ Retorna una lista con todos los Productos
 
 ### Llamada HTTP
 
-`GET spots.megatime.cl/filters/products`
+`GET datasuite.megatime.cl/filters/products`
 
 ### Atributos Respuesta
 | Nombre | Tipo    | Descripción              |
 | ------ | ------- | ------------------------ |
 | ok     | Boolean | Verificador de respuesta |
-| result    | Array  | Lista de objetos tipo `FilterProduct`|
+| result    | Array  | Lista de objetos tipo `Producto`|
 
 
-### Atributos FilterProduct 
+### Atributos Producto
 
 | Nombre | Tipo | Descripción |
 | -------- | ------ | -------------------------------------------- | --------- |
@@ -937,7 +1126,7 @@ Retorna una lista con todos los Productos
 ```python
 import requests
 
-url = "spots.megatime.cl/filters/groups" 
+url = "datasuite.megatime.cl/filters/groups" 
 
 payload={}
 headers = {
@@ -950,7 +1139,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'spots.megatime.cl/filters/groups' \
+curl --location --request GET 'datasuite.megatime.cl/filters/groups' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -958,7 +1147,7 @@ curl --location --request GET 'spots.megatime.cl/filters/groups' \
 var request = require('request');
 var options = {
   'method': 'GET',
-  'url': 'spots.megatime.cl/filters/groups',
+  'url': 'datasuite.megatime.cl/filters/groups',
   'headers': {
     'Authorization': 'SECRET_API_KEY'
   }
@@ -989,16 +1178,16 @@ Retorna una lista con todos los Grupos Clasificadores
 
 ### Llamada HTTP
 
-`GET spots.megatime.cl/filters/groups` 
+`GET datasuite.megatime.cl/filters/groups` 
 
 ### Atributos Respuesta
 | Nombre | Tipo    | Descripción              |
 | ------ | ------- | ------------------------ |
 | ok     | Boolean | Verificador de respuesta |
-| result    | Array  | Lista de objetos tipo `FilterClassifierGroups`|
+| result    | Array  | Lista de objetos tipo `Grupo Clasificador`|
 
 
-### Atributos FilterClassifierGroups 
+### Atributos Grupo Clasificador
 
 | Nombre | Tipo | Descripción |
 | -------- | ------ | -------------------------------------------- | --------- |
@@ -1008,13 +1197,13 @@ Retorna una lista con todos los Grupos Clasificadores
 
 
 ## Obtener Grupos Objetivos
-`GET spots.megatime.cl/filters/targets`
+`GET datasuite.megatime.cl/filters/targets`
 
 
 ```python
 import requests
 
-url = "spots.megatime.cl/filters/targets" 
+url = "datasuite.megatime.cl/filters/targets" 
 
 payload={}
 headers = {
@@ -1027,7 +1216,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'spots.megatime.cl/filters/targets' \
+curl --location --request GET 'datasuite.megatime.cl/filters/targets' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -1035,7 +1224,7 @@ curl --location --request GET 'spots.megatime.cl/filters/targets' \
 var request = require('request');
 var options = {
   'method': 'GET',
-  'url': 'spots.megatime.cl/filters/targets',
+  'url': 'datasuite.megatime.cl/filters/targets',
   'headers': {
     'Authorization': 'SECRET_API_KEY'
   }
@@ -1065,21 +1254,19 @@ Retorna una lista con todos los Grupos Objetivos
 
 ### Llamada HTTP
 
-`GET spots.megatime.cl/filters/targets` 
+`GET datasuite.megatime.cl/filters/targets` 
 
 ### Atributos Respuesta
 | Nombre | Tipo    | Descripción              |
 | ------ | ------- | ------------------------ |
 | ok     | Boolean | Verificador de respuesta |
-| result    | Array  | Lista de objetos tipo `Filter`|
+| result    | Array  | Lista de objetos tipo `Grupo Objectivo`|
 
 
-La API espera que todas las llamadas estén autenticadas con la Api key
-en el Authorization header:
+### Atributos Grupo Objetivo
 
-`Authorization: SECRET_API_KEY`
-
-<aside class="notice">
-  En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key. </aside>
-
+| Nombre | Tipo | Descripción |
+| -------- | ------ | -------------------------------------------- | --------- |
+| ID | Integer | ID |
+| name | String | Nombre |
 
