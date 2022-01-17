@@ -286,7 +286,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-1f75e29d.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-b12a2749.js"></script>
 
@@ -347,6 +347,62 @@
           </li>
           <li>
             <a href="#errores" class="toc-h1 toc-link" data-title="Errores">Errores</a>
+          </li>
+          <li>
+            <a href="#datasuite" class="toc-h1 toc-link" data-title="DataSuite">DataSuite</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#obtener-api-key-datasuite" class="toc-h2 toc-link" data-title="Obtener API Key DataSuite">Obtener API Key DataSuite</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-pauta" class="toc-h2 toc-link" data-title="Obtener Pauta">Obtener Pauta</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-verificador" class="toc-h2 toc-link" data-title="Obtener Verificador">Obtener Verificador</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-avisos-con-actividad" class="toc-h2 toc-link" data-title="Obtener Avisos con actividad">Obtener Avisos con actividad</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-medios" class="toc-h2 toc-link" data-title="Obtener Medios">Obtener Medios</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-marcas" class="toc-h2 toc-link" data-title="Obtener Marcas">Obtener Marcas</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-empresas" class="toc-h2 toc-link" data-title="Obtener Empresas">Obtener Empresas</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-rubros" class="toc-h2 toc-link" data-title="Obtener Rubros">Obtener Rubros</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-sub-rubros" class="toc-h2 toc-link" data-title="Obtener Sub-Rubros">Obtener Sub-Rubros</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-productos" class="toc-h2 toc-link" data-title="Obtener Productos">Obtener Productos</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-categorias" class="toc-h2 toc-link" data-title="Obtener Categorias">Obtener Categorias</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-calidades" class="toc-h2 toc-link" data-title="Obtener Calidades">Obtener Calidades</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-agencias-creativas" class="toc-h2 toc-link" data-title="Obtener Agencias Creativas">Obtener Agencias Creativas</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-agencias-de-medios" class="toc-h2 toc-link" data-title="Obtener Agencias de Medios">Obtener Agencias de Medios</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-grupos-personalizados" class="toc-h2 toc-link" data-title="Obtener Grupos personalizados">Obtener Grupos personalizados</a>
+                  </li>
+                  <li>
+                    <a href="#crear-grupo-personalizado" class="toc-h2 toc-link" data-title="Crear Grupo personalizado">Crear Grupo personalizado</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-grupos-objetivos-rating" class="toc-h2 toc-link" data-title="Obtener Grupos Objetivos Rating">Obtener Grupos Objetivos Rating</a>
+                  </li>
+              </ul>
           </li>
       </ul>
     </div>
@@ -1519,6 +1575,2690 @@ Luego la llamada a la API queda: <code>GET multimedia.megatime.cl/file/{TagMulti
 <td>503</td>
 <td>Service Unavailable</td>
 <td>Nos encontramos temporalmente fuera de servicio. Por favor intenta más tarde.</td>
+</tr>
+</tbody></table>
+<h1 id='datasuite'>DataSuite</h1><h2 id='obtener-api-key-datasuite'>Obtener API Key DataSuite</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"cuenta.megatime.cl/api/auth/key"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"email"</span><span class="p">:</span> <span class="s">"user@example.com"</span><span class="p">,</span>
+  <span class="s">"password"</span><span class="p">:</span> <span class="s">"**********"</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'cuenta.megatime.cl/api/auth/key'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "email": "user@example.com",
+    "password": "**********"
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">cuenta.megatime.cl/api/auth/key</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">Content-Type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="na">email</span><span class="p">:</span> <span class="dl">"</span><span class="s2">user@example.com</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">password</span><span class="p">:</span> <span class="dl">"</span><span class="s2">**********</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">}),</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x71e1db8n090am63ca69606c4slb8b6ta"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna key que permite el acceso al API del clasificador.</p>
+<h3 id='llamada-http'>Llamada HTTP</h3>
+<p><code>POST cuenta.megatime.cl/api/auth/key</code></p>
+<h3 id='parametros-body'>Parámetros Body</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Requerido</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>Correo asociado a credencial de Megatime</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>password</td>
+<td>String</td>
+<td>Contraseña asociado a credencial de Megatime</td>
+<td>Sí</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-respuesta'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>key</td>
+<td>String</td>
+<td>Llave de acceso a API</td>
+</tr>
+</tbody></table>
+
+<p>La API espera que todas las llamadas estén autenticadas con la Api key
+en el Authorization header:</p>
+
+<p><code>Authorization: SECRET_API_KEY</code></p>
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
+<h2 id='obtener-pauta'>Obtener Pauta</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/spots?include=1&amp;media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;industries=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;categories=1,2,3,4,5&amp;qualities=1,2,3,4,5&amp;creative_agencies=1,2,3,4,5&amp;media_agencies=1,2,3,4,5&amp;group=1&amp;target=1"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/spots?include=0&amp;media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;industries=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;categories=1,2,3,4,5&amp;qualities=1,2,3,4,5&amp;creative_agencies=1,2,3,4,5&amp;media_agencies=1,2,3,4,5&amp;group=1&amp;target=1'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/spots?include=1&amp;media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;industries=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;categories=1,2,3,4,5&amp;qualities=1,2,3,4,5&amp;creative_agencies=1,2,3,4,5&amp;media_agencies=1,2,3,4,5&amp;group=1&amp;target=1</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">737301110</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TV Abierta"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-10"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"support_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1007</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"support"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TVN"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"weekday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jueves"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"supplement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SIN SUPLEMENTO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"supplement_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"advertisement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FALABELLA,CMR ALIANZA DUNKIN,MARZO 40% DCTO.D DUNKIN APP"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"advertisement_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">567008</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"quality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIDEO COLOR"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"quality_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VC"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14:58:14"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"real_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"module"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"element"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DESCONOCIDO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"element_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"investment"</span><span class="p">:</span><span class="w"> </span><span class="mi">4200000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"brad_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4986</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMR FALABELLA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">325170</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FALABELLA,CMR ALIANZA DUNKIN"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">173</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FALABELLA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TARJETAS DE CREDITO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sub_industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10270</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sub_industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TARJETA DE CREDITO GRANDES TIENDAS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"universal_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">383878</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"universal_program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">80137</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_supplier"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"megatime_hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"channel_KANTAR"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"e_type_media"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"section"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SIN SECCION"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"section_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"normal_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_group_location"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_group_spot_location"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_group_quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"schedule_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tarde"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media_agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IPG MEDIABRANDS CHILE"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media_agency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">516</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"creative_agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGINA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"creative_agency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">684</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCADO FINANCIERO Y SEGUROS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_first_appearance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"failure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s/f"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"failure_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_sponsor"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24 TARDE"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1007078435</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"centimeter"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"columns"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"station_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"station"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SIN ESTACION"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"banner_URL"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.3094840049743652</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"classifier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beneficio "</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Club"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">65</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alianzaa"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"classifier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BU"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">174</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CORPORATE"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON con error:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\"</span><span class="s2">value</span><span class="se">\"</span><span class="s2"> must contain at least one of [brands, companies, industries, sub_industries, products, group]"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna una lista de spots asociados a los filtros que se indique.</p>
+<h3 id='llamada-http-2'>Llamada HTTP</h3>
+<p><code>GET datasuite.megatime.cl/spots</code></p>
+<h3 id='parametros-url'>Parámetros URL</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Requerido</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>include</td>
+<td>Integer</td>
+<td><b>(Por defecto: 0)</b> 0 incluir Avisos y PNTs, 1 solo Avisos,  2 solo PNTs</td>
+<td>No</td>
+</tr>
+<tr>
+<td>media</td>
+<td>Array</td>
+<td>Lista de ID de Medios</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>String</td>
+<td>Fecha de formato DD-MM-YYYY</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>String</td>
+<td>Fecha de formato DD-MM-YYYY</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>brands</td>
+<td>Array</td>
+<td>Lista de ID de Marcas</td>
+<td>No</td>
+</tr>
+<tr>
+<td>companies</td>
+<td>Array</td>
+<td>Lista de ID de Empresas</td>
+<td>No</td>
+</tr>
+<tr>
+<td>industries</td>
+<td>Array</td>
+<td>Lista de ID de Rubros</td>
+<td>No</td>
+</tr>
+<tr>
+<td>sub_industries</td>
+<td>Array</td>
+<td>Lista de ID de Sub-Rubros</td>
+<td>No</td>
+</tr>
+<tr>
+<td>products</td>
+<td>Array</td>
+<td>Lista de ID de Productos</td>
+<td>No</td>
+</tr>
+<tr>
+<td>categories</td>
+<td>Array</td>
+<td>Lista de ID de Categorias</td>
+<td>No</td>
+</tr>
+<tr>
+<td>qualities</td>
+<td>Array</td>
+<td>Lista de ID de Calidades</td>
+<td>No</td>
+</tr>
+<tr>
+<td>creative_agencies</td>
+<td>Array</td>
+<td>Lista de ID de Agencias Creativas</td>
+<td>No</td>
+</tr>
+<tr>
+<td>media_agencies</td>
+<td>Array</td>
+<td>Lista de ID de Agencias de Medios</td>
+<td>No</td>
+</tr>
+<tr>
+<td>group</td>
+<td>Integer</td>
+<td>ID Grupo</td>
+<td>No</td>
+</tr>
+<tr>
+<td>target</td>
+<td>Integer</td>
+<td>ID Grupo Objetivo Rating</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<aside class="warning-yellow">
+Debe existir al menos un parámetro de los siguientes, para que los demas sean opcionales: 
+<b>brands, companies, industries, sub_industries, products, categories, qualities, creative_agencies, media_agencies, group.</b>
+</aside>
+
+<aside class="warning-yellow">
+Para <b>start_date y end_date</b>  existe un máximo de 31 dias
+</aside>
+<h3 id='atributos-respuesta-2'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Array</td>
+<td>Lista de objetos tipo Spot</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-spot'>Atributos Spot</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>Identificador de Spot</td>
+</tr>
+<tr>
+<td>media</td>
+<td>String</td>
+<td>Nombre del Medio donde fue encontrado</td>
+</tr>
+<tr>
+<td>media_id</td>
+<td>Integer</td>
+<td>ID Medio</td>
+</tr>
+<tr>
+<td>date</td>
+<td>String</td>
+<td>Fecha de aparición, en formato YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>support_id</td>
+<td>Integer</td>
+<td>ID Soporte</td>
+</tr>
+<tr>
+<td>support</td>
+<td>String</td>
+<td>Soporte</td>
+</tr>
+<tr>
+<td>weekday</td>
+<td>String</td>
+<td>Día de la semana de su aparición</td>
+</tr>
+<tr>
+<td>supplement</td>
+<td>String</td>
+<td>Suplemento (Prensa)</td>
+</tr>
+<tr>
+<td>supplement_id</td>
+<td>Integer</td>
+<td>ID Suplemento</td>
+</tr>
+<tr>
+<td>advertisement</td>
+<td>String</td>
+<td>Aviso asocicado</td>
+</tr>
+<tr>
+<td>advertisement_id</td>
+<td>Integer</td>
+<td>ID Aviso</td>
+</tr>
+<tr>
+<td>quality</td>
+<td>String</td>
+<td>Calidad del emisor</td>
+</tr>
+<tr>
+<td>quality_short</td>
+<td>String</td>
+<td>Calidad abreviada</td>
+</tr>
+<tr>
+<td>hour</td>
+<td>String</td>
+<td>Hora de aparición en formato HH:MM:SS</td>
+</tr>
+<tr>
+<td>real_duration</td>
+<td>Integer</td>
+<td>Duración real de la aparición</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Integer</td>
+<td>En caso de ser publicidad en papel, indica el número de la pagina</td>
+</tr>
+<tr>
+<td>size</td>
+<td>Integer</td>
+<td>En caso de ser publicidad en papel, indica el tamaño físico de la página</td>
+</tr>
+<tr>
+<td>module</td>
+<td>String</td>
+<td>En caso de ser publicidad en papel, indica el tipo de hoja</td>
+</tr>
+<tr>
+<td>element</td>
+<td>String</td>
+<td>En caso de publicidad vial, indica el elemento donde esta montada la publicidad</td>
+</tr>
+<tr>
+<td>element_id</td>
+<td>Integer</td>
+<td>ID Elemento</td>
+</tr>
+<tr>
+<td>investment</td>
+<td>Integer</td>
+<td>Inversión</td>
+</tr>
+<tr>
+<td>brand_id</td>
+<td>Integer</td>
+<td>ID Marca</td>
+</tr>
+<tr>
+<td>brand</td>
+<td>String</td>
+<td>Marca asociada al producto</td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>Integer</td>
+<td>ID Producto</td>
+</tr>
+<tr>
+<td>product</td>
+<td>String</td>
+<td>Nombre del Producto asignado al aviso</td>
+</tr>
+<tr>
+<td>company_id</td>
+<td>Integer</td>
+<td>ID Empresa</td>
+</tr>
+<tr>
+<td>company</td>
+<td>String</td>
+<td>Nombre de la Empresa asignada al aviso</td>
+</tr>
+<tr>
+<td>industry_id</td>
+<td>Integer</td>
+<td>ID Rubro</td>
+</tr>
+<tr>
+<td>industry</td>
+<td>String</td>
+<td>Nombre del Rubro asignado al aviso</td>
+</tr>
+<tr>
+<td>sub_industry_id</td>
+<td>Integer</td>
+<td>ID Sub-Rubro</td>
+</tr>
+<tr>
+<td>sub_industry</td>
+<td>String</td>
+<td>Nombre del Sub-Rubro asignado al Rubro</td>
+</tr>
+<tr>
+<td>universal_id</td>
+<td>Integer</td>
+<td>Código universal</td>
+</tr>
+<tr>
+<td>universal_program_id</td>
+<td>Integer</td>
+<td>Código de programa universal</td>
+</tr>
+<tr>
+<td>ad_supplier_id</td>
+<td>Integer</td>
+<td>ID Suplemento</td>
+</tr>
+<tr>
+<td>ad_supplier</td>
+<td>String</td>
+<td>En caso de ser publicidad en papel, indica el nombre del suplemento</td>
+</tr>
+<tr>
+<td>megatime_hour</td>
+<td>Integer</td>
+<td>Hora megatime (Dias de 26 horas)</td>
+</tr>
+<tr>
+<td>channel_KANTAR</td>
+<td>Integer</td>
+<td>ID Soporte de la empresa Time</td>
+</tr>
+<tr>
+<td>e_type_media</td>
+<td>Integer</td>
+<td>ID Megatime para identificar el area de la verificacion</td>
+</tr>
+<tr>
+<td>section</td>
+<td>String</td>
+<td>En caso de ser publicidad en papel, indica en que sección de la página se encuentra</td>
+</tr>
+<tr>
+<td>section_id</td>
+<td>Integer</td>
+<td>ID Sección</td>
+</tr>
+<tr>
+<td>normal_duration</td>
+<td>Integer</td>
+<td>Duración normal del aviso</td>
+</tr>
+<tr>
+<td>ad_group_location</td>
+<td>Integer</td>
+<td>En caso de publicidad televisiva o radial, indica el número de la tanda publicitaria</td>
+</tr>
+<tr>
+<td>ad_group_spot_location</td>
+<td>Integer</td>
+<td>En caso de publicidad televisiva o radial, indica la posición en la tanda publicitaria</td>
+</tr>
+<tr>
+<td>ad_group_quantity</td>
+<td>Integer</td>
+<td>En caso de publicidad televisiva o radial, indica la cantidad de spots en la tanda publicitaria</td>
+</tr>
+<tr>
+<td>schedule_id</td>
+<td>Integer</td>
+<td>En caso de publicidad televisiva, indica el id el Horario</td>
+</tr>
+<tr>
+<td>schedule</td>
+<td>Integer</td>
+<td>En caso de publicidad televisiva, descripción del Horario</td>
+</tr>
+<tr>
+<td>media_agency</td>
+<td>String</td>
+<td>Nombre de la Agencia de medios</td>
+</tr>
+<tr>
+<td>media_agency_id</td>
+<td>Integer</td>
+<td>ID Agrencia de medios</td>
+</tr>
+<tr>
+<td>creative_agency</td>
+<td>String</td>
+<td>Nombre de la Agencia creativa</td>
+</tr>
+<tr>
+<td>creative_agency_id</td>
+<td>Integer</td>
+<td>ID Agencia creativa</td>
+</tr>
+<tr>
+<td>category</td>
+<td>String</td>
+<td>Indica la categoria del Rubro</td>
+</tr>
+<tr>
+<td>category_id</td>
+<td>Integer</td>
+<td>ID Categoria</td>
+</tr>
+<tr>
+<td>ad_first_appearance</td>
+<td>String</td>
+<td>Primera aparición del aviso, en formato YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>failure</td>
+<td>String</td>
+<td>Descripción de falla</td>
+</tr>
+<tr>
+<td>failure_id</td>
+<td>Integer</td>
+<td>ID Falla</td>
+</tr>
+<tr>
+<td>is_sponsor</td>
+<td>String</td>
+<td>Indica si es auspicio</td>
+</tr>
+<tr>
+<td>location</td>
+<td>String</td>
+<td>En caso de Via pública, indica la dirección. En caso de Metro, indica el lugar donde se encuentra dentro de la estación</td>
+</tr>
+<tr>
+<td>location_id</td>
+<td>Integer</td>
+<td>ID Ubicación</td>
+</tr>
+<tr>
+<td>program</td>
+<td>String</td>
+<td>Para publicidad televisiva y radial indica el nombre del Programa</td>
+</tr>
+<tr>
+<td>program_id</td>
+<td>Integer</td>
+<td>ID Programa</td>
+</tr>
+<tr>
+<td>centimeter</td>
+<td>Integer</td>
+<td>En caso de ser publicidad en papel, indica los centimetros que abarca</td>
+</tr>
+<tr>
+<td>columns</td>
+<td>Integer</td>
+<td>En caso de ser publicidad en papel, indica el número de columnas</td>
+</tr>
+<tr>
+<td>impressions</td>
+<td>Integer</td>
+<td>En caso de ser publicidad en papel, indica el número de impresiones</td>
+</tr>
+<tr>
+<td>station_id</td>
+<td>Integer</td>
+<td>ID Estación de Metro</td>
+</tr>
+<tr>
+<td>station</td>
+<td>String</td>
+<td>En caso de publicidad en Metro, indica el nombre de la Estación</td>
+</tr>
+<tr>
+<td>code</td>
+<td>String</td>
+<td>Codigo interno para identificación de multimedia</td>
+</tr>
+<tr>
+<td>banner_URL</td>
+<td>String</td>
+<td>En caso de publicidad de Internet, indica la url del banner</td>
+</tr>
+<tr>
+<td>rating</td>
+<td>Float</td>
+<td><b>(Opcional)</b> Solo se devuelve en caso de entregar un parámetro <code>target</code>. Indica el rating para el grupo objetivo</td>
+</tr>
+<tr>
+<td>options</td>
+<td>Array</td>
+<td><b>(Opcional)</b> Solo se devuelve en caso de entregar un parámetro <code>group</code>. Lista de objetos <code>Clasificación</code>, indica las clasificacion y sus respectivas opciones</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-clasificacion'>Atributos Clasificación</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>classifier</td>
+<td>Object</td>
+<td>Objeto tipo <code>Clasificador</code></td>
+</tr>
+<tr>
+<td>values</td>
+<td>Array</td>
+<td>Lista de objetos tipo <code>Opción</code> que pertenecen a <code>Clasificador</code>. Esto representa todas las opciones que se le asignar a un clasificador</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-clasificacion-2'>Atributos Clasificación</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID Clasificador</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre Clasificador</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-opcion'>Atributos Opción</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID Opción</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre Opción</td>
+</tr>
+</tbody></table>
+<h2 id='obtener-verificador'>Obtener Verificador</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/verifier?media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/verifier?media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/verifier?media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">737301110</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TV Abierta"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-10"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"support_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1007</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"support"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TVN"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"weekday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jueves"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"supplement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SIN SUPLEMENTO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"supplement_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"advertisement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FALABELLA,CMR ALIANZA DUNKIN,MARZO 40% DCTO.D DUNKIN APP"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"advertisement_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">567008</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"quality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIDEO COLOR"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"quality_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VC"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14:58:14"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"real_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"module"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"element"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DESCONOCIDO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"element_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"investment"</span><span class="p">:</span><span class="w"> </span><span class="mi">4200000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"brad_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4986</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMR FALABELLA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">325170</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FALABELLA,CMR ALIANZA DUNKIN"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">173</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FALABELLA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TARJETAS DE CREDITO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sub_industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10270</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sub_industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TARJETA DE CREDITO GRANDES TIENDAS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"universal_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">383878</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"universal_program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">80137</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_supplier"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"megatime_hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"channel_KANTAR"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"e_type_media"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"section"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SIN SECCION"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"section_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"normal_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_group_location"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_group_spot_location"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_group_quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"schedule_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tarde"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media_agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IPG MEDIABRANDS CHILE"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media_agency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">516</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"creative_agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGINA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"creative_agency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">684</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCADO FINANCIERO Y SEGUROS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_first_appearance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"failure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s/f"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"failure_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_sponsor"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24 TARDE"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1007078435</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"centimeter"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"columns"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"station_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"station"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SIN ESTACION"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"banner_URL"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON con error:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"error"</span><span class="p">:</span><span class="s2">"</span><span class="se">\"</span><span class="s2">end_date</span><span class="se">\"</span><span class="s2"> is required"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna una lista con todos los spots del día o intervalo indicado. </p>
+<h3 id='llamada-http-3'>Llamada HTTP</h3>
+<p><code>GET datasuite.megatime.cl/verifier</code></p>
+<h3 id='parametros-url-2'>Parámetros URL</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Requerido</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>media</td>
+<td>Array</td>
+<td>Lista de ID de Medios</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>String</td>
+<td>Fecha de formato DD-MM-YYYY</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>String</td>
+<td>Fecha de formato DD-MM-YYYY</td>
+<td>Si</td>
+</tr>
+</tbody></table>
+
+<aside class="warning-yellow">
+El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias 
+</aside>
+<h3 id='atributos-respuesta-3'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Array</td>
+<td>Lista de objetos tipo Verificador</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-verificador'>Atributos Verificador</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>Identificador de Spot</td>
+</tr>
+<tr>
+<td>media</td>
+<td>String</td>
+<td>Nombre del Medio donde fue encontrado</td>
+</tr>
+<tr>
+<td>media_id</td>
+<td>Integer</td>
+<td>ID Medio</td>
+</tr>
+<tr>
+<td>date</td>
+<td>String</td>
+<td>Fecha de aparición, en formato YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>support_id</td>
+<td>Integer</td>
+<td>ID Soporte</td>
+</tr>
+<tr>
+<td>support</td>
+<td>String</td>
+<td>Soporte</td>
+</tr>
+<tr>
+<td>weekday</td>
+<td>String</td>
+<td>Día de la semana de su aparición</td>
+</tr>
+<tr>
+<td>supplement</td>
+<td>String</td>
+<td>Suplemento (Prensa)</td>
+</tr>
+<tr>
+<td>supplement_id</td>
+<td>Integer</td>
+<td>ID Suplemento</td>
+</tr>
+<tr>
+<td>advertisement</td>
+<td>String</td>
+<td>Aviso asocicado</td>
+</tr>
+<tr>
+<td>advertisement_id</td>
+<td>Integer</td>
+<td>ID Aviso</td>
+</tr>
+<tr>
+<td>quality</td>
+<td>String</td>
+<td>Calidad del emisor</td>
+</tr>
+<tr>
+<td>quality_short</td>
+<td>String</td>
+<td>Calidad abreviada</td>
+</tr>
+<tr>
+<td>hour</td>
+<td>String</td>
+<td>Hora de aparición en formato HH:MM:SS</td>
+</tr>
+<tr>
+<td>real_duration</td>
+<td>Integer</td>
+<td>Duración real de la aparición</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Integer</td>
+<td>En caso de ser publicidad en papel, indica el número de la pagina</td>
+</tr>
+<tr>
+<td>size</td>
+<td>Integer</td>
+<td>En caso de ser publicidad en papel, indica el tamaño físico de la página</td>
+</tr>
+<tr>
+<td>module</td>
+<td>String</td>
+<td>En caso de ser publicidad en papel, indica el tipo de hoja</td>
+</tr>
+<tr>
+<td>element</td>
+<td>String</td>
+<td>En caso de publicidad vial, indica el elemento donde esta montada la publicidad</td>
+</tr>
+<tr>
+<td>element_id</td>
+<td>Integer</td>
+<td>ID Elemento</td>
+</tr>
+<tr>
+<td>investment</td>
+<td>Integer</td>
+<td>Inversión</td>
+</tr>
+<tr>
+<td>brand_id</td>
+<td>Integer</td>
+<td>ID Marca</td>
+</tr>
+<tr>
+<td>brand</td>
+<td>String</td>
+<td>Marca asociada al producto</td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>Integer</td>
+<td>ID Producto</td>
+</tr>
+<tr>
+<td>product</td>
+<td>String</td>
+<td>Nombre del Producto asignado al aviso</td>
+</tr>
+<tr>
+<td>company_id</td>
+<td>Integer</td>
+<td>ID Empresa</td>
+</tr>
+<tr>
+<td>company</td>
+<td>String</td>
+<td>Nombre de la Empresa asignada al aviso</td>
+</tr>
+<tr>
+<td>industry_id</td>
+<td>Integer</td>
+<td>ID Rubro</td>
+</tr>
+<tr>
+<td>industry</td>
+<td>String</td>
+<td>Nombre del Rubro asignado al aviso</td>
+</tr>
+<tr>
+<td>sub_industry_id</td>
+<td>Integer</td>
+<td>ID Sub-Rubro</td>
+</tr>
+<tr>
+<td>sub_industry</td>
+<td>String</td>
+<td>Nombre del Sub-Rubro asignado al Rubro</td>
+</tr>
+<tr>
+<td>universal_id</td>
+<td>Integer</td>
+<td>Código universal</td>
+</tr>
+<tr>
+<td>universal_program_id</td>
+<td>Integer</td>
+<td>Código de programa universal</td>
+</tr>
+<tr>
+<td>ad_supplier_id</td>
+<td>Integer</td>
+<td>ID Suplemento</td>
+</tr>
+<tr>
+<td>ad_supplier</td>
+<td>String</td>
+<td>En caso de ser publicidad en papel, indica el nombre del suplemento</td>
+</tr>
+<tr>
+<td>megatime_hour</td>
+<td>Integer</td>
+<td>Hora megatime (Dias de 26 horas)</td>
+</tr>
+<tr>
+<td>channel_KANTAR</td>
+<td>Integer</td>
+<td>ID Soporte de la empresa Time</td>
+</tr>
+<tr>
+<td>e_type_media</td>
+<td>Integer</td>
+<td>ID Megatime para identificar el area de la verificacion</td>
+</tr>
+<tr>
+<td>section</td>
+<td>String</td>
+<td>En caso de ser publicidad en papel, indica en que sección de la página se encuentra</td>
+</tr>
+<tr>
+<td>section_id</td>
+<td>Integer</td>
+<td>ID Sección</td>
+</tr>
+<tr>
+<td>normal_duration</td>
+<td>Integer</td>
+<td>Duración normal del aviso</td>
+</tr>
+<tr>
+<td>ad_group_location</td>
+<td>Integer</td>
+<td>En caso de publicidad televisiva o radial, indica el número de la tanda publicitaria</td>
+</tr>
+<tr>
+<td>ad_group_spot_location</td>
+<td>Integer</td>
+<td>En caso de publicidad televisiva o radial, indica la posición en la tanda publicitaria</td>
+</tr>
+<tr>
+<td>ad_group_quantity</td>
+<td>Integer</td>
+<td>En caso de publicidad televisiva o radial, indica la cantidad de spots en la tanda publicitaria</td>
+</tr>
+<tr>
+<td>schedule_id</td>
+<td>Integer</td>
+<td>En caso de publicidad televisiva, indica el id el Horario</td>
+</tr>
+<tr>
+<td>schedule</td>
+<td>Integer</td>
+<td>En caso de publicidad televisiva, descripción del Horario</td>
+</tr>
+<tr>
+<td>media_agency</td>
+<td>String</td>
+<td>Nombre de la Agencia de medios</td>
+</tr>
+<tr>
+<td>media_agency_id</td>
+<td>Integer</td>
+<td>ID Agrencia de medios</td>
+</tr>
+<tr>
+<td>creative_agency</td>
+<td>String</td>
+<td>Nombre de la Agencia creativa</td>
+</tr>
+<tr>
+<td>creative_agency_id</td>
+<td>Integer</td>
+<td>ID Agencia creativa</td>
+</tr>
+<tr>
+<td>category</td>
+<td>String</td>
+<td>Indica la categoria del Rubro</td>
+</tr>
+<tr>
+<td>category_id</td>
+<td>Integer</td>
+<td>ID Categoria</td>
+</tr>
+<tr>
+<td>ad_first_appearance</td>
+<td>String</td>
+<td>Primera aparición del aviso, en formato YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>failure</td>
+<td>String</td>
+<td>Descripción de falla</td>
+</tr>
+<tr>
+<td>failure_id</td>
+<td>Integer</td>
+<td>ID Falla</td>
+</tr>
+<tr>
+<td>is_sponsor</td>
+<td>Boolean</td>
+<td>Indica si es auspicio</td>
+</tr>
+<tr>
+<td>location</td>
+<td>String</td>
+<td>En caso de Via pública, indica la dirección. En caso de Metro, indica el lugar donde se encuentra dentro de la estación</td>
+</tr>
+<tr>
+<td>location_id</td>
+<td>Integer</td>
+<td>ID Ubicación</td>
+</tr>
+<tr>
+<td>program</td>
+<td>String</td>
+<td>Para publicidad televisiva y radial indica el nombre del Programa</td>
+</tr>
+<tr>
+<td>program_id</td>
+<td>Integer</td>
+<td>ID Programa</td>
+</tr>
+<tr>
+<td>centimeter</td>
+<td>Integer</td>
+<td>En caso de ser publicidad en papel, indica los centimetros que abarca</td>
+</tr>
+<tr>
+<td>columns</td>
+<td>Integer</td>
+<td>En caso de ser publicidad en papel, indica el número de columnas</td>
+</tr>
+<tr>
+<td>impressions</td>
+<td>Integer</td>
+<td>En caso de ser publicidad en papel, indica el número de impresiones</td>
+</tr>
+<tr>
+<td>station_id</td>
+<td>Integer</td>
+<td>ID Estación de Metro</td>
+</tr>
+<tr>
+<td>station</td>
+<td>String</td>
+<td>En caso de publicidad en Metro, indica el nombre de la Estación</td>
+</tr>
+<tr>
+<td>code</td>
+<td>String</td>
+<td>Codigo interno para identificación de multimedia</td>
+</tr>
+<tr>
+<td>banner_URL</td>
+<td>String</td>
+<td>En caso de publicidad de Internet, indica la url del banner</td>
+</tr>
+</tbody></table>
+<h2 id='obtener-avisos-con-actividad'>Obtener Avisos con actividad</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"localhost:3001/advertisement?media=1,2,3,4,5,6,7,8&amp;start_date=01-10-2021&amp;end_date=31-10-2021&amp;industries=1,2,3,4,5&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;group=1"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'c857f76f86ed443a22728de41c7516f5'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'localhost:3001/advertisement?media=1,2,3,4,5,6,7,8&amp;start_date=01-10-2021&amp;end_date=31-10-2021&amp;industries=1,2,3,4,5&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;group=1'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: c857f76f86ed443a22728de41c7516f5'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">localhost:3001/advertisement?media=1,2,3,4,5,6,7,8&amp;start_date=01-10-2021&amp;end_date=31-10-2021&amp;industries=1,2,3,4,5&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;group=1</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">c857f76f86ed443a22728de41c7516f5</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"media_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prensa"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1868567</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ED,BAZAR ED,CYBERMONDAY,YA COMENZO,DEL 04 AL 06 DE OCTUBRE,(ED)"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"first_appearance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-04"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FERIAS Y EXPOSICIONES"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">202</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sub_industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FERIA COMERCIAL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sub_industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1483</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MILANO EDITORES"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2712</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ED"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"brand_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7426</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ED,BAZAR ED,CYBERMONDAY"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">321910</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna una lista con todos los Avisos con actividad</p>
+<h3 id='llamada-http-4'>Llamada HTTP</h3>
+<p><code>GET datasuite.megatime.cl/advertisement</code> </p>
+<h3 id='parametros-url-3'>Parámetros URL</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Requerido</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>media</td>
+<td>Array</td>
+<td>Lista de ID de Medios</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>String</td>
+<td>Fecha de formato DD-MM-YYYY</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>String</td>
+<td>Fecha de formato DD-MM-YYYY</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>brands</td>
+<td>Array</td>
+<td>Lista de ID de Marcas</td>
+<td>No</td>
+</tr>
+<tr>
+<td>companies</td>
+<td>Array</td>
+<td>Lista de ID de Empresas</td>
+<td>No</td>
+</tr>
+<tr>
+<td>industries</td>
+<td>Array</td>
+<td>Lista de ID de Rubros</td>
+<td>No</td>
+</tr>
+<tr>
+<td>sub_industries</td>
+<td>Array</td>
+<td>Lista de ID de Sub-Rubros</td>
+<td>No</td>
+</tr>
+<tr>
+<td>products</td>
+<td>Array</td>
+<td>Lista de ID de Productos</td>
+<td>No</td>
+</tr>
+<tr>
+<td>group</td>
+<td>Integer</td>
+<td>ID Grupo</td>
+<td>No</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-respuesta-4'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Array</td>
+<td>Lista de objetos tipo <code>Aviso</code></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-aviso'>Atributos Aviso</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>Identificador de Aviso</td>
+</tr>
+<tr>
+<td>media</td>
+<td>String</td>
+<td>Nombre del Medio donde fue encontrado</td>
+</tr>
+<tr>
+<td>media_id</td>
+<td>Integer</td>
+<td>ID Medio</td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>Descripción Aviso</td>
+</tr>
+<tr>
+<td>first_appearance</td>
+<td>String</td>
+<td>Fecha de primera aparición</td>
+</tr>
+<tr>
+<td>industry</td>
+<td>String</td>
+<td>Nombre del Rubro asignado al aviso</td>
+</tr>
+<tr>
+<td>industry_id</td>
+<td>Integer</td>
+<td>ID Rubro</td>
+</tr>
+<tr>
+<td>sub_industry</td>
+<td>String</td>
+<td>Nombre SubRubro</td>
+</tr>
+<tr>
+<td>sub_industry_id</td>
+<td>Integer</td>
+<td>ID SubRubro</td>
+</tr>
+<tr>
+<td>company</td>
+<td>String</td>
+<td>Nombre de la Empresa asignada al aviso</td>
+</tr>
+<tr>
+<td>company_id</td>
+<td>Integer</td>
+<td>ID Empresa</td>
+</tr>
+<tr>
+<td>brand</td>
+<td>String</td>
+<td>Marca asociada al producto</td>
+</tr>
+<tr>
+<td>brand_id</td>
+<td>Integer</td>
+<td>ID Marca</td>
+</tr>
+<tr>
+<td>product</td>
+<td>String</td>
+<td>Nombre del Producto asignado al aviso</td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>Integer</td>
+<td>ID Producto</td>
+</tr>
+</tbody></table>
+
+<p>| sub_industry_id | Integer | ID Sub-Rubro |
+| sub_industry | String | Nombre del Sub-Rubro asignado al Rubro |</p>
+<h2 id='obtener-medios'>Obtener Medios</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/media"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/media'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/media</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TV Abierta"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna una lista con todos los Medios.</p>
+<h3 id='llamada-http-5'>Llamada HTTP</h3>
+<p><code>GET datasuite.megatime.cl/filters/media</code></p>
+<h3 id='atributos-respuesta-5'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Array</td>
+<td>Lista de objetos tipo <code>Medio</code></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-medio'>Atributos Medio</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre</td>
+</tr>
+</tbody></table>
+<h2 id='obtener-marcas'>Obtener Marcas</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/brands"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/brands'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/brands</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TARGET,SOFTWARE"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna una lista con todas las marcas</p>
+<h3 id='llamada-http-6'>Llamada HTTP</h3>
+<p><code>GET datasuite.megatime.cl/filters/brands</code></p>
+<h3 id='atributos-respuesta-6'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Array</td>
+<td>Lista de objetos tipo Marca</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-marca'>Atributos Marca</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre</td>
+</tr>
+</tbody></table>
+<h2 id='obtener-empresas'>Obtener Empresas</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/companies"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/companies'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/companies</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">28911</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SALMONES MULTIEXPORT LTDA"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna una lista con todas las Empresas</p>
+<h3 id='llamada-http-7'>Llamada HTTP</h3>
+<p><code>GET datasuite.megatime.cl/filters/companies</code></p>
+<h3 id='atributos-respuesta-7'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Array</td>
+<td>Lista de objetos tipo <code>Empresa</code></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-empresa'>Atributos Empresa</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre</td>
+</tr>
+</tbody></table>
+<h2 id='obtener-rubros'>Obtener Rubros</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/industries"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/industries'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/industries</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PRODUCTOS PARA LA AGRICULTURA"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna una lista con todos los Rubros</p>
+<h3 id='llamada-http-8'>Llamada HTTP</h3>
+<p><code>GET datasuite.megatime.cl/filters/industries</code></p>
+<h3 id='atributos-respuesta-8'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Array</td>
+<td>Lista de objetos tipo <code>Rubro</code></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-rubro'>Atributos Rubro</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre</td>
+</tr>
+</tbody></table>
+<h2 id='obtener-sub-rubros'>Obtener Sub-Rubros</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/sub_industries"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/sub_industries'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/sub_industries</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AVENA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna una lista con todos los Sub-Rubros</p>
+<h3 id='llamada-http-9'>Llamada HTTP</h3>
+<p><code>GET datasuite.megatime.cl/filters/sub_industries</code></p>
+<h3 id='atributos-respuesta-9'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Array</td>
+<td>Lista de objetos tipo <code>Sub-Rubro</code></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-sub-rubro'>Atributos Sub-Rubro</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre</td>
+</tr>
+<tr>
+<td>industry_id</td>
+<td>String</td>
+<td>ID Rubro asociado</td>
+</tr>
+</tbody></table>
+<h2 id='obtener-productos'>Obtener Productos</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/products"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/products'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/products</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEYCO,CONSERVAS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"brand_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6748</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sub_industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10130</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna una lista con todos los Productos</p>
+<h3 id='llamada-http-10'>Llamada HTTP</h3>
+<p><code>GET datasuite.megatime.cl/filters/products</code></p>
+<h3 id='atributos-respuesta-10'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Array</td>
+<td>Lista de objetos tipo <code>Producto</code></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-producto'>Atributos Producto</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre</td>
+</tr>
+<tr>
+<td>company_id</td>
+<td>Integer</td>
+<td>ID Empresa asociada</td>
+</tr>
+<tr>
+<td>brand_id</td>
+<td>Integer</td>
+<td>ID Marca asociada</td>
+</tr>
+<tr>
+<td>sub_industry_id</td>
+<td>String</td>
+<td>ID Sub-Rubro asociado</td>
+</tr>
+</tbody></table>
+<h2 id='obtener-categorias'>Obtener Categorias</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/categories"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/categories'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/categories</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGROPECUARIO"</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna una lista con todas las Categorias</p>
+<h3 id='llamada-http-11'>Llamada HTTP</h3>
+<p><code>GET datasuite.megatime.cl/filters/categories</code></p>
+<h3 id='atributos-respuesta-11'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Array</td>
+<td>Lista de objetos tipo <code>Catergoria</code></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-categoria'>Atributos Categoria</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre</td>
+</tr>
+</tbody></table>
+<h2 id='obtener-calidades'>Obtener Calidades</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/qualities"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/qualities'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/qualities</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIDEO COLOR"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VC"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna una lista con todas las Calidades</p>
+<h3 id='llamada-http-12'>Llamada HTTP</h3>
+<p><code>GET datasuite.megatime.cl/filters/qualities</code></p>
+<h3 id='atributos-respuesta-12'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Array</td>
+<td>Lista de objetos tipo <code>Calidad</code></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-calidad'>Atributos Calidad</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre</td>
+</tr>
+<tr>
+<td>short</td>
+<td>String</td>
+<td>Abreviación</td>
+</tr>
+<tr>
+<td>medio_id</td>
+<td>String</td>
+<td>ID Medio</td>
+</tr>
+</tbody></table>
+<h2 id='obtener-agencias-creativas'>Obtener Agencias Creativas</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/creativeagencies"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/creativeagencies'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/creativeagencies</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BBDO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BBDO"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna una lista con todas las Agencias Creativas</p>
+<h3 id='llamada-http-13'>Llamada HTTP</h3>
+<p><code>GET datasuite.megatime.cl/filters/creativeagencies</code></p>
+<h3 id='atributos-respuesta-13'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Array</td>
+<td>Lista de objetos tipo <code>Agencia Creativa</code></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-agencias-creativa'>Atributos Agencias Creativa</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre</td>
+</tr>
+<tr>
+<td>short</td>
+<td>String</td>
+<td>Abreviación</td>
+</tr>
+</tbody></table>
+<h2 id='obtener-agencias-de-medios'>Obtener Agencias de Medios</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/mediaagencies"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/mediaagencies'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/mediaagencies</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BBDO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BBDO"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna una lista con todas las Agencias de Medios</p>
+<h3 id='llamada-http-14'>Llamada HTTP</h3>
+<p><code>GET datasuite.megatime.cl/filters/mediaagencies</code></p>
+<h3 id='atributos-respuesta-14'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Array</td>
+<td>Lista de objetos tipo <code>Agencia de Medios</code></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-agencias-de-medios'>Atributos Agencias de Medios</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre</td>
+</tr>
+<tr>
+<td>short</td>
+<td>String</td>
+<td>Abreviación</td>
+</tr>
+</tbody></table>
+<h2 id='obtener-grupos-personalizados'>Obtener Grupos personalizados</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/groups"</span> 
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/groups'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/groups</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bancos"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"obs"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">    
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna una lista con todos los Grupos personalizados por el cliente</p>
+<h3 id='llamada-http-15'>Llamada HTTP</h3>
+<p><code>GET datasuite.megatime.cl/filters/groups</code> </p>
+<h3 id='atributos-respuesta-15'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Array</td>
+<td>Lista de objetos tipo <code>Grupo</code></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-grupo'>Atributos Grupo</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre</td>
+</tr>
+<tr>
+<td>obs</td>
+<td>String</td>
+<td>Observación</td>
+</tr>
+</tbody></table>
+<h2 id='crear-grupo-personalizado'>Crear Grupo personalizado</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"localhost:3001/filters/groups"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"Test nuevo grupo"</span><span class="p">,</span>
+  <span class="s">"obs"</span><span class="p">:</span> <span class="s">"Observacion"</span><span class="p">,</span>
+  <span class="s">"brands"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="mi">24</span><span class="p">,</span>
+    <span class="mi">42</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'c857f76f86ed443a22728de41c7516f5'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'localhost:3001/filters/groups'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: c857f76f86ed443a22728de41c7516f5'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "name": "Test New Group",
+    "obs": "Observacion",
+    "brands": [24,42]
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">localhost:3001/filters/groups</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">c857f76f86ed443a22728de41c7516f5</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Test New Group</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">obs</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Observacion</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">brands</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="mi">24</span><span class="p">,</span>
+      <span class="mi">42</span>
+    <span class="p">]</span>
+  <span class="p">})</span>
+
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grupo creado correctamente"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Request para crear un nuevo Grupo Personalizado, responde con el ID del nuevo grupo.</p>
+
+<p>Para asignar <code>Clasificadores y Opciones</code>, debe dirigirse a <a href="https://clasificador.megatime.cl">clasificador.megatime.cl</a></p>
+<h3 id='llamada-http-16'>Llamada HTTP</h3>
+<p><code>POST datasuite.megatime.cl/filters/groups</code> </p>
+<h3 id='parametros-body-2'>Párametros Body</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Requerido</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre de grupo</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>obs</td>
+<td>String</td>
+<td>Observación</td>
+<td>No</td>
+</tr>
+<tr>
+<td>brands</td>
+<td>Array</td>
+<td>Lista de IDs de marcas para asignar al nuevo grupo</td>
+<td>Si</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-respuesta-16'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID grupo creado</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td>Mensaje de estado</td>
+</tr>
+</tbody></table>
+<h2 id='obtener-grupos-objetivos-rating'>Obtener Grupos Objetivos Rating</h2>
+<p><code>GET datasuite.megatime.cl/filters/targets</code></p>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/targets"</span> 
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/targets'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/targets</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DDC ABCD</span><span class="se">\r\n</span><span class="s2">"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna una lista con todos los Grupos Objetivos Rating</p>
+<h3 id='llamada-http-17'>Llamada HTTP</h3>
+<p><code>GET datasuite.megatime.cl/filters/targets</code> </p>
+<h3 id='atributos-respuesta-17'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Array</td>
+<td>Lista de objetos tipo <code>Grupo Objetivo Rating</code></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-grupo-objetivo-rating'>Atributos Grupo Objetivo Rating</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre</td>
 </tr>
 </tbody></table>
 
