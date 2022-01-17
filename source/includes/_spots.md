@@ -138,7 +138,7 @@ request(options, function (error, response) {
       "ID": 737301110,
       "media": "TV Abierta",
       "media_id": 1,
-      "date": "2021-03-10T00:00:00.000Z",
+      "date": "2021-03-10",
       "support_id": 1007,
       "support": "TVN",
       "weekday": "Jueves",
@@ -187,7 +187,7 @@ request(options, function (error, response) {
       "creative_agency_id": 684,
       "category": "MERCADO FINANCIERO Y SEGUROS",
       "category_id": 10,
-      "ad_first_appearance": "2021-03-01T00:00:00.000Z",
+      "ad_first_appearance": "2021-03-01",
       "failure": "s/f",
       "failure_id": 0,
       "is_sponsor": true,
@@ -257,7 +257,7 @@ Retorna una lista de spots asociados a los filtros que se indique.
 ### Parámetros URL
 | Nombre   | Tipo   | Descripción                                  | Requerido |
 | -------- | ------ | -------------------------------------------- | --------- |
-| include | Integer | <b>(Por defecto: 0)</b> 0 incluir PNTs y Avisos, 1 solo Avisos,  2 solo PNTs | No |
+| include | Integer | <b>(Por defecto: 0)</b> 0 incluir Avisos y PNTs, 1 solo Avisos,  2 solo PNTs | No |
 | media | Array | Lista de ID de Medios | Si |
 | start_date | String | Fecha de formato DD-MM-YYYY | Si |
 | end_date | String | Fecha de formato DD-MM-YYYY | Si |
@@ -440,7 +440,7 @@ request(options, function (error, response) {
       "ID": 737301110,
       "media": "TV Abierta",
       "media_id": 1,
-      "date": "2021-03-10T00:00:00.000Z",
+      "date": "2021-03-10",
       "support_id": 1007,
       "support": "TVN",
       "weekday": "Jueves",
@@ -489,7 +489,7 @@ request(options, function (error, response) {
       "creative_agency_id": 684,
       "category": "MERCADO FINANCIERO Y SEGUROS",
       "category_id": 10,
-      "ad_first_appearance": "2021-03-01T00:00:00.000Z",
+      "ad_first_appearance": "2021-03-01",
       "failure": "s/f",
       "failure_id": 0,
       "is_sponsor": true,
@@ -667,7 +667,7 @@ request(options, function (error, response) {
       "media": "Prensa",
       "id": 1868567,
       "description": "ED,BAZAR ED,CYBERMONDAY,YA COMENZO,DEL 04 AL 06 DE OCTUBRE,(ED)",
-      "first_appearance": "2021-10-04T00:00:00.000Z",
+      "first_appearance": "2021-10-04",
       "industry": "FERIAS Y EXPOSICIONES",
       "industry_id": 202,
       "sub_industry": "FERIA COMERCIAL",
