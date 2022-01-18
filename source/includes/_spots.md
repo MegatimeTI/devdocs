@@ -624,11 +624,11 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 ```python
 import requests
 
-url = "localhost:3001/advertisement?media=1,2,3,4,5,6,7,8&start_date=01-10-2021&end_date=31-10-2021&industries=1,2,3,4,5&brands=1,2,3,4,5&companies=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&group=1"
+url = "datasuite.megatime.cl/advertisement?media=1,2,3,4,5,6,7,8&start_date=01-10-2021&end_date=31-10-2021&industries=1,2,3,4,5&brands=1,2,3,4,5&companies=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&group=1"
 
 payload={}
 headers = {
-  'Authorization': 'c857f76f86ed443a22728de41c7516f5'
+  'Authorization': 'SECRET_API_KEY'
 }
 
 response = requests.request("GET", url, headers=headers, data=payload)
@@ -637,17 +637,17 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'localhost:3001/advertisement?media=1,2,3,4,5,6,7,8&start_date=01-10-2021&end_date=31-10-2021&industries=1,2,3,4,5&brands=1,2,3,4,5&companies=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&group=1' \
---header 'Authorization: c857f76f86ed443a22728de41c7516f5'
+curl --location --request GET 'datasuite.megatime.cl/advertisement?media=1,2,3,4,5,6,7,8&start_date=01-10-2021&end_date=31-10-2021&industries=1,2,3,4,5&brands=1,2,3,4,5&companies=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&group=1' \
+--header 'Authorization: SECRET_API_KEY'
 ```
 
 ```javascript
 var request = require('request');
 var options = {
   'method': 'GET',
-  'url': 'localhost:3001/advertisement?media=1,2,3,4,5,6,7,8&start_date=01-10-2021&end_date=31-10-2021&industries=1,2,3,4,5&brands=1,2,3,4,5&companies=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&group=1',
+  'url': 'datasuite.megatime.cl/advertisement?media=1,2,3,4,5,6,7,8&start_date=01-10-2021&end_date=31-10-2021&industries=1,2,3,4,5&brands=1,2,3,4,5&companies=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&group=1',
   'headers': {
-    'Authorization': 'c857f76f86ed443a22728de41c7516f5'
+    'Authorization': 'SECRET_API_KEY'
   }
 };
 request(options, function (error, response) {
@@ -1561,7 +1561,7 @@ Retorna una lista con todos los Grupos personalizados por el cliente
 import requests
 import json
 
-url = "localhost:3001/filters/groups"
+url = "datasuite.megatime.cl/filters/groups"
 
 payload = json.dumps({
   "name": "Test nuevo grupo",
@@ -1572,7 +1572,7 @@ payload = json.dumps({
   ]
 })
 headers = {
-  'Authorization': 'c857f76f86ed443a22728de41c7516f5',
+  'Authorization': 'SECRET_API_KEY',
   'Content-Type': 'application/json'
 }
 
@@ -1582,8 +1582,8 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request POST 'localhost:3001/filters/groups' \
---header 'Authorization: c857f76f86ed443a22728de41c7516f5' \
+curl --location --request POST 'datasuite.megatime.cl/filters/groups' \
+--header 'Authorization: SECRET_API_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "Test New Group",
@@ -1596,9 +1596,9 @@ curl --location --request POST 'localhost:3001/filters/groups' \
 var request = require('request');
 var options = {
   'method': 'POST',
-  'url': 'localhost:3001/filters/groups',
+  'url': 'datasuite.megatime.cl/filters/groups',
   'headers': {
-    'Authorization': 'c857f76f86ed443a22728de41c7516f5',
+    'Authorization': 'SECRET_API_KEY',
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
