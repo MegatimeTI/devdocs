@@ -6,10 +6,10 @@
 import requests
 import json
 
-url = "http://radioregional.megatime.cl/api/auth/getApikey"
+url = "https://cuenta.megatime.cl/api/auth/key"
 
 payload = json.dumps({
-  "username": "user@example.com",
+  "email": "user@example.com",
   "password": "**********"
 })
 headers = {
@@ -24,10 +24,10 @@ print(response.json())
 ```
 
 ```shell
-curl --location --request POST 'http://radioregional.megatime.cl/api/auth/getApikey' \
+curl --location --request POST 'https://cuenta.megatime.cl/api/auth/key' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "username": "user@example.com",
+    "email": "user@example.com",
     "password": "**********"
 }'
 ```
@@ -36,12 +36,12 @@ curl --location --request POST 'http://radioregional.megatime.cl/api/auth/getApi
 var request = require("request");
 var options = {
   method: "POST",
-  url: "http://radioregional.megatime.cl/api/auth/getApikey",
+  url: "https://cuenta.megatime.cl/api/auth/key",
   headers: {
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    username: "user@example.com",
+    email: "user@example.com",
     password: "**********",
   }),
 };
@@ -55,9 +55,8 @@ request(options, function (error, response) {
 
 ```json
 {
-    "error": false,
-    "apiKey": "SECRET_API_KEY",
-    "cliente_id": 1
+    "ok": true,
+    "key": "SECRET_API_KEY",
 }
 ```
 
@@ -65,22 +64,21 @@ Retorna key del usuario, para tener acceso a las consultas de radios regionales.
 
 ### Llamada HTTP
 
-`POST http://radioregional.megatime.cl/api/auth/getApikey`
+<span style="color: rgb(170, 117, 28);"> **POST**</span> ` https://cuenta.megatime.cl/api/auth/key`
 
 ### Parámetros Body
 
 | Nombre   | Tipo   | Descripción                                  | Requerido |
 | -------- | ------ | -------------------------------------------- | --------- |
-| username | String | Correo asociado a credencial de Megatime     | Sí        |
-| password | String | Contraseña asociado a credencial de Megatime | Sí        |
+| email | String | Correo asociado a credencial de Megatime     | Sí        |
+| password | String | Contraseña asociada a credencial de Megatime | Sí        |
 
 ### Atributos Respuesta
 
-| Nombre     | Tipo    | Descripción                               |
-| ---------- | ------- | ------------------------                  |
-| ok         | Boolean | Verificador de respuesta                  |
-| key        | String  | Llave de acceso a API                     |
-| cliente_id | Integer | Id del cliente al que pertenece el correo |
+| Nombre     | Tipo    | Descripción                |
+| ---------- | ------- | ------------------------   |
+| ok         | Boolean | Verificador de respuesta   |
+| key        | String  | Llave de acceso a API      |
 
 La API espera que todas las llamadas estén autenticadas con la Api key
 en el Authorization header:
@@ -97,42 +95,42 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 import requests
 import json
 
-url = "radioregional.megatime.cl/api/finder/agencias/creativas"
+url = "radioregional.megatime.cl/api/finder/creative-agencies"
 
 payload = json.dumps({
-  "nombre": "{filter_string}"
+  "name": "example"
 })
 headers = {
   'Authorization': 'SECRET_API_KEY',
   'Content-Type': 'application/json'
 }
 
-response = requests.request("POST", url, headers=headers, data=payload)
+response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
 
 ```
 
 ```shell
-curl --location --request POST 'radioregional.megatime.cl/api/finder/agencias/creativas' \
+curl --location --request GET 'radioregional.megatime.cl/api/finder/creative-agencies' \
 --header 'Authorization: SECRET_API_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "nombre":"{filter_string}"
+    "name":"example"
 }'
 ```
 
 ```javascript
 var request = require('request');
 var options = {
-  'method': 'POST',
-  'url': 'radioregional.megatime.cl/api/finder/agencias/creativas',
+  'method': 'GET',
+  'url': 'radioregional.megatime.cl/api/finder/creative-agencies',
   'headers': {
     'Authorization': 'SECRET_API_KEY',
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    "nombre": "${filter_string}"
+    "name": "example"
   })
 
 };
@@ -148,26 +146,14 @@ request(options, function (error, response) {
 ```json
 {
     "ok": true,
-    "agencias": [
+    "agencies": [
         {
-            "id": 240,
-            "nombre": "GOYA COMUNICACIONES"
+            "id": 345,
+            "name": "SUTIL NAZCA SAATCHI Y SAATCHI"
         },
         {
-            "id": 391,
-            "nombre": "OLAYA Y VERGARA"
-        },
-        {
-            "id": 690,
-            "nombre": "PLAYA"
-        },
-        {
-            "id": 734,
-            "nombre": "RAYA"
-        },
-        {
-            "id": 342,
-            "nombre": "YANETT PUBLICIDAD"
+            "id": 879,
+            "name": "XYZ JAAPOH PUBLICIDAD"
         }
     ]
 }
@@ -177,21 +163,28 @@ Retorna las agencias creativas y su respectivo id. Se puede adjuntar una 'frase'
 
 ### Llamada HTTP
 
-`POST radioregional.megatime.cl/api/finder/agencias/creativas`
+<span style="color: rgb(33, 120, 52);"> **GET**</span>  `https://radioregional.megatime.cl/api/finder/creative-agencies`
+
+### Parametros URL
+
+| Nombre     | Tipo    | Descripción                          | Requerido |
+| ---------- | ------- | --------------------------------     | --------- |
+| name       | String  | Cadena de texto para filtrar por nombre  | No |
+
 
 ### Atributos Respuesta
 
 | Nombre     | Tipo    | Descripción                          |
 | ---------- | ------- | --------------------------------     |
 | ok         | Boolean | Verificador de respuesta             |
-| agencias   | Array   | Lista de objetos de tipo **Agencia** |
+| agencies   | Array   | Lista de objetos de tipo **Agencies** |
 
 ### Atributos Agencia creativas
 
-| Nombre      | Tipo    | Descripción                                                |
-| ----------- | ------- | ---------------------------------------------------------- |
-| ID          | Integer | Identificador de la agencia creativa                       |
-| nombre      | String  | Nombre de la agencia creativa                              |
+| Nombre      | Tipo    | Descripción                                   |
+| ----------- | ------- | ----------------------------------------------|
+| ID          | Integer | Identificador de la agencia creativa          |
+| name        | String  | Nombre de la agencia creativa                 |
 
 La API espera que todas las llamadas estén autenticadas con la Api key
 en el Authorization header:
@@ -208,42 +201,42 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 import requests
 import json
 
-url = "radioregional.megatime.cl/api/finder/agencias/medios"
+url = "radioregional.megatime.cl/api/finder/media-agencies"
 
 payload = json.dumps({
-  "nombre": "{filter_string}"
+  "name": "example"
 })
 headers = {
   'Authorization': 'SECRET_API_KEY',
   'Content-Type': 'application/json'
 }
 
-response = requests.request("POST", url, headers=headers, data=payload)
+response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
 
 ```
 
 ```shell
-curl --location --request POST 'radioregional.megatime.cl/api/finder/agencias/medios' \
+curl --location --request GET 'radioregional.megatime.cl/api/finder/media-agencies' \
 --header 'Authorization: SECRET_API_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "nombre": "{filter_string}"
+    "name": "example"
 }'
 ```
 
 ```javascript
 var request = require('request');
 var options = {
-  'method': 'POST',
-  'url': 'radioregional.megatime.cl/api/finder/agencias/medios',
+  'method': 'GET',
+  'url': 'radioregional.megatime.cl/api/finder/media-agencies',
   'headers': {
     'Authorization': 'SECRET_API_KEY',
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    "nombre": "{filter_string}"
+    "name": "`example`"
   })
 
 };
@@ -258,18 +251,14 @@ request(options, function (error, response) {
 ```json
 {
     "ok": true,
-    "agencias": [
+    "agencies": [
         {
-            "id": 240,
-            "nombre": "GOYA COMUNICACIONES (MEDIA)"
+            "id": 675,
+            "name": "12 PUBLICIDAD (MEDIA)"
         },
         {
-            "id": 391,
-            "nombre": "OLAYA Y VERGARA (MEDIA)"
-        },
-        {
-            "id": 342,
-            "nombre": "YANETT PUBLICIDAD (MEDIA)"
+            "id": 978,
+            "name": "A.P. PUBLICIDAD (MEDIA)"
         }
     ]
 }
@@ -279,21 +268,27 @@ Retorna las agencias de medios y su respectivo id. Se debe adjuntar una 'frase' 
 
 ### Llamada HTTP
 
-`POST radioregional.megatime.cl/api/finder/agencias/medios`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/finder/media-agencies`
+
+### Parametros URL
+
+| Nombre     | Tipo    | Descripción                                | Requerido |
+| ---------- | ------- | ---------------------------------------    | -------- |
+| name         | String |  Cadena de texto para filtrar por nombre  | No |
 
 ### Atributos Respuesta
 
-| Nombre     | Tipo    | Descripción                             |
-| ---------- | ------- | --------------------------------------- |
+| Nombre     | Tipo    | Descripción                             | 
+| ---------- | ------- | --------------------------------------- | 
 | ok         | Boolean | Verificador de respuesta                |
-| agencias   | Array   | Lista de objetos de tipo **Agencias**   |
+| agencies   | Array   | Lista de objetos de tipo **Agencies**   |
 
 ### Atributos Agencias de medios
 
-| Nombre            | Tipo    | Descripción                                                     |
-| ----------------- | ------- | --------------------------------------------------------------- |
-| ID                | Integer | Identificador de la agencia de medio                            |
-| nombre            | String  | Nombre de la agencia de medio                                   |
+| Nombre            | Tipo    | Descripción                                 |
+| ----------------- | ------- | --------------------------------------------|
+| ID                | Integer | Identificador de la agencia de medio        |
+| name            | String  | Nombre de la agencia de medio               |
 
 La API espera que todas las llamadas estén autenticadas con la Api key
 en el Authorization header:
@@ -310,42 +305,42 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 import requests
 import json
 
-url = "radioregional.megatime.cl/api/finder/empresas"
+url = "radioregional.megatime.cl/api/finder/companies"
 
 payload = json.dumps({
-  "nombre": "{filter_string}"
+  "name": "example"
 })
 headers = {
   'Authorization': 'SECRET_API_KEY',
   'Content-Type': 'application/json'
 }
 
-response = requests.request("POST", url, headers=headers, data=payload)
+response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
 
 ```
 
 ```shell
-curl --location --request POST 'radioregional.megatime.cl/api/finder/empresas' \
+curl --location --request GET 'radioregional.megatime.cl/api/finder/companies' \
 --header 'Authorization: SECRET_API_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "nombre": "{filter_string}"
+    "name": "example"
 }'
 ```
 
 ```javascript
 var request = require('request');
 var options = {
-  'method': 'POST',
-  'url': 'radioregional.megatime.cl/api/finder/empresas',
+  'method': 'GET',
+  'url': 'radioregional.megatime.cl/api/finder/companies',
   'headers': {
     'Authorization': 'SECRET_API_KEY',
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    "nombre": "{filter_string}"
+    "name": "example"
   })
 
 };
@@ -360,14 +355,18 @@ request(options, function (error, response) {
 ```json
 {
     "ok": true,
-    "empresas": [
+    "companies": [
         {
-            "id": 49189,
-            "nombre": "AARATI,JOYAS"
+            "id": 45672,
+            "name": "AARATI,JOYAS"
         },
         {
-            "id": 50149,
-            "nombre": "ACEROLAIS,JOYAS"
+            "id": 12387,
+            "name": "ACEROLAIS,JOYAS"
+        },
+        {
+            "id": 976453,
+            "name": "ACUARIO JOYAS"
         }
     ]
 }
@@ -377,21 +376,28 @@ Retorna las empresas y su respectivo id. Se debe adjuntar una 'frase' para filtr
 
 ### Llamada HTTP
 
-`POST radioregional.megatime.cl/api/finder/empresas`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/finder/companies`
+
+
+### Parametros URL
+
+| Nombre     | Tipo    | Descripción                                | Requerido |
+| ---------- | ------- | ---------------------------------------    | --------  |
+| name         | String |  Cadena de texto para filtrar por nombre  | No        |
 
 ### Atributos Respuesta
 
 | Nombre        | Tipo    | Descripción                                        |
 | ----------    | ------- | -------------------------------------------------- |
 | ok            | Boolean | Verificador de respuesta                           |
-| empresas      | Array   | Lista de objetos de tipo **Empresas**              |
+| companies      | Array   | Lista de objetos de tipo **Companies**              |
 
 ### Atributos Empresas
 
 | Nombre        | Tipo    | Descripción                              |
 | ------------- | ------- | ---------------------------------------- |
 | ID            | Integer | Identificador de la empresa              |
-| nombre        | String  | Nombre de la empresa                     |
+| name          | String  | Nombre de la empresa                     |
 
 La API espera que todas las llamadas estén autenticadas con la Api key
 en el Authorization header:
@@ -415,20 +421,20 @@ headers = {
   'Authorization': 'SECRET_API_KEY'
 }
 
-response = requests.request("POST", url, headers=headers, data=payload)
+response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
 ```
 
 ```shell
-curl --location --request POST 'radioregional.megatime.cl/api/finder/radios' \
+curl --location --request GET 'radioregional.megatime.cl/api/finder/radios' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
 ```javascript
 var request = require('request');
 var options = {
-  'method': 'POST',
+  'method': 'GET',
   'url': 'radioregional.megatime.cl/api/finder/radios',
   'headers': {
     'Authorization': 'SECRET_API_KEY'
@@ -447,16 +453,12 @@ request(options, function (error, response) {
     "ok": true,
     "radios": [
         {
-            "id": 7208,
+            "id": 3453,
             "nombre": "ACONCAGUA",
-            "prtg_id": 2312,
-            "url": ""
         },
         {
-            "id": 7063,
+            "id": 9867,
             "nombre": "AGUA MARINA",
-            "prtg_id": 2619,
-            "url": ""
         },
     ]
 }
@@ -466,7 +468,7 @@ Retorna las radios y su respectivo id.
 
 ### Llamada HTTP
 
-`POST radioregional.megatime.cl/api/finder/empresas`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/finder/radios`
 
 ### Atributos Respuesta
 
@@ -480,8 +482,7 @@ Retorna las radios y su respectivo id.
 | Nombre        | Tipo    | Descripción                                       |
 | ------------- | ------- | ------------------------------------------------- |
 | ID            | Integer | Identificador de la radio                         |
-| nombre        | String  | Nombre de la radio                                |
-| prtg_id       | Integer | Identificador del soporte /POR TERMINAR/          |
+| name          | String  | Nombre de la radio                                |
 
 La API espera que todas las llamadas estén autenticadas con la Api key
 en el Authorization header:
@@ -493,12 +494,12 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </aside>
 
 
-## Obtener Campaña mediante ID
+## Obtener detalle de una Campaña 
 
 ```python
 import requests
 
-url = "radioregional.megatime.cl/api/planes/{campaign_id}"
+url = "radioregional.megatime.cl/api/campaign/3554"
 
 payload={}
 headers = {
@@ -511,7 +512,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'radioregional.megatime.cl/api/planes/{campaign_id}' \
+curl --location --request GET 'radioregional.megatime.cl/api/campagin/3554' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -519,7 +520,7 @@ curl --location --request GET 'radioregional.megatime.cl/api/planes/{campaign_id
 var request = require('request');
 var options = {
   'method': 'GET',
-  'url': 'radioregional.megatime.cl/api/planes/{campaign_id}',
+  'url': 'radioregional.megatime.cl/api/campaign/3554',
   'headers': {
     'Authorization': 'SECRET_API_KEY'
   }
@@ -535,45 +536,48 @@ request(options, function (error, response) {
 
 ```json
 {
-    "id": "3098",
+    "id": "3554",
     "external_id": 0,
-    "nombre": "MOVISTAR FIBRA Example ",
-    "empresa_id": 0,
-    "empresa_nombre": "MOVISTAR Example",
-    "agmedio_id": 577,
-    "agmedio_nombre": "MEDIA GROUP",
-    "agcreativa_id": 953,
-    "agcreativa_nombre": "DIRECTOS",
-    "fecha_inicio": "2021-12-23T00:00:00.000Z",
-    "fecha_termino": "2021-12-31T00:00:00.000Z",
+    "name": "Example ",
+    "company": "Example",
+    "media_agency": "GROUPM (MEDIA)",
+    "creative_agency": "DIRECTOS",
+    "start_date": "03-01-2022",
+    "end_date": "31-01-2022",
     "radios": [
         {
-            "radio_id": 9881,
-            "nombre": "EXQUISITA",
-            "fechas": [
+            "radio_id": 3453,
+            "name": "VALPARAISO",
+            "dates": [
                 {
-                    "dia": "20211224",
-                    "cantidad": 4,
-                    "completado": 0,
-                    "cantidadEncontrada": 3
+                    "day": "20220103",
+                    "quantity": 3,
+                    "completed": 0,
+                    "quantity_found": 0
                 },
                 {
-                    "dia": "20211225",
-                    "cantidad": 4,
-                    "completado": 1,
-                    "cantidadEncontrada": 4
-                },
+                    "day": "20220104",
+                    "quantity": 3,
+                    "completed": 0,
+                    "quantity_found": 0
+                }
             ]
-        },
-        ]
-    ,
+        }
+    ],
     "audios": [
         {
             "index": 0,
-            "id": 5690,
-            "name": "nombre_audio.mp3",
-            "source": "https://radioregional.megatime.cl/api/audios/{id_audio}",
-            "createAt": "2021-12-21T12:43:19.550Z"
+            "id": 3126,
+            "name": "example_name.mp3",
+            "source": "http://localhost:4900/api/audios/3126",
+            "createAt": "2022-01-04T17:50:14.810Z"
+        },
+        {
+            "index": 1,
+            "id": 3127,
+            "name": "example_name.mp3",
+            "source": "http://localhost:4900/api/audios/3127",
+            "createAt": "2022-01-04T17:50:15.437Z"
         }
     ],
     "ok": true
@@ -584,7 +588,7 @@ Retorna los detalles de una campaña. La busqueda se realiza mediante el ID de l
 
 ### Llamada HTTP
 
-`GET radioregional.megatime.cl/api/planes/{campaign_id}`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/campagin/3554`
 
 ### Atributos Respuesta
 
@@ -592,15 +596,12 @@ Retorna los detalles de una campaña. La busqueda se realiza mediante el ID de l
 | ----------           | -------     | --------------------------------------------------              |
 | id                   | Integer     | Identificador de la campaña                                     |
 | external_id          | Integer     | Identificador externo creado por el usuario                     |
-| nombre               | String      | Nombre de la campaña                                            |
-| empresa_id           | Integer     | Identificador de la empresa                                     |
-| empresa_nombre       | String      | Nombre de la empresa                                            |
-| agmedio_id           | Integer     | Identificador de la agencia de medios                           |
-| agmedio_nombre       | String      | Nombre de la agencia de medios                                  |
-| agcreativa_id        | Integer     | Identificador de la agencia creativa                            |
-| agcreativa_nombre    | String      | Nombre de la agencia creativa                                   |
-| fecha_inicio         | String      | Fecha de inicio de la campaña en formato YYYY-MM-DD HH-MM-SS    |
-| fecha_termino        | String      | Fecha de termino de la campaña en formato  YYYY-MM-DD HH-MM-SS  |
+| name                 | String      | Nombre de la campaña                                            |
+| company              | String      | Nombre de la empresa                                            |
+| media_agency         | String      | Nombre de la agencia de medios                                  |
+| creative_agency      | String      | Nombre de la agencia creativa                                   |
+| start_date           | String      | Fecha de inicio de la campaña en formato DD-MM-YYYY             |
+| end_date             | String      | Fecha de termino de la campaña en formato DD-MM-YYYY          |
 | radios               | Array       | Lista de objetos de tipo **radios**                             |
 | audios               | Array       | Lista de objetos de tipo **audios**                             |
 | ok                   | Boolean     | Verificador de respuesta                                        |
@@ -611,18 +612,18 @@ Retorna los detalles de una campaña. La busqueda se realiza mediante el ID de l
 | Nombre        | Tipo    | Descripción                                                 |
 | ------------- | ------- | ----------------------------------------------------------- |
 | radio_id      | Integer | Identificador de la radio                                   |
-| nombre        | String  | Nombre de la radio                                          |
-| fechas        | Array   | Lista de objetos de tipo **fechas**                         |
+| name          | String  | Nombre de la radio                                          |
+| dates         | Array   | Lista de objetos de tipo **dates**                          |
 
 
-### Atributos Fechas
+### Atributos Dates
 
 | Nombre             | Tipo     | Descripción                                                       |
 | -------------      | -------  | -----------------------------------------------------------       |
-| dia                | String   | Fecha en la que se contabilizo los avisajes en formato YYYYMMDD   |
-| cantidad           | Integer  | Cantidad de avisajes esperados en esa fecha                       |
-| completado         | Integer  | Numero verificador de avisajes, si es "1" fue completado en su totalidad, si es "0" no fue completado  |
-| cantidadEncontrada | Integer  | Cantidad de avisajes detectados                  |
+| day                | String   | Fecha en la que se contabilizo los avisajes en formato YYYYMMDD   |
+| quantity           | Integer  | Cantidad de avisajes esperados en esa fecha                       |
+| completed          | Integer  | Verificador de avisajes, si es "1" fue completado en su totalidad, si es "0" no fue completado  |
+| quantity_found     | Integer  | Cantidad de avisajes detectados                  |
 
 ### Atributos Audios
 
@@ -644,58 +645,44 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </aside>
 
 
-## Obtener Campañas
+## Obtener Campañas en un rango de fechas
 
 ```python
 import requests
-import json
 
-url = "radioregional.megatime.cl/api/planes/"
+url = "radioregional.megatime.cl/api/campaign/search/?start_date=12-11-2021&end_date=12-01-2022"
 
-payload = json.dumps({
-  "year": "YYYY",
-  "month": "MM"
-})
+payload={}
 headers = {
-  'Authorization': 'SECRET_API_KEY',
-  'Content-Type': 'application/json'
+  'Authorization': 'SECRET_API_KEY'
 }
 
-response = requests.request("POST", url, headers=headers, data=payload)
+response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
+
 
 ```
 
 ```shell
-curl --location --request POST 'radioregional.megatime.cl/api/planes/' \
---header 'Authorization: SECRET_API_KEY' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "year": "YYYY",
-    "month": "MM"
-}'
+curl --location --request GET 'radioregional.megatime.cl/api/campaign/search/?start_date=12-11-2021&end_date=12-01-2022' \
+--header 'Authorization: SECRET_API_KEY'
 ```
 
 ```javascript
 var request = require('request');
 var options = {
-  'method': 'POST',
-  'url': 'radioregional.megatime.cl/api/planes/',
+  'method': 'GET',
+  'url': 'radioregional.megatime.cl/api/campaign/search/?start_date=12-11-2021&end_date=12-01-2022',
   'headers': {
-    'Authorization': 'SECRET_API_KEY',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    "year": "YYYY",
-    "month": "MM"
-  })
-
+    'Authorization': 'SECRET_API_KEY'
+  }
 };
 request(options, function (error, response) {
   if (error) throw new Error(error);
   console.log(response.body);
 });
+
 ```
 
 > Ejemplo de retorno en formato JSON:
@@ -703,30 +690,43 @@ request(options, function (error, response) {
 ```json
 {
     "ok": true,
-    "planes": [
+    "campaigns": [
         {
-            "id": {campaign_id},
+            "campaign_id": 4456,
+            "campaign": "BANCO ESTADO CUENTA RUT MIGRACION ENERO",
+            "company": "BANCO ESTADO",
+            "media_agency": "GROUPM (MEDIA)",
+            "creative_agency": "DIRECTOS",
+            "creation_date": "2022-01-19 13:00:26",
+            "start_date": "19-01-2022",
+            "end_date": "31-01-2022",
             "external_id": 0,
-            "nombre": "HUGHESNET",
-            "empresa_nombre": "IMS CHILE",
-            "agmedio_nombre": "DIRECTOS",
-            "agcreativa_nombre": "DIRECTOS",
-            "fecha_inicio": "2021-04-26T00:00:00.000Z",
-            "fecha_termino": "2021-12-23T00:00:00.000Z",
-            "cantidad_audios": 4
+            "audios": [
+                {
+                    "audio_id": 7556,
+                    "audio": "example_name.mp3",
+                    "campaign_id": 9668,
+                }
+            ]
         },
         {
-            "id": {campaign_id},
+            "campaign_id": 4457,
+            "campaign": "BANCO CHILE DRONES",
+            "company": "BANCO CHILE",
+            "media_agency": "OMG",
+            "creative_agency": "DIRECTOS",
+            "creation_date": "2022-01-19 12:58:07",
+            "start_date": "17-01-2022",
+            "end_date": "22-01-2022",
             "external_id": 0,
-            "nombre": "UNIMARC",
-            "empresa_nombre": "UNIMARC",
-            "agmedio_nombre": "HAVAS",
-            "agcreativa_nombre": "DIRECTOS",
-            "fecha_inicio": "2021-06-02T00:00:00.000Z",
-            "fecha_termino": "2022-01-01T00:00:00.000Z",
-            "cantidad_audios": 93
-        },
-    ]
+            "audios": [
+                {
+                    "audio_id": 77476,
+                    "audio": "example_name.mp3",
+                    "campaign_id": 5567,
+                }
+            ]
+        }
 }
 ```
 
@@ -734,28 +734,45 @@ Retorna una lista de campañas en base a un rango de fecha.
 
 ### Llamada HTTP
 
-`POST radioregional.megatime.cl/api/planes`
+<span style="color: rgb(170, 117, 28);"> **GET**</span> `https://radioregional.megatime.cl/api/campaign/search`
+
+
+### Parametros URL
+
+| Nombre     | Tipo    | Descripción                                           | Requerido |
+| ---------- | ------- | ---------------------------------------               | --------  |
+| start_date | String  |  Fecha de inicio de la campaña en formato DD-MM-YYYY  | Si        |
+| end_date   | String  |  Fecha de termino de la campaña en formato DD-MM-YYYY | Si        |
 
 ### Atributos Respuesta
 
 | Nombre               | Tipo        | Descripción                                                |
 | ----------           | -------     | --------------------------------------------------         |
 | ok                   | Integer     | Verificador de respuesta                                   |
-| planes               | Array       | Lista de objetos de tipo **planes**                        |
+| campaigns            | Array       | Lista de objetos de tipo **campaigns**                     |
 
-### Atributos Planes
+### Atributos Campaigns
 
 | Nombre            | Tipo    | Descripción                                                   |
 | -------------     | ------- | -----------------------------------------------------------   |
-| id                | Integer | Identificador de la campaña                                   |
+| campaign_id       | Integer | Identificador de la campaña                                   |
 | external_id       | Integer | Identificador externo de la campaña                           |
-| nombre            | String  | Nombre de la campaña                                          |
-| empresa_nombre    | String  | Nombre de la empresa                                          |
-| agmedio_nombre    | String  | Nombre de la agencias de medios                               |
-| agcreativa_nombre | String  | Nombre de la agencia creativa                                 |
-| fecha_inicio      | String  | Fecha de inicio de la campaña en formato YYYY-MM-DD HH-MM-SS  |
-| fecha_termino     | String  | Fecha de termino de la campaña en formato YYYY-MM-DD HH-MM-SS |
-| cantidad_audios   | Integer | Cantidad de audios subidos a la campaña                       |
+| campaign          | String  | Nombre de la campaña                                          |
+| company           | String  | Nombre de la empresa                                          |
+| media_agency      | String  | Nombre de la agencias de medios                               |
+| creative_agency   | String  | Nombre de la agencia creativa                                 |
+| start_date        | String  | Fecha de inicio de la campaña en formato DD-MM-YYYY           |
+| end_date          | String  | Fecha de termino de la campaña en formato DD-MM-YYYY          |
+| external_id       | Integer | Identificador externo                                         |
+| audios            | Array   | Lista de objetos de tipo **audios**                           |
+
+### Atributos Audios
+
+| Nombre               | Tipo        | Descripción                         |
+| ----------           | -------     | ------------------------------------|
+| audio_id             | Integer     | Identificador del audio             |
+| audio                | String      | Nombre del audio                    |
+| campaign_id          | Integer     | Identificador de la campaña         |
 
 La API espera que todas las llamadas estén autenticadas con la Api key
 en el Authorization header:
@@ -773,13 +790,13 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 import requests
 import json
 
-url = "radioregional.megatime.cl/api/planes/add"
+url = "radioregional.megatime.cl/api/campaign/add"
 
 payload = json.dumps({
-  "nombre": "ExampleCampaña",
-  "empresa_nombre": "Example Empresa",
-  "agmedio_nombre": "Example Ag medio",
-  "agcreativa_nombre": "Example Ag creativa"
+  "name": "ExampleCampaña",
+  "company": "Example Empresa",
+  "media_agency": "Example Ag medio",
+  "creative_agency": "Example Ag creativa"
 })
 headers = {
   'Authorization': 'SECRET_API_KEY',
@@ -793,14 +810,14 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request POST 'radioregional.megatime.cl/api/planes/add' \
+curl --location --request POST 'radioregional.megatime.cl/api/campaign/add' \
 --header 'Authorization: SECRET_API_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "nombre": "ExampleCampaña",
-    "empresa_nombre":"Example Empresa",
-    "agmedio_nombre":"Example Ag medio",
-    "agcreativa_nombre":"Example Ag creativa"
+  "name": "ExampleCampaña",
+  "company": "Example Empresa",
+  "media_agency": "Example Ag medio",
+  "creative_agency": "Example Ag creativa"
 }'
 ```
 
@@ -808,16 +825,16 @@ curl --location --request POST 'radioregional.megatime.cl/api/planes/add' \
 var request = require('request');
 var options = {
   'method': 'POST',
-  'url': 'radioregional.megatime.cl/api/planes/add',
+  'url': 'radioregional.megatime.cl/api/campaign/add',
   'headers': {
     'Authorization': 'SECRET_API_KEY',
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    "nombre": "ExampleCampaña",
-    "empresa_nombre": "Example Empresa",
-    "agmedio_nombre": "Example Ag medio",
-    "agcreativa_nombre": "Example Ag creativa"
+    "name": "ExampleCampaña",
+    "company": "Example Empresa",
+    "media_agency": "Example Ag medio",
+    "creative_agency": "Example Ag creativa"
   })
 
 };
@@ -833,30 +850,8 @@ request(options, function (error, response) {
 ```json
 {
     "ok": true,
-    "planes": [
-        {
-            "id": {campaign_id},
-            "external_id": 0,
-            "nombre": "HUGHESNET",
-            "empresa_nombre": "IMS CHILE",
-            "agmedio_nombre": "DIRECTOS",
-            "agcreativa_nombre": "DIRECTOS",
-            "fecha_inicio": "2021-04-26T00:00:00.000Z",
-            "fecha_termino": "2021-12-23T00:00:00.000Z",
-            "cantidad_audios": 4
-        },
-        {
-            "id": {campaign_id},
-            "external_id": 0,
-            "nombre": "UNIMARC",
-            "empresa_nombre": "UNIMARC",
-            "agmedio_nombre": "HAVAS",
-            "agcreativa_nombre": "DIRECTOS",
-            "fecha_inicio": "2021-06-02T00:00:00.000Z",
-            "fecha_termino": "2022-01-01T00:00:00.000Z",
-            "cantidad_audios": 93
-        },
-    ]
+    "campaign_id": 3334,
+    "message": "Campaña ingresada correctamente."
 }
 ```
 
@@ -864,24 +859,24 @@ Crea una nueva campaña.
 
 ### Llamada HTTP
 
-`POST radioregional.megatime.cl/api/planes/add`
+<span style="color: rgb(170, 117, 28);"> **POST**</span> `https://radioregional.megatime.cl/api/campaign/add`
 
 ### Parametros Body
 
-| Nombre               | Tipo        | Descripción                                                |
-| ----------           | -------     | --------------------------------------------------         |
-| nombre               | String      | Nombre de la campaña a crear                               |
-| empresa_nombre       | String      | Nombre de la empresa                                       |
-| agmedio_nombre       | String      | Nombre de la agencia de medios                             |
-| agcreativa_nombre    | String      | Nombre de la agencia creativa                              |
+| Nombre               | Tipo        | Descripción                                  | Requerido |
+| ----------           | -------     | ---------------------------------------------| --------- |
+| name                 | String      | Nombre de la campaña a crear                 | Si |
+| company              | String      | Nombre de la empresa                         | Si |
+| media_agency         | String      | Nombre de la agencia de medios               | Si |
+| creative_agency      | String      | Nombre de la agencia creativa                | Si |
 
 ### Atributos Respuesta
 
-| Nombre               | Tipo        | Descripción                                                |
-| ----------           | -------     | --------------------------------------------------         |
-| ok                   | Boolean     | Verificador de respuesta                                   |
-| campaign_id          | Integer     | Identificador de la nueva campaña generada                 |
-| message              | String      | Mensaje de estado                                          |
+| Nombre               | Tipo        | Descripción                                    |
+| ----------           | -------     | -----------------------------------------------|
+| ok                   | Boolean     | Verificador de respuesta                       |
+| campaign_id          | Integer     | Identificador de la nueva campaña generada     |
+| message              | String      | Mensaje de estado                              |
 
 
 La API espera que todas las llamadas estén autenticadas con la Api key
@@ -900,14 +895,16 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 import requests
 import json
 
-url = "radioregional.megatime.cl/api/planes/edit"
+url = "radioregional.megatime.cl/api/campaign/edit"
 
 payload = json.dumps({
-  "id": {campaign_id},
-  "nombre": "ExampleCampaña",
-  "empresa_nombre": "Example empresa",
-  "agmedio_nombre": "Example Ag medios",
-  "agcreativa_nombre": "Example Ag creativa"
+    "id": 9987,
+    "name": "Example Name",
+    "company":"Example Name",
+    "media_agency":"Example Name",
+    "creative_agency":"Example Name",
+    "start_date": "2022-01-18",
+    "end_date": "2022-01-25"
 })
 headers = {
   'Authorization': 'SECRET_API_KEY',
@@ -921,15 +918,17 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request POST 'radioregional.megatime.cl/api/planes/edit' \
+curl --location --request POST 'radioregional.megatime.cl/api/campaign/edit' \
 --header 'Authorization: SECRET_API_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "id":{campaign_id},
-    "nombre":"ExamplePlan",
-    "empresa_nombre":"Example Empresa",
-    "agmedio_nombre":"Example Ag medio",
-    "agcreativa_nombre":"Example Ag creativa"
+    "id": 9987,
+    "name": "Example Name",
+    "company":"Example Name",
+    "media_agency":"Example Name",
+    "creative_agency":"Example Name",
+    "start_date": "2022-01-18",
+    "end_date": "2022-01-25"
 }'
 ```
 
@@ -937,17 +936,19 @@ curl --location --request POST 'radioregional.megatime.cl/api/planes/edit' \
 var request = require('request');
 var options = {
   'method': 'POST',
-  'url': 'radioregional.megatime.cl/api/planes/edit',
+  'url': 'radioregional.megatime.cl/api/campaign/edit',
   'headers': {
     'Authorization': 'SECRET_API_KEY',
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    "id": {campaign_id},
-    "nombre": "ExamplePlan",
-    "empresa_nombre": "Example Empresa",
-    "agmedio_nombre": "Example Ag medio",
-    "agcreativa_nombre": "Example Ag creativa"
+    "id": 9987,
+    "name": "Example Name",
+    "company":"Example Name",
+    "media_agency":"Example Name",
+    "creative_agency":"Example Name",
+    "start_date": "2022-01-18",
+    "end_date": "2022-01-25"
   })
 
 };
@@ -963,7 +964,7 @@ request(options, function (error, response) {
 ```json
 {
     "ok": true,
-    "campaign_id": {campaign_id},
+    "campaign_id": 9987,
     "message": "Cambios guardados correctamente."
 }
 ```
@@ -972,25 +973,25 @@ Edita una campaña.
 
 ### Llamada HTTP
 
-`POST radioregional.megatime.cl/api/planes/add`
+<span style="color: rgb(170, 117, 28);"> **POST**</span> `https://radioregional.megatime.cl/api/campaign/edit`
 
 ### Parametros Body
 
-| Nombre               | Tipo        | Descripción                                                |
-| ----------           | -------     | --------------------------------------------------         |
-| id                   | Integer     | Identificador de la campaña                                |
-| nombre               | String      | Nombre del plan a crear                                    |
-| empresa_nombre       | String      | Nombre de la empresa asociada                              |
-| agmedio_nombre       | String      | Nombre de la agencia de medios                             |
-| agcreativa_nombre    | String      | Nombre de la agencia creativa                              |
+| Nombre               | Tipo        | Descripción                            | Requerido |
+| ----------           | -------     | ---------------------------------------| --------- |
+| id                   | Integer     | Identificador de la campaña            | Si |
+| nombre               | String      | Nombre del plan a crear                | Si |
+| empresa_nombre       | String      | Nombre de la empresa asociada          | Si |
+| agmedio_nombre       | String      | Nombre de la agencia de medios         | Si |
+| agcreativa_nombre    | String      | Nombre de la agencia creativa          | Si |
 
 ### Atributos Respuesta
 
-| Nombre               | Tipo        | Descripción                                                |
-| ----------           | -------     | --------------------------------------------------         |
-| ok                   | Boolean     | Verificador de respuesta                                   |
-| campaign_id          | Integer     | Identificador de la nueva campaña generada                 |
-| message              | String      | Mensaje de estado                                          |
+| Nombre               | Tipo        | Descripción                                     |
+| ----------           | -------     | ------------------------------------------------|
+| ok                   | Boolean     | Verificador de respuesta                        |
+| campaign_id          | Integer     | Identificador de la nueva campaña generada      |
+| message              | String      | Mensaje de estado                               |
 
 
 La API espera que todas las llamadas estén autenticadas con la Api key
@@ -1007,7 +1008,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 ```python
 import requests
 
-url = "https://radioregional.megatime.cl/api/audios/{audio_id}"
+url = "https://radioregional.megatime.cl/api/audios/file/3345"
 
 payload={}
 headers = {
@@ -1021,7 +1022,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'https://radioregional.megatime.cl/api/audios/{audio_id}' \
+curl --location --request GET 'https://radioregional.megatime.cl/api/audios/file/3345' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -1029,7 +1030,7 @@ curl --location --request GET 'https://radioregional.megatime.cl/api/audios/{aud
 var request = require('request');
 var options = {
   'method': 'GET',
-  'url': 'https://radioregional.megatime.cl/api/audios/{audio_id}',
+  'url': 'https://radioregional.megatime.cl/api/audios/file/3345',
   'headers': {
     'Authorization': 'SECRET_API_KEY'
   }
@@ -1044,29 +1045,30 @@ request(options, function (error, response) {
 
 ```json
 {
-    "ok": true,
-    "campaign_id": {campaign_id},
-    "message": "Cambios guardados correctamente."
+    "url_audio" : "https://s3.amazonaws.com/radioregional.megatime.cl/
+                  user-audios/audio_3134.mp3?AWSAccessKeyId=dJKSUDSUYBSM&Expires=1642660988"
 }
 ```
 
-Subir audio a un plan.
+
+Obtener url de un audio en especifico.
 
 ### Llamada HTTP
 
-`GET https://radioregional.megatime.cl/api/audios/{audio_id}`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/audios/{audio_id}`
 
 ### Parametros URL
 
-| Nombre               | Tipo        | Descripción                                                |
-| ----------           | -------     | --------------------------------------------------         |
-| audio_id             | Integer     | Identificador del audio                                    |
+| Nombre      | Tipo        | Descripción                   |
+| ----------  | -------     | ------------------------------|
+| audio_id    | Integer     | Identificador del audio       |
 
 
 ### Atributos Respuesta
 
-Redireccion a url donde se puede reproducir el audio.
-
+| Nombre               | Tipo        | Descripción                                     |
+| ----------           | -------     | ------------------------------------------------|
+| audio_url            | String      | Url del audio                                   |
 
 La API espera que todas las llamadas estén autenticadas con la Api key
 en el Authorization header:
@@ -1083,7 +1085,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 ```python
 import requests
 
-url = "https://radioregional.megatime.cl/api/planes/upload/audio/{path_audio}"
+url = "https://radioregional.megatime.cl/api/campaign/upload/audio/{path_audio}"
 
 payload={}
 files=[
@@ -1100,7 +1102,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request POST 'https://radioregional.megatime.cl/api/planes/upload/audio/{campaign_id}' \
+curl --location --request POST 'https://radioregional.megatime.cl/api/campaign/upload/audio/{campaign_id}' \
 --header 'Authorization: SECRET_API_KEY' \
 --form 'audio=@"/{path_audio}/file_example_MP3_700KB.mp3"'
 ```
@@ -1110,7 +1112,7 @@ var request = require('request');
 var fs = require('fs');
 var options = {
   'method': 'POST',
-  'url': 'https://radioregional.megatime.cl/api/planes/upload/audio/{campaign_id}',
+  'url': 'https://radioregional.megatime.cl/api/campaign/upload/audio/{campaign_id}',
   'headers': {
     'Authorization': 'SECRET_API_KEY'
   },
@@ -1136,7 +1138,7 @@ request(options, function (error, response) {
 ```json
 {
     "ok": true,
-    "campaign_id": {campaign_id},
+    "campaign_id": 2234,
     "message": "Cambios guardados correctamente."
 }
 ```
@@ -1145,22 +1147,22 @@ Subir audio a un plan.
 
 ### Llamada HTTP
 
-`POST radioregional.megatime.cl/api/upload/audio/{campaign_id}`
+<span style="color: rgb(170, 117, 28);"> **POST**</span> `https://radioregional.megatime.cl/api/upload/audio/{campaign_id}`
 
 ### Parametros URL
 
-| Nombre               | Tipo        | Descripción                                                |
-| ----------           | -------     | --------------------------------------------------         |
-| campaign_id          | Integer     | Identificador de la campaña                                |
+| Nombre          | Tipo        | Descripción                     |
+| ----------      | -------     | --------------------------------|
+| campaign_id     | Integer     | Identificador de la campaña     |
 
 
 ### Atributos Respuesta
 
-| Nombre               | Tipo        | Descripción                                                |
-| ----------           | -------     | --------------------------------------------------         |
-| ok                   | Boolean     | Verificador de respuesta                                   |
-| campaign_id          | Integer     | Identificador de la nueva campaña generada                 |
-| message              | String      | Mensaje de estado                                          |
+| Nombre         | Tipo        | Descripción                                      |
+| ----------     | -------     | -------------------------------------------------|
+| ok             | Boolean     | Verificador de respuesta                         |
+| campaign_id    | Integer     | Identificador de la nueva campaña generada       |
+| message        | String      | Mensaje de estado                                |
 
 
 La API espera que todas las llamadas estén autenticadas con la Api key
@@ -1222,46 +1224,46 @@ request(options, function (error, response) {
     "end_date": "27-12-2021",
     "spots": [
         {
-            "ID": {spot_id},
+            "ID": 44556,
             "date": "2021-12-27T00:00:00.000Z",
             "hour": 18,
             "minute": 57,
             "second": 36,
             "duration": 30,
-            "support": 10123,
+            "support": 6678,
             "company": "MOVISTAR",
-            "company_id": 1870,
+            "company_id": 87564,
             "product": "MOVISTAR,FIBRA MOVISTAR",
             "advertisement": "MOVISTAR,FIBRA MOVISTAR,TENEMOS EL MEJOR INTERNET HOGAR",
-            "product_id": 303603,
+            "product_id": 7867,
             "brand": "MOVISTAR",
-            "brand_id": 81824,
+            "brand_id": 5567,
             "industry": "TELEFONIA",
-            "industry_id": 405,
+            "industry_id": 7759,
             "sub_industry": "SERVICIO DE TRANSMISION DE LA INFORMACION",
-            "sub_industry_id": 6355,
-            "campaign_id": {campaign_id}
+            "sub_industry_id": 4456,
+            "campaign_id": 5666
         },
         {
-            "ID": {spot_id},
+            "ID": 44556,
             "date": "2021-12-27T00:00:00.000Z",
             "hour": 18,
             "minute": 33,
             "second": 42,
             "duration": 30,
-            "support": 10117,
+            "support": 6678,
             "company": "MOVISTAR",
-            "company_id": 1870,
+            "company_id": 87564,
             "product": "MOVISTAR,FIBRA MOVISTAR",
             "advertisement": "MOVISTAR,FIBRA MOVISTAR,TENEMOS EL MEJOR INTERNET HOGAR",
-            "product_id": 303603,
+            "product_id": 7867,
             "brand": "MOVISTAR",
-            "brand_id": 81824,
+            "brand_id": 5567,
             "industry": "TELEFONIA",
-            "industry_id": 405,
+            "industry_id": 7759,
             "sub_industry": "SERVICIO DE TRANSMISION DE LA INFORMACION",
-            "sub_industry_id": 6355,
-            "campaign_id": {campaign_id}
+            "sub_industry_id": 4456,
+            "campaign_id": 5666
         }
     ]
 }
@@ -1271,7 +1273,7 @@ Obtener los avisajes de una campaña en especifico, o de todos las campañas de 
 
 ### Llamada HTTP
 
-`POST https://radioregional.megatime.cl/api/spots?start_date={DD-MM-YYYY}&end_date={DD-MM-YYYY}&campaign_id={campaign_id}`
+<span style="color: rgb(170, 117, 28);"> **POST**</span> `https://radioregional.megatime.cl/api/spots?start_date={DD-MM-YYYY}&end_date={DD-MM-YYYY}&campaign_id={campaign_id}`
 
 ### Parametros URL
 
@@ -1284,19 +1286,19 @@ Obtener los avisajes de una campaña en especifico, o de todos las campañas de 
 
 ### Atributos Respuesta
 
-| Nombre               | Tipo        | Descripción                                                |
-| ----------           | -------     | --------------------------------------------------         |
-| ok                   | Boolean     | Verificador de respuesta                                   |
-| start_date           | String      | Fecha de inicio en formato DD-MM-YYYY                      |
-| end_date             | String      | Fecha de inicio en formato DD-MM-YYYY                      |
-| spots                | Array       | Lista de objetos de tipo **spots**                         |
+| Nombre               | Tipo        | Descripción                                  |
+| ----------           | -------     | ---------------------------------------------|
+| ok                   | Boolean     | Verificador de respuesta                     |
+| start_date           | String      | Fecha de inicio en formato DD-MM-YYYY        |
+| end_date             | String      | Fecha de inicio en formato DD-MM-YYYY        |
+| spots                | Array       | Lista de objetos de tipo **spots**           |
 
 ### Atributos Spots
 
 | Nombre            | Tipo    | Descripción                                                 |
 | -------------     | ------- | ----------------------------------------------------------- |
 | id                | Integer | Identificador del plan                                      |
-| date              | String  | Fecha del avisaje en formato YYYY-MM-DD 00:00:00            |
+| date              | String  | Fecha del avisaje en formato DD-MM-YYYY                     |
 | hour              | Integer | Hora del avisaje en formato 24Horas                         |
 | minute            | Integer | Minuto del avisaje                                          |
 | second            | Integer | Segundo del avisaje                                         |
