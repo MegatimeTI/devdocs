@@ -89,7 +89,7 @@ en el Authorization header:
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
 
-## Obtener Agencias Creativas
+## Obtener Agencias_Creativas
 
 ```python
 import requests
@@ -179,7 +179,7 @@ Retorna las agencias creativas y su respectivo id. Se puede adjuntar una 'frase'
 | ok         | Boolean | Verificador de respuesta             |
 | agencies   | Array   | Lista de objetos de tipo **Agencies** |
 
-### Atributos Agencia creativas
+### Atributos Agencia_creativas
 
 | Nombre      | Tipo    | Descripción                                   |
 | ----------- | ------- | ----------------------------------------------|
@@ -195,7 +195,7 @@ en el Authorization header:
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
 
-## Obtener Agencias de medios
+## Obtener Agencias_de_medios
 
 ```python
 import requests
@@ -299,7 +299,7 @@ en el Authorization header:
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
 
-## Obtener Empresas
+## Obtener_Empresas
 
 ```python
 import requests
@@ -409,7 +409,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </aside>
 
 
-## Obtener Radios
+## Obtener_Radios
 
 ```python
 import requests
@@ -569,14 +569,14 @@ request(options, function (error, response) {
             "index": 0,
             "id": 3126,
             "name": "example_name.mp3",
-            "source": "http://localhost:4900/api/audios/3126",
+            "source": "https://radioregional.megatime.cl/api/audios/3126",
             "createAt": "2022-01-04T17:50:14.810Z"
         },
         {
             "index": 1,
             "id": 3127,
             "name": "example_name.mp3",
-            "source": "http://localhost:4900/api/audios/3127",
+            "source": "https://radioregional.megatime.cl/api/audios/3127",
             "createAt": "2022-01-04T17:50:15.437Z"
         }
     ],
@@ -588,7 +588,7 @@ Retorna los detalles de una campaña. La busqueda se realiza mediante el ID de l
 
 ### Llamada HTTP
 
-<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/campagin/3554`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/campagin/{campaign_ID}`
 
 ### Atributos Respuesta
 
@@ -944,7 +944,7 @@ Retorna una lista de campañas en base a un rango de fecha.
 
 ### Llamada HTTP
 
-<span style="color: rgb(170, 117, 28);"> **GET**</span> `https://radioregional.megatime.cl/api/campaign/search`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/campaign/search`
 
 
 ### Parametros URL

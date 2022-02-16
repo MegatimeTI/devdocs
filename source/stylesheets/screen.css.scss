@@ -477,6 +477,10 @@ html, body {
     &.success {
       background-color: $aside-success-bg;
     }
+
+    &.warning-yellow {
+      background-color: $aside-warning-yellow-bg;
+    }
   }
 
   aside:before {
@@ -490,6 +494,10 @@ html, body {
   }
 
   aside.warning:before {
+    @extend %icon-exclamation-sign;
+  }
+
+  aside.warning-yellow:before {
     @extend %icon-exclamation-sign;
   }
 
