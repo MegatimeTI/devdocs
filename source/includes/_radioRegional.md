@@ -1490,7 +1490,7 @@ Obtener los avisajes de una campaña en especifico, o de todos las campañas de 
 
 ### Llamada HTTP
 
-<span style="color: rgb(170, 117, 28);"> **POST**</span> `https://radioregional.megatime.cl/api/spots?start_date={DD-MM-YYYY}&end_date={DD-MM-YYYY}&campaign_id={campaign_id}`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/spots?start_date={DD-MM-YYYY}&end_date={DD-MM-YYYY}&campaign_id={campaign_id}`
 
 ### Parametros URL
 
