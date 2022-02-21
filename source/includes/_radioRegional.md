@@ -944,7 +944,8 @@ Retorna una lista de campañas en base a un rango de fecha.
 
 ### Llamada HTTP
 
-<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/campaign/search`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/campaign/search?start_date={DD-MM-YYYY}&end_date={DD-MM-
+YYYY}`
 
 
 ### Parametros URL
@@ -1213,7 +1214,7 @@ en el Authorization header:
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
 
-## Obtener audio inyectado
+## Obtener URL audio inyectado
 
 ```python
 import requests
@@ -1251,6 +1252,13 @@ request(options, function (error, response) {
 });
 ```
 
+> Ejemplo de retorno en formato JSON:
+
+```json
+{
+    "audio_url": "https://s3.amazonaws.com/radioregional.megatime.cl/user-audios/audio_1111.mp3"
+}
+```
 
 
 Obtener un audio inyectado según su ID.
@@ -1264,6 +1272,14 @@ Obtener un audio inyectado según su ID.
 | Nombre      | Tipo        | Descripción                   |
 | ----------  | -------     | ------------------------------|
 | audio_id    | Integer     | Identificador del audio       |
+
+
+### Atributos Respuesta
+
+| Nombre               | Tipo        | Descripción                                     |
+| ----------           | -------     | ------------------------------------------------|
+| audio_url            | String      | URL de audio inyectado                          |
+
 
 La API espera que todas las llamadas estén autenticadas con la Api key
 en el Authorization header:
@@ -1418,48 +1434,54 @@ request(options, function (error, response) {
     "start_date": "30-11-2021",
     "end_date": "27-12-2021",
     "spots": [
-        {
-            "ID": 44556,
-            "date": "2021-12-27T00:00:00.000Z",
-            "hour": 18,
+{
+            "ID": 111111,
+            "audio_id": 1111,
+            "audio": "example.mp3",
+            "date": "19-02-2022",
+            "hour": 29,
             "minute": 57,
-            "second": 36,
+            "second": 17,
             "duration": 30,
-            "support": 6678,
-            "company": "MOVISTAR",
-            "company_id": 87564,
-            "product": "MOVISTAR,FIBRA MOVISTAR",
-            "advertisement": "MOVISTAR,FIBRA MOVISTAR,TENEMOS EL MEJOR INTERNET HOGAR",
-            "product_id": 7867,
-            "brand": "MOVISTAR",
-            "brand_id": 5567,
-            "industry": "TELEFONIA",
-            "industry_id": 7759,
-            "sub_industry": "SERVICIO DE TRANSMISION DE LA INFORMACION",
-            "sub_industry_id": 4456,
-            "campaign_id": 5666
+            "radio_id": 7062,
+            "company": "HUGHESNET",
+            "company_id": 73004,
+            "product": "HUGHESNET,INTERNET SATELITAL",
+            "advertisement": "HUGHESNET,INTERNET SATELITAL,CON HUGHESNET DONDE VEAS EL CIE",
+            "product_id": 306312,
+            "category": "INTERNET",
+            "brand": "HUGHESNET",
+            "brand_id": 120705,
+            "industry": "PROVEEDORES",
+            "industry_id": 404,
+            "sub_industry": "PROVEEDOR DE ACCESO",
+            "sub_industry_id": 6313,
+            "campaign_id": 2118
         },
         {
-            "ID": 44556,
-            "date": "2021-12-27T00:00:00.000Z",
-            "hour": 18,
-            "minute": 33,
-            "second": 42,
-            "duration": 30,
-            "support": 6678,
+            "ID": 11111,
+            "audio_id": 1111,
+            "audio": "example.mp3",
+            "date": "19-02-2022",
+            "hour": 23,
+            "minute": 1,
+            "second": 37,
+            "duration": 24,
+            "radio_id": 7160,
             "company": "MOVISTAR",
-            "company_id": 87564,
-            "product": "MOVISTAR,FIBRA MOVISTAR",
-            "advertisement": "MOVISTAR,FIBRA MOVISTAR,TENEMOS EL MEJOR INTERNET HOGAR",
-            "product_id": 7867,
+            "company_id": 1870,
+            "product": "MOVISTAR,EMPRESAS,FIBRA",
+            "advertisement": "MOVISTAR,EMPRESAS,PLAN FIBRA 600 MEGAS SIMETRICO POR SOLO",
+            "product_id": 320249,
+            "category": "SERVICIOS AL CONSUMIDOR",
             "brand": "MOVISTAR",
-            "brand_id": 5567,
+            "brand_id": 81824,
             "industry": "TELEFONIA",
-            "industry_id": 7759,
-            "sub_industry": "SERVICIO DE TRANSMISION DE LA INFORMACION",
-            "sub_industry_id": 4456,
-            "campaign_id": 5666
-        }
+            "industry_id": 405,
+            "sub_industry": "SERVICIO DE TELEFONIA MOVIL",
+            "sub_industry_id": 6271,
+            "campaign_id": 2238
+        },
     ]
 }
 ```
