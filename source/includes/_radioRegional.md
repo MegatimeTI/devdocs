@@ -95,7 +95,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 import requests
 import json
 
-url = "radioregional.megatime.cl/api/finder/creative-agencies"
+url = "radioregional.megatime.cl/api/finder/creative_agencies"
 
 payload = json.dumps({
   "name": "example"
@@ -201,7 +201,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 import requests
 import json
 
-url = "radioregional.megatime.cl/api/finder/media-agencies"
+url = "radioregional.megatime.cl/api/finder/media_agencies"
 
 payload = json.dumps({
   "name": "example"
@@ -570,14 +570,14 @@ request(options, function (error, response) {
             "id": 3126,
             "name": "example_name.mp3",
             "source": "https://radioregional.megatime.cl/api/audios/3126",
-            "createAt": "2022-01-04T17:50:14.810Z"
+            "createAt": "04-01-2022 17:50"
         },
         {
             "index": 1,
             "id": 3127,
             "name": "example_name.mp3",
             "source": "https://radioregional.megatime.cl/api/audios/3127",
-            "createAt": "2022-01-04T17:50:15.437Z"
+            "createAt": "04-01-2022 17:50"
         }
     ],
     "ok": true
