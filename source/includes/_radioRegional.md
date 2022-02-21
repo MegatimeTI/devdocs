@@ -89,7 +89,7 @@ en el Authorization header:
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
 
-## Obtener Agencias_Creativas
+## Obtener Agen. Creativas (RR)
 
 ```python
 import requests
@@ -195,7 +195,7 @@ en el Authorization header:
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
 
-## Obtener Agencias_de_medios
+## Obtener Agen. de medios (RR)
 
 ```python
 import requests
@@ -299,7 +299,7 @@ en el Authorization header:
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
 
-## Obtener_Empresas
+## Obtener Empresas (RR)
 
 ```python
 import requests
@@ -409,7 +409,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </aside>
 
 
-## Obtener_Radios
+## Obtener Radios (RR)
 
 ```python
 import requests
@@ -855,7 +855,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 
 
 
-## Obtener Campañas en un rango de fechas
+## Obtener Campañas 
 
 ```python
 import requests
