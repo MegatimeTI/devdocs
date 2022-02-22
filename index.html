@@ -1691,13 +1691,13 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/spots?include=0&amp;media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;industries=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;categories=1,2,3,4,5&amp;qualities=1,2,3,4,5&amp;creative_agencies=1,2,3,4,5&amp;media_agencies=1,2,3,4,5&amp;group=1&amp;target=1'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/spots?include=1&amp;media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;industries=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;categories=1,2,3,4,5&amp;qualities=1,2,3,4,5&amp;creative_agencies=1,2,3,4,5&amp;media_agencies=1,2,3,4,5&amp;group=1&amp;target=1</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
-  <span class="p">}</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/spots?include=1&amp;media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;industries=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;categories=1,2,3,4,5&amp;qualities=1,2,3,4,5&amp;creative_agencies=1,2,3,4,5&amp;media_agencies=1,2,3,4,5&amp;group=1&amp;target=1</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -1778,6 +1778,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
       </span><span class="nl">"station"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SIN ESTACION"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"banner_URL"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"internet_campaign"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.3094840049743652</span><span class="p">,</span><span class="w">
       </span><span class="nl">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -1817,8 +1818,8 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <p>Ejemplo de retorno en formato JSON con error:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\"</span><span class="s2">value</span><span class="se">\"</span><span class="s2"> must contain at least one of [brands, companies, industries, sub_industries, products, group]"</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\"</span><span class="s2">value</span><span class="se">\"</span><span class="s2"> must contain at least one of [brands, companies, industries, sub_industries, products, group]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista de spots asociados a los filtros que se indique.</p>
@@ -1836,7 +1837,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <tr>
 <td>include</td>
 <td>Integer</td>
-<td><b>(Por defecto: 0)</b> 0 incluir Avisos y PNTs, 1 solo Avisos,  2 solo PNTs</td>
+<td><b>(Por defecto: 0)</b> 0 incluir Avisos y PNTs, 1 solo Avisos, 2 solo PNTs</td>
 <td>No</td>
 </tr>
 <tr>
@@ -2296,6 +2297,11 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 <td>En caso de publicidad de Internet, indica la url del banner</td>
 </tr>
 <tr>
+<td>internet_campaign</td>
+<td>String</td>
+<td>En caso de publicidad de Internet, indica indica el nombre de su campaña</td>
+</tr>
+<tr>
 <td>rating</td>
 <td>Float</td>
 <td><b>(Opcional)</b> Solo se devuelve en caso de entregar un parámetro <code>target</code>. Indica el rating para el grupo objetivo</td>
@@ -2377,13 +2383,13 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/verifier?media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/verifier?media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
-  <span class="p">}</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/verifier?media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -2463,7 +2469,8 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
       </span><span class="nl">"station_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nl">"station"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SIN ESTACION"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"banner_URL"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="nl">"banner_URL"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"internet_campaign"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2472,11 +2479,11 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 <p>Ejemplo de retorno en formato JSON con error:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"error"</span><span class="p">:</span><span class="s2">"</span><span class="se">\"</span><span class="s2">end_date</span><span class="se">\"</span><span class="s2"> is required"</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\"</span><span class="s2">end_date</span><span class="se">\"</span><span class="s2"> is required"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Retorna una lista con todos los spots del día o intervalo indicado. </p>
+<p>Retorna una lista con todos los spots del día o intervalo indicado.</p>
 <h3 id='llamada-http-3'>Llamada HTTP</h3>
 <p><code>GET datasuite.megatime.cl/verifier</code></p>
 <h3 id='parametros-url-2'>Parámetros URL</h3>
@@ -2873,6 +2880,11 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <td>String</td>
 <td>En caso de publicidad de Internet, indica la url del banner</td>
 </tr>
+<tr>
+<td>internet_campaign</td>
+<td>String</td>
+<td>En caso de publicidad de Internet, indica indica el nombre de su campaña</td>
+</tr>
 </tbody></table>
 <h2 id='obtener-avisos-con-actividad'>Obtener Avisos con actividad</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
@@ -2888,13 +2900,13 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/advertisement?media=1,2,3,4,5,6,7,8&amp;start_date=01-10-2021&amp;end_date=31-10-2021&amp;industries=1,2,3,4,5&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;group=1'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/advertisement?media=1,2,3,4,5,6,7,8&amp;start_date=01-10-2021&amp;end_date=31-10-2021&amp;industries=1,2,3,4,5&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;group=1</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
-  <span class="p">}</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/advertisement?media=1,2,3,4,5,6,7,8&amp;start_date=01-10-2021&amp;end_date=31-10-2021&amp;industries=1,2,3,4,5&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;group=1</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -2929,7 +2941,7 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 </span></code></pre></div>
 <p>Retorna una lista con todos los Avisos con actividad</p>
 <h3 id='llamada-http-4'>Llamada HTTP</h3>
-<p><code>GET datasuite.megatime.cl/advertisement</code> </p>
+<p><code>GET datasuite.megatime.cl/advertisement</code></p>
 <h3 id='parametros-url-3'>Parámetros URL</h3>
 <table><thead>
 <tr>
@@ -3115,13 +3127,13 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/media'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/media</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
-  <span class="p">}</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/media</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -3196,19 +3208,18 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/brands'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/brands</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
-  <span class="p">}</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/brands</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 <span class="p">});</span>
-
 </code></pre></div>
 <blockquote>
 <p>Ejemplo de retorno en formato JSON:</p>
@@ -3278,19 +3289,18 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/companies'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/companies</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
-  <span class="p">}</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/companies</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 <span class="p">});</span>
-
 </code></pre></div>
 <blockquote>
 <p>Ejemplo de retorno en formato JSON:</p>
@@ -3360,19 +3370,18 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/industries'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/industries</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
-  <span class="p">}</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/industries</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 <span class="p">});</span>
-
 </code></pre></div>
 <blockquote>
 <p>Ejemplo de retorno en formato JSON:</p>
@@ -3442,19 +3451,18 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/sub_industries'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/sub_industries</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
-  <span class="p">}</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/sub_industries</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 <span class="p">});</span>
-
 </code></pre></div>
 <blockquote>
 <p>Ejemplo de retorno en formato JSON:</p>
@@ -3530,19 +3538,18 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/products'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/products</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
-  <span class="p">}</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/products</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 <span class="p">});</span>
-
 </code></pre></div>
 <blockquote>
 <p>Ejemplo de retorno en formato JSON:</p>
@@ -3630,19 +3637,18 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/categories'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/categories</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
-  <span class="p">}</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/categories</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 <span class="p">});</span>
-
 </code></pre></div>
 <blockquote>
 <p>Ejemplo de retorno en formato JSON:</p>
@@ -3652,7 +3658,7 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
   </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGROPECUARIO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGROPECUARIO"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3712,19 +3718,18 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/qualities'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/qualities</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
-  <span class="p">}</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/qualities</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 <span class="p">});</span>
-
 </code></pre></div>
 <blockquote>
 <p>Ejemplo de retorno en formato JSON:</p>
@@ -3806,19 +3811,18 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/creativeagencies'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/creativeagencies</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
-  <span class="p">}</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/creativeagencies</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 <span class="p">});</span>
-
 </code></pre></div>
 <blockquote>
 <p>Ejemplo de retorno en formato JSON:</p>
@@ -3894,19 +3898,18 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/mediaagencies'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/mediaagencies</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
-  <span class="p">}</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/mediaagencies</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 <span class="p">});</span>
-
 </code></pre></div>
 <blockquote>
 <p>Ejemplo de retorno en formato JSON:</p>
@@ -3970,7 +3973,7 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 </tbody></table>
 <h2 id='obtener-grupos-personalizados'>Obtener Grupos personalizados</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/groups"</span> 
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/groups"</span>
 
 <span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -3982,19 +3985,18 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/groups'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/groups</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
-  <span class="p">}</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/groups</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 <span class="p">});</span>
-
 </code></pre></div>
 <blockquote>
 <p>Ejemplo de retorno en formato JSON:</p>
@@ -4005,14 +4007,14 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bancos"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"obs"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">    
+      </span><span class="nl">"obs"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista con todos los Grupos personalizados por el cliente</p>
 <h3 id='llamada-http-15'>Llamada HTTP</h3>
-<p><code>GET datasuite.megatime.cl/filters/groups</code> </p>
+<p><code>GET datasuite.megatime.cl/filters/groups</code></p>
 <h3 id='atributos-respuesta-15'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
@@ -4085,29 +4087,24 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
     "obs": "Observacion",
     "brands": [24,42]
 }'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/groups</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span><span class="p">,</span>
-    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/groups</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">Content-Type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
   <span class="p">},</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Test New Group</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">obs</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Observacion</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">brands</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-      <span class="mi">24</span><span class="p">,</span>
-      <span class="mi">42</span>
-    <span class="p">]</span>
-  <span class="p">})</span>
-
+    <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Test New Group</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">obs</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Observacion</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">brands</span><span class="p">:</span> <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">42</span><span class="p">],</span>
+  <span class="p">}),</span>
 <span class="p">};</span>
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 <span class="p">});</span>
-
 </code></pre></div>
 <blockquote>
 <p>Ejemplo de retorno en formato JSON:</p>
@@ -4122,7 +4119,7 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 
 <p>Para asignar <code>Clasificadores y Opciones</code>, debe dirigirse a <a href="https://clasificador.megatime.cl">clasificador.megatime.cl</a></p>
 <h3 id='llamada-http-16'>Llamada HTTP</h3>
-<p><code>POST datasuite.megatime.cl/filters/groups</code> </p>
+<p><code>POST datasuite.megatime.cl/filters/groups</code></p>
 <h3 id='parametros-body-2'>Párametros Body</h3>
 <table><thead>
 <tr>
@@ -4179,7 +4176,7 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <p><code>GET datasuite.megatime.cl/filters/targets</code></p>
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/targets"</span> 
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/targets"</span>
 
 <span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -4191,19 +4188,18 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/targets'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datasuite.megatime.cl/filters/targets</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
-  <span class="p">}</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/targets</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 <span class="p">});</span>
-
 </code></pre></div>
 <blockquote>
 <p>Ejemplo de retorno en formato JSON:</p>
@@ -4212,15 +4208,15 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
   </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DDC ABCD</span><span class="se">\r\n</span><span class="s2">"</span><span class="w">
+      </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DDC ABCD</span><span class="se">\r\n</span><span class="s2">"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista con todos los Grupos Objetivos Rating</p>
 <h3 id='llamada-http-17'>Llamada HTTP</h3>
-<p><code>GET datasuite.megatime.cl/filters/targets</code> </p>
+<p><code>GET datasuite.megatime.cl/filters/targets</code></p>
 <h3 id='atributos-respuesta-17'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
