@@ -14,6 +14,7 @@ includes:
   - clasificador
   - multimedia
   - spots
+  - radioRegional
   - errores
 
 search: true
