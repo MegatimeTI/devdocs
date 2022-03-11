@@ -89,48 +89,63 @@ en el Authorization header:
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
 
-## Obtener Agen. Creativas (RR)
+## Crear Campaña
 
 ```python
 import requests
 import json
 
-url = "radioregional.megatime.cl/api/finder/creative_agencies"
+url = "radioregional.megatime.cl/api/campaign"
 
 payload = json.dumps({
-  "name": "example"
+  "name": "ExampleCampaña",
+  "company": "Example Empresa",
+  "media_agency": "Example Ag medio",
+  "creative_agency": "Example Ag creativa",
+  "start_date": "18-01-2022",
+  "end_date": "20-01-2022"
 })
 headers = {
   'Authorization': 'SECRET_API_KEY',
   'Content-Type': 'application/json'
 }
 
-response = requests.request("GET", url, headers=headers, data=payload)
+response = requests.request("POST", url, headers=headers, data=payload)
 
 print(response.text)
 
 ```
 
 ```shell
-curl --location --request GET 'radioregional.megatime.cl/api/finder/creative-agencies' \
+curl --location --request POST 'radioregional.megatime.cl/api/campaign' \
 --header 'Authorization: SECRET_API_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "name":"example"
+  "name": "ExampleCampaña",
+  "company": "Example Empresa",
+  "media_agency": "Example Ag medio",
+  "creative_agency": "Example Ag creativa",
+  "start_date": "18-01-2022",
+  "end_date": "20-01-2022"
 }'
 ```
 
 ```javascript
 var request = require('request');
 var options = {
-  'method': 'GET',
-  'url': 'radioregional.megatime.cl/api/finder/creative-agencies',
+  'method': 'POST',
+  'url': 'radioregional.megatime.cl/api/campaign',
   'headers': {
     'Authorization': 'SECRET_API_KEY',
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    "name": "example"
+    "name": "ExampleCampaña",
+    "company": "Example Empresa",
+    "media_agency": "Example Ag medio",
+    "creative_agency": "Example Ag creativa",
+    "start_date": "18-01-2022",
+    "end_date": "20-01-2022"
   })
 
 };
@@ -146,45 +161,36 @@ request(options, function (error, response) {
 ```json
 {
     "ok": true,
-    "agencies": [
-        {
-            "id": 345,
-            "name": "SUTIL NAZCA SAATCHI Y SAATCHI"
-        },
-        {
-            "id": 879,
-            "name": "XYZ JAAPOH PUBLICIDAD"
-        }
-    ]
+    "campaign_id": 3334,
+    "message": "Campaña ingresada correctamente."
 }
 ```
 
-Retorna las agencias creativas y su respectivo id. Se puede adjuntar una 'frase' para filtrar los resultados.
+Crea una nueva campaña.
 
 ### Llamada HTTP
 
-<span style="color: rgb(33, 120, 52);"> **GET**</span>  `https://radioregional.megatime.cl/api/finder/creative-agencies`
+<span style="color: rgb(170, 117, 28);"> **POST**</span> `https://radioregional.megatime.cl/api/campaign`
 
-### Parametros URL
+### Parametros Body
 
-| Nombre     | Tipo    | Descripción                          | Requerido |
-| ---------- | ------- | --------------------------------     | --------- |
-| name       | String  | Cadena de texto para filtrar por nombre  | No |
-
+| Nombre               | Tipo        | Descripción                                  | Requerido |
+| ----------           | -------     | ---------------------------------------------| --------- |
+| name                 | String      | Nombre de la campaña a crear                 | Si |
+| company              | String      | Nombre de la empresa                         | Si |
+| media_agency         | String      | Nombre de la agencia de medios               | Si |
+| creative_agency      | String      | Nombre de la agencia creativa                | Si |
+|start_date	|String	|Fecha de inicio en formato DD-MM-YYYY |	No|
+|end_date	|String	|Fecha de termino en formato DD-MM-YYYY	|No
 
 ### Atributos Respuesta
 
-| Nombre     | Tipo    | Descripción                          |
-| ---------- | ------- | --------------------------------     |
-| ok         | Boolean | Verificador de respuesta             |
-| agencies   | Array   | Lista de objetos de tipo **Agencies** |
+| Nombre               | Tipo        | Descripción                                    |
+| ----------           | -------     | -----------------------------------------------|
+| ok                   | Boolean     | Verificador de respuesta                       |
+| campaign_id          | Integer     | Identificador de la nueva campaña generada     |
+| message              | String      | Mensaje de estado                              |
 
-### Atributos Agencia_creativas
-
-| Nombre      | Tipo    | Descripción                                   |
-| ----------- | ------- | ----------------------------------------------|
-| ID          | Integer | Identificador de la agencia creativa          |
-| name        | String  | Nombre de la agencia creativa                 |
 
 La API espera que todas las llamadas estén autenticadas con la Api key
 en el Authorization header:
@@ -195,48 +201,63 @@ en el Authorization header:
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
 
-## Obtener Agen. de medios (RR)
+## Editar Campaña
 
 ```python
 import requests
 import json
 
-url = "radioregional.megatime.cl/api/finder/media_agencies"
+url = "radioregional.megatime.cl/api/campaign/3333"
 
 payload = json.dumps({
-  "name": "example"
+    "name": "Example Name",
+    "company":"Example Name",
+    "media_agency":"Example Name",
+    "creative_agency":"Example Name",
+    "start_date": "18-01-2022",
+    "end_date": "20-01-2022"
 })
 headers = {
   'Authorization': 'SECRET_API_KEY',
   'Content-Type': 'application/json'
 }
 
-response = requests.request("GET", url, headers=headers, data=payload)
+response = requests.request("POST", url, headers=headers, data=payload)
 
 print(response.text)
 
 ```
 
 ```shell
-curl --location --request GET 'radioregional.megatime.cl/api/finder/media-agencies' \
+curl --location --request POST 'radioregional.megatime.cl/api/campaign/3333' \
 --header 'Authorization: SECRET_API_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "name": "example"
+    "name": "Example Name",
+    "company":"Example Name",
+    "media_agency":"Example Name",
+    "creative_agency":"Example Name",
+    "start_date": "18-01-2022",
+    "end_date": "20-01-2022"
 }'
 ```
 
 ```javascript
 var request = require('request');
 var options = {
-  'method': 'GET',
-  'url': 'radioregional.megatime.cl/api/finder/media-agencies',
+  'method': 'POST',
+  'url': 'radioregional.megatime.cl/api/campaign/3333',
   'headers': {
     'Authorization': 'SECRET_API_KEY',
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    "name": "`example`"
+    "name": "Example Name",
+    "company":"Example Name",
+    "media_agency":"Example Name",
+    "creative_agency":"Example Name",
+    "start_date": "18-01-2022",
+    "end_date": "20-01-2022"
   })
 
 };
@@ -244,6 +265,7 @@ request(options, function (error, response) {
   if (error) throw new Error(error);
   console.log(response.body);
 });
+
 ```
 
 > Ejemplo de retorno en formato JSON:
@@ -251,153 +273,43 @@ request(options, function (error, response) {
 ```json
 {
     "ok": true,
-    "agencies": [
-        {
-            "id": 675,
-            "name": "12 PUBLICIDAD (MEDIA)"
-        },
-        {
-            "id": 978,
-            "name": "A.P. PUBLICIDAD (MEDIA)"
-        }
-    ]
+    "campaign_id": 9987,
+    "message": "Cambios guardados correctamente."
 }
 ```
 
-Retorna las agencias de medios y su respectivo id. Se debe adjuntar una 'frase' para filtrar los resultados.
+Edita una campaña.
 
 ### Llamada HTTP
 
-<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/finder/media-agencies`
-
-### Parametros URL
-
-| Nombre     | Tipo    | Descripción                                | Requerido |
-| ---------- | ------- | ---------------------------------------    | -------- |
-| name         | String |  Cadena de texto para filtrar por nombre  | No |
-
-### Atributos Respuesta
-
-| Nombre     | Tipo    | Descripción                             | 
-| ---------- | ------- | --------------------------------------- | 
-| ok         | Boolean | Verificador de respuesta                |
-| agencies   | Array   | Lista de objetos de tipo **Agencies**   |
-
-### Atributos Agencias de medios
-
-| Nombre            | Tipo    | Descripción                                 |
-| ----------------- | ------- | --------------------------------------------|
-| ID                | Integer | Identificador de la agencia de medio        |
-| name            | String  | Nombre de la agencia de medio               |
-
-La API espera que todas las llamadas estén autenticadas con la Api key
-en el Authorization header:
-
-`Authorization: SECRET_API_KEY`
-
-<aside class="notice">
-En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
-</aside>
-
-## Obtener Empresas (RR)
-
-```python
-import requests
-import json
-
-url = "radioregional.megatime.cl/api/finder/companies"
-
-payload = json.dumps({
-  "name": "example"
-})
-headers = {
-  'Authorization': 'SECRET_API_KEY',
-  'Content-Type': 'application/json'
-}
-
-response = requests.request("GET", url, headers=headers, data=payload)
-
-print(response.text)
-
-```
-
-```shell
-curl --location --request GET 'radioregional.megatime.cl/api/finder/companies' \
---header 'Authorization: SECRET_API_KEY' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "name": "example"
-}'
-```
-
-```javascript
-var request = require('request');
-var options = {
-  'method': 'GET',
-  'url': 'radioregional.megatime.cl/api/finder/companies',
-  'headers': {
-    'Authorization': 'SECRET_API_KEY',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    "name": "example"
-  })
-
-};
-request(options, function (error, response) {
-  if (error) throw new Error(error);
-  console.log(response.body);
-});
-```
-
-> Ejemplo de retorno en formato JSON:
-
-```json
-{
-    "ok": true,
-    "companies": [
-        {
-            "id": 45672,
-            "name": "AARATI,JOYAS"
-        },
-        {
-            "id": 12387,
-            "name": "ACEROLAIS,JOYAS"
-        },
-        {
-            "id": 976453,
-            "name": "ACUARIO JOYAS"
-        }
-    ]
-}
-```
-
-Retorna las empresas y su respectivo id. Se debe adjuntar una 'frase' para filtrar los resultados.
-
-### Llamada HTTP
-
-<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/finder/companies`
+<span style="color: rgb(170, 117, 28);"> **POST**</span> `https://radioregional.megatime.cl/api/campaign/{campaign_id}`
 
 
 ### Parametros URL
 
-| Nombre     | Tipo    | Descripción                                | Requerido |
-| ---------- | ------- | ---------------------------------------    | --------  |
-| name         | String |  Cadena de texto para filtrar por nombre  | No        |
+|   Nombre          |Tipo         |Descripción              |Requerido|
+| ----------        | -------     | ------------------------| --|
+|  campaign_id      |Integer      | Identificador de campaña| Si|
+
+### Parametros Body
+
+| Nombre               | Tipo        | Descripción                            | Requerido |
+| ----------            | -------     | ------------------------|  --|
+| name                 | String      | Nombre del plan a crear                | Si |
+| company              | String      | Nombre de la empresa asociada          | Si |
+| media_agency         | String      | Nombre de la agencia de medios         | Si |
+| creative_agency      | String      | Nombre de la agencia creativa          | Si |
+|start_date	|String	|Fecha de inicio en formato DD-MM-YYYY|	Si
+|end_date	|String	|Fecha de termino en formato DD-MM-YYYY	|Si
 
 ### Atributos Respuesta
 
-| Nombre        | Tipo    | Descripción                                        |
-| ----------    | ------- | -------------------------------------------------- |
-| ok            | Boolean | Verificador de respuesta                           |
-| companies      | Array   | Lista de objetos de tipo **Companies**              |
+| Nombre               | Tipo        | Descripción                                     |
+| ----------           | -------     | ------------------------------------------------|
+| ok                   | Boolean     | Verificador de respuesta                        |
+| campaign_id          | Integer     | Identificador de la nueva campaña generada      |
+| message              | String      | Mensaje de estado                               |
 
-### Atributos Empresas
-
-| Nombre        | Tipo    | Descripción                              |
-| ------------- | ------- | ---------------------------------------- |
-| ID            | Integer | Identificador de la empresa              |
-| name          | String  | Nombre de la empresa                     |
 
 La API espera que todas las llamadas estén autenticadas con la Api key
 en el Authorization header:
@@ -409,92 +321,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </aside>
 
 
-## Obtener Radios (RR)
-
-```python
-import requests
-
-url = "radioregional.megatime.cl/api/finder/radios"
-
-payload={}
-headers = {
-  'Authorization': 'SECRET_API_KEY'
-}
-
-response = requests.request("GET", url, headers=headers, data=payload)
-
-print(response.text)
-```
-
-```shell
-curl --location --request GET 'radioregional.megatime.cl/api/finder/radios' \
---header 'Authorization: SECRET_API_KEY'
-```
-
-```javascript
-var request = require('request');
-var options = {
-  'method': 'GET',
-  'url': 'radioregional.megatime.cl/api/finder/radios',
-  'headers': {
-    'Authorization': 'SECRET_API_KEY'
-  }
-};
-request(options, function (error, response) {
-  if (error) throw new Error(error);
-  console.log(response.body);
-});
-```
-
-> Ejemplo de retorno en formato JSON:
-
-```json
-{
-    "ok": true,
-    "radios": [
-        {
-            "id": 3453,
-            "nombre": "ACONCAGUA",
-        },
-        {
-            "id": 9867,
-            "nombre": "AGUA MARINA",
-        },
-    ]
-}
-```
-
-Retorna las radios y su respectivo id.
-
-### Llamada HTTP
-
-<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/finder/radios`
-
-### Atributos Respuesta
-
-| Nombre        | Tipo    | Descripción                                        |
-| ----------    | ------- | -------------------------------------------------- |
-| ok            | Boolean | Verificador de respuesta                           |
-| radios        | Array   | Lista de objetos de tipo **Radio**                 |
-
-### Atributos Radio
-
-| Nombre        | Tipo    | Descripción                                       |
-| ------------- | ------- | ------------------------------------------------- |
-| ID            | Integer | Identificador de la radio                         |
-| name          | String  | Nombre de la radio                                |
-
-La API espera que todas las llamadas estén autenticadas con la Api key
-en el Authorization header:
-
-`Authorization: SECRET_API_KEY`
-
-<aside class="notice">
-En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
-</aside>
-
-
-## Obtener detalle de una Campaña 
+## Obtener resumen de Campaña 
 
 ```python
 import requests
@@ -584,11 +411,17 @@ request(options, function (error, response) {
 }
 ```
 
-Retorna los detalles de una campaña. La busqueda se realiza mediante el ID de la campaña que se desea buscar.
+Retorna el resumen de una campaña, mostrando asi la verificacion para cada radio segun pauta esperada. Incluye informacion de sus audios inyectados.
 
 ### Llamada HTTP
 
-<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/campagin/{campaign_ID}`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/campaign/{campaign_ID}`
+
+
+### Parametros URL
+|Nombre    |Tipo|Descripción|Requerido|
+| ----------           | -------     | -------------- | -----|
+|campaign_id|Integer| Identificador de campaña| Si|
 
 ### Atributos Respuesta
 
@@ -643,217 +476,6 @@ en el Authorization header:
 <aside class="notice">
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
-
-
-## Inyectar Pauta a una Campaña
-
-```python
-import requests
-import json
-
-url = "radioregional.megatime.cl/campaign/add/details"
-
-payload = json.dumps({
-  "campaign_id": "7558",
-  "details": [
-    {
-      "radio_id": "6446",
-      "dates": [
-        {
-          "day": "18-01-2022",
-          "quantity": "3"
-        },
-        {
-          "day": "19-01-2022",
-          "quantity": "4"
-        },
-        {
-          "day": "20-01-2022",
-          "quantity": "5"
-        }
-      ]
-    },
-    {
-      "radio_id": "9644",
-      "dates": [
-        {
-          "day": "18-01-2022",
-          "quantity": "3"
-        },
-        {
-          "day": "19-01-2022",
-          "quantity": "4"
-        },
-        {
-          "day": "20-01-2022",
-          "quantity": "5"
-        }
-      ]
-    }
-  ]
-})
-headers = {
-  'Authorization': '62cc57e4e86381c3c254a2b4b6464545',
-  'Content-Type': 'application/json'
-}
-
-response = requests.request("POST", url, headers=headers, data=payload)
-
-print(response.text)
-
-```
-
-```shell
-curl --location --request POST 'radioregional.megatime.cl/campaign/add/details' \
---header 'Authorization: 62cc57e4e86381c3c254a2b4b8882673' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "campaign_id": "6446",
-    "details": [
-        {
-            "radio_id": "9449",
-            "dates": [
-                {
-                    "day": "18-01-2022",
-                    "quantity": "3"
-                },
-                {
-                    "day": "19-01-2022",
-                    "quantity": "4"
-                },
-                {
-                    "day": "20-01-2022",
-                    "quantity": "5"
-                }
-            ]
-        },
-            {
-            "radio_id": "9445",
-            "dates": [
-                {
-                    "day": "18-01-2022",
-                    "quantity": "3"
-                },
-                {
-                    "day": "19-01-2022",
-                    "quantity": "4"
-                },
-                {
-                    "day": "20-01-2022",
-                    "quantity": "5"
-                }
-            ]
-        }]
-}'
-```
-
-```javascript
-var request = require('request');
-var options = {
-  'method': 'POST',
-  'url': 'radioregional.megatime.cl/campaign/add/details',
-  'headers': {
-    'Authorization': '62cc57e4e86381c3c254a2b4b',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    "campaign_id": "3343",
-    "details": [
-      {
-        "radio_id": "7208",
-        "dates": [
-          {
-            "day": "18-01-2022",
-            "quantity": "3"
-          },
-          {
-            "day": "19-01-2022",
-            "quantity": "4"
-          },
-          {
-            "day": "20-01-2022",
-            "quantity": "5"
-          }
-        ]
-      },
-      {
-        "radio_id": "4434",
-        "dates": [
-          {
-            "day": "18-01-2022",
-            "quantity": "3"
-          },
-          {
-            "day": "19-01-2022",
-            "quantity": "4"
-          },
-          {
-            "day": "20-01-2022",
-            "quantity": "5"
-          }
-        ]
-      }
-    ]
-  })
-
-};
-request(options, function (error, response) {
-  if (error) throw new Error(error);
-  console.log(response.body);
-});
-
-```
-
-> Ejemplo de retorno en formato JSON:
-
-```json
-{     
-  "ok": true,
-  "message": "Pautas ingresadas correctamente"
-}
-```
-
-Inyecta pauta a una campaña creada previamente.
-
-### Llamada HTTP
-
-<span style="color: rgb(170, 117, 28);"> **POST**</span> `https://radioregional.megatime.cl/api/campagin/add/details`
-
-### Atributos Respuesta
-
-| Nombre               | Tipo        | Descripción                                                     |
-| ----------           | -------     | --------------------------------------------------              |
-| campaign_id          | Integer     | Identificador de la campaña                                     |
-| details              | Array       | Lista de objetos de tipo **details**                            |
-
-
-
-### Atributos Details
-
-| Nombre        | Tipo    | Descripción                                                 |
-| ------------- | ------- | ----------------------------------------------------------- |
-| radio_id      | Integer | Identificador de la radio                                   |
-| dates         | Array   | Lista de objetos de tipo **dates**                          |
-
-
-### Atributos Dates
-
-| Nombre             | Tipo     | Descripción                                                       |
-| -------------      | -------  | -----------------------------------------------------------       |
-| day                | String   | Fecha en la que se contabilizo los avisajes en formato YYYYMMDD   |
-| quantity           | Integer  | Cantidad de avisajes esperados en esa fecha                       |
-
-
-La API espera que todas las llamadas estén autenticadas con la Api key
-en el Authorization header:
-
-`Authorization: SECRET_API_KEY`
-
-<aside class="notice">
-En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
-</aside>
-
-
 
 ## Obtener Campañas 
 
@@ -994,316 +616,19 @@ en el Authorization header:
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
 
-
-## Crear Campaña
-
-```python
-import requests
-import json
-
-url = "radioregional.megatime.cl/api/campaign/add"
-
-payload = json.dumps({
-  "name": "ExampleCampaña",
-  "company": "Example Empresa",
-  "media_agency": "Example Ag medio",
-  "creative_agency": "Example Ag creativa"
-})
-headers = {
-  'Authorization': 'SECRET_API_KEY',
-  'Content-Type': 'application/json'
-}
-
-response = requests.request("POST", url, headers=headers, data=payload)
-
-print(response.text)
-
-```
-
-```shell
-curl --location --request POST 'radioregional.megatime.cl/api/campaign/add' \
---header 'Authorization: SECRET_API_KEY' \
---header 'Content-Type: application/json' \
---data-raw '{
-  "name": "ExampleCampaña",
-  "company": "Example Empresa",
-  "media_agency": "Example Ag medio",
-  "creative_agency": "Example Ag creativa"
-}'
-```
-
-```javascript
-var request = require('request');
-var options = {
-  'method': 'POST',
-  'url': 'radioregional.megatime.cl/api/campaign/add',
-  'headers': {
-    'Authorization': 'SECRET_API_KEY',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    "name": "ExampleCampaña",
-    "company": "Example Empresa",
-    "media_agency": "Example Ag medio",
-    "creative_agency": "Example Ag creativa"
-  })
-
-};
-request(options, function (error, response) {
-  if (error) throw new Error(error);
-  console.log(response.body);
-});
-
-```
-
-> Ejemplo de retorno en formato JSON:
-
-```json
-{
-    "ok": true,
-    "campaign_id": 3334,
-    "message": "Campaña ingresada correctamente."
-}
-```
-
-Crea una nueva campaña.
-
-### Llamada HTTP
-
-<span style="color: rgb(170, 117, 28);"> **POST**</span> `https://radioregional.megatime.cl/api/campaign/add`
-
-### Parametros Body
-
-| Nombre               | Tipo        | Descripción                                  | Requerido |
-| ----------           | -------     | ---------------------------------------------| --------- |
-| name                 | String      | Nombre de la campaña a crear                 | Si |
-| company              | String      | Nombre de la empresa                         | Si |
-| media_agency         | String      | Nombre de la agencia de medios               | Si |
-| creative_agency      | String      | Nombre de la agencia creativa                | Si |
-
-### Atributos Respuesta
-
-| Nombre               | Tipo        | Descripción                                    |
-| ----------           | -------     | -----------------------------------------------|
-| ok                   | Boolean     | Verificador de respuesta                       |
-| campaign_id          | Integer     | Identificador de la nueva campaña generada     |
-| message              | String      | Mensaje de estado                              |
-
-
-La API espera que todas las llamadas estén autenticadas con la Api key
-en el Authorization header:
-
-`Authorization: SECRET_API_KEY`
-
-<aside class="notice">
-En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
-</aside>
-
-
-## Editar Campaña
-
-```python
-import requests
-import json
-
-url = "radioregional.megatime.cl/api/campaign/edit"
-
-payload = json.dumps({
-    "id": 9987,
-    "name": "Example Name",
-    "company":"Example Name",
-    "media_agency":"Example Name",
-    "creative_agency":"Example Name",
-    "start_date": "2022-01-18",
-    "end_date": "2022-01-25"
-})
-headers = {
-  'Authorization': 'SECRET_API_KEY',
-  'Content-Type': 'application/json'
-}
-
-response = requests.request("POST", url, headers=headers, data=payload)
-
-print(response.text)
-
-```
-
-```shell
-curl --location --request POST 'radioregional.megatime.cl/api/campaign/edit' \
---header 'Authorization: SECRET_API_KEY' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "id": 9987,
-    "name": "Example Name",
-    "company":"Example Name",
-    "media_agency":"Example Name",
-    "creative_agency":"Example Name",
-    "start_date": "2022-01-18",
-    "end_date": "2022-01-25"
-}'
-```
-
-```javascript
-var request = require('request');
-var options = {
-  'method': 'POST',
-  'url': 'radioregional.megatime.cl/api/campaign/edit',
-  'headers': {
-    'Authorization': 'SECRET_API_KEY',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    "id": 9987,
-    "name": "Example Name",
-    "company":"Example Name",
-    "media_agency":"Example Name",
-    "creative_agency":"Example Name",
-    "start_date": "2022-01-18",
-    "end_date": "2022-01-25"
-  })
-
-};
-request(options, function (error, response) {
-  if (error) throw new Error(error);
-  console.log(response.body);
-});
-
-```
-
-> Ejemplo de retorno en formato JSON:
-
-```json
-{
-    "ok": true,
-    "campaign_id": 9987,
-    "message": "Cambios guardados correctamente."
-}
-```
-
-Edita una campaña.
-
-### Llamada HTTP
-
-<span style="color: rgb(170, 117, 28);"> **POST**</span> `https://radioregional.megatime.cl/api/campaign/edit`
-
-### Parametros Body
-
-| Nombre               | Tipo        | Descripción                            | Requerido |
-| ----------           | -------     | ---------------------------------------| --------- |
-| id                   | Integer     | Identificador de la campaña            | Si |
-| nombre               | String      | Nombre del plan a crear                | Si |
-| empresa_nombre       | String      | Nombre de la empresa asociada          | Si |
-| agmedio_nombre       | String      | Nombre de la agencia de medios         | Si |
-| agcreativa_nombre    | String      | Nombre de la agencia creativa          | Si |
-
-### Atributos Respuesta
-
-| Nombre               | Tipo        | Descripción                                     |
-| ----------           | -------     | ------------------------------------------------|
-| ok                   | Boolean     | Verificador de respuesta                        |
-| campaign_id          | Integer     | Identificador de la nueva campaña generada      |
-| message              | String      | Mensaje de estado                               |
-
-
-La API espera que todas las llamadas estén autenticadas con la Api key
-en el Authorization header:
-
-`Authorization: SECRET_API_KEY`
-
-<aside class="notice">
-En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
-</aside>
-
-## Obtener URL audio inyectado
-
-```python
-import requests
-
-url = "https://radioregional.megatime.cl/api/audios/file/3345"
-
-payload={}
-headers = {
-  'Authorization': 'SECRET_API_KEY'
-}
-
-response = requests.request("GET", url, headers=headers, data=payload)
-
-print(response.text)
-
-```
-
-```shell
-curl --location --request GET 'https://radioregional.megatime.cl/api/audios/file/3345' \
---header 'Authorization: SECRET_API_KEY'
-```
-
-```javascript
-var request = require('request');
-var options = {
-  'method': 'GET',
-  'url': 'https://radioregional.megatime.cl/api/audios/file/3345',
-  'headers': {
-    'Authorization': 'SECRET_API_KEY'
-  }
-};
-request(options, function (error, response) {
-  if (error) throw new Error(error);
-  console.log(response.body);
-});
-```
-
-> Ejemplo de retorno en formato JSON:
-
-```json
-{
-    "audio_url": "https://s3.amazonaws.com/radioregional.megatime.cl/user-audios/audio_1111.mp3"
-}
-```
-
-
-Obtener un audio inyectado según su ID.
-
-### Llamada HTTP
-
-<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/audios/file/{audio_id}`
-
-### Parametros URL
-
-| Nombre      | Tipo        | Descripción                   |
-| ----------  | -------     | ------------------------------|
-| audio_id    | Integer     | Identificador del audio       |
-
-
-### Atributos Respuesta
-
-| Nombre               | Tipo        | Descripción                                     |
-| ----------           | -------     | ------------------------------------------------|
-| audio_url            | String      | URL de audio inyectado                          |
-
-
-La API espera que todas las llamadas estén autenticadas con la Api key
-en el Authorization header:
-
-`Authorization: SECRET_API_KEY`
-
-<aside class="notice">
-En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
-</aside>
-
-
 ## Inyectar audio a un plan
 
 ```python
 import requests
 
-url = "https://radioregional.megatime.cl/api/campaign/upload/audio/{path_audio}"
+url = "https://radioregional.megatime.cl/api/campaign/upload/audio/3333"
 
 payload={}
 files=[
   ('audio',('file_example_MP3_700KB.mp3',open('/{path_audio}/file_example_MP3_700KB.mp3','rb'),'audio/mpeg'))
 ]
 headers = {
-  'Authorization': '62cc57e4e86381c3c254a2b4b8882673'
+  'Authorization': '62cc57e4e86381c3c25433338882673'
 }
 
 response = requests.request("POST", url, headers=headers, data=payload, files=files)
@@ -1313,7 +638,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request POST 'https://radioregional.megatime.cl/api/campaign/upload/audio/{campaign_id}' \
+curl --location --request POST 'https://radioregional.megatime.cl/api/campaign/upload/audio/3333' \
 --header 'Authorization: SECRET_API_KEY' \
 --form 'audio=@"/{path_audio}/file_example_MP3_700KB.mp3"'
 ```
@@ -1323,7 +648,7 @@ var request = require('request');
 var fs = require('fs');
 var options = {
   'method': 'POST',
-  'url': 'https://radioregional.megatime.cl/api/campaign/upload/audio/{campaign_id}',
+  'url': 'https://radioregional.megatime.cl/api/campaign/upload/audio/33333',
   'headers': {
     'Authorization': 'SECRET_API_KEY'
   },
@@ -1349,7 +674,7 @@ request(options, function (error, response) {
 ```json
 {
     "ok": true,
-    "campaign_id": 2234,
+    "campaign_id": 3333,
     "message": "Cambios guardados correctamente."
 }
 ```
@@ -1386,6 +711,222 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </aside>
 
 
+
+
+
+## Inyectar Pauta a Campaña
+
+```python
+import requests
+import json
+
+url = "radioregional.megatime.cl/campaign/{campaign_id}/details"
+
+payload = json.dumps({
+  "campaign_id": "7558",
+  "details": [
+    {
+      "radio_id": "6446",
+      "dates": [
+        {
+          "day": "18-01-2022",
+          "quantity": 3
+        },
+        {
+          "day": "19-01-2022",
+          "quantity": 4
+        },
+        {
+          "day": "20-01-2022",
+          "quantity": 5
+        }
+      ]
+    },
+    {
+      "radio_id": "9644",
+      "dates": [
+        {
+          "day": "18-01-2022",
+          "quantity": 3
+        },
+        {
+          "day": "19-01-2022",
+          "quantity": 4
+        },
+        {
+          "day": "20-01-2022",
+          "quantity": 5
+        }
+      ]
+    }
+  ]
+})
+headers = {
+  'Authorization': '62cc57e4e86381c3c254a2b4b6464545',
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+print(response.text)
+
+```
+
+```shell
+curl --location --request POST 'radioregional.megatime.cl/campaign/{campaign_id}/details' \
+--header 'Authorization: 62cc57e4e86381c3c254a2b4b8882673' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "campaign_id": 6446,
+    "details": [
+        {
+            "radio_id": "9449",
+            "dates": [
+                {
+                    "day": "18-01-2022",
+                    "quantity": 3
+                },
+                {
+                    "day": "19-01-2022",
+                    "quantity": 4
+                },
+                {
+                    "day": "20-01-2022",
+                    "quantity": 5
+                }
+            ]
+        },
+            {
+            "radio_id": "9445",
+            "dates": [
+                {
+                    "day": "18-01-2022",
+                    "quantity": 3
+                },
+                {
+                    "day": "19-01-2022",
+                    "quantity": 4
+                },
+                {
+                    "day": "20-01-2022",
+                    "quantity": 5
+                }
+            ]
+        }]
+}'
+```
+
+```javascript
+var request = require('request');
+var options = {
+  'method': 'POST',
+  'url': 'radioregional.megatime.cl/campaign/{campaign_id}/details',
+  'headers': {
+    'Authorization': '62cc57e4e86381c3c254a2b4b',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    "campaign_id": "3343",
+    "details": [
+      {
+        "radio_id": "7208",
+        "dates": [
+          {
+            "day": "18-01-2022",
+            "quantity": 3
+          },
+          {
+            "day": "19-01-2022",
+            "quantity": 4
+          },
+          {
+            "day": "20-01-2022",
+            "quantity": 5
+          }
+        ]
+      },
+      {
+        "radio_id": "4434",
+        "dates": [
+          {
+            "day": "18-01-2022",
+            "quantity": 3
+          },
+          {
+            "day": "19-01-2022",
+            "quantity": 4
+          },
+          {
+            "day": "20-01-2022",
+            "quantity": 5
+          }
+        ]
+      }
+    ]
+  })
+
+};
+request(options, function (error, response) {
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+
+```
+
+> Ejemplo de retorno en formato JSON:
+
+```json
+{     
+  "ok": true,
+  "message": "Pautas ingresadas correctamente"
+}
+```
+
+Inyecta pauta a una campaña creada previamente.
+
+### Llamada HTTP
+
+<span style="color: rgb(170, 117, 28);"> **POST**</span> `https://radioregional.megatime.cl/api/campaign/{campaign_id}/details`
+
+### Parametros URL
+
+| Nombre               | Tipo        | Descripcion |
+| ----------           | -------     | --------------------------------------------------              |
+| campaign_id          | Integer     | Identificador de la campaña                                     |
+
+
+### Parametros  Body
+
+| Nombre               | Tipo        | Descripción                                                     |
+| ----------           | -------     | --------------------------------------------------              |
+| details              | Array       | Lista de objetos de tipo **details**                            |
+
+
+
+### Atributos Details
+
+| Nombre        | Tipo    | Descripción                                                 |
+| ------------- | ------- | ----------------------------------------------------------- |
+| radio_id      | Integer | Identificador de la radio                                   |
+| dates         | Array   | Lista de objetos de tipo **dates**                          |
+
+
+### Atributos Dates
+
+| Nombre             | Tipo     | Descripción                                                       |
+| -------------      | -------  | -----------------------------------------------------------       |
+| day                | String   | Fecha en la que se contabilizo los avisajes en formato YYYYMMDD   |
+| quantity           | Integer  | Cantidad de avisajes esperados en esa fecha                       |
+
+
+La API espera que todas las llamadas estén autenticadas con la Api key
+en el Authorization header:
+
+`Authorization: SECRET_API_KEY`
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
 
 ## Obtener Avisajes
 
@@ -1543,3 +1084,489 @@ en el Authorization header:
 <aside class="notice">
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
+
+## Obtener URL audio inyectado
+
+```python
+import requests
+
+url = "https://radioregional.megatime.cl/api/audios/file/3345"
+
+payload={}
+headers = {
+  'Authorization': 'SECRET_API_KEY'
+}
+
+response = requests.request("GET", url, headers=headers, data=payload)
+
+print(response.text)
+
+```
+
+```shell
+curl --location --request GET 'https://radioregional.megatime.cl/api/audios/file/3345' \
+--header 'Authorization: SECRET_API_KEY'
+```
+
+```javascript
+var request = require('request');
+var options = {
+  'method': 'GET',
+  'url': 'https://radioregional.megatime.cl/api/audios/file/3345',
+  'headers': {
+    'Authorization': 'SECRET_API_KEY'
+  }
+};
+request(options, function (error, response) {
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
+
+> Ejemplo de retorno en formato JSON:
+
+```json
+{
+    "audio_url": "https://s3.amazonaws.com/radioregional.megatime.cl/user-audios/audio_1111.mp3"
+}
+```
+
+
+Obtener un audio inyectado según su ID.
+
+### Llamada HTTP
+
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/audios/file/{audio_id}`
+
+### Parametros URL
+
+| Nombre      | Tipo        | Descripción                   |
+| ----------  | -------     | ------------------------------|
+| audio_id    | Integer     | Identificador del audio       |
+
+
+### Atributos Respuesta
+
+| Nombre               | Tipo        | Descripción                                     |
+| ----------           | -------     | ------------------------------------------------|
+| audio_url            | String      | URL de audio inyectado                          |
+
+
+La API espera que todas las llamadas estén autenticadas con la Api key
+en el Authorization header:
+
+`Authorization: SECRET_API_KEY`
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
+
+
+
+
+
+## Obtener Agen. Creativas (RR)
+
+```python
+import requests
+import json
+
+url = "radioregional.megatime.cl/api/finder/creative_agencies"
+
+payload = json.dumps({
+  "name": "example"
+})
+headers = {
+  'Authorization': 'SECRET_API_KEY',
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("GET", url, headers=headers, data=payload)
+
+print(response.text)
+
+```
+
+```shell
+curl --location --request GET 'radioregional.megatime.cl/api/finder/creative-agencies' \
+--header 'Authorization: SECRET_API_KEY' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name":"example"
+}'
+```
+
+```javascript
+var request = require('request');
+var options = {
+  'method': 'GET',
+  'url': 'radioregional.megatime.cl/api/finder/creative-agencies',
+  'headers': {
+    'Authorization': 'SECRET_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    "name": "example"
+  })
+
+};
+request(options, function (error, response) {
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+
+```
+
+> Ejemplo de retorno en formato JSON:
+
+```json
+{
+    "ok": true,
+    "agencies": [
+        {
+            "id": 345,
+            "name": "SUTIL NAZCA SAATCHI Y SAATCHI"
+        },
+        {
+            "id": 879,
+            "name": "XYZ JAAPOH PUBLICIDAD"
+        }
+    ]
+}
+```
+
+Retorna las agencias creativas y su respectivo id. Se puede adjuntar una 'frase' para filtrar los resultados.
+
+### Llamada HTTP
+
+<span style="color: rgb(33, 120, 52);"> **GET**</span>  `https://radioregional.megatime.cl/api/finder/creative-agencies`
+
+### Parametros Body
+
+| Nombre     | Tipo    | Descripción                          | Requerido |
+| ---------- | ------- | --------------------------------     | --------- |
+| name       | String  | Cadena de texto para filtrar por nombre  | No |
+
+
+### Atributos Respuesta
+
+| Nombre     | Tipo    | Descripción                          |
+| ---------- | ------- | --------------------------------     |
+| ok         | Boolean | Verificador de respuesta             |
+| agencies   | Array   | Lista de objetos de tipo **Agencies** |
+
+### Atributos Agencia_creativas
+
+| Nombre      | Tipo    | Descripción                                   |
+| ----------- | ------- | ----------------------------------------------|
+| ID          | Integer | Identificador de la agencia creativa          |
+| name        | String  | Nombre de la agencia creativa                 |
+
+La API espera que todas las llamadas estén autenticadas con la Api key
+en el Authorization header:
+
+`Authorization: SECRET_API_KEY`
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
+
+## Obtener Agen. de medios (RR)
+
+```python
+import requests
+import json
+
+url = "radioregional.megatime.cl/api/finder/media_agencies"
+
+payload = json.dumps({
+  "name": "example"
+})
+headers = {
+  'Authorization': 'SECRET_API_KEY',
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("GET", url, headers=headers, data=payload)
+
+print(response.text)
+
+```
+
+```shell
+curl --location --request GET 'radioregional.megatime.cl/api/finder/media-agencies' \
+--header 'Authorization: SECRET_API_KEY' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "example"
+}'
+```
+
+```javascript
+var request = require('request');
+var options = {
+  'method': 'GET',
+  'url': 'radioregional.megatime.cl/api/finder/media-agencies',
+  'headers': {
+    'Authorization': 'SECRET_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    "name": "`example`"
+  })
+
+};
+request(options, function (error, response) {
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
+
+> Ejemplo de retorno en formato JSON:
+
+```json
+{
+    "ok": true,
+    "agencies": [
+        {
+            "id": 675,
+            "name": "12 PUBLICIDAD (MEDIA)"
+        },
+        {
+            "id": 978,
+            "name": "A.P. PUBLICIDAD (MEDIA)"
+        }
+    ]
+}
+```
+
+Retorna las agencias de medios y su respectivo id. Se debe adjuntar una 'frase' para filtrar los resultados.
+
+### Llamada HTTP
+
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/finder/media-agencies`
+
+### Parametros Body
+
+| Nombre     | Tipo    | Descripción                                | Requerido |
+| ---------- | ------- | ---------------------------------------    | -------- |
+| name         | String |  Cadena de texto para filtrar por nombre  | No |
+
+### Atributos Respuesta
+
+| Nombre     | Tipo    | Descripción                             | 
+| ---------- | ------- | --------------------------------------- | 
+| ok         | Boolean | Verificador de respuesta                |
+| agencies   | Array   | Lista de objetos de tipo **Agencies**   |
+
+### Atributos Agencias de medios
+
+| Nombre            | Tipo    | Descripción                                 |
+| ----------------- | ------- | --------------------------------------------|
+| ID                | Integer | Identificador de la agencia de medio        |
+| name            | String  | Nombre de la agencia de medio               |
+
+La API espera que todas las llamadas estén autenticadas con la Api key
+en el Authorization header:
+
+`Authorization: SECRET_API_KEY`
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
+
+## Obtener Empresas (RR)
+
+```python
+import requests
+import json
+
+url = "radioregional.megatime.cl/api/finder/companies"
+
+payload = json.dumps({
+  "name": "example"
+})
+headers = {
+  'Authorization': 'SECRET_API_KEY',
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("GET", url, headers=headers, data=payload)
+
+print(response.text)
+
+```
+
+```shell
+curl --location --request GET 'radioregional.megatime.cl/api/finder/companies' \
+--header 'Authorization: SECRET_API_KEY' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "example"
+}'
+```
+
+```javascript
+var request = require('request');
+var options = {
+  'method': 'GET',
+  'url': 'radioregional.megatime.cl/api/finder/companies',
+  'headers': {
+    'Authorization': 'SECRET_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    "name": "example"
+  })
+
+};
+request(options, function (error, response) {
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
+
+> Ejemplo de retorno en formato JSON:
+
+```json
+{
+    "ok": true,
+    "companies": [
+        {
+            "id": 45672,
+            "name": "AARATI,JOYAS"
+        },
+        {
+            "id": 12387,
+            "name": "ACEROLAIS,JOYAS"
+        },
+        {
+            "id": 976453,
+            "name": "ACUARIO JOYAS"
+        }
+    ]
+}
+```
+
+Retorna las empresas y su respectivo id. Se debe adjuntar una 'frase' para filtrar los resultados.
+
+### Llamada HTTP
+
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/finder/companies`
+
+
+### Parametros Body
+
+| Nombre     | Tipo    | Descripción                                | Requerido |
+| ---------- | ------- | ---------------------------------------    | --------  |
+| name         | String |  Cadena de texto para filtrar por nombre  | No        |
+
+### Atributos Respuesta
+
+| Nombre        | Tipo    | Descripción                                        |
+| ----------    | ------- | -------------------------------------------------- |
+| ok            | Boolean | Verificador de respuesta                           |
+| companies      | Array   | Lista de objetos de tipo **Companies**              |
+
+### Atributos Empresas
+
+| Nombre        | Tipo    | Descripción                              |
+| ------------- | ------- | ---------------------------------------- |
+| ID            | Integer | Identificador de la empresa              |
+| name          | String  | Nombre de la empresa                     |
+
+La API espera que todas las llamadas estén autenticadas con la Api key
+en el Authorization header:
+
+`Authorization: SECRET_API_KEY`
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
+
+
+## Obtener Radios (RR)
+
+```python
+import requests
+
+url = "radioregional.megatime.cl/api/finder/radios"
+
+payload={}
+headers = {
+  'Authorization': 'SECRET_API_KEY'
+}
+
+response = requests.request("GET", url, headers=headers, data=payload)
+
+print(response.text)
+```
+
+```shell
+curl --location --request GET 'radioregional.megatime.cl/api/finder/radios' \
+--header 'Authorization: SECRET_API_KEY'
+```
+
+```javascript
+var request = require('request');
+var options = {
+  'method': 'GET',
+  'url': 'radioregional.megatime.cl/api/finder/radios',
+  'headers': {
+    'Authorization': 'SECRET_API_KEY'
+  }
+};
+request(options, function (error, response) {
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
+
+> Ejemplo de retorno en formato JSON:
+
+```json
+{
+    "ok": true,
+    "radios": [
+        {
+            "id": 3453,
+            "nombre": "ACONCAGUA",
+        },
+        {
+            "id": 9867,
+            "nombre": "AGUA MARINA",
+        },
+    ]
+}
+```
+
+Retorna las radios y su respectivo id.
+
+### Llamada HTTP
+
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/finder/radios`
+
+### Atributos Respuesta
+
+| Nombre        | Tipo    | Descripción                                        |
+| ----------    | ------- | -------------------------------------------------- |
+| ok            | Boolean | Verificador de respuesta                           |
+| radios        | Array   | Lista de objetos de tipo **Radio**                 |
+
+### Atributos Radio
+
+| Nombre        | Tipo    | Descripción                                       |
+| ------------- | ------- | ------------------------------------------------- |
+| ID            | Integer | Identificador de la radio                         |
+| name          | String  | Nombre de la radio                                |
+
+La API espera que todas las llamadas estén autenticadas con la Api key
+en el Authorization header:
+
+`Authorization: SECRET_API_KEY`
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
+
+
