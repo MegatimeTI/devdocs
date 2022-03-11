@@ -723,7 +723,6 @@ import json
 url = "radioregional.megatime.cl/campaign/{campaign_id}/details"
 
 payload = json.dumps({
-  "campaign_id": "7558",
   "details": [
     {
       "radio_id": "6446",
@@ -777,7 +776,6 @@ curl --location --request POST 'radioregional.megatime.cl/campaign/{campaign_id}
 --header 'Authorization: 62cc57e4e86381c3c254a2b4b8882673' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "campaign_id": 6446,
     "details": [
         {
             "radio_id": "9449",
@@ -826,7 +824,6 @@ var options = {
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    "campaign_id": "3343",
     "details": [
       {
         "radio_id": "7208",
