@@ -408,6 +408,30 @@
                     <a href="#obtener-api-key-usuario" class="toc-h2 toc-link" data-title="Obtener API Key Usuario">Obtener API Key Usuario</a>
                   </li>
                   <li>
+                    <a href="#crear-campana" class="toc-h2 toc-link" data-title="Crear Campaña">Crear Campaña</a>
+                  </li>
+                  <li>
+                    <a href="#editar-campana" class="toc-h2 toc-link" data-title="Editar Campaña">Editar Campaña</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-resumen-de-campana" class="toc-h2 toc-link" data-title="Obtener resumen de Campaña">Obtener resumen de Campaña</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-campanas" class="toc-h2 toc-link" data-title="Obtener Campañas">Obtener Campañas</a>
+                  </li>
+                  <li>
+                    <a href="#inyectar-audio-a-un-plan" class="toc-h2 toc-link" data-title="Inyectar audio a un plan">Inyectar audio a un plan</a>
+                  </li>
+                  <li>
+                    <a href="#inyectar-pauta-a-campana" class="toc-h2 toc-link" data-title="Inyectar Pauta a Campaña">Inyectar Pauta a Campaña</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-avisajes" class="toc-h2 toc-link" data-title="Obtener Avisajes">Obtener Avisajes</a>
+                  </li>
+                  <li>
+                    <a href="#obtener-url-audio-inyectado" class="toc-h2 toc-link" data-title="Obtener URL audio inyectado">Obtener URL audio inyectado</a>
+                  </li>
+                  <li>
                     <a href="#obtener-agen-creativas-rr" class="toc-h2 toc-link" data-title="Obtener Agen. Creativas (RR)">Obtener Agen. Creativas (RR)</a>
                   </li>
                   <li>
@@ -418,30 +442,6 @@
                   </li>
                   <li>
                     <a href="#obtener-radios-rr" class="toc-h2 toc-link" data-title="Obtener Radios (RR)">Obtener Radios (RR)</a>
-                  </li>
-                  <li>
-                    <a href="#obtener-detalle-de-una-campana" class="toc-h2 toc-link" data-title="Obtener detalle de una Campaña">Obtener detalle de una Campaña</a>
-                  </li>
-                  <li>
-                    <a href="#inyectar-pauta-a-una-campana" class="toc-h2 toc-link" data-title="Inyectar Pauta a una Campaña">Inyectar Pauta a una Campaña</a>
-                  </li>
-                  <li>
-                    <a href="#obtener-campanas" class="toc-h2 toc-link" data-title="Obtener Campañas">Obtener Campañas</a>
-                  </li>
-                  <li>
-                    <a href="#crear-campana" class="toc-h2 toc-link" data-title="Crear Campaña">Crear Campaña</a>
-                  </li>
-                  <li>
-                    <a href="#editar-campana" class="toc-h2 toc-link" data-title="Editar Campaña">Editar Campaña</a>
-                  </li>
-                  <li>
-                    <a href="#obtener-url-audio-inyectado" class="toc-h2 toc-link" data-title="Obtener URL audio inyectado">Obtener URL audio inyectado</a>
-                  </li>
-                  <li>
-                    <a href="#inyectar-audio-a-un-plan" class="toc-h2 toc-link" data-title="Inyectar audio a un plan">Inyectar audio a un plan</a>
-                  </li>
-                  <li>
-                    <a href="#obtener-avisajes" class="toc-h2 toc-link" data-title="Obtener Avisajes">Obtener Avisajes</a>
                   </li>
               </ul>
           </li>
@@ -4357,39 +4357,54 @@ en el Authorization header:</p>
 <aside class="notice">
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
-<h2 id='obtener-agen-creativas-rr'>Obtener Agen. Creativas (RR)</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<h2 id='crear-campana'>Crear Campaña</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/api/finder/creative_agencies"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/api/campaign"</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
-  <span class="s">"name"</span><span class="p">:</span> <span class="s">"example"</span>
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"ExampleCampaña"</span><span class="p">,</span>
+  <span class="s">"company"</span><span class="p">:</span> <span class="s">"Example Empresa"</span><span class="p">,</span>
+  <span class="s">"media_agency"</span><span class="p">:</span> <span class="s">"Example Ag medio"</span><span class="p">,</span>
+  <span class="s">"creative_agency"</span><span class="p">:</span> <span class="s">"Example Ag creativa"</span><span class="p">,</span>
+  <span class="s">"start_date"</span><span class="p">:</span> <span class="s">"18-01-2022"</span><span class="p">,</span>
+  <span class="s">"end_date"</span><span class="p">:</span> <span class="s">"20-01-2022"</span>
 <span class="p">})</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span><span class="p">,</span>
   <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'radioregional.megatime.cl/api/finder/creative-agencies'</span> <span class="se">\</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'radioregional.megatime.cl/api/campaign'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
-    "name":"example"
+  "name": "ExampleCampaña",
+  "company": "Example Empresa",
+  "media_agency": "Example Ag medio",
+  "creative_agency": "Example Ag creativa",
+  "start_date": "18-01-2022",
+  "end_date": "20-01-2022"
 }'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">radioregional.megatime.cl/api/finder/creative-agencies</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">radioregional.megatime.cl/api/campaign</span><span class="dl">'</span><span class="p">,</span>
   <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span><span class="p">,</span>
     <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
   <span class="p">},</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">example</span><span class="dl">"</span>
+    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ExampleCampaña</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">company</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Example Empresa</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">media_agency</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Example Ag medio</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creative_agency</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Example Ag creativa</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">start_date</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18-01-2022</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">end_date</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20-01-2022</span><span class="dl">"</span>
   <span class="p">})</span>
 
 <span class="p">};</span>
@@ -4404,22 +4419,14 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"agencies"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">345</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUTIL NAZCA SAATCHI Y SAATCHI"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">879</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYZ JAAPOH PUBLICIDAD"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3334</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Campaña ingresada correctamente."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Retorna las agencias creativas y su respectivo id. Se puede adjuntar una &#39;frase&#39; para filtrar los resultados.</p>
+<p>Crea una nueva campaña.</p>
 <h3 id='llamada-http-2'>Llamada HTTP</h3>
-<p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span>  <code>https://radioregional.megatime.cl/api/finder/creative-agencies</code></p>
-<h3 id='parametros-url'>Parametros URL</h3>
+<p><span style="color: rgb(170, 117, 28);"> <strong>POST</strong></span> <code>https://radioregional.megatime.cl/api/campaign</code></p>
+<h3 id='parametros-body-2'>Parametros Body</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -4431,7 +4438,37 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <tr>
 <td>name</td>
 <td>String</td>
-<td>Cadena de texto para filtrar por nombre</td>
+<td>Nombre de la campaña a crear</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>company</td>
+<td>String</td>
+<td>Nombre de la empresa</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>media_agency</td>
+<td>String</td>
+<td>Nombre de la agencia de medios</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>creative_agency</td>
+<td>String</td>
+<td>Nombre de la agencia creativa</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>String</td>
+<td>Fecha de inicio en formato DD-MM-YYYY</td>
+<td>No</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>String</td>
+<td>Fecha de termino en formato DD-MM-YYYY</td>
 <td>No</td>
 </tr>
 </tbody></table>
@@ -4449,28 +4486,14 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>Verificador de respuesta</td>
 </tr>
 <tr>
-<td>agencies</td>
-<td>Array</td>
-<td>Lista de objetos de tipo <strong>Agencies</strong></td>
-</tr>
-</tbody></table>
-<h3 id='atributos-agencia_creativas'>Atributos Agencia_creativas</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
+<td>campaign_id</td>
 <td>Integer</td>
-<td>Identificador de la agencia creativa</td>
+<td>Identificador de la nueva campaña generada</td>
 </tr>
 <tr>
-<td>name</td>
+<td>message</td>
 <td>String</td>
-<td>Nombre de la agencia creativa</td>
+<td>Mensaje de estado</td>
 </tr>
 </tbody></table>
 
@@ -4482,39 +4505,54 @@ en el Authorization header:</p>
 <aside class="notice">
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
-<h2 id='obtener-agen-de-medios-rr'>Obtener Agen. de medios (RR)</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<h2 id='editar-campana'>Editar Campaña</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/api/finder/media_agencies"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/api/campaign/3333"</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
-  <span class="s">"name"</span><span class="p">:</span> <span class="s">"example"</span>
+    <span class="s">"name"</span><span class="p">:</span> <span class="s">"Example Name"</span><span class="p">,</span>
+    <span class="s">"company"</span><span class="p">:</span><span class="s">"Example Name"</span><span class="p">,</span>
+    <span class="s">"media_agency"</span><span class="p">:</span><span class="s">"Example Name"</span><span class="p">,</span>
+    <span class="s">"creative_agency"</span><span class="p">:</span><span class="s">"Example Name"</span><span class="p">,</span>
+    <span class="s">"start_date"</span><span class="p">:</span> <span class="s">"18-01-2022"</span><span class="p">,</span>
+    <span class="s">"end_date"</span><span class="p">:</span> <span class="s">"20-01-2022"</span>
 <span class="p">})</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span><span class="p">,</span>
   <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'radioregional.megatime.cl/api/finder/media-agencies'</span> <span class="se">\</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'radioregional.megatime.cl/api/campaign/3333'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
-    "name": "example"
+    "name": "Example Name",
+    "company":"Example Name",
+    "media_agency":"Example Name",
+    "creative_agency":"Example Name",
+    "start_date": "18-01-2022",
+    "end_date": "20-01-2022"
 }'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">radioregional.megatime.cl/api/finder/media-agencies</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">radioregional.megatime.cl/api/campaign/3333</span><span class="dl">'</span><span class="p">,</span>
   <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span><span class="p">,</span>
     <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
   <span class="p">},</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">`example`</span><span class="dl">"</span>
+    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Example Name</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">company</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Example Name</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">media_agency</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Example Name</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creative_agency</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Example Name</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">start_date</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18-01-2022</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">end_date</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20-01-2022</span><span class="dl">"</span>
   <span class="p">})</span>
 
 <span class="p">};</span>
@@ -4522,28 +4560,37 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 <span class="p">});</span>
+
 </code></pre></div>
 <blockquote>
 <p>Ejemplo de retorno en formato JSON:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"agencies"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">675</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12 PUBLICIDAD (MEDIA)"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">978</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A.P. PUBLICIDAD (MEDIA)"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9987</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cambios guardados correctamente."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Retorna las agencias de medios y su respectivo id. Se debe adjuntar una &#39;frase&#39; para filtrar los resultados.</p>
+<p>Edita una campaña.</p>
 <h3 id='llamada-http-3'>Llamada HTTP</h3>
-<p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/finder/media-agencies</code></p>
-<h3 id='parametros-url-2'>Parametros URL</h3>
+<p><span style="color: rgb(170, 117, 28);"> <strong>POST</strong></span> <code>https://radioregional.megatime.cl/api/campaign/{campaign_id}</code></p>
+<h3 id='parametros-url'>Parametros URL</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Requerido</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaign_id</td>
+<td>Integer</td>
+<td>Identificador de campaña</td>
+<td>Si</td>
+</tr>
+</tbody></table>
+<h3 id='parametros-body-3'>Parametros Body</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -4555,8 +4602,38 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <tr>
 <td>name</td>
 <td>String</td>
-<td>Cadena de texto para filtrar por nombre</td>
-<td>No</td>
+<td>Nombre del plan a crear</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>company</td>
+<td>String</td>
+<td>Nombre de la empresa asociada</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>media_agency</td>
+<td>String</td>
+<td>Nombre de la agencia de medios</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>creative_agency</td>
+<td>String</td>
+<td>Nombre de la agencia creativa</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>String</td>
+<td>Fecha de inicio en formato DD-MM-YYYY</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>String</td>
+<td>Fecha de termino en formato DD-MM-YYYY</td>
+<td>Si</td>
 </tr>
 </tbody></table>
 <h3 id='atributos-respuesta-3'>Atributos Respuesta</h3>
@@ -4573,28 +4650,14 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>Verificador de respuesta</td>
 </tr>
 <tr>
-<td>agencies</td>
-<td>Array</td>
-<td>Lista de objetos de tipo <strong>Agencies</strong></td>
-</tr>
-</tbody></table>
-<h3 id='atributos-agencias-de-medios'>Atributos Agencias de medios</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
+<td>campaign_id</td>
 <td>Integer</td>
-<td>Identificador de la agencia de medio</td>
+<td>Identificador de la nueva campaña generada</td>
 </tr>
 <tr>
-<td>name</td>
+<td>message</td>
 <td>String</td>
-<td>Nombre de la agencia de medio</td>
+<td>Mensaje de estado</td>
 </tr>
 </tbody></table>
 
@@ -4606,229 +4669,7 @@ en el Authorization header:</p>
 <aside class="notice">
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
-<h2 id='obtener-empresas-rr'>Obtener Empresas (RR)</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/api/finder/companies"</span>
-
-<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
-  <span class="s">"name"</span><span class="p">:</span> <span class="s">"example"</span>
-<span class="p">})</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span><span class="p">,</span>
-  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
-<span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'radioregional.megatime.cl/api/finder/companies'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">--data-raw</span> <span class="s1">'{
-    "name": "example"
-}'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">radioregional.megatime.cl/api/finder/companies</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span><span class="p">,</span>
-    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
-  <span class="p">},</span>
-  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">example</span><span class="dl">"</span>
-  <span class="p">})</span>
-
-<span class="p">};</span>
-<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div>
-<blockquote>
-<p>Ejemplo de retorno en formato JSON:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"companies"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">45672</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AARATI,JOYAS"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12387</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEROLAIS,JOYAS"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">976453</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACUARIO JOYAS"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>Retorna las empresas y su respectivo id. Se debe adjuntar una &#39;frase&#39; para filtrar los resultados.</p>
-<h3 id='llamada-http-4'>Llamada HTTP</h3>
-<p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/finder/companies</code></p>
-<h3 id='parametros-url-3'>Parametros URL</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-<th>Requerido</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>Cadena de texto para filtrar por nombre</td>
-<td>No</td>
-</tr>
-</tbody></table>
-<h3 id='atributos-respuesta-4'>Atributos Respuesta</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ok</td>
-<td>Boolean</td>
-<td>Verificador de respuesta</td>
-</tr>
-<tr>
-<td>companies</td>
-<td>Array</td>
-<td>Lista de objetos de tipo <strong>Companies</strong></td>
-</tr>
-</tbody></table>
-<h3 id='atributos-empresas'>Atributos Empresas</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>Integer</td>
-<td>Identificador de la empresa</td>
-</tr>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>Nombre de la empresa</td>
-</tr>
-</tbody></table>
-
-<p>La API espera que todas las llamadas estén autenticadas con la Api key
-en el Authorization header:</p>
-
-<p><code>Authorization: SECRET_API_KEY</code></p>
-
-<aside class="notice">
-En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
-</aside>
-<h2 id='obtener-radios-rr'>Obtener Radios (RR)</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/api/finder/radios"</span>
-
-<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
-<span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'radioregional.megatime.cl/api/finder/radios'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">radioregional.megatime.cl/api/finder/radios</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
-  <span class="p">}</span>
-<span class="p">};</span>
-<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div>
-<blockquote>
-<p>Ejemplo de retorno en formato JSON:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"radios"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3453</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACONCAGUA"</span><span class="p">,</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9867</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGUA MARINA"</span><span class="p">,</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>Retorna las radios y su respectivo id.</p>
-<h3 id='llamada-http-5'>Llamada HTTP</h3>
-<p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/finder/radios</code></p>
-<h3 id='atributos-respuesta-5'>Atributos Respuesta</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ok</td>
-<td>Boolean</td>
-<td>Verificador de respuesta</td>
-</tr>
-<tr>
-<td>radios</td>
-<td>Array</td>
-<td>Lista de objetos de tipo <strong>Radio</strong></td>
-</tr>
-</tbody></table>
-<h3 id='atributos-radio'>Atributos Radio</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>Integer</td>
-<td>Identificador de la radio</td>
-</tr>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>Nombre de la radio</td>
-</tr>
-</tbody></table>
-
-<p>La API espera que todas las llamadas estén autenticadas con la Api key
-en el Authorization header:</p>
-
-<p><code>Authorization: SECRET_API_KEY</code></p>
-
-<aside class="notice">
-En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
-</aside>
-<h2 id='obtener-detalle-de-una-campana'>Obtener detalle de una Campaña</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<h2 id='obtener-resumen-de-campana'>Obtener resumen de Campaña</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/api/campaign/3554"</span>
 
@@ -4907,10 +4748,26 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
     </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Retorna los detalles de una campaña. La busqueda se realiza mediante el ID de la campaña que se desea buscar.</p>
-<h3 id='llamada-http-6'>Llamada HTTP</h3>
-<p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/campagin/{campaign_ID}</code></p>
-<h3 id='atributos-respuesta-6'>Atributos Respuesta</h3>
+<p>Retorna el resumen de una campaña, mostrando asi la verificacion para cada radio segun pauta esperada. Incluye informacion de sus audios inyectados.</p>
+<h3 id='llamada-http-4'>Llamada HTTP</h3>
+<p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/campaign/{campaign_ID}</code></p>
+<h3 id='parametros-url-2'>Parametros URL</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Requerido</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaign_id</td>
+<td>Integer</td>
+<td>Identificador de campaña</td>
+<td>Si</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-respuesta-4'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -5070,232 +4927,6 @@ en el Authorization header:</p>
 <aside class="notice">
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
-<h2 id='inyectar-pauta-a-una-campana'>Inyectar Pauta a una Campaña</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/campaign/add/details"</span>
-
-<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
-  <span class="s">"campaign_id"</span><span class="p">:</span> <span class="s">"7558"</span><span class="p">,</span>
-  <span class="s">"details"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s">"radio_id"</span><span class="p">:</span> <span class="s">"6446"</span><span class="p">,</span>
-      <span class="s">"dates"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="s">"day"</span><span class="p">:</span> <span class="s">"18-01-2022"</span><span class="p">,</span>
-          <span class="s">"quantity"</span><span class="p">:</span> <span class="s">"3"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s">"day"</span><span class="p">:</span> <span class="s">"19-01-2022"</span><span class="p">,</span>
-          <span class="s">"quantity"</span><span class="p">:</span> <span class="s">"4"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s">"day"</span><span class="p">:</span> <span class="s">"20-01-2022"</span><span class="p">,</span>
-          <span class="s">"quantity"</span><span class="p">:</span> <span class="s">"5"</span>
-        <span class="p">}</span>
-      <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s">"radio_id"</span><span class="p">:</span> <span class="s">"9644"</span><span class="p">,</span>
-      <span class="s">"dates"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="s">"day"</span><span class="p">:</span> <span class="s">"18-01-2022"</span><span class="p">,</span>
-          <span class="s">"quantity"</span><span class="p">:</span> <span class="s">"3"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s">"day"</span><span class="p">:</span> <span class="s">"19-01-2022"</span><span class="p">,</span>
-          <span class="s">"quantity"</span><span class="p">:</span> <span class="s">"4"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s">"day"</span><span class="p">:</span> <span class="s">"20-01-2022"</span><span class="p">,</span>
-          <span class="s">"quantity"</span><span class="p">:</span> <span class="s">"5"</span>
-        <span class="p">}</span>
-      <span class="p">]</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">})</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'62cc57e4e86381c3c254a2b4b6464545'</span><span class="p">,</span>
-  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
-<span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'radioregional.megatime.cl/campaign/add/details'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Authorization: 62cc57e4e86381c3c254a2b4b8882673'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">--data-raw</span> <span class="s1">'{
-    "campaign_id": "6446",
-    "details": [
-        {
-            "radio_id": "9449",
-            "dates": [
-                {
-                    "day": "18-01-2022",
-                    "quantity": "3"
-                },
-                {
-                    "day": "19-01-2022",
-                    "quantity": "4"
-                },
-                {
-                    "day": "20-01-2022",
-                    "quantity": "5"
-                }
-            ]
-        },
-            {
-            "radio_id": "9445",
-            "dates": [
-                {
-                    "day": "18-01-2022",
-                    "quantity": "3"
-                },
-                {
-                    "day": "19-01-2022",
-                    "quantity": "4"
-                },
-                {
-                    "day": "20-01-2022",
-                    "quantity": "5"
-                }
-            ]
-        }]
-}'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">radioregional.megatime.cl/campaign/add/details</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">62cc57e4e86381c3c254a2b4b</span><span class="dl">'</span><span class="p">,</span>
-    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
-  <span class="p">},</span>
-  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="dl">"</span><span class="s2">campaign_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3343</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">details</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">radio_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7208</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">dates</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-          <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">day</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18-01-2022</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span>
-          <span class="p">},</span>
-          <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">day</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19-01-2022</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">4</span><span class="dl">"</span>
-          <span class="p">},</span>
-          <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">day</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20-01-2022</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span>
-          <span class="p">}</span>
-        <span class="p">]</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">radio_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">4434</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">dates</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-          <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">day</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18-01-2022</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span>
-          <span class="p">},</span>
-          <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">day</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19-01-2022</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">4</span><span class="dl">"</span>
-          <span class="p">},</span>
-          <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">day</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20-01-2022</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span>
-          <span class="p">}</span>
-        <span class="p">]</span>
-      <span class="p">}</span>
-    <span class="p">]</span>
-  <span class="p">})</span>
-
-<span class="p">};</span>
-<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-
-</code></pre></div>
-<blockquote>
-<p>Ejemplo de retorno en formato JSON:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">     
-  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pautas ingresadas correctamente"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>Inyecta pauta a una campaña creada previamente.</p>
-<h3 id='llamada-http-7'>Llamada HTTP</h3>
-<p><span style="color: rgb(170, 117, 28);"> <strong>POST</strong></span> <code>https://radioregional.megatime.cl/api/campagin/add/details</code></p>
-<h3 id='atributos-respuesta-7'>Atributos Respuesta</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>campaign_id</td>
-<td>Integer</td>
-<td>Identificador de la campaña</td>
-</tr>
-<tr>
-<td>details</td>
-<td>Array</td>
-<td>Lista de objetos de tipo <strong>details</strong></td>
-</tr>
-</tbody></table>
-<h3 id='atributos-details'>Atributos Details</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>radio_id</td>
-<td>Integer</td>
-<td>Identificador de la radio</td>
-</tr>
-<tr>
-<td>dates</td>
-<td>Array</td>
-<td>Lista de objetos de tipo <strong>dates</strong></td>
-</tr>
-</tbody></table>
-<h3 id='atributos-dates-2'>Atributos Dates</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>day</td>
-<td>String</td>
-<td>Fecha en la que se contabilizo los avisajes en formato YYYYMMDD</td>
-</tr>
-<tr>
-<td>quantity</td>
-<td>Integer</td>
-<td>Cantidad de avisajes esperados en esa fecha</td>
-</tr>
-</tbody></table>
-
-<p>La API espera que todas las llamadas estén autenticadas con la Api key
-en el Authorization header:</p>
-
-<p><code>Authorization: SECRET_API_KEY</code></p>
-
-<aside class="notice">
-En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
-</aside>
 <h2 id='obtener-campanas'>Obtener Campañas</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/api/campaign/search/?start_date=12-11-2021&amp;end_date=12-01-2022"</span>
@@ -5371,10 +5002,10 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </span><span class="err">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista de campañas en base a un rango de fecha.</p>
-<h3 id='llamada-http-8'>Llamada HTTP</h3>
+<h3 id='llamada-http-5'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/campaign/search?start_date={DD-MM-YYYY}&amp;end_date={DD-MM-
 YYYY}</code></p>
-<h3 id='parametros-url-4'>Parametros URL</h3>
+<h3 id='parametros-url-3'>Parametros URL</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -5396,7 +5027,7 @@ YYYY}</code></p>
 <td>Si</td>
 </tr>
 </tbody></table>
-<h3 id='atributos-respuesta-8'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-5'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -5507,380 +5138,30 @@ en el Authorization header:</p>
 <aside class="notice">
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
-<h2 id='crear-campana'>Crear Campaña</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/api/campaign/add"</span>
-
-<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
-  <span class="s">"name"</span><span class="p">:</span> <span class="s">"ExampleCampaña"</span><span class="p">,</span>
-  <span class="s">"company"</span><span class="p">:</span> <span class="s">"Example Empresa"</span><span class="p">,</span>
-  <span class="s">"media_agency"</span><span class="p">:</span> <span class="s">"Example Ag medio"</span><span class="p">,</span>
-  <span class="s">"creative_agency"</span><span class="p">:</span> <span class="s">"Example Ag creativa"</span>
-<span class="p">})</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span><span class="p">,</span>
-  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
-<span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'radioregional.megatime.cl/api/campaign/add'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">--data-raw</span> <span class="s1">'{
-  "name": "ExampleCampaña",
-  "company": "Example Empresa",
-  "media_agency": "Example Ag medio",
-  "creative_agency": "Example Ag creativa"
-}'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">radioregional.megatime.cl/api/campaign/add</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span><span class="p">,</span>
-    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
-  <span class="p">},</span>
-  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ExampleCampaña</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">company</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Example Empresa</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">media_agency</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Example Ag medio</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">creative_agency</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Example Ag creativa</span><span class="dl">"</span>
-  <span class="p">})</span>
-
-<span class="p">};</span>
-<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-
-</code></pre></div>
-<blockquote>
-<p>Ejemplo de retorno en formato JSON:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3334</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Campaña ingresada correctamente."</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>Crea una nueva campaña.</p>
-<h3 id='llamada-http-9'>Llamada HTTP</h3>
-<p><span style="color: rgb(170, 117, 28);"> <strong>POST</strong></span> <code>https://radioregional.megatime.cl/api/campaign/add</code></p>
-<h3 id='parametros-body-2'>Parametros Body</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-<th>Requerido</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>Nombre de la campaña a crear</td>
-<td>Si</td>
-</tr>
-<tr>
-<td>company</td>
-<td>String</td>
-<td>Nombre de la empresa</td>
-<td>Si</td>
-</tr>
-<tr>
-<td>media_agency</td>
-<td>String</td>
-<td>Nombre de la agencia de medios</td>
-<td>Si</td>
-</tr>
-<tr>
-<td>creative_agency</td>
-<td>String</td>
-<td>Nombre de la agencia creativa</td>
-<td>Si</td>
-</tr>
-</tbody></table>
-<h3 id='atributos-respuesta-9'>Atributos Respuesta</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ok</td>
-<td>Boolean</td>
-<td>Verificador de respuesta</td>
-</tr>
-<tr>
-<td>campaign_id</td>
-<td>Integer</td>
-<td>Identificador de la nueva campaña generada</td>
-</tr>
-<tr>
-<td>message</td>
-<td>String</td>
-<td>Mensaje de estado</td>
-</tr>
-</tbody></table>
-
-<p>La API espera que todas las llamadas estén autenticadas con la Api key
-en el Authorization header:</p>
-
-<p><code>Authorization: SECRET_API_KEY</code></p>
-
-<aside class="notice">
-En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
-</aside>
-<h2 id='editar-campana'>Editar Campaña</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/api/campaign/edit"</span>
-
-<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
-    <span class="s">"id"</span><span class="p">:</span> <span class="mi">9987</span><span class="p">,</span>
-    <span class="s">"name"</span><span class="p">:</span> <span class="s">"Example Name"</span><span class="p">,</span>
-    <span class="s">"company"</span><span class="p">:</span><span class="s">"Example Name"</span><span class="p">,</span>
-    <span class="s">"media_agency"</span><span class="p">:</span><span class="s">"Example Name"</span><span class="p">,</span>
-    <span class="s">"creative_agency"</span><span class="p">:</span><span class="s">"Example Name"</span><span class="p">,</span>
-    <span class="s">"start_date"</span><span class="p">:</span> <span class="s">"2022-01-18"</span><span class="p">,</span>
-    <span class="s">"end_date"</span><span class="p">:</span> <span class="s">"2022-01-25"</span>
-<span class="p">})</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span><span class="p">,</span>
-  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
-<span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'radioregional.megatime.cl/api/campaign/edit'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">--data-raw</span> <span class="s1">'{
-    "id": 9987,
-    "name": "Example Name",
-    "company":"Example Name",
-    "media_agency":"Example Name",
-    "creative_agency":"Example Name",
-    "start_date": "2022-01-18",
-    "end_date": "2022-01-25"
-}'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">radioregional.megatime.cl/api/campaign/edit</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span><span class="p">,</span>
-    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
-  <span class="p">},</span>
-  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">9987</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Example Name</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">company</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Example Name</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">media_agency</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Example Name</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">creative_agency</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Example Name</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">start_date</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-01-18</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">end_date</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-01-25</span><span class="dl">"</span>
-  <span class="p">})</span>
-
-<span class="p">};</span>
-<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-
-</code></pre></div>
-<blockquote>
-<p>Ejemplo de retorno en formato JSON:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9987</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cambios guardados correctamente."</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>Edita una campaña.</p>
-<h3 id='llamada-http-10'>Llamada HTTP</h3>
-<p><span style="color: rgb(170, 117, 28);"> <strong>POST</strong></span> <code>https://radioregional.megatime.cl/api/campaign/edit</code></p>
-<h3 id='parametros-body-3'>Parametros Body</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-<th>Requerido</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Integer</td>
-<td>Identificador de la campaña</td>
-<td>Si</td>
-</tr>
-<tr>
-<td>nombre</td>
-<td>String</td>
-<td>Nombre del plan a crear</td>
-<td>Si</td>
-</tr>
-<tr>
-<td>empresa_nombre</td>
-<td>String</td>
-<td>Nombre de la empresa asociada</td>
-<td>Si</td>
-</tr>
-<tr>
-<td>agmedio_nombre</td>
-<td>String</td>
-<td>Nombre de la agencia de medios</td>
-<td>Si</td>
-</tr>
-<tr>
-<td>agcreativa_nombre</td>
-<td>String</td>
-<td>Nombre de la agencia creativa</td>
-<td>Si</td>
-</tr>
-</tbody></table>
-<h3 id='atributos-respuesta-10'>Atributos Respuesta</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ok</td>
-<td>Boolean</td>
-<td>Verificador de respuesta</td>
-</tr>
-<tr>
-<td>campaign_id</td>
-<td>Integer</td>
-<td>Identificador de la nueva campaña generada</td>
-</tr>
-<tr>
-<td>message</td>
-<td>String</td>
-<td>Mensaje de estado</td>
-</tr>
-</tbody></table>
-
-<p>La API espera que todas las llamadas estén autenticadas con la Api key
-en el Authorization header:</p>
-
-<p><code>Authorization: SECRET_API_KEY</code></p>
-
-<aside class="notice">
-En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
-</aside>
-<h2 id='obtener-url-audio-inyectado'>Obtener URL audio inyectado</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://radioregional.megatime.cl/api/audios/file/3345"</span>
-
-<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
-<span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'https://radioregional.megatime.cl/api/audios/file/3345'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://radioregional.megatime.cl/api/audios/file/3345</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
-  <span class="p">}</span>
-<span class="p">};</span>
-<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div>
-<blockquote>
-<p>Ejemplo de retorno en formato JSON:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"audio_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/radioregional.megatime.cl/user-audios/audio_1111.mp3"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>Obtener un audio inyectado según su ID.</p>
-<h3 id='llamada-http-11'>Llamada HTTP</h3>
-<p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/audios/file/{audio_id}</code></p>
-<h3 id='parametros-url-5'>Parametros URL</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>audio_id</td>
-<td>Integer</td>
-<td>Identificador del audio</td>
-</tr>
-</tbody></table>
-<h3 id='atributos-respuesta-11'>Atributos Respuesta</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>audio_url</td>
-<td>String</td>
-<td>URL de audio inyectado</td>
-</tr>
-</tbody></table>
-
-<p>La API espera que todas las llamadas estén autenticadas con la Api key
-en el Authorization header:</p>
-
-<p><code>Authorization: SECRET_API_KEY</code></p>
-
-<aside class="notice">
-En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
-</aside>
 <h2 id='inyectar-audio-a-un-plan'>Inyectar audio a un plan</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://radioregional.megatime.cl/api/campaign/upload/audio/{path_audio}"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://radioregional.megatime.cl/api/campaign/upload/audio/3333"</span>
 
 <span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
 <span class="n">files</span><span class="o">=</span><span class="p">[</span>
   <span class="p">(</span><span class="s">'audio'</span><span class="p">,(</span><span class="s">'file_example_MP3_700KB.mp3'</span><span class="p">,</span><span class="nb">open</span><span class="p">(</span><span class="s">'/{path_audio}/file_example_MP3_700KB.mp3'</span><span class="p">,</span><span class="s">'rb'</span><span class="p">),</span><span class="s">'audio/mpeg'</span><span class="p">))</span>
 <span class="p">]</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'62cc57e4e86381c3c254a2b4b8882673'</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'62cc57e4e86381c3c25433338882673'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://radioregional.megatime.cl/api/campaign/upload/audio/{campaign_id}'</span> <span class="se">\</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://radioregional.megatime.cl/api/campaign/upload/audio/3333'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span> <span class="se">\</span>
 <span class="nt">--form</span> <span class="s1">'audio=@"/{path_audio}/file_example_MP3_700KB.mp3"'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
   <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
-  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://radioregional.megatime.cl/api/campaign/upload/audio/{campaign_id}</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://radioregional.megatime.cl/api/campaign/upload/audio/33333</span><span class="dl">'</span><span class="p">,</span>
   <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
   <span class="p">},</span>
@@ -5905,14 +5186,14 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2234</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3333</span><span class="p">,</span><span class="w">
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cambios guardados correctamente."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Subir audio a un plan.</p>
-<h3 id='llamada-http-12'>Llamada HTTP</h3>
+<h3 id='llamada-http-6'>Llamada HTTP</h3>
 <p><span style="color: rgb(170, 117, 28);"> <strong>POST</strong></span> <code>https://radioregional.megatime.cl/api/upload/audio/{campaign_id}</code></p>
-<h3 id='parametros-url-6'>Parametros URL</h3>
+<h3 id='parametros-url-4'>Parametros URL</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -5926,7 +5207,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>Identificador de la campaña</td>
 </tr>
 </tbody></table>
-<h3 id='atributos-respuesta-12'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-6'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -5948,6 +5229,241 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>message</td>
 <td>String</td>
 <td>Mensaje de estado</td>
+</tr>
+</tbody></table>
+
+<p>La API espera que todas las llamadas estén autenticadas con la Api key
+en el Authorization header:</p>
+
+<p><code>Authorization: SECRET_API_KEY</code></p>
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
+<h2 id='inyectar-pauta-a-campana'>Inyectar Pauta a Campaña</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/campaign/{campaign_id}/details"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"campaign_id"</span><span class="p">:</span> <span class="s">"7558"</span><span class="p">,</span>
+  <span class="s">"details"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s">"radio_id"</span><span class="p">:</span> <span class="s">"6446"</span><span class="p">,</span>
+      <span class="s">"dates"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s">"day"</span><span class="p">:</span> <span class="s">"18-01-2022"</span><span class="p">,</span>
+          <span class="s">"quantity"</span><span class="p">:</span> <span class="mi">3</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s">"day"</span><span class="p">:</span> <span class="s">"19-01-2022"</span><span class="p">,</span>
+          <span class="s">"quantity"</span><span class="p">:</span> <span class="mi">4</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s">"day"</span><span class="p">:</span> <span class="s">"20-01-2022"</span><span class="p">,</span>
+          <span class="s">"quantity"</span><span class="p">:</span> <span class="mi">5</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s">"radio_id"</span><span class="p">:</span> <span class="s">"9644"</span><span class="p">,</span>
+      <span class="s">"dates"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s">"day"</span><span class="p">:</span> <span class="s">"18-01-2022"</span><span class="p">,</span>
+          <span class="s">"quantity"</span><span class="p">:</span> <span class="mi">3</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s">"day"</span><span class="p">:</span> <span class="s">"19-01-2022"</span><span class="p">,</span>
+          <span class="s">"quantity"</span><span class="p">:</span> <span class="mi">4</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s">"day"</span><span class="p">:</span> <span class="s">"20-01-2022"</span><span class="p">,</span>
+          <span class="s">"quantity"</span><span class="p">:</span> <span class="mi">5</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'62cc57e4e86381c3c254a2b4b6464545'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'radioregional.megatime.cl/campaign/{campaign_id}/details'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: 62cc57e4e86381c3c254a2b4b8882673'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "campaign_id": 6446,
+    "details": [
+        {
+            "radio_id": "9449",
+            "dates": [
+                {
+                    "day": "18-01-2022",
+                    "quantity": 3
+                },
+                {
+                    "day": "19-01-2022",
+                    "quantity": 4
+                },
+                {
+                    "day": "20-01-2022",
+                    "quantity": 5
+                }
+            ]
+        },
+            {
+            "radio_id": "9445",
+            "dates": [
+                {
+                    "day": "18-01-2022",
+                    "quantity": 3
+                },
+                {
+                    "day": "19-01-2022",
+                    "quantity": 4
+                },
+                {
+                    "day": "20-01-2022",
+                    "quantity": 5
+                }
+            ]
+        }]
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">radioregional.megatime.cl/campaign/{campaign_id}/details</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">62cc57e4e86381c3c254a2b4b</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="dl">"</span><span class="s2">campaign_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3343</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">details</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">radio_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7208</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">dates</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">day</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18-01-2022</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">day</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19-01-2022</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">4</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">day</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20-01-2022</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">5</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">radio_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">4434</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">dates</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">day</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18-01-2022</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">day</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19-01-2022</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">4</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">day</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20-01-2022</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">5</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">})</span>
+
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">     
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pautas ingresadas correctamente"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Inyecta pauta a una campaña creada previamente.</p>
+<h3 id='llamada-http-7'>Llamada HTTP</h3>
+<p><span style="color: rgb(170, 117, 28);"> <strong>POST</strong></span> <code>https://radioregional.megatime.cl/api/campaign/{campaign_id}/details</code></p>
+<h3 id='parametros-url-5'>Parametros URL</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripcion</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaign_id</td>
+<td>Integer</td>
+<td>Identificador de la campaña</td>
+</tr>
+</tbody></table>
+<h3 id='parametros-body-4'>Parametros  Body</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>details</td>
+<td>Array</td>
+<td>Lista de objetos de tipo <strong>details</strong></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-details'>Atributos Details</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>radio_id</td>
+<td>Integer</td>
+<td>Identificador de la radio</td>
+</tr>
+<tr>
+<td>dates</td>
+<td>Array</td>
+<td>Lista de objetos de tipo <strong>dates</strong></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-dates-2'>Atributos Dates</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>day</td>
+<td>String</td>
+<td>Fecha en la que se contabilizo los avisajes en formato YYYYMMDD</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Integer</td>
+<td>Cantidad de avisajes esperados en esa fecha</td>
 </tr>
 </tbody></table>
 
@@ -6048,9 +5564,9 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Obtener los avisajes de una campaña en especifico, o de todos las campañas de un cliente en un rango de tiempo especifico.</p>
-<h3 id='llamada-http-13'>Llamada HTTP</h3>
+<h3 id='llamada-http-8'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/spots?start_date={DD-MM-YYYY}&amp;end_date={DD-MM-YYYY}&amp;campaign_id={campaign_id}</code></p>
-<h3 id='parametros-url-7'>Parametros URL</h3>
+<h3 id='parametros-url-6'>Parametros URL</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -6078,7 +5594,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>No</td>
 </tr>
 </tbody></table>
-<h3 id='atributos-respuesta-13'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-7'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -6209,6 +5725,552 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>campaign_id</td>
 <td>Integer</td>
 <td>Identificador de la campaña</td>
+</tr>
+</tbody></table>
+
+<p>La API espera que todas las llamadas estén autenticadas con la Api key
+en el Authorization header:</p>
+
+<p><code>Authorization: SECRET_API_KEY</code></p>
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
+<h2 id='obtener-url-audio-inyectado'>Obtener URL audio inyectado</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://radioregional.megatime.cl/api/audios/file/3345"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'https://radioregional.megatime.cl/api/audios/file/3345'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://radioregional.megatime.cl/api/audios/file/3345</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"audio_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/radioregional.megatime.cl/user-audios/audio_1111.mp3"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Obtener un audio inyectado según su ID.</p>
+<h3 id='llamada-http-9'>Llamada HTTP</h3>
+<p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/audios/file/{audio_id}</code></p>
+<h3 id='parametros-url-7'>Parametros URL</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>audio_id</td>
+<td>Integer</td>
+<td>Identificador del audio</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-respuesta-8'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>audio_url</td>
+<td>String</td>
+<td>URL de audio inyectado</td>
+</tr>
+</tbody></table>
+
+<p>La API espera que todas las llamadas estén autenticadas con la Api key
+en el Authorization header:</p>
+
+<p><code>Authorization: SECRET_API_KEY</code></p>
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
+<h2 id='obtener-agen-creativas-rr'>Obtener Agen. Creativas (RR)</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/api/finder/creative_agencies"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"example"</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'radioregional.megatime.cl/api/finder/creative-agencies'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "name":"example"
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">radioregional.megatime.cl/api/finder/creative-agencies</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">example</span><span class="dl">"</span>
+  <span class="p">})</span>
+
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"agencies"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">345</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUTIL NAZCA SAATCHI Y SAATCHI"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">879</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYZ JAAPOH PUBLICIDAD"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna las agencias creativas y su respectivo id. Se puede adjuntar una &#39;frase&#39; para filtrar los resultados.</p>
+<h3 id='llamada-http-10'>Llamada HTTP</h3>
+<p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span>  <code>https://radioregional.megatime.cl/api/finder/creative-agencies</code></p>
+<h3 id='parametros-body-5'>Parametros Body</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Requerido</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Cadena de texto para filtrar por nombre</td>
+<td>No</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-respuesta-9'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>agencies</td>
+<td>Array</td>
+<td>Lista de objetos de tipo <strong>Agencies</strong></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-agencia_creativas'>Atributos Agencia_creativas</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>Identificador de la agencia creativa</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre de la agencia creativa</td>
+</tr>
+</tbody></table>
+
+<p>La API espera que todas las llamadas estén autenticadas con la Api key
+en el Authorization header:</p>
+
+<p><code>Authorization: SECRET_API_KEY</code></p>
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
+<h2 id='obtener-agen-de-medios-rr'>Obtener Agen. de medios (RR)</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/api/finder/media_agencies"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"example"</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'radioregional.megatime.cl/api/finder/media-agencies'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "name": "example"
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">radioregional.megatime.cl/api/finder/media-agencies</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">`example`</span><span class="dl">"</span>
+  <span class="p">})</span>
+
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"agencies"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">675</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12 PUBLICIDAD (MEDIA)"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">978</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A.P. PUBLICIDAD (MEDIA)"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna las agencias de medios y su respectivo id. Se debe adjuntar una &#39;frase&#39; para filtrar los resultados.</p>
+<h3 id='llamada-http-11'>Llamada HTTP</h3>
+<p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/finder/media-agencies</code></p>
+<h3 id='parametros-body-6'>Parametros Body</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Requerido</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Cadena de texto para filtrar por nombre</td>
+<td>No</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-respuesta-10'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>agencies</td>
+<td>Array</td>
+<td>Lista de objetos de tipo <strong>Agencies</strong></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-agencias-de-medios'>Atributos Agencias de medios</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>Identificador de la agencia de medio</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre de la agencia de medio</td>
+</tr>
+</tbody></table>
+
+<p>La API espera que todas las llamadas estén autenticadas con la Api key
+en el Authorization header:</p>
+
+<p><code>Authorization: SECRET_API_KEY</code></p>
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
+<h2 id='obtener-empresas-rr'>Obtener Empresas (RR)</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/api/finder/companies"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"example"</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'radioregional.megatime.cl/api/finder/companies'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "name": "example"
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">radioregional.megatime.cl/api/finder/companies</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">example</span><span class="dl">"</span>
+  <span class="p">})</span>
+
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"companies"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">45672</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AARATI,JOYAS"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12387</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACEROLAIS,JOYAS"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">976453</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACUARIO JOYAS"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna las empresas y su respectivo id. Se debe adjuntar una &#39;frase&#39; para filtrar los resultados.</p>
+<h3 id='llamada-http-12'>Llamada HTTP</h3>
+<p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/finder/companies</code></p>
+<h3 id='parametros-body-7'>Parametros Body</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Requerido</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Cadena de texto para filtrar por nombre</td>
+<td>No</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-respuesta-11'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>companies</td>
+<td>Array</td>
+<td>Lista de objetos de tipo <strong>Companies</strong></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-empresas'>Atributos Empresas</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>Identificador de la empresa</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre de la empresa</td>
+</tr>
+</tbody></table>
+
+<p>La API espera que todas las llamadas estén autenticadas con la Api key
+en el Authorization header:</p>
+
+<p><code>Authorization: SECRET_API_KEY</code></p>
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
+<h2 id='obtener-radios-rr'>Obtener Radios (RR)</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/api/finder/radios"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'radioregional.megatime.cl/api/finder/radios'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">radioregional.megatime.cl/api/finder/radios</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"radios"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3453</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACONCAGUA"</span><span class="p">,</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9867</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGUA MARINA"</span><span class="p">,</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna las radios y su respectivo id.</p>
+<h3 id='llamada-http-13'>Llamada HTTP</h3>
+<p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/finder/radios</code></p>
+<h3 id='atributos-respuesta-12'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>radios</td>
+<td>Array</td>
+<td>Lista de objetos de tipo <strong>Radio</strong></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-radio'>Atributos Radio</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>Identificador de la radio</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre de la radio</td>
 </tr>
 </tbody></table>
 
