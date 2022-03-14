@@ -5519,12 +5519,14 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
             </span><span class="nl">"second"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
             </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
             </span><span class="nl">"radio_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7062</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"radio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MADEROANTOFAGASTA"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HUGHESNET"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">73004</span><span class="p">,</span><span class="w">
             </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HUGHESNET,INTERNET SATELITAL"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"advertisement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HUGHESNET,INTERNET SATELITAL,CON HUGHESNET DONDE VEAS EL CIE"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">306312</span><span class="p">,</span><span class="w">
             </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INTERNET"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
             </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HUGHESNET"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"brand_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">120705</span><span class="p">,</span><span class="w">
             </span><span class="nl">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PROVEEDORES"</span><span class="p">,</span><span class="w">
@@ -5543,12 +5545,14 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
             </span><span class="nl">"second"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
             </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
             </span><span class="nl">"radio_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7160</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"radio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MADEROANTOFAGASTA"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MOVISTAR"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1870</span><span class="p">,</span><span class="w">
             </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MOVISTAR,EMPRESAS,FIBRA"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"advertisement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MOVISTAR,EMPRESAS,PLAN FIBRA 600 MEGAS SIMETRICO POR SOLO"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">320249</span><span class="p">,</span><span class="w">
             </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SERVICIOS AL CONSUMIDOR"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
             </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MOVISTAR"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"brand_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">81824</span><span class="p">,</span><span class="w">
             </span><span class="nl">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TELEFONIA"</span><span class="p">,</span><span class="w">
@@ -5634,6 +5638,11 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>Identificador del plan</td>
 </tr>
 <tr>
+<td>audio_id</td>
+<td>Integer</td>
+<td>Identificador del audio</td>
+</tr>
+<tr>
 <td>date</td>
 <td>String</td>
 <td>Fecha del avisaje en formato DD-MM-YYYY</td>
@@ -5659,9 +5668,14 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>Duracion del avisaje en segundos</td>
 </tr>
 <tr>
-<td>support</td>
+<td>radio_id</td>
 <td>Integer</td>
-<td>Identificador del soporte</td>
+<td>Identificador de la radio</td>
+</tr>
+<tr>
+<td>radio</td>
+<td>String</td>
+<td>Nombre de la radio</td>
 </tr>
 <tr>
 <td>company</td>
@@ -5687,6 +5701,16 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>product_id</td>
 <td>Integer</td>
 <td>Identificador del producto</td>
+</tr>
+<tr>
+<td>category</td>
+<td>String</td>
+<td>Nombre de la categoria</td>
+</tr>
+<tr>
+<td>category_id</td>
+<td>Integer</td>
+<td>Identificador de la categoria</td>
 </tr>
 <tr>
 <td>brand</td>
