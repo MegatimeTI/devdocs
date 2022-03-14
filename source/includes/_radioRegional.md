@@ -982,12 +982,14 @@ request(options, function (error, response) {
             "second": 17,
             "duration": 30,
             "radio_id": 7062,
+            "radio": "MADEROANTOFAGASTA",
             "company": "HUGHESNET",
             "company_id": 73004,
             "product": "HUGHESNET,INTERNET SATELITAL",
             "advertisement": "HUGHESNET,INTERNET SATELITAL,CON HUGHESNET DONDE VEAS EL CIE",
             "product_id": 306312,
             "category": "INTERNET",
+            "category_id": 29,
             "brand": "HUGHESNET",
             "brand_id": 120705,
             "industry": "PROVEEDORES",
@@ -1006,12 +1008,14 @@ request(options, function (error, response) {
             "second": 37,
             "duration": 24,
             "radio_id": 7160,
+            "radio": "MADEROANTOFAGASTA",
             "company": "MOVISTAR",
             "company_id": 1870,
             "product": "MOVISTAR,EMPRESAS,FIBRA",
             "advertisement": "MOVISTAR,EMPRESAS,PLAN FIBRA 600 MEGAS SIMETRICO POR SOLO",
             "product_id": 320249,
             "category": "SERVICIOS AL CONSUMIDOR",
+            "category_id": 29,
             "brand": "MOVISTAR",
             "brand_id": 81824,
             "industry": "TELEFONIA",
@@ -1053,17 +1057,21 @@ Obtener los avisajes de una campaña en especifico, o de todos las campañas de 
 | Nombre            | Tipo    | Descripción                                                 |
 | -------------     | ------- | ----------------------------------------------------------- |
 | id                | Integer | Identificador del plan                                      |
+| audio_id          | Integer | Identificador del audio
 | date              | String  | Fecha del avisaje en formato DD-MM-YYYY                     |
 | hour              | Integer | Hora del avisaje en formato 24Horas                         |
 | minute            | Integer | Minuto del avisaje                                          |
 | second            | Integer | Segundo del avisaje                                         |
 | duration          | Integer | Duracion del avisaje en segundos                            |
-| support           | Integer | Identificador del soporte                                   |
+| radio_id          | Integer | Identificador de la radio                                   |
+| radio             | String  | Nombre de la radio                                          |
 | company           | String  | Nombre de la empresa                                        |
 | company_id        | Integer | Identificador de la empresa                                 |
 | product           | String  | Nombre del producto                                         |
 | advertisement     | String  | Descripcion del producto                                    |
 | product_id        | Integer | Identificador del producto                                  |
+| category          | String  | Nombre de la categoria                                      |
+| category_id       | Integer | Identificador de la categoria                               |
 | brand             | String  | Nombre de la marca                                          |
 | brand_id          | Integer | Identificador de la marca                                   |
 | industry          | String  | Nombre del rubro                                            |
