@@ -180,8 +180,9 @@ Crea una nueva campaña.
 | company              | String      | Nombre de la empresa                         | Si |
 | media_agency         | String      | Nombre de la agencia de medios               | Si |
 | creative_agency      | String      | Nombre de la agencia creativa                | Si |
-|start_date	|String	|Fecha de inicio en formato DD-MM-YYYY |	No|
-|end_date	|String	|Fecha de termino en formato DD-MM-YYYY	|No
+|start_date            |String	     | Fecha de inicio en formato DD-MM-YYYY        |	No |
+|end_date	             |String	     | Fecha de termino en formato DD-MM-YYYY	      | No |
+| external_id          | Integer     | Identifiador opcional, para seguimiento interno del cliente| No| 
 
 ### Atributos Respuesta
 
@@ -297,10 +298,11 @@ Edita una campaña.
 | ----------            | -------     | ------------------------|  --|
 | name                 | String      | Nombre del plan a crear                | Si |
 | company              | String      | Nombre de la empresa asociada          | Si |
+| external_id          | Integer     | Identificador interno para seguimiento del cliente | Si |
 | media_agency         | String      | Nombre de la agencia de medios         | Si |
 | creative_agency      | String      | Nombre de la agencia creativa          | Si |
-|start_date	|String	|Fecha de inicio en formato DD-MM-YYYY|	Si
-|end_date	|String	|Fecha de termino en formato DD-MM-YYYY	|Si
+| start_date	         | String	     | Fecha de inicio en formato DD-MM-YYYY  |	Si |
+| end_date	           | String	     | Fecha de termino en formato DD-MM-YYYY	| Si |
 
 ### Atributos Respuesta
 
@@ -363,7 +365,7 @@ request(options, function (error, response) {
 
 ```json
 {
-    "id": "3554",
+    "id": 3554,
     "external_id": 0,
     "name": "Example ",
     "company": "Example",
@@ -725,7 +727,7 @@ url = "radioregional.megatime.cl/campaign/{campaign_id}/details"
 payload = json.dumps({
   "details": [
     {
-      "radio_id": "6446",
+      "radio_id": 6446,
       "dates": [
         {
           "day": "18-01-2022",
@@ -742,7 +744,7 @@ payload = json.dumps({
       ]
     },
     {
-      "radio_id": "9644",
+      "radio_id": 9644,
       "dates": [
         {
           "day": "18-01-2022",
@@ -778,7 +780,7 @@ curl --location --request POST 'radioregional.megatime.cl/campaign/{campaign_id}
 --data-raw '{
     "details": [
         {
-            "radio_id": "9449",
+            "radio_id": 9449,
             "dates": [
                 {
                     "day": "18-01-2022",
@@ -795,7 +797,7 @@ curl --location --request POST 'radioregional.megatime.cl/campaign/{campaign_id}
             ]
         },
             {
-            "radio_id": "9445",
+            "radio_id": 9445,
             "dates": [
                 {
                     "day": "18-01-2022",
@@ -826,7 +828,7 @@ var options = {
   body: JSON.stringify({
     "details": [
       {
-        "radio_id": "7208",
+        "radio_id": 7208,
         "dates": [
           {
             "day": "18-01-2022",
@@ -843,7 +845,7 @@ var options = {
         ]
       },
       {
-        "radio_id": "4434",
+        "radio_id": 4434,
         "dates": [
           {
             "day": "18-01-2022",
