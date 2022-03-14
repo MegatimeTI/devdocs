@@ -4471,6 +4471,12 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>Fecha de termino en formato DD-MM-YYYY</td>
 <td>No</td>
 </tr>
+<tr>
+<td>external_id</td>
+<td>Integer</td>
+<td>Identifiador opcional, para seguimiento interno del cliente</td>
+<td>No</td>
+</tr>
 </tbody></table>
 <h3 id='atributos-respuesta-2'>Atributos Respuesta</h3>
 <table><thead>
@@ -4612,6 +4618,12 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>Si</td>
 </tr>
 <tr>
+<td>external_id</td>
+<td>Integer</td>
+<td>Identificador interno para seguimiento del cliente</td>
+<td>Si</td>
+</tr>
+<tr>
 <td>media_agency</td>
 <td>String</td>
 <td>Nombre de la agencia de medios</td>
@@ -4701,7 +4713,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <p>Ejemplo de retorno en formato JSON:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3554"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3554</span><span class="p">,</span><span class="w">
     </span><span class="nl">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example "</span><span class="p">,</span><span class="w">
     </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="p">,</span><span class="w">
@@ -5248,7 +5260,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
   <span class="s">"details"</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="s">"radio_id"</span><span class="p">:</span> <span class="s">"6446"</span><span class="p">,</span>
+      <span class="s">"radio_id"</span><span class="p">:</span> <span class="mi">6446</span><span class="p">,</span>
       <span class="s">"dates"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
           <span class="s">"day"</span><span class="p">:</span> <span class="s">"18-01-2022"</span><span class="p">,</span>
@@ -5265,7 +5277,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
       <span class="p">]</span>
     <span class="p">},</span>
     <span class="p">{</span>
-      <span class="s">"radio_id"</span><span class="p">:</span> <span class="s">"9644"</span><span class="p">,</span>
+      <span class="s">"radio_id"</span><span class="p">:</span> <span class="mi">9644</span><span class="p">,</span>
       <span class="s">"dates"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
           <span class="s">"day"</span><span class="p">:</span> <span class="s">"18-01-2022"</span><span class="p">,</span>
@@ -5298,7 +5310,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <span class="nt">--data-raw</span> <span class="s1">'{
     "details": [
         {
-            "radio_id": "9449",
+            "radio_id": 9449,
             "dates": [
                 {
                     "day": "18-01-2022",
@@ -5315,7 +5327,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
             ]
         },
             {
-            "radio_id": "9445",
+            "radio_id": 9445,
             "dates": [
                 {
                     "day": "18-01-2022",
@@ -5343,7 +5355,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
   <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
     <span class="dl">"</span><span class="s2">details</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">radio_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7208</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">radio_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">7208</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">dates</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
           <span class="p">{</span>
             <span class="dl">"</span><span class="s2">day</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18-01-2022</span><span class="dl">"</span><span class="p">,</span>
@@ -5360,7 +5372,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
         <span class="p">]</span>
       <span class="p">},</span>
       <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">radio_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">4434</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">radio_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">4434</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">dates</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
           <span class="p">{</span>
             <span class="dl">"</span><span class="s2">day</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18-01-2022</span><span class="dl">"</span><span class="p">,</span>
