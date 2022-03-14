@@ -325,8 +325,8 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 | sub_industry           | String  | Nombre del Sub-Rubro asignado al Rubro                                                                                                                             |
 | universal_id           | Integer | Código universal                                                                                                                                                   |
 | universal_program_id   | Integer | Código de programa universal                                                                                                                                       |
-| ad_supplier_id         | Integer | ID Suplemento                                                                                                                                                      |
-| ad_supplier            | String  | En caso de ser publicidad en papel, indica el nombre del suplemento                                                                                                |
+| ad_supplier_id         | Integer | ID Comercializador                                                                                                                                                      |
+| ad_supplier            | String  | En caso de ser publicidad televisiva, indica el nombre del comercializador                                                                                                    |
 | megatime_hour          | Integer | Hora megatime (Dias de 26 horas)                                                                                                                                   |
 | channel_KANTAR         | Integer | ID Soporte de la empresa Time                                                                                                                                      |
 | e_type_media           | Integer | ID Megatime para identificar el area de la verificacion                                                                                                            |
@@ -572,8 +572,8 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 | sub_industry           | String  | Nombre del Sub-Rubro asignado al Rubro                                                                                  |
 | universal_id           | Integer | Código universal                                                                                                        |
 | universal_program_id   | Integer | Código de programa universal                                                                                            |
-| ad_supplier_id         | Integer | ID Suplemento                                                                                                           |
-| ad_supplier            | String  | En caso de ser publicidad en papel, indica el nombre del suplemento                                                     |
+| ad_supplier_id         | Integer | ID Comercializador                                                                                                           |
+| ad_supplier            | String  | En caso de ser publicidad televisiva, indica el nombre del comercializador                                                |
 | megatime_hour          | Integer | Hora megatime (Dias de 26 horas)                                                                                        |
 | channel_KANTAR         | Integer | ID Soporte de la empresa Time                                                                                           |
 | e_type_media           | Integer | ID Megatime para identificar el area de la verificacion                                                                 |
