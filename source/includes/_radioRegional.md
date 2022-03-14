@@ -616,7 +616,7 @@ en el Authorization header:
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
 
-## Inyectar audio a un plan
+## Inyectar audio a una Campaña
 
 ```python
 import requests
@@ -679,11 +679,11 @@ request(options, function (error, response) {
 }
 ```
 
-Subir audio a un plan.
+Subir audio a una campaña.
 
 ### Llamada HTTP
 
-<span style="color: rgb(170, 117, 28);"> **POST**</span> `https://radioregional.megatime.cl/api/upload/audio/{campaign_id}`
+<span style="color: rgb(170, 117, 28);"> **POST**</span> `https://radioregional.megatime.cl/api/campaign/upload/audio/{campaign_id}`
 
 ### Parametros URL
 
@@ -1056,8 +1056,8 @@ Obtener los avisajes de una campaña en especifico, o de todos las campañas de 
 
 | Nombre            | Tipo    | Descripción                                                 |
 | -------------     | ------- | ----------------------------------------------------------- |
-| id                | Integer | Identificador del plan                                      |
-| audio_id          | Integer | Identificador del audio
+| id                | Integer | Identificador de la campaña                                 |
+| audio_id          | Integer | Identificador del audio                                     |
 | date              | String  | Fecha del avisaje en formato DD-MM-YYYY                     |
 | hour              | Integer | Hora del avisaje en formato 24Horas                         |
 | minute            | Integer | Minuto del avisaje                                          |
@@ -1193,7 +1193,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'radioregional.megatime.cl/api/finder/creative-agencies' \
+curl --location --request GET 'radioregional.megatime.cl/api/finder/creative_agencies' \
 --header 'Authorization: SECRET_API_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -1205,7 +1205,7 @@ curl --location --request GET 'radioregional.megatime.cl/api/finder/creative-age
 var request = require('request');
 var options = {
   'method': 'GET',
-  'url': 'radioregional.megatime.cl/api/finder/creative-agencies',
+  'url': 'radioregional.megatime.cl/api/finder/creative_agencies',
   'headers': {
     'Authorization': 'SECRET_API_KEY',
     'Content-Type': 'application/json'
@@ -1244,7 +1244,7 @@ Retorna las agencias creativas y su respectivo id. Se puede adjuntar una 'frase'
 
 ### Llamada HTTP
 
-<span style="color: rgb(33, 120, 52);"> **GET**</span>  `https://radioregional.megatime.cl/api/finder/creative-agencies`
+<span style="color: rgb(33, 120, 52);"> **GET**</span>  `https://radioregional.megatime.cl/api/finder/creative_agencies`
 
 ### Parametros Body
 
@@ -1299,7 +1299,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'radioregional.megatime.cl/api/finder/media-agencies' \
+curl --location --request GET 'radioregional.megatime.cl/api/finder/media_agencies' \
 --header 'Authorization: SECRET_API_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -1311,7 +1311,7 @@ curl --location --request GET 'radioregional.megatime.cl/api/finder/media-agenci
 var request = require('request');
 var options = {
   'method': 'GET',
-  'url': 'radioregional.megatime.cl/api/finder/media-agencies',
+  'url': 'radioregional.megatime.cl/api/finder/media_agencies',
   'headers': {
     'Authorization': 'SECRET_API_KEY',
     'Content-Type': 'application/json'
@@ -1349,7 +1349,7 @@ Retorna las agencias de medios y su respectivo id. Se debe adjuntar una 'frase' 
 
 ### Llamada HTTP
 
-<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/finder/media-agencies`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/finder/media_agencies`
 
 ### Parametros Body
 
