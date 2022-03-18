@@ -64,7 +64,7 @@ Retorna key que permite el acceso al API del clasificador.
 
 ### Llamada HTTP
 
-`POST cuenta.megatime.cl/api/auth/key`
+<span style="color: rgb(170, 117, 28);"> **POST**</span> `cuenta.megatime.cl/api/auth/key`
 
 ### Parámetros Body
 
@@ -199,7 +199,7 @@ Retorna todos los grupos.
 
 ### Llamada HTTP
 
-`GET clasificador.megatime.cl/api/groups`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `clasificador.megatime.cl/api/groups`
 
 ### Atributos Respuesta
 
@@ -328,7 +328,7 @@ Retorna todos los clasificadores.
 
 ### Llamada HTTP
 
-`GET clasificador.megatime.cl/api/classifiers`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `clasificador.megatime.cl/api/classifiers`
 
 ### Atributos Respuesta
 
@@ -495,7 +495,7 @@ Retorna todos los avisos con sus datos y opciones que tuvieron alguna actividad 
 
 ### Llamada HTTP
 
-`GET clasificador.megatime.cl/api/ads/group/{groupID}`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `clasificador.megatime.cl/api/ads/group/{groupID}`
 
 La variable `groupID` corresponde al ID del Grupo clasificador el cual contiene los filtros de marcas y clasificadores.
 
@@ -503,8 +503,8 @@ La variable `groupID` corresponde al ID del Grupo clasificador el cual contiene 
 
 | Nombre     | Requerido | Descripción                                        |
 | ---------- | --------- | -------------------------------------------------- |
-| start_date | Sí        | Fecha inicial de la búsqueda en formato DD-MM-YYYY |
-| end_date   | Sí        | Fecha final de la búsqueda en formato DD-MM-YYYY   |
+| start_date | Sí        | Fecha inicial de la búsqueda en formato dd-mm-yyyy |
+| end_date   | Sí        | Fecha final de la búsqueda en formato dd-mm-yyyy   |
 
 ### Atributos Respuesta
 
@@ -512,8 +512,8 @@ La variable `groupID` corresponde al ID del Grupo clasificador el cual contiene 
 | ---------- | ------- | -------------------------------------------------- |
 | ok         | Boolean | Verificador de respuesta                           |
 | group      | String  | Nombre del grupo seleccionado                      |
-| start_date | Date    | Fecha inicial de la búsqueda en formato DD-MM-YYYY |
-| end_date   | Date    | Fecha final de la búsqueda en formato DD-MM-YYYY   |
+| start_date | Date    | Fecha inicial de la búsqueda en formato dd-mm-yyyy |
+| end_date   | Date    | Fecha final de la búsqueda en formato dd-mm-yyyy   |
 | data       | String  | Lista de objetos de tipo `Aviso`                   |
 
 ### Atributos Aviso por Grupo

@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: API Docs Megatime
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell: cURL
@@ -11,9 +11,9 @@ language_tabs: # must be one of https://git.io/vQNgJ
 #   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - clasificador
+  - datasuite
   - multimedia
-  - spots
+  - clasificador
   - radioRegional
   - errores
 

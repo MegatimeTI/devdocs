@@ -64,7 +64,7 @@ Retorna key que permite el acceso al API del clasificador.
 
 ### Llamada HTTP
 
-`POST cuenta.megatime.cl/api/auth/key`
+<span style="color: rgb(170, 117, 28);"> **POST**</span> `cuenta.megatime.cl/api/auth/key`
 
 ### Parámetros Body
 
@@ -127,7 +127,7 @@ curl --location --request GET 'multimedia.megatime.cl/file/spot/0xea3e07b0ef1e6e
 
 > Retorno de multimedia Video, Audio o Imagen
 
-`GET multimedia.megatime.cl/file/spot/{codigo}`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `multimedia.megatime.cl/file/spot/{codigo}`
 
 La variable `codigo` corresponde al código único de cada avisaje.
 
