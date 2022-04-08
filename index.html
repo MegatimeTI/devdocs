@@ -432,6 +432,9 @@
                     <a href="#obtener-avisajes" class="toc-h2 toc-link" data-title="Obtener Avisajes">Obtener Avisajes</a>
                   </li>
                   <li>
+                    <a href="#obtener-url-audio-testigo" class="toc-h2 toc-link" data-title="Obtener URL audio testigo">Obtener URL audio testigo</a>
+                  </li>
+                  <li>
                     <a href="#obtener-url-audio-inyectado" class="toc-h2 toc-link" data-title="Obtener URL audio inyectado">Obtener URL audio inyectado</a>
                   </li>
                   <li>
@@ -5872,6 +5875,87 @@ en el Authorization header:</p>
 <aside class="notice">
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
+<h2 id='obtener-url-audio-testigo'>Obtener URL audio testigo</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://radioregional.megatime.cl/api/audios/witness/3345"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'https://radioregional.megatime.cl/api/audios/witness/3345'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">method</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://radioregional.megatime.cl/api/audios/witness/3345</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">headers</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SECRET_API_KEY</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"audio_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/radioregional.megatime.cl/testigos/20220314/045/20220314152447_045_277620.mp3"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Obtener el url de un audio testigo.</p>
+<h3 id='llamada-http-9'>Llamada HTTP</h3>
+<p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/audios/witness/{spot_id}</code></p>
+<h3 id='parametros-url-7'>Parametros URL</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>spot_id</td>
+<td>Integer</td>
+<td>Identificador del avisaje</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-respuesta-8'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>audio_url</td>
+<td>String</td>
+<td>URL de audio inyectado</td>
+</tr>
+</tbody></table>
+
+<p>La API espera que todas las llamadas estén autenticadas con la Api key
+en el Authorization header:</p>
+
+<p><code>Authorization: SECRET_API_KEY</code></p>
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
 <h2 id='obtener-url-audio-inyectado'>Obtener URL audio inyectado</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://radioregional.megatime.cl/api/audios/file/3345"</span>
@@ -5908,9 +5992,9 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Obtener un audio inyectado según su ID.</p>
-<h3 id='llamada-http-9'>Llamada HTTP</h3>
+<h3 id='llamada-http-10'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/audios/file/{audio_id}</code></p>
-<h3 id='parametros-url-7'>Parametros URL</h3>
+<h3 id='parametros-url-8'>Parametros URL</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -5924,7 +6008,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>Identificador del audio</td>
 </tr>
 </tbody></table>
-<h3 id='atributos-respuesta-8'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-9'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -6005,7 +6089,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna las agencias creativas y su respectivo id. Se puede adjuntar una &#39;frase&#39; para filtrar los resultados.</p>
-<h3 id='llamada-http-10'>Llamada HTTP</h3>
+<h3 id='llamada-http-11'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/finder/creative_agencies</code></p>
 <h3 id='parametros-body-5'>Parametros Body</h3>
 <table><thead>
@@ -6023,7 +6107,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>No</td>
 </tr>
 </tbody></table>
-<h3 id='atributos-respuesta-9'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-10'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -6128,7 +6212,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna las agencias de medios y su respectivo id. Se debe adjuntar una &#39;frase&#39; para filtrar los resultados.</p>
-<h3 id='llamada-http-11'>Llamada HTTP</h3>
+<h3 id='llamada-http-12'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/finder/media_agencies</code></p>
 <h3 id='parametros-body-6'>Parametros Body</h3>
 <table><thead>
@@ -6146,7 +6230,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>No</td>
 </tr>
 </tbody></table>
-<h3 id='atributos-respuesta-10'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-11'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -6255,7 +6339,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna las empresas y su respectivo id. Se debe adjuntar una &#39;frase&#39; para filtrar los resultados.</p>
-<h3 id='llamada-http-12'>Llamada HTTP</h3>
+<h3 id='llamada-http-13'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/finder/companies</code></p>
 <h3 id='parametros-body-7'>Parametros Body</h3>
 <table><thead>
@@ -6273,7 +6357,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>No</td>
 </tr>
 </tbody></table>
-<h3 id='atributos-respuesta-11'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-12'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -6365,9 +6449,9 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna las radios y su respectivo id.</p>
-<h3 id='llamada-http-13'>Llamada HTTP</h3>
+<h3 id='llamada-http-14'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>https://radioregional.megatime.cl/api/finder/radios</code></p>
-<h3 id='atributos-respuesta-12'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-13'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
