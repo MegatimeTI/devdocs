@@ -64,7 +64,7 @@ Retorna key que permite el acceso al API del clasificador.
 
 ### Llamada HTTP
 
-`POST cuenta.megatime.cl/api/auth/key`
+<span style="color: rgb(170, 117, 28);"> **POST**</span> `cuenta.megatime.cl/api/auth/key`
 
 ### Parámetros Body
 
@@ -250,7 +250,7 @@ Retorna una lista de spots asociados a los filtros que se indique.
 
 ### Llamada HTTP
 
-`GET datasuite.megatime.cl/spots`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/spots`
 
 ### Parámetros URL
 
@@ -258,8 +258,8 @@ Retorna una lista de spots asociados a los filtros que se indique.
 | ----------------- | ------- | --------------------------------------------------------------------------- | --------- |
 | include           | Integer | <b>(Por defecto: 0)</b> 0 incluir Avisos y PNTs, 1 solo Avisos, 2 solo PNTs | No        |
 | media             | Array   | Lista de ID de Medios                                                       | Si        |
-| start_date        | String  | Fecha de formato DD-MM-YYYY                                                 | Si        |
-| end_date          | String  | Fecha de formato DD-MM-YYYY                                                 | Si        |
+| start_date        | String  | Fecha de formato dd-mm-yyyy                                                 | Si        |
+| end_date          | String  | Fecha de formato dd-mm-yyyy                                                 | Si        |
 | brands            | Array   | Lista de ID de Marcas                                                       | No        |
 | companies         | Array   | Lista de ID de Empresas                                                     | No        |
 | industries        | Array   | Lista de ID de Rubros                                                       | No        |
@@ -325,8 +325,8 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 | sub_industry           | String  | Nombre del Sub-Rubro asignado al Rubro                                                                                                                             |
 | universal_id           | Integer | Código universal                                                                                                                                                   |
 | universal_program_id   | Integer | Código de programa universal                                                                                                                                       |
-| ad_supplier_id         | Integer | ID Comercializador                                                                                                                                                      |
-| ad_supplier            | String  | En caso de ser publicidad televisiva, indica el nombre del comercializador                                                                                                    |
+| ad_supplier_id         | Integer | ID Comercializador                                                                                                                                                 |
+| ad_supplier            | String  | En caso de ser publicidad televisiva, indica el nombre del comercializador                                                                                         |
 | megatime_hour          | Integer | Hora megatime (Dias de 26 horas)                                                                                                                                   |
 | channel_KANTAR         | Integer | ID Soporte de la empresa Time                                                                                                                                      |
 | e_type_media           | Integer | ID Megatime para identificar el area de la verificacion                                                                                                            |
@@ -359,7 +359,7 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 | station                | String  | En caso de publicidad en Metro, indica el nombre de la Estación                                                                                                    |
 | code                   | String  | Codigo interno para identificación de multimedia                                                                                                                   |
 | banner_URL             | String  | En caso de publicidad de Internet, indica la url del banner                                                                                                        |
-| internet_campaign      | String  | En caso de publicidad de Internet, indica indica el nombre de su campaña                                                |
+| internet_campaign      | String  | En caso de publicidad de Internet, indica indica el nombre de su campaña                                                                                           |
 | rating                 | Float   | <b>(Opcional)</b> Solo se devuelve en caso de entregar un parámetro `target`. Indica el rating para el grupo objetivo                                              |
 | options                | Array   | <b>(Opcional)</b> Solo se devuelve en caso de entregar un parámetro `group`. Lista de objetos `Clasificación`, indica las clasificacion y sus respectivas opciones |
 
@@ -514,15 +514,15 @@ Retorna una lista con todos los spots del día o intervalo indicado.
 
 ### Llamada HTTP
 
-`GET datasuite.megatime.cl/verifier`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/verifier`
 
 ### Parámetros URL
 
 | Nombre     | Tipo   | Descripción                 | Requerido |
 | ---------- | ------ | --------------------------- | --------- |
 | media      | Array  | Lista de ID de Medios       | Si        |
-| start_date | String | Fecha de formato DD-MM-YYYY | Si        |
-| end_date   | String | Fecha de formato DD-MM-YYYY | Si        |
+| start_date | String | Fecha de formato dd-mm-yyyy | Si        |
+| end_date   | String | Fecha de formato dd-mm-yyyy | Si        |
 
 <aside class="warning-yellow">
 El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias 
@@ -572,8 +572,8 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 | sub_industry           | String  | Nombre del Sub-Rubro asignado al Rubro                                                                                  |
 | universal_id           | Integer | Código universal                                                                                                        |
 | universal_program_id   | Integer | Código de programa universal                                                                                            |
-| ad_supplier_id         | Integer | ID Comercializador                                                                                                           |
-| ad_supplier            | String  | En caso de ser publicidad televisiva, indica el nombre del comercializador                                                |
+| ad_supplier_id         | Integer | ID Comercializador                                                                                                      |
+| ad_supplier            | String  | En caso de ser publicidad televisiva, indica el nombre del comercializador                                              |
 | megatime_hour          | Integer | Hora megatime (Dias de 26 horas)                                                                                        |
 | channel_KANTAR         | Integer | ID Soporte de la empresa Time                                                                                           |
 | e_type_media           | Integer | ID Megatime para identificar el area de la verificacion                                                                 |
@@ -676,15 +676,15 @@ Retorna una lista con todos los Avisos con actividad
 
 ### Llamada HTTP
 
-`GET datasuite.megatime.cl/advertisement`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/advertisement`
 
 ### Parámetros URL
 
 | Nombre         | Tipo    | Descripción                 | Requerido |
 | -------------- | ------- | --------------------------- | --------- |
 | media          | Array   | Lista de ID de Medios       | Si        |
-| start_date     | String  | Fecha de formato DD-MM-YYYY | Si        |
-| end_date       | String  | Fecha de formato DD-MM-YYYY | Si        |
+| start_date     | String  | Fecha de formato dd-mm-yyyy | Si        |
+| end_date       | String  | Fecha de formato dd-mm-yyyy | Si        |
 | brands         | Array   | Lista de ID de Marcas       | No        |
 | companies      | Array   | Lista de ID de Empresas     | No        |
 | industries     | Array   | Lista de ID de Rubros       | No        |
@@ -778,7 +778,7 @@ Retorna una lista con todos los Medios.
 
 ### Llamada HTTP
 
-`GET datasuite.megatime.cl/filters/media`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/filters/media`
 
 ### Atributos Respuesta
 
@@ -849,7 +849,7 @@ Retorna una lista con todas las marcas
 
 ### Llamada HTTP
 
-`GET datasuite.megatime.cl/filters/brands`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/filters/brands`
 
 ### Atributos Respuesta
 
@@ -920,7 +920,7 @@ Retorna una lista con todas las Empresas
 
 ### Llamada HTTP
 
-`GET datasuite.megatime.cl/filters/companies`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/filters/companies`
 
 ### Atributos Respuesta
 
@@ -991,7 +991,7 @@ Retorna una lista con todos los Rubros
 
 ### Llamada HTTP
 
-`GET datasuite.megatime.cl/filters/industries`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/filters/industries`
 
 ### Atributos Respuesta
 
@@ -1063,7 +1063,7 @@ Retorna una lista con todos los Sub-Rubros
 
 ### Llamada HTTP
 
-`GET datasuite.megatime.cl/filters/sub_industries`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/filters/sub_industries`
 
 ### Atributos Respuesta
 
@@ -1138,7 +1138,7 @@ Retorna una lista con todos los Productos
 
 ### Llamada HTTP
 
-`GET datasuite.megatime.cl/filters/products`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/filters/products`
 
 ### Atributos Respuesta
 
@@ -1212,7 +1212,7 @@ Retorna una lista con todas las Categorias
 
 ### Llamada HTTP
 
-`GET datasuite.megatime.cl/filters/categories`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/filters/categories`
 
 ### Atributos Respuesta
 
@@ -1285,7 +1285,7 @@ Retorna una lista con todas las Calidades
 
 ### Llamada HTTP
 
-`GET datasuite.megatime.cl/filters/qualities`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/filters/qualities`
 
 ### Atributos Respuesta
 
@@ -1359,7 +1359,7 @@ Retorna una lista con todas las Agencias Creativas
 
 ### Llamada HTTP
 
-`GET datasuite.megatime.cl/filters/creativeagencies`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/filters/creativeagencies`
 
 ### Atributos Respuesta
 
@@ -1432,7 +1432,7 @@ Retorna una lista con todas las Agencias de Medios
 
 ### Llamada HTTP
 
-`GET datasuite.megatime.cl/filters/mediaagencies`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/filters/mediaagencies`
 
 ### Atributos Respuesta
 
@@ -1505,7 +1505,7 @@ Retorna una lista con todos los Grupos personalizados por el cliente
 
 ### Llamada HTTP
 
-`GET datasuite.megatime.cl/filters/groups`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/filters/groups`
 
 ### Atributos Respuesta
 
@@ -1596,7 +1596,7 @@ Para asignar `Clasificadores y Opciones`, debe dirigirse a [clasificador.megatim
 
 ### Llamada HTTP
 
-`POST datasuite.megatime.cl/filters/groups`
+<span style="color: rgb(170, 117, 28);"> **POST**</span> `datasuite.megatime.cl/filters/groups`
 
 ### Párametros Body
 
@@ -1615,8 +1615,6 @@ Para asignar `Clasificadores y Opciones`, debe dirigirse a [clasificador.megatim
 | message | String  | Mensaje de estado        |
 
 ## Obtener Grupos Objetivos Rating
-
-`GET datasuite.megatime.cl/filters/targets`
 
 ```python
 import requests
@@ -1671,7 +1669,7 @@ Retorna una lista con todos los Grupos Objetivos Rating
 
 ### Llamada HTTP
 
-`GET datasuite.megatime.cl/filters/targets`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/filters/targets`
 
 ### Atributos Respuesta
 
@@ -1686,3 +1684,90 @@ Retorna una lista con todos los Grupos Objetivos Rating
 | ------ | ------- | ----------- |
 | ID     | Integer | ID          |
 | name   | String  | Nombre      |
+
+## Obtener Registro Cargas
+
+```python
+import requests
+
+url = "datasuite.megatime.cl/spots/loads?date=17-02-2022T16:41:10:240"
+
+payload={}
+headers = {
+  'Authorization': 'SECRET_API_KEY'
+}
+
+response = requests.request("GET", url, headers=headers, data=payload)
+
+print(response.text)
+```
+
+```shell
+curl --location --request GET 'datasuite.megatime.cl/spots/loads?date=17-02-2022T16:41:10:240' \
+--header 'Authorization: SECRET_API_KEY'
+```
+
+```javascript
+var request = require("request");
+var options = {
+  method: "GET",
+  url: "datasuite.megatime.cl/spots/loads?date=17-02-2022T16:41:10:240",
+  headers: {
+    Authorization: "SECRET_API_KEY",
+  },
+};
+request(options, function (error, response) {
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
+
+> Ejemplo de retorno en formato JSON:
+
+```json
+{
+  "ok": true,
+  "result": [
+    {
+      "media_id": 1,
+      "date": "17-03-2022",
+      "rows": 7345,
+      "upload_datetime": "18-03-2022T09:08:58:387"
+    },
+    {
+      "media_id": 6,
+      "date": "22-01-2021",
+      "rows": 21830,
+      "upload_datetime": "17-03-2022T22:22:58:750"
+    }
+  ]
+}
+```
+
+Retorna una lista de las últimas publicaciones de registros con fecha y medio
+
+### Llamada HTTP
+
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/spots/loads`
+
+### Parámetros URL
+
+| Nombre | Requerido | Descripción                                                                                                                          |
+| ------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| date   | No        | Filtro de Fecha-Tiempo en formato dd-mm-yyyyThh:mi:ss:mmm. Permite mostrar sólo publicaciones de cargas mayores a la fecha ingresada |
+
+### Atributos Respuesta
+
+| Nombre | Tipo    | Descripción                   |
+| ------ | ------- | ----------------------------- |
+| ok     | Boolean | Verificador de respuesta      |
+| result | Array   | Lista de objetos tipo `Carga` |
+
+### Atributos Carga
+
+| Nombre          | Tipo    | Descripción                                                         |
+| --------------- | ------- | ------------------------------------------------------------------- |
+| medio_id        | Integer | ID del medio                                                        |
+| date            | String  | Fecha del día publicado en formato dd-mm-yyyy                       |
+| rows            | Integer | Cantidad de registros en fecha - medio                              |
+| upload_datetime | String  | Fecha de publicación de la carga en formato dd-mm-yyyyThh:mi:ss:mmm |
