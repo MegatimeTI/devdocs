@@ -1092,6 +1092,90 @@ en el Authorization header:
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
 
+
+
+
+## Obtener URL audio testigo
+
+```python
+import requests
+
+url = "https://radioregional.megatime.cl/api/audios/witness/3345"
+
+payload={}
+headers = {
+  'Authorization': 'SECRET_API_KEY'
+}
+
+response = requests.request("GET", url, headers=headers, data=payload)
+
+print(response.text)
+
+```
+
+```shell
+curl --location --request GET 'https://radioregional.megatime.cl/api/audios/witness/3345' \
+--header 'Authorization: SECRET_API_KEY'
+```
+
+```javascript
+var request = require('request');
+var options = {
+  'method': 'GET',
+  'url': 'https://radioregional.megatime.cl/api/audios/witness/3345',
+  'headers': {
+    'Authorization': 'SECRET_API_KEY'
+  }
+};
+request(options, function (error, response) {
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
+
+> Ejemplo de retorno en formato JSON:
+
+```json
+{
+    "ok": true,
+    "audio_url": "https://s3.amazonaws.com/radioregional.megatime.cl/testigos/20220314/045/20220314152447_045_277620.mp3"
+}
+```
+
+
+Obtener el url de un audio testigo.
+
+### Llamada HTTP
+
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `https://radioregional.megatime.cl/api/audios/witness/{spot_id}`
+
+### Parametros URL
+
+| Nombre      | Tipo        | Descripción                   |
+| ----------  | -------     | ------------------------------|
+| spot_id     | Integer     | Identificador del avisaje     |
+
+
+### Atributos Respuesta
+
+| Nombre               | Tipo        | Descripción                   |
+| ----------           | -------     | ------------------------------|
+| ok                   | Boolean     | Verificador de respuesta      |
+| audio_url            | String      | URL de audio inyectado        |
+
+
+La API espera que todas las llamadas estén autenticadas con la Api key
+en el Authorization header:
+
+`Authorization: SECRET_API_KEY`
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
+
+
+
+
 ## Obtener URL audio inyectado
 
 ```python
@@ -1167,8 +1251,6 @@ en el Authorization header:
 <aside class="notice">
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
-
-
 
 
 
