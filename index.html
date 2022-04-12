@@ -5364,7 +5364,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <h2 id='inyectar-pauta-a-campana'>Inyectar Pauta a Campaña</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/campaign/{campaign_id}/details"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"radioregional.megatime.cl/api/campaign/{campaign_id}/details"</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
   <span class="s">"details"</span><span class="p">:</span> <span class="p">[</span>
@@ -5413,7 +5413,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'radioregional.megatime.cl/campaign/{campaign_id}/details'</span> <span class="se">\</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'radioregional.megatime.cl/api/campaign/{campaign_id}/details'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: 62cc57e4e86381c3c254a2b4b8882673'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -5456,7 +5456,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">radioregional.megatime.cl/campaign/{campaign_id}/details</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">radioregional.megatime.cl/api/campaign/{campaign_id}/details</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">62cc57e4e86381c3c254a2b4b</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">Content-Type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
