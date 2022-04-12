@@ -701,7 +701,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 import requests
 import json
 
-url = "radioregional.megatime.cl/campaign/{campaign_id}/details"
+url = "radioregional.megatime.cl/api/campaign/{campaign_id}/details"
 
 payload = json.dumps({
   "details": [
@@ -753,7 +753,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request POST 'radioregional.megatime.cl/campaign/{campaign_id}/details' \
+curl --location --request POST 'radioregional.megatime.cl/api/campaign/{campaign_id}/details' \
 --header 'Authorization: 62cc57e4e86381c3c254a2b4b8882673' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -799,7 +799,7 @@ curl --location --request POST 'radioregional.megatime.cl/campaign/{campaign_id}
 var request = require("request");
 var options = {
   method: "POST",
-  url: "radioregional.megatime.cl/campaign/{campaign_id}/details",
+  url: "radioregional.megatime.cl/api/campaign/{campaign_id}/details",
   headers: {
     Authorization: "62cc57e4e86381c3c254a2b4b",
     "Content-Type": "application/json",
