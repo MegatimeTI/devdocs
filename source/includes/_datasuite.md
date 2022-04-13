@@ -94,7 +94,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 ```python
 import requests
 
-url = "datasuite.megatime.cl/spots?include=1&media=1,2,3,4,5&start_date=10-03-2021&end_date=10-03-2021&brands=1,2,3,4,5&companies=1,2,3,4,5&industries=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&categories=1,2,3,4,5&qualities=1,2,3,4,5&creative_agencies=1,2,3,4,5&media_agencies=1,2,3,4,5&group=1&target=1"
+url = "datasuite.megatime.cl/spots?include=1&media=1,2,3,4,5&start_date=10-03-2021&end_date=10-03-2021&brands=1,2,3,4,5&companies=1,2,3,4,5&industries=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&categories=1,2,3,4,5&qualities=1,2,3,4,5&creative_agencies=1,2,3,4,5&media_agencies=1,2,3,4,5&group=1"
 
 payload={}
 headers = {
@@ -107,7 +107,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'datasuite.megatime.cl/spots?include=0&media=1,2,3,4,5&start_date=10-03-2021&end_date=10-03-2021&brands=1,2,3,4,5&companies=1,2,3,4,5&industries=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&categories=1,2,3,4,5&qualities=1,2,3,4,5&creative_agencies=1,2,3,4,5&media_agencies=1,2,3,4,5&group=1&target=1' \
+curl --location --request GET 'datasuite.megatime.cl/spots?include=0&media=1,2,3,4,5&start_date=10-03-2021&end_date=10-03-2021&brands=1,2,3,4,5&companies=1,2,3,4,5&industries=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&categories=1,2,3,4,5&qualities=1,2,3,4,5&creative_agencies=1,2,3,4,5&media_agencies=1,2,3,4,5&group=1' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -115,7 +115,7 @@ curl --location --request GET 'datasuite.megatime.cl/spots?include=0&media=1,2,3
 var request = require("request");
 var options = {
   method: "GET",
-  url: "datasuite.megatime.cl/spots?include=1&media=1,2,3,4,5&start_date=10-03-2021&end_date=10-03-2021&brands=1,2,3,4,5&companies=1,2,3,4,5&industries=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&categories=1,2,3,4,5&qualities=1,2,3,4,5&creative_agencies=1,2,3,4,5&media_agencies=1,2,3,4,5&group=1&target=1",
+  url: "datasuite.megatime.cl/spots?include=1&media=1,2,3,4,5&start_date=10-03-2021&end_date=10-03-2021&brands=1,2,3,4,5&companies=1,2,3,4,5&industries=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&categories=1,2,3,4,5&qualities=1,2,3,4,5&creative_agencies=1,2,3,4,5&media_agencies=1,2,3,4,5&group=1",
   headers: {
     Authorization: "SECRET_API_KEY",
   },
@@ -270,8 +270,9 @@ Retorna una lista de spots asociados a los filtros que se indique.
 | creative_agencies | Array   | Lista de ID de Agencias Creativas                                           | No        |
 | media_agencies    | Array   | Lista de ID de Agencias de Medios                                           | No        |
 | group             | Integer | ID Grupo                                                                    | No        |
+<!--
 | target            | Integer | ID Grupo Objetivo Rating                                                    | No        |
-
+-->
 <aside class="warning-yellow">
 Debe existir al menos un parámetro de los siguientes, para que los demas sean opcionales: 
 <b>brands, companies, industries, sub_industries, products, categories, qualities, creative_agencies, media_agencies, group.</b>
@@ -359,8 +360,10 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 | station                | String  | En caso de publicidad en Metro, indica el nombre de la Estación                                                                                                    |
 | code                   | String  | Codigo interno para identificación de multimedia                                                                                                                   |
 | banner_URL             | String  | En caso de publicidad de Internet, indica la url del banner                                                                                                        |
-| internet_campaign      | String  | En caso de publicidad de Internet, indica indica el nombre de su campaña                                                                                           |
+| internet_campaign      | String  | En caso de publicidad de Internet, indica el nombre de su campaña                                                                                           |
+<!---
 | rating                 | Float   | <b>(Opcional)</b> Solo se devuelve en caso de entregar un parámetro `target`. Indica el rating para el grupo objetivo                                              |
+--->
 | options                | Array   | <b>(Opcional)</b> Solo se devuelve en caso de entregar un parámetro `group`. Lista de objetos `Clasificación`, indica las clasificacion y sus respectivas opciones |
 
 ### Atributos Clasificación
@@ -606,7 +609,7 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 | station                | String  | En caso de publicidad en Metro, indica el nombre de la Estación                                                         |
 | code                   | String  | Codigo interno para identificación de multimedia                                                                        |
 | banner_URL             | String  | En caso de publicidad de Internet, indica la url del banner                                                             |
-| internet_campaign      | String  | En caso de publicidad de Internet, indica indica el nombre de su campaña                                                |
+| internet_campaign      | String  | En caso de publicidad de Internet, indica el nombre de su campaña                                                |
 
 ## Obtener Avisos con actividad
 
@@ -1614,6 +1617,7 @@ Para asignar `Clasificadores y Opciones`, debe dirigirse a [clasificador.megatim
 | ID      | Integer | ID grupo creado          |
 | message | String  | Mensaje de estado        |
 
+<!--
 ## Obtener Grupos Objetivos Rating
 
 ```python
@@ -1684,6 +1688,7 @@ Retorna una lista con todos los Grupos Objetivos Rating
 | ------ | ------- | ----------- |
 | ID     | Integer | ID          |
 | name   | String  | Nombre      |
+-->
 
 ## Obtener Registro Cargas
 
