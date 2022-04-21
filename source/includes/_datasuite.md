@@ -94,7 +94,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 ```python
 import requests
 
-url = "datasuite.megatime.cl/spots?include=1&media=1,2,3,4,5&start_date=10-03-2021&end_date=10-03-2021&brands=1,2,3,4,5&companies=1,2,3,4,5&industries=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&categories=1,2,3,4,5&qualities=1,2,3,4,5&creative_agencies=1,2,3,4,5&media_agencies=1,2,3,4,5&group=1"
+url = "datasuite.megatime.cl/spots?include=1&media=1,2,3,4,5&start_date=10-03-2021&end_date=10-03-2021&brands=1,2,3,4,5&companies=1,2,3,4,5&industries=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&categories=1,2,3,4,5&qualities=1,2,3,4,5&creative_agencies=1,2,3,4,5&media_agencies=1,2,3,4,5&supports=1,2,3,4,5&group=1"
 
 payload={}
 headers = {
@@ -107,7 +107,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'datasuite.megatime.cl/spots?include=0&media=1,2,3,4,5&start_date=10-03-2021&end_date=10-03-2021&brands=1,2,3,4,5&companies=1,2,3,4,5&industries=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&categories=1,2,3,4,5&qualities=1,2,3,4,5&creative_agencies=1,2,3,4,5&media_agencies=1,2,3,4,5&group=1' \
+curl --location --request GET 'datasuite.megatime.cl/spots?include=0&media=1,2,3,4,5&start_date=10-03-2021&end_date=10-03-2021&brands=1,2,3,4,5&companies=1,2,3,4,5&industries=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&categories=1,2,3,4,5&qualities=1,2,3,4,5&creative_agencies=1,2,3,4,5&media_agencies=1,2,3,4,5&supports=1,2,3,4,5&group=1' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -115,7 +115,7 @@ curl --location --request GET 'datasuite.megatime.cl/spots?include=0&media=1,2,3
 var request = require("request");
 var options = {
   method: "GET",
-  url: "datasuite.megatime.cl/spots?include=1&media=1,2,3,4,5&start_date=10-03-2021&end_date=10-03-2021&brands=1,2,3,4,5&companies=1,2,3,4,5&industries=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&categories=1,2,3,4,5&qualities=1,2,3,4,5&creative_agencies=1,2,3,4,5&media_agencies=1,2,3,4,5&group=1",
+  url: "datasuite.megatime.cl/spots?include=1&media=1,2,3,4,5&start_date=10-03-2021&end_date=10-03-2021&brands=1,2,3,4,5&companies=1,2,3,4,5&industries=1,2,3,4,5&sub_industries=1,2,3,4,5&products=1,2,3,4,5&categories=1,2,3,4,5&qualities=1,2,3,4,5&creative_agencies=1,2,3,4,5&media_agencies=1,2,3,4,5&supports=1,2,3,4,5&group=1",
   headers: {
     Authorization: "SECRET_API_KEY",
   },
@@ -269,7 +269,9 @@ Retorna una lista de spots asociados a los filtros que se indique.
 | qualities         | Array   | Lista de ID de Calidades                                                    | No        |
 | creative_agencies | Array   | Lista de ID de Agencias Creativas                                           | No        |
 | media_agencies    | Array   | Lista de ID de Agencias de Medios                                           | No        |
+| supports          | Array   | Lista de ID de Soportes                                                     | No        |
 | group             | Integer | ID Grupo                                                                    | No        |
+
 <!--
 | target            | Integer | ID Grupo Objetivo Rating                                                    | No        |
 -->
@@ -291,80 +293,82 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 
 ### Atributos Spot
 
-| Nombre                 | Tipo    | Descripción                                                                                                                                                        |
-| ---------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ID                     | Integer | Identificador de Spot                                                                                                                                              |
-| media                  | String  | Nombre del Medio donde fue encontrado                                                                                                                              |
-| media_id               | Integer | ID Medio                                                                                                                                                           |
-| date                   | String  | Fecha de aparición, en formato YYYY-MM-DD                                                                                                                          |
-| support_id             | Integer | ID Soporte                                                                                                                                                         |
-| support                | String  | Soporte                                                                                                                                                            |
-| weekday                | String  | Día de la semana de su aparición                                                                                                                                   |
-| supplement             | String  | Suplemento (Prensa)                                                                                                                                                |
-| supplement_id          | Integer | ID Suplemento                                                                                                                                                      |
-| advertisement          | String  | Aviso asocicado                                                                                                                                                    |
-| advertisement_id       | Integer | ID Aviso                                                                                                                                                           |
-| quality                | String  | Calidad del emisor                                                                                                                                                 |
-| quality_short          | String  | Calidad abreviada                                                                                                                                                  |
-| hour                   | String  | Hora de aparición en formato HH:MM:SS                                                                                                                              |
-| real_duration          | Integer | Duración real de la aparición                                                                                                                                      |
-| page                   | Integer | En caso de ser publicidad en papel, indica el número de la pagina                                                                                                  |
-| size                   | Integer | En caso de ser publicidad en papel, indica el tamaño físico de la página                                                                                           |
-| module                 | String  | En caso de ser publicidad en papel, indica el tipo de hoja                                                                                                         |
-| element                | String  | En caso de publicidad vial, indica el elemento donde esta montada la publicidad                                                                                    |
-| element_id             | Integer | ID Elemento                                                                                                                                                        |
-| investment             | Integer | Inversión                                                                                                                                                          |
-| brand_id               | Integer | ID Marca                                                                                                                                                           |
-| brand                  | String  | Marca asociada al producto                                                                                                                                         |
-| product_id             | Integer | ID Producto                                                                                                                                                        |
-| product                | String  | Nombre del Producto asignado al aviso                                                                                                                              |
-| company_id             | Integer | ID Empresa                                                                                                                                                         |
-| company                | String  | Nombre de la Empresa asignada al aviso                                                                                                                             |
-| industry_id            | Integer | ID Rubro                                                                                                                                                           |
-| industry               | String  | Nombre del Rubro asignado al aviso                                                                                                                                 |
-| sub_industry_id        | Integer | ID Sub-Rubro                                                                                                                                                       |
-| sub_industry           | String  | Nombre del Sub-Rubro asignado al Rubro                                                                                                                             |
-| universal_id           | Integer | Código universal                                                                                                                                                   |
-| universal_program_id   | Integer | Código de programa universal                                                                                                                                       |
-| ad_supplier_id         | Integer | ID Comercializador                                                                                                                                                 |
-| ad_supplier            | String  | En caso de ser publicidad televisiva, indica el nombre del comercializador                                                                                         |
-| megatime_hour          | Integer | Hora megatime (Dias de 26 horas)                                                                                                                                   |
-| channel_KANTAR         | Integer | ID Soporte de la empresa Time                                                                                                                                      |
-| e_type_media           | Integer | ID Megatime para identificar el area de la verificacion                                                                                                            |
-| section                | String  | En caso de ser publicidad en papel, indica en que sección de la página se encuentra                                                                                |
-| section_id             | Integer | ID Sección                                                                                                                                                         |
-| normal_duration        | Integer | Duración normal del aviso                                                                                                                                          |
-| ad_group_location      | Integer | En caso de publicidad televisiva o radial, indica el número de la tanda publicitaria                                                                               |
-| ad_group_spot_location | Integer | En caso de publicidad televisiva o radial, indica la posición en la tanda publicitaria                                                                             |
-| ad_group_quantity      | Integer | En caso de publicidad televisiva o radial, indica la cantidad de spots en la tanda publicitaria                                                                    |
-| schedule_id            | Integer | En caso de publicidad televisiva, indica el id el Horario                                                                                                          |
-| schedule               | Integer | En caso de publicidad televisiva, descripción del Horario                                                                                                          |
-| media_agency           | String  | Nombre de la Agencia de medios                                                                                                                                     |
-| media_agency_id        | Integer | ID Agrencia de medios                                                                                                                                              |
-| creative_agency        | String  | Nombre de la Agencia creativa                                                                                                                                      |
-| creative_agency_id     | Integer | ID Agencia creativa                                                                                                                                                |
-| category               | String  | Indica la categoria del Rubro                                                                                                                                      |
-| category_id            | Integer | ID Categoria                                                                                                                                                       |
-| ad_first_appearance    | String  | Primera aparición del aviso, en formato YYYY-MM-DD                                                                                                                 |
-| failure                | String  | Descripción de falla                                                                                                                                               |
-| failure_id             | Integer | ID Falla                                                                                                                                                           |
-| is_sponsor             | String  | Indica si es auspicio                                                                                                                                              |
-| location               | String  | En caso de Via pública, indica la dirección. En caso de Metro, indica el lugar donde se encuentra dentro de la estación                                            |
-| location_id            | Integer | ID Ubicación                                                                                                                                                       |
-| program                | String  | Para publicidad televisiva y radial indica el nombre del Programa                                                                                                  |
-| program_id             | Integer | ID Programa                                                                                                                                                        |
-| centimeter             | Integer | En caso de ser publicidad en papel, indica los centimetros que abarca                                                                                              |
-| columns                | Integer | En caso de ser publicidad en papel, indica el número de columnas                                                                                                   |
-| impressions            | Integer | En caso de ser publicidad en papel, indica el número de impresiones                                                                                                |
-| station_id             | Integer | ID Estación de Metro                                                                                                                                               |
-| station                | String  | En caso de publicidad en Metro, indica el nombre de la Estación                                                                                                    |
-| code                   | String  | Codigo interno para identificación de multimedia                                                                                                                   |
-| banner_URL             | String  | En caso de publicidad de Internet, indica la url del banner                                                                                                        |
-| internet_campaign      | String  | En caso de publicidad de Internet, indica el nombre de su campaña                                                                                           |
+| Nombre                 | Tipo    | Descripción                                                                                                             |
+| ---------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------- |
+| ID                     | Integer | Identificador de Spot                                                                                                   |
+| media                  | String  | Nombre del Medio donde fue encontrado                                                                                   |
+| media_id               | Integer | ID Medio                                                                                                                |
+| date                   | String  | Fecha de aparición, en formato YYYY-MM-DD                                                                               |
+| support_id             | Integer | ID Soporte                                                                                                              |
+| support                | String  | Soporte                                                                                                                 |
+| weekday                | String  | Día de la semana de su aparición                                                                                        |
+| supplement             | String  | Suplemento (Prensa)                                                                                                     |
+| supplement_id          | Integer | ID Suplemento                                                                                                           |
+| advertisement          | String  | Aviso asocicado                                                                                                         |
+| advertisement_id       | Integer | ID Aviso                                                                                                                |
+| quality                | String  | Calidad del emisor                                                                                                      |
+| quality_short          | String  | Calidad abreviada                                                                                                       |
+| hour                   | String  | Hora de aparición en formato HH:MM:SS                                                                                   |
+| real_duration          | Integer | Duración real de la aparición                                                                                           |
+| page                   | Integer | En caso de ser publicidad en papel, indica el número de la pagina                                                       |
+| size                   | Integer | En caso de ser publicidad en papel, indica el tamaño físico de la página                                                |
+| module                 | String  | En caso de ser publicidad en papel, indica el tipo de hoja                                                              |
+| element                | String  | En caso de publicidad vial, indica el elemento donde esta montada la publicidad                                         |
+| element_id             | Integer | ID Elemento                                                                                                             |
+| investment             | Integer | Inversión                                                                                                               |
+| brand_id               | Integer | ID Marca                                                                                                                |
+| brand                  | String  | Marca asociada al producto                                                                                              |
+| product_id             | Integer | ID Producto                                                                                                             |
+| product                | String  | Nombre del Producto asignado al aviso                                                                                   |
+| company_id             | Integer | ID Empresa                                                                                                              |
+| company                | String  | Nombre de la Empresa asignada al aviso                                                                                  |
+| industry_id            | Integer | ID Rubro                                                                                                                |
+| industry               | String  | Nombre del Rubro asignado al aviso                                                                                      |
+| sub_industry_id        | Integer | ID Sub-Rubro                                                                                                            |
+| sub_industry           | String  | Nombre del Sub-Rubro asignado al Rubro                                                                                  |
+| universal_id           | Integer | Código universal                                                                                                        |
+| universal_program_id   | Integer | Código de programa universal                                                                                            |
+| ad_supplier_id         | Integer | ID Comercializador                                                                                                      |
+| ad_supplier            | String  | En caso de ser publicidad televisiva, indica el nombre del comercializador                                              |
+| megatime_hour          | Integer | Hora megatime (Dias de 26 horas)                                                                                        |
+| channel_KANTAR         | Integer | ID Soporte de la empresa Time                                                                                           |
+| e_type_media           | Integer | ID Megatime para identificar el area de la verificacion                                                                 |
+| section                | String  | En caso de ser publicidad en papel, indica en que sección de la página se encuentra                                     |
+| section_id             | Integer | ID Sección                                                                                                              |
+| normal_duration        | Integer | Duración normal del aviso                                                                                               |
+| ad_group_location      | Integer | En caso de publicidad televisiva o radial, indica el número de la tanda publicitaria                                    |
+| ad_group_spot_location | Integer | En caso de publicidad televisiva o radial, indica la posición en la tanda publicitaria                                  |
+| ad_group_quantity      | Integer | En caso de publicidad televisiva o radial, indica la cantidad de spots en la tanda publicitaria                         |
+| schedule_id            | Integer | En caso de publicidad televisiva, indica el id el Horario                                                               |
+| schedule               | Integer | En caso de publicidad televisiva, descripción del Horario                                                               |
+| media_agency           | String  | Nombre de la Agencia de medios                                                                                          |
+| media_agency_id        | Integer | ID Agrencia de medios                                                                                                   |
+| creative_agency        | String  | Nombre de la Agencia creativa                                                                                           |
+| creative_agency_id     | Integer | ID Agencia creativa                                                                                                     |
+| category               | String  | Indica la categoria del Rubro                                                                                           |
+| category_id            | Integer | ID Categoria                                                                                                            |
+| ad_first_appearance    | String  | Primera aparición del aviso, en formato YYYY-MM-DD                                                                      |
+| failure                | String  | Descripción de falla                                                                                                    |
+| failure_id             | Integer | ID Falla                                                                                                                |
+| is_sponsor             | String  | Indica si es auspicio                                                                                                   |
+| location               | String  | En caso de Via pública, indica la dirección. En caso de Metro, indica el lugar donde se encuentra dentro de la estación |
+| location_id            | Integer | ID Ubicación                                                                                                            |
+| program                | String  | Para publicidad televisiva y radial indica el nombre del Programa                                                       |
+| program_id             | Integer | ID Programa                                                                                                             |
+| centimeter             | Integer | En caso de ser publicidad en papel, indica los centimetros que abarca                                                   |
+| columns                | Integer | En caso de ser publicidad en papel, indica el número de columnas                                                        |
+| impressions            | Integer | En caso de ser publicidad en papel, indica el número de impresiones                                                     |
+| station_id             | Integer | ID Estación de Metro                                                                                                    |
+| station                | String  | En caso de publicidad en Metro, indica el nombre de la Estación                                                         |
+| code                   | String  | Codigo interno para identificación de multimedia                                                                        |
+| banner_URL             | String  | En caso de publicidad de Internet, indica la url del banner                                                             |
+| internet_campaign      | String  | En caso de publicidad de Internet, indica el nombre de su campaña                                                       |
+
 <!---
 | rating                 | Float   | <b>(Opcional)</b> Solo se devuelve en caso de entregar un parámetro `target`. Indica el rating para el grupo objetivo                                              |
 --->
-| options                | Array   | <b>(Opcional)</b> Solo se devuelve en caso de entregar un parámetro `group`. Lista de objetos `Clasificación`, indica las clasificacion y sus respectivas opciones |
+
+| options | Array | <b>(Opcional)</b> Solo se devuelve en caso de entregar un parámetro `group`. Lista de objetos `Clasificación`, indica las clasificacion y sus respectivas opciones |
 
 ### Atributos Clasificación
 
@@ -609,7 +613,7 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 | station                | String  | En caso de publicidad en Metro, indica el nombre de la Estación                                                         |
 | code                   | String  | Codigo interno para identificación de multimedia                                                                        |
 | banner_URL             | String  | En caso de publicidad de Internet, indica la url del banner                                                             |
-| internet_campaign      | String  | En caso de publicidad de Internet, indica el nombre de su campaña                                                |
+| internet_campaign      | String  | En caso de publicidad de Internet, indica el nombre de su campaña                                                       |
 
 ## Obtener Avisos con actividad
 
@@ -1451,6 +1455,81 @@ Retorna una lista con todas las Agencias de Medios
 | ID     | Integer | ID          |
 | name   | String  | Nombre      |
 | short  | String  | Abreviación |
+
+## Obtener Soportes
+
+```python
+import requests
+
+url = "datasuite.megatime.cl/filters/supports"
+
+payload={}
+headers = {
+  'Authorization': 'SECRET_API_KEY'
+}
+
+response = requests.request("GET", url, headers=headers, data=payload)
+
+print(response.text)
+```
+
+```shell
+curl --location --request GET 'datasuite.megatime.cl/filters/supports' \
+--header 'Authorization: SECRET_API_KEY'
+```
+
+```javascript
+var request = require("request");
+var options = {
+  method: "GET",
+  url: "datasuite.megatime.cl/filters/supports",
+  headers: {
+    Authorization: "SECRET_API_KEY",
+  },
+};
+request(options, function (error, response) {
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
+
+> Ejemplo de retorno en formato JSON:
+
+```json
+{
+  "ok": true,
+  "result": [
+    {
+      "ID": 1,
+      "name": "BBDO",
+      "short": "BBDO",
+      "media_id": 1
+    }
+  ]
+}
+```
+
+Retorna una lista con todas las Agencias de Medios
+
+### Llamada HTTP
+
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/filters/supports`
+
+### Atributos Respuesta
+
+| Nombre | Tipo    | Descripción                               |
+| ------ | ------- | ----------------------------------------- |
+| ok     | Boolean | Verificador de respuesta                  |
+| result | Array   | Lista de objetos tipo `Soportes` |
+
+### Atributos Agencias de Medios
+
+| Nombre | Tipo    | Descripción |
+| ------ | ------- | ----------- |
+| ID     | Integer | ID          |
+| name   | String  | Nombre      |
+| short  | String  | Abreviación |
+| media_id  | String  | ID Medio |
 
 ## Obtener Grupos personalizados
 
