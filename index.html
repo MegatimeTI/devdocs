@@ -363,6 +363,9 @@
                     <a href="#obtener-agencias-de-medios" class="toc-h2 toc-link" data-title="Obtener Agencias de Medios">Obtener Agencias de Medios</a>
                   </li>
                   <li>
+                    <a href="#obtener-soportes" class="toc-h2 toc-link" data-title="Obtener Soportes">Obtener Soportes</a>
+                  </li>
+                  <li>
                     <a href="#obtener-grupos-personalizados" class="toc-h2 toc-link" data-title="Obtener Grupos personalizados">Obtener Grupos personalizados</a>
                   </li>
                   <li>
@@ -763,7 +766,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </aside>
 <h2 id='obtener-pauta'>Obtener Pauta</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/spots?include=1&amp;media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;industries=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;categories=1,2,3,4,5&amp;qualities=1,2,3,4,5&amp;creative_agencies=1,2,3,4,5&amp;media_agencies=1,2,3,4,5&amp;group=1"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/spots?include=1&amp;media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;industries=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;categories=1,2,3,4,5&amp;qualities=1,2,3,4,5&amp;creative_agencies=1,2,3,4,5&amp;media_agencies=1,2,3,4,5&amp;supports=1,2,3,4,5&amp;group=1"</span>
 
 <span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -773,12 +776,12 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/spots?include=0&amp;media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;industries=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;categories=1,2,3,4,5&amp;qualities=1,2,3,4,5&amp;creative_agencies=1,2,3,4,5&amp;media_agencies=1,2,3,4,5&amp;group=1'</span> <span class="se">\</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/spots?include=0&amp;media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;industries=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;categories=1,2,3,4,5&amp;qualities=1,2,3,4,5&amp;creative_agencies=1,2,3,4,5&amp;media_agencies=1,2,3,4,5&amp;supports=1,2,3,4,5&amp;group=1'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/spots?include=1&amp;media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;industries=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;categories=1,2,3,4,5&amp;qualities=1,2,3,4,5&amp;creative_agencies=1,2,3,4,5&amp;media_agencies=1,2,3,4,5&amp;group=1</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/spots?include=1&amp;media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;industries=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;categories=1,2,3,4,5&amp;qualities=1,2,3,4,5&amp;creative_agencies=1,2,3,4,5&amp;media_agencies=1,2,3,4,5&amp;supports=1,2,3,4,5&amp;group=1</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
   <span class="p">},</span>
@@ -994,6 +997,12 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <td>media_agencies</td>
 <td>Array</td>
 <td>Lista de ID de Agencias de Medios</td>
+<td>No</td>
+</tr>
+<tr>
+<td>supports</td>
+<td>Array</td>
+<td>Lista de ID de Soportes</td>
 <td>No</td>
 </tr>
 <tr>
@@ -1389,7 +1398,7 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 | rating                 | Float   | <b>(Opcional)</b> Solo se devuelve en caso de entregar un parámetro `target`. Indica el rating para el grupo objetivo                                              |
 --->
 
-<p>| options                | Array   | <b>(Opcional)</b> Solo se devuelve en caso de entregar un parámetro <code>group</code>. Lista de objetos <code>Clasificación</code>, indica las clasificacion y sus respectivas opciones |</p>
+<p>| options | Array | <b>(Opcional)</b> Solo se devuelve en caso de entregar un parámetro <code>group</code>. Lista de objetos <code>Clasificación</code>, indica las clasificacion y sus respectivas opciones |</p>
 <h3 id='atributos-clasificacion'>Atributos Clasificación</h3>
 <table><thead>
 <tr>
@@ -3049,6 +3058,99 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <td>Abreviación</td>
 </tr>
 </tbody></table>
+<h2 id='obtener-soportes'>Obtener Soportes</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/supports"</span>
+
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/supports'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/supports</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BBDO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BBDO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna una lista con todas las Agencias de Medios</p>
+<h3 id='llamada-http-15'>Llamada HTTP</h3>
+<p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/supports</code></p>
+<h3 id='atributos-respuesta-15'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Array</td>
+<td>Lista de objetos tipo <code>Soportes</code></td>
+</tr>
+</tbody></table>
+<h3 id='atributos-agencias-de-medios-2'>Atributos Agencias de Medios</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Nombre</td>
+</tr>
+<tr>
+<td>short</td>
+<td>String</td>
+<td>Abreviación</td>
+</tr>
+<tr>
+<td>media_id</td>
+<td>String</td>
+<td>ID Medio</td>
+</tr>
+</tbody></table>
 <h2 id='obtener-grupos-personalizados'>Obtener Grupos personalizados</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/groups"</span>
@@ -3091,9 +3193,9 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista con todos los Grupos personalizados por el cliente</p>
-<h3 id='llamada-http-15'>Llamada HTTP</h3>
+<h3 id='llamada-http-16'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/groups</code></p>
-<h3 id='atributos-respuesta-15'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-16'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -3196,7 +3298,7 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <p>Request para crear un nuevo Grupo Personalizado, responde con el ID del nuevo grupo.</p>
 
 <p>Para asignar <code>Clasificadores y Opciones</code>, debe dirigirse a <a href="https://clasificador.megatime.cl">clasificador.megatime.cl</a></p>
-<h3 id='llamada-http-16'>Llamada HTTP</h3>
+<h3 id='llamada-http-17'>Llamada HTTP</h3>
 <p><span style="color: rgb(170, 117, 28);"> <strong>POST</strong></span> <code>datasuite.megatime.cl/filters/groups</code></p>
 <h3 id='parametros-body-2'>Párametros Body</h3>
 <table><thead>
@@ -3226,7 +3328,7 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <td>Si</td>
 </tr>
 </tbody></table>
-<h3 id='atributos-respuesta-16'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-17'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -3372,7 +3474,7 @@ Retorna una lista con todos los Grupos Objetivos Rating
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista de las últimas publicaciones de registros con fecha y medio</p>
-<h3 id='llamada-http-17'>Llamada HTTP</h3>
+<h3 id='llamada-http-18'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/spots/loads</code></p>
 <h3 id='parametros-url-4'>Parámetros URL</h3>
 <table><thead>
@@ -3388,7 +3490,7 @@ Retorna una lista con todos los Grupos Objetivos Rating
 <td>Filtro de Fecha-Tiempo en formato dd-mm-yyyyThh:mi:ss:mmm. Permite mostrar sólo publicaciones de cargas mayores a la fecha ingresada</td>
 </tr>
 </tbody></table>
-<h3 id='atributos-respuesta-17'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-18'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
