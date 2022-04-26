@@ -708,7 +708,8 @@ This endpoint deletes a specific kitten.
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x71e1db8n090am63ca69606c4slb8b6ta"</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xbundle exec middleman server
+71e1db8n090am63ca69606c4slb8b6ta"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna key que permite el acceso al API del clasificador.</p>
@@ -798,80 +799,73 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
   </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">737301110</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"media"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TV Abierta"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"media_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-10"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TV Abierta"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02-02-2022"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"second"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"weekday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jueves"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"daypart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tarde"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_first_appearance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10-01-2022"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"support_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1007</span><span class="p">,</span><span class="w">
       </span><span class="nl">"support"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TVN"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"weekday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jueves"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"supplement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SIN SUPLEMENTO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"supplement_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"advertisement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FALABELLA,CMR ALIANZA DUNKIN,MARZO 40% DCTO.D DUNKIN APP"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"advertisement_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">567008</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"advertisement_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">597715</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"advertisement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIDER,SUPERMERCADO,MUJER,COMPRANDO,PARRILLEANDO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">98833</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIDER,SUPERMERCADO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"brand_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIDER"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">47484</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WALMART CHILE"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sub_industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5973</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sub_industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUPERMERCADO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">222</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUPER E HIPERMERCADOS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COMERCIO DETALLISTA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"quality_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
       </span><span class="nl">"quality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIDEO COLOR"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"quality_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VC"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14:58:14"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"real_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"module"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"element"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DESCONOCIDO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"element_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"investment"</span><span class="p">:</span><span class="w"> </span><span class="mi">4200000</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"brad_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4986</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMR FALABELLA"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">325170</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FALABELLA,CMR ALIANZA DUNKIN"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">173</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FALABELLA"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TARJETAS DE CREDITO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"sub_industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10270</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"sub_industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TARJETA DE CREDITO GRANDES TIENDAS"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"universal_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">383878</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"universal_program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">80137</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ad_supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2867059</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"universal_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"universal_program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">83052</span><span class="p">,</span><span class="w">
       </span><span class="nl">"ad_supplier"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"megatime_hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"channel_KANTAR"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"e_type_media"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"section"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SIN SECCION"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"section_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"normal_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ad_group_location"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ad_group_spot_location"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ad_group_quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"schedule_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tarde"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"media_agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IPG MEDIABRANDS CHILE"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"media_agency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">516</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"creative_agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGINA"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"creative_agency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">684</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCADO FINANCIERO Y SEGUROS"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ad_first_appearance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"support_kantar_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_group_location"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_group_spot_location"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_group_quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
       </span><span class="nl">"failure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s/f"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"failure_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"is_sponsor"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24 TARDE"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1007078435</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"centimeter"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"columns"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"station_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"station"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SIN ESTACION"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"banner_URL"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_sponsor"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GENESIS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_centimeter"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_column"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_module"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_supplement_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_supplement"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_section_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_section"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ooh_element"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DESCONOCIDO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ooh_station"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ooh_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"internet_impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nl">"internet_campaign"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.3094840049743652</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="nl">"internet_device"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"internet_impact"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media_agency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">454</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media_agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OMG"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"creative_agency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"creative_agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BBDO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x6c5de827c6dc28e1e5056e8d5e7f79d9"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+      </span><span class="s2">"options"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"classifier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beneficio "</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beneficio"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -880,24 +874,24 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
               </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">65</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alianzaa"</span><span class="w">
+              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alianza"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"classifier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BU"</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Productos"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
               </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">174</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CORPORATE"</span><span class="w">
+              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parrilla"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="err">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -909,7 +903,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
   </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\"</span><span class="s2">value</span><span class="se">\"</span><span class="s2"> must contain at least one of [brands, companies, industries, sub_industries, products, group]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Retorna una lista de spots asociados a los filtros que se indique.</p>
+<p>Retorna una lista de avisajes con aviso asignado asociados a los filtros que se indique.</p>
 <h3 id='llamada-http-2'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/spots</code></p>
 <h3 id='parametros-url'>Parámetros URL</h3>
@@ -1053,14 +1047,9 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
+<td>uuid</td>
 <td>Integer</td>
-<td>Identificador de Spot</td>
-</tr>
-<tr>
-<td>media</td>
-<td>String</td>
-<td>Nombre del Medio donde fue encontrado</td>
+<td>Identificador único del Avisaje</td>
 </tr>
 <tr>
 <td>media_id</td>
@@ -1068,9 +1057,44 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 <td>ID Medio</td>
 </tr>
 <tr>
+<td>media</td>
+<td>String</td>
+<td>Nombre del Medio donde fue encontrado</td>
+</tr>
+<tr>
 <td>date</td>
 <td>String</td>
-<td>Fecha de aparición, en formato YYYY-MM-DD</td>
+<td>Fecha de exhibición, en formato DD-MM-YYYY</td>
+</tr>
+<tr>
+<td>hour</td>
+<td>Integer</td>
+<td>Hora de exhibición</td>
+</tr>
+<tr>
+<td>minute</td>
+<td>Integer</td>
+<td>Minuto de exhibición</td>
+</tr>
+<tr>
+<td>second</td>
+<td>Integer</td>
+<td>Segundo de exhibición</td>
+</tr>
+<tr>
+<td>weekday</td>
+<td>String</td>
+<td>Día de la semana de su aparición</td>
+</tr>
+<tr>
+<td>daypart</td>
+<td>String</td>
+<td>Franja de exhibición</td>
+</tr>
+<tr>
+<td>ad_first_appearance</td>
+<td>String</td>
+<td>Primera aparición del aviso, en formato YYYY-MM-DD</td>
 </tr>
 <tr>
 <td>support_id</td>
@@ -1083,89 +1107,14 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 <td>Soporte</td>
 </tr>
 <tr>
-<td>weekday</td>
-<td>String</td>
-<td>Día de la semana de su aparición</td>
-</tr>
-<tr>
-<td>supplement</td>
-<td>String</td>
-<td>Suplemento (Prensa)</td>
-</tr>
-<tr>
-<td>supplement_id</td>
+<td>advertisement_id</td>
 <td>Integer</td>
-<td>ID Suplemento</td>
+<td>ID Aviso asociado</td>
 </tr>
 <tr>
 <td>advertisement</td>
 <td>String</td>
 <td>Aviso asocicado</td>
-</tr>
-<tr>
-<td>advertisement_id</td>
-<td>Integer</td>
-<td>ID Aviso</td>
-</tr>
-<tr>
-<td>quality</td>
-<td>String</td>
-<td>Calidad del emisor</td>
-</tr>
-<tr>
-<td>quality_short</td>
-<td>String</td>
-<td>Calidad abreviada</td>
-</tr>
-<tr>
-<td>hour</td>
-<td>String</td>
-<td>Hora de aparición en formato HH:MM:SS</td>
-</tr>
-<tr>
-<td>real_duration</td>
-<td>Integer</td>
-<td>Duración real de la aparición</td>
-</tr>
-<tr>
-<td>page</td>
-<td>Integer</td>
-<td>En caso de ser publicidad en papel, indica el número de la pagina</td>
-</tr>
-<tr>
-<td>size</td>
-<td>Integer</td>
-<td>En caso de ser publicidad en papel, indica el tamaño físico de la página</td>
-</tr>
-<tr>
-<td>module</td>
-<td>String</td>
-<td>En caso de ser publicidad en papel, indica el tipo de hoja</td>
-</tr>
-<tr>
-<td>element</td>
-<td>String</td>
-<td>En caso de publicidad vial, indica el elemento donde esta montada la publicidad</td>
-</tr>
-<tr>
-<td>element_id</td>
-<td>Integer</td>
-<td>ID Elemento</td>
-</tr>
-<tr>
-<td>investment</td>
-<td>Integer</td>
-<td>Inversión</td>
-</tr>
-<tr>
-<td>brand_id</td>
-<td>Integer</td>
-<td>ID Marca</td>
-</tr>
-<tr>
-<td>brand</td>
-<td>String</td>
-<td>Marca asociada al producto</td>
 </tr>
 <tr>
 <td>product_id</td>
@@ -1178,6 +1127,16 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 <td>Nombre del Producto asignado al aviso</td>
 </tr>
 <tr>
+<td>brand_id</td>
+<td>Integer</td>
+<td>ID Marca</td>
+</tr>
+<tr>
+<td>brand</td>
+<td>String</td>
+<td>Marca asociada al producto</td>
+</tr>
+<tr>
 <td>company_id</td>
 <td>Integer</td>
 <td>ID Empresa</td>
@@ -1186,16 +1145,6 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 <td>company</td>
 <td>String</td>
 <td>Nombre de la Empresa asignada al aviso</td>
-</tr>
-<tr>
-<td>industry_id</td>
-<td>Integer</td>
-<td>ID Rubro</td>
-</tr>
-<tr>
-<td>industry</td>
-<td>String</td>
-<td>Nombre del Rubro asignado al aviso</td>
 </tr>
 <tr>
 <td>sub_industry_id</td>
@@ -1208,6 +1157,51 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 <td>Nombre del Sub-Rubro asignado al Rubro</td>
 </tr>
 <tr>
+<td>industry_id</td>
+<td>Integer</td>
+<td>ID Rubro</td>
+</tr>
+<tr>
+<td>industry</td>
+<td>String</td>
+<td>Nombre del Rubro asignado al aviso</td>
+</tr>
+<tr>
+<td>category_id</td>
+<td>Integer</td>
+<td>ID Categoria</td>
+</tr>
+<tr>
+<td>category</td>
+<td>String</td>
+<td>Indica la categoria del Rubro</td>
+</tr>
+<tr>
+<td>quality_id</td>
+<td>String</td>
+<td>ID Calidad</td>
+</tr>
+<tr>
+<td>quality</td>
+<td>String</td>
+<td>Calidad / Tipo del aviso</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>Integer</td>
+<td>Duración real del avisaje</td>
+</tr>
+<tr>
+<td>ad_duration</td>
+<td>Integer</td>
+<td>Duración normal del aviso</td>
+</tr>
+<tr>
+<td>value</td>
+<td>Integer</td>
+<td>Valor del avisaje</td>
+</tr>
+<tr>
 <td>universal_id</td>
 <td>Integer</td>
 <td>Código universal</td>
@@ -1218,44 +1212,14 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 <td>Código de programa universal</td>
 </tr>
 <tr>
-<td>ad_supplier_id</td>
-<td>Integer</td>
-<td>ID Comercializador</td>
-</tr>
-<tr>
 <td>ad_supplier</td>
 <td>String</td>
 <td>En caso de ser publicidad televisiva, indica el nombre del comercializador</td>
 </tr>
 <tr>
-<td>megatime_hour</td>
+<td>support_kantar_id</td>
 <td>Integer</td>
-<td>Hora megatime (Dias de 26 horas)</td>
-</tr>
-<tr>
-<td>channel_KANTAR</td>
-<td>Integer</td>
-<td>ID Soporte de la empresa Time</td>
-</tr>
-<tr>
-<td>e_type_media</td>
-<td>Integer</td>
-<td>ID Megatime para identificar el area de la verificacion</td>
-</tr>
-<tr>
-<td>section</td>
-<td>String</td>
-<td>En caso de ser publicidad en papel, indica en que sección de la página se encuentra</td>
-</tr>
-<tr>
-<td>section_id</td>
-<td>Integer</td>
-<td>ID Sección</td>
-</tr>
-<tr>
-<td>normal_duration</td>
-<td>Integer</td>
-<td>Duración normal del aviso</td>
+<td>ID Soporte de la empresa Kantar</td>
 </tr>
 <tr>
 <td>ad_group_location</td>
@@ -1265,57 +1229,12 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 <tr>
 <td>ad_group_spot_location</td>
 <td>Integer</td>
-<td>En caso de publicidad televisiva o radial, indica la posición en la tanda publicitaria</td>
+<td>En caso de publicidad televisiva o radial, indica la posición del avisaje en la tanda publicitaria</td>
 </tr>
 <tr>
 <td>ad_group_quantity</td>
 <td>Integer</td>
-<td>En caso de publicidad televisiva o radial, indica la cantidad de spots en la tanda publicitaria</td>
-</tr>
-<tr>
-<td>schedule_id</td>
-<td>Integer</td>
-<td>En caso de publicidad televisiva, indica el id el Horario</td>
-</tr>
-<tr>
-<td>schedule</td>
-<td>Integer</td>
-<td>En caso de publicidad televisiva, descripción del Horario</td>
-</tr>
-<tr>
-<td>media_agency</td>
-<td>String</td>
-<td>Nombre de la Agencia de medios</td>
-</tr>
-<tr>
-<td>media_agency_id</td>
-<td>Integer</td>
-<td>ID Agrencia de medios</td>
-</tr>
-<tr>
-<td>creative_agency</td>
-<td>String</td>
-<td>Nombre de la Agencia creativa</td>
-</tr>
-<tr>
-<td>creative_agency_id</td>
-<td>Integer</td>
-<td>ID Agencia creativa</td>
-</tr>
-<tr>
-<td>category</td>
-<td>String</td>
-<td>Indica la categoria del Rubro</td>
-</tr>
-<tr>
-<td>category_id</td>
-<td>Integer</td>
-<td>ID Categoria</td>
-</tr>
-<tr>
-<td>ad_first_appearance</td>
-<td>String</td>
-<td>Primera aparición del aviso, en formato YYYY-MM-DD</td>
+<td>En caso de publicidad televisiva o radial, indica la cantidad de avisajes en la tanda publicitaria</td>
 </tr>
 <tr>
 <td>failure</td>
@@ -1323,24 +1242,9 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 <td>Descripción de falla</td>
 </tr>
 <tr>
-<td>failure_id</td>
-<td>Integer</td>
-<td>ID Falla</td>
-</tr>
-<tr>
 <td>is_sponsor</td>
 <td>String</td>
 <td>Indica si es auspicio</td>
-</tr>
-<tr>
-<td>location</td>
-<td>String</td>
-<td>En caso de Via pública, indica la dirección. En caso de Metro, indica el lugar donde se encuentra dentro de la estación</td>
-</tr>
-<tr>
-<td>location_id</td>
-<td>Integer</td>
-<td>ID Ubicación</td>
 </tr>
 <tr>
 <td>program</td>
@@ -1348,49 +1252,104 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 <td>Para publicidad televisiva y radial indica el nombre del Programa</td>
 </tr>
 <tr>
-<td>program_id</td>
-<td>Integer</td>
-<td>ID Programa</td>
-</tr>
-<tr>
-<td>centimeter</td>
+<td>press_centimeter</td>
 <td>Integer</td>
 <td>En caso de ser publicidad en papel, indica los centimetros que abarca</td>
 </tr>
 <tr>
-<td>columns</td>
+<td>press_columns</td>
 <td>Integer</td>
-<td>En caso de ser publicidad en papel, indica el número de columnas</td>
+<td>En caso de ser publicidad en papel, indica el número de la columna</td>
 </tr>
 <tr>
-<td>impressions</td>
+<td>press_page</td>
 <td>Integer</td>
-<td>En caso de ser publicidad en papel, indica el número de impresiones</td>
+<td>En caso de ser publicidad en papel, indica el número de la pagina</td>
 </tr>
 <tr>
-<td>station_id</td>
+<td>press_size</td>
 <td>Integer</td>
-<td>ID Estación de Metro</td>
+<td>En caso de ser publicidad en papel, indica el tamaño físico de la página</td>
 </tr>
 <tr>
-<td>station</td>
+<td>press_module</td>
+<td>String</td>
+<td>En caso de ser publicidad en papel, indica el tipo de hoja</td>
+</tr>
+<tr>
+<td>press_supplement_id</td>
+<td>Integer</td>
+<td>ID Suplemento</td>
+</tr>
+<tr>
+<td>press_supplement</td>
+<td>String</td>
+<td>Suplemento (Prensa)</td>
+</tr>
+<tr>
+<td>press_section_id</td>
+<td>Integer</td>
+<td>ID Sección</td>
+</tr>
+<tr>
+<td>press_section</td>
+<td>String</td>
+<td>En caso de ser publicidad en papel, indica en que sección de la página se encuentra</td>
+</tr>
+<tr>
+<td>ooh_element</td>
+<td>String</td>
+<td>En caso de publicidad vial, indica el elemento donde se encuentra montada la publicidad</td>
+</tr>
+<tr>
+<td>ooh_location</td>
+<td>String</td>
+<td>En caso de Via pública, indica la dirección. En caso de Metro, indica el lugar donde se encuentra dentro de la estación</td>
+</tr>
+<tr>
+<td>ooh_station</td>
 <td>String</td>
 <td>En caso de publicidad en Metro, indica el nombre de la Estación</td>
 </tr>
 <tr>
-<td>code</td>
-<td>String</td>
-<td>Codigo interno para identificación de multimedia</td>
-</tr>
-<tr>
-<td>banner_URL</td>
-<td>String</td>
-<td>En caso de publicidad de Internet, indica la url del banner</td>
+<td>internet_impressions</td>
+<td>Integer</td>
+<td>En caso de ser publicidad en internet, indica el número de impresiones estimadas. Dato entregado por Admetricks</td>
 </tr>
 <tr>
 <td>internet_campaign</td>
 <td>String</td>
-<td>En caso de publicidad de Internet, indica el nombre de su campaña</td>
+<td>En caso de publicidad en Internet, indica el nombre de su campaña. Dato entregado por Admetricks.</td>
+</tr>
+<tr>
+<td>internet_device</td>
+<td>String</td>
+<td>En caso de publicidad en Internet, indica el dispositivo de visualización de la pieza publicitaria. Dato entregado por Admetricks.</td>
+</tr>
+<tr>
+<td>internet_impact</td>
+<td>Integer</td>
+<td>En caso de publicidad en Internet, indica el porcentaje de pantalla que ocupa la pieza publicitaria. Dato entregado por Admetricks.</td>
+</tr>
+<tr>
+<td>media_agency_id</td>
+<td>Integer</td>
+<td>ID Agrencia de medios</td>
+</tr>
+<tr>
+<td>media_agency</td>
+<td>String</td>
+<td>Nombre de la Agencia de medios</td>
+</tr>
+<tr>
+<td>creative_agency_id</td>
+<td>Integer</td>
+<td>ID Agencia creativa</td>
+</tr>
+<tr>
+<td>creative_agency</td>
+<td>String</td>
+<td>Nombre de la Agencia creativa</td>
 </tr>
 </tbody></table>
 
@@ -1490,74 +1449,67 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
   </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">737301110</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"media"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TV Abierta"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"media_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-10"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"support_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1007</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"support"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TVN"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TV Abierta"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02-02-2022"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"second"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
       </span><span class="nl">"weekday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jueves"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"supplement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SIN SUPLEMENTO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"supplement_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"advertisement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FALABELLA,CMR ALIANZA DUNKIN,MARZO 40% DCTO.D DUNKIN APP"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"advertisement_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">567008</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"daypart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Noticiero Central"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_first_appearance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01-05-2021"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"support_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1013</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"support"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UC13"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"advertisement_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">572187</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"advertisement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARIEL,DETERGENTE CONCENTRADO,MARCAS DEL AHORRO-C.RIQUELME"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">121125</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARIEL,DETERGENTE LIQUIDO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"brand_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1563</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARIEL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1182</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P&amp;G CHILE"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sub_industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">623</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sub_industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DETERGENTE LIQUIDO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">117</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIMPIEZA DE VESTUARIO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HIGIENE DOMESTICA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"quality_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
       </span><span class="nl">"quality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIDEO COLOR"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"quality_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VC"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14:58:14"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"real_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"module"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"element"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DESCONOCIDO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"element_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"investment"</span><span class="p">:</span><span class="w"> </span><span class="mi">4200000</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"brad_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4986</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMR FALABELLA"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">325170</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FALABELLA,CMR ALIANZA DUNKIN"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">173</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FALABELLA"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TARJETAS DE CREDITO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"sub_industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10270</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"sub_industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TARJETA DE CREDITO GRANDES TIENDAS"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"universal_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">383878</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"universal_program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">80137</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ad_supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">6794118</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"universal_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">386713</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"universal_program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nl">"ad_supplier"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"megatime_hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"channel_KANTAR"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"e_type_media"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"section"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SIN SECCION"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"section_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"normal_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ad_group_location"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ad_group_spot_location"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ad_group_quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"schedule_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tarde"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"media_agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IPG MEDIABRANDS CHILE"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"media_agency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">516</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"creative_agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGINA"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"creative_agency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">684</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCADO FINANCIERO Y SEGUROS"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ad_first_appearance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"support_kantar_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_group_location"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_group_spot_location"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ad_group_quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
       </span><span class="nl">"failure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s/f"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"failure_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"is_sponsor"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24 TARDE"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1007078435</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"centimeter"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"columns"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"station_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"station"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SIN ESTACION"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"banner_URL"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"internet_campaign"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="nl">"is_sponsor"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TELETRECE CENTRAL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_centimeter"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_column"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_module"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_supplement_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_supplement"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_section_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_section"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ooh_element"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DESCONOCIDO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ooh_station"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ooh_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"internet_impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"internet_campaign"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"internet_device"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"internet_impact"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media_agency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">537</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media_agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUBLICIS GROUP MEDIA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"creative_agency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"creative_agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUBLICIS U"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xd00d919dea2b0a902618b4d670b2fb83"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1570,7 +1522,7 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
   </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\"</span><span class="s2">end_date</span><span class="se">\"</span><span class="s2"> is required"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Retorna una lista con todos los spots del día o intervalo indicado.</p>
+<p>Retorna una lista con todos los avisajes del día o intervalo indicado.</p>
 <h3 id='llamada-http-3'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/verifier</code></p>
 <h3 id='parametros-url-2'>Parámetros URL</h3>
@@ -1633,14 +1585,9 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
+<td>uuid</td>
 <td>Integer</td>
-<td>Identificador de Spot</td>
-</tr>
-<tr>
-<td>media</td>
-<td>String</td>
-<td>Nombre del Medio donde fue encontrado</td>
+<td>Identificador único del Avisaje</td>
 </tr>
 <tr>
 <td>media_id</td>
@@ -1648,9 +1595,44 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <td>ID Medio</td>
 </tr>
 <tr>
+<td>media</td>
+<td>String</td>
+<td>Nombre del Medio donde fue encontrado</td>
+</tr>
+<tr>
 <td>date</td>
 <td>String</td>
-<td>Fecha de aparición, en formato YYYY-MM-DD</td>
+<td>Fecha de exhibición, en formato DD-MM-YYYY</td>
+</tr>
+<tr>
+<td>hour</td>
+<td>Integer</td>
+<td>Hora de exhibición</td>
+</tr>
+<tr>
+<td>minute</td>
+<td>Integer</td>
+<td>Minuto de exhibición</td>
+</tr>
+<tr>
+<td>second</td>
+<td>Integer</td>
+<td>Segundo de exhibición</td>
+</tr>
+<tr>
+<td>weekday</td>
+<td>String</td>
+<td>Día de la semana de su aparición</td>
+</tr>
+<tr>
+<td>daypart</td>
+<td>String</td>
+<td>Franja de exhibición</td>
+</tr>
+<tr>
+<td>ad_first_appearance</td>
+<td>String</td>
+<td>Primera aparición del aviso, en formato YYYY-MM-DD</td>
 </tr>
 <tr>
 <td>support_id</td>
@@ -1663,89 +1645,14 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <td>Soporte</td>
 </tr>
 <tr>
-<td>weekday</td>
-<td>String</td>
-<td>Día de la semana de su aparición</td>
-</tr>
-<tr>
-<td>supplement</td>
-<td>String</td>
-<td>Suplemento (Prensa)</td>
-</tr>
-<tr>
-<td>supplement_id</td>
+<td>advertisement_id</td>
 <td>Integer</td>
-<td>ID Suplemento</td>
+<td>ID Aviso asociado</td>
 </tr>
 <tr>
 <td>advertisement</td>
 <td>String</td>
 <td>Aviso asocicado</td>
-</tr>
-<tr>
-<td>advertisement_id</td>
-<td>Integer</td>
-<td>ID Aviso</td>
-</tr>
-<tr>
-<td>quality</td>
-<td>String</td>
-<td>Calidad del emisor</td>
-</tr>
-<tr>
-<td>quality_short</td>
-<td>String</td>
-<td>Calidad abreviada</td>
-</tr>
-<tr>
-<td>hour</td>
-<td>String</td>
-<td>Hora de aparición en formato HH:MM:SS</td>
-</tr>
-<tr>
-<td>real_duration</td>
-<td>Integer</td>
-<td>Duración real de la aparición</td>
-</tr>
-<tr>
-<td>page</td>
-<td>Integer</td>
-<td>En caso de ser publicidad en papel, indica el número de la pagina</td>
-</tr>
-<tr>
-<td>size</td>
-<td>Integer</td>
-<td>En caso de ser publicidad en papel, indica el tamaño físico de la página</td>
-</tr>
-<tr>
-<td>module</td>
-<td>String</td>
-<td>En caso de ser publicidad en papel, indica el tipo de hoja</td>
-</tr>
-<tr>
-<td>element</td>
-<td>String</td>
-<td>En caso de publicidad vial, indica el elemento donde esta montada la publicidad</td>
-</tr>
-<tr>
-<td>element_id</td>
-<td>Integer</td>
-<td>ID Elemento</td>
-</tr>
-<tr>
-<td>investment</td>
-<td>Integer</td>
-<td>Inversión</td>
-</tr>
-<tr>
-<td>brand_id</td>
-<td>Integer</td>
-<td>ID Marca</td>
-</tr>
-<tr>
-<td>brand</td>
-<td>String</td>
-<td>Marca asociada al producto</td>
 </tr>
 <tr>
 <td>product_id</td>
@@ -1758,6 +1665,16 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <td>Nombre del Producto asignado al aviso</td>
 </tr>
 <tr>
+<td>brand_id</td>
+<td>Integer</td>
+<td>ID Marca</td>
+</tr>
+<tr>
+<td>brand</td>
+<td>String</td>
+<td>Marca asociada al producto</td>
+</tr>
+<tr>
 <td>company_id</td>
 <td>Integer</td>
 <td>ID Empresa</td>
@@ -1766,16 +1683,6 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <td>company</td>
 <td>String</td>
 <td>Nombre de la Empresa asignada al aviso</td>
-</tr>
-<tr>
-<td>industry_id</td>
-<td>Integer</td>
-<td>ID Rubro</td>
-</tr>
-<tr>
-<td>industry</td>
-<td>String</td>
-<td>Nombre del Rubro asignado al aviso</td>
 </tr>
 <tr>
 <td>sub_industry_id</td>
@@ -1788,6 +1695,51 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <td>Nombre del Sub-Rubro asignado al Rubro</td>
 </tr>
 <tr>
+<td>industry_id</td>
+<td>Integer</td>
+<td>ID Rubro</td>
+</tr>
+<tr>
+<td>industry</td>
+<td>String</td>
+<td>Nombre del Rubro asignado al aviso</td>
+</tr>
+<tr>
+<td>category_id</td>
+<td>Integer</td>
+<td>ID Categoria</td>
+</tr>
+<tr>
+<td>category</td>
+<td>String</td>
+<td>Indica la categoria del Rubro</td>
+</tr>
+<tr>
+<td>quality_id</td>
+<td>String</td>
+<td>ID Calidad</td>
+</tr>
+<tr>
+<td>quality</td>
+<td>String</td>
+<td>Calidad / Tipo del aviso</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>Integer</td>
+<td>Duración real del avisaje</td>
+</tr>
+<tr>
+<td>ad_duration</td>
+<td>Integer</td>
+<td>Duración normal del aviso</td>
+</tr>
+<tr>
+<td>value</td>
+<td>Integer</td>
+<td>Valor del avisaje</td>
+</tr>
+<tr>
 <td>universal_id</td>
 <td>Integer</td>
 <td>Código universal</td>
@@ -1798,44 +1750,14 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <td>Código de programa universal</td>
 </tr>
 <tr>
-<td>ad_supplier_id</td>
-<td>Integer</td>
-<td>ID Comercializador</td>
-</tr>
-<tr>
 <td>ad_supplier</td>
 <td>String</td>
 <td>En caso de ser publicidad televisiva, indica el nombre del comercializador</td>
 </tr>
 <tr>
-<td>megatime_hour</td>
+<td>support_kantar_id</td>
 <td>Integer</td>
-<td>Hora megatime (Dias de 26 horas)</td>
-</tr>
-<tr>
-<td>channel_KANTAR</td>
-<td>Integer</td>
-<td>ID Soporte de la empresa Time</td>
-</tr>
-<tr>
-<td>e_type_media</td>
-<td>Integer</td>
-<td>ID Megatime para identificar el area de la verificacion</td>
-</tr>
-<tr>
-<td>section</td>
-<td>String</td>
-<td>En caso de ser publicidad en papel, indica en que sección de la página se encuentra</td>
-</tr>
-<tr>
-<td>section_id</td>
-<td>Integer</td>
-<td>ID Sección</td>
-</tr>
-<tr>
-<td>normal_duration</td>
-<td>Integer</td>
-<td>Duración normal del aviso</td>
+<td>ID Soporte de la empresa Kantar</td>
 </tr>
 <tr>
 <td>ad_group_location</td>
@@ -1845,57 +1767,12 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <tr>
 <td>ad_group_spot_location</td>
 <td>Integer</td>
-<td>En caso de publicidad televisiva o radial, indica la posición en la tanda publicitaria</td>
+<td>En caso de publicidad televisiva o radial, indica la posición del avisaje en la tanda publicitaria</td>
 </tr>
 <tr>
 <td>ad_group_quantity</td>
 <td>Integer</td>
-<td>En caso de publicidad televisiva o radial, indica la cantidad de spots en la tanda publicitaria</td>
-</tr>
-<tr>
-<td>schedule_id</td>
-<td>Integer</td>
-<td>En caso de publicidad televisiva, indica el id el Horario</td>
-</tr>
-<tr>
-<td>schedule</td>
-<td>Integer</td>
-<td>En caso de publicidad televisiva, descripción del Horario</td>
-</tr>
-<tr>
-<td>media_agency</td>
-<td>String</td>
-<td>Nombre de la Agencia de medios</td>
-</tr>
-<tr>
-<td>media_agency_id</td>
-<td>Integer</td>
-<td>ID Agrencia de medios</td>
-</tr>
-<tr>
-<td>creative_agency</td>
-<td>String</td>
-<td>Nombre de la Agencia creativa</td>
-</tr>
-<tr>
-<td>creative_agency_id</td>
-<td>Integer</td>
-<td>ID Agencia creativa</td>
-</tr>
-<tr>
-<td>category</td>
-<td>String</td>
-<td>Indica la categoria del Rubro</td>
-</tr>
-<tr>
-<td>category_id</td>
-<td>Integer</td>
-<td>ID Categoria</td>
-</tr>
-<tr>
-<td>ad_first_appearance</td>
-<td>String</td>
-<td>Primera aparición del aviso, en formato YYYY-MM-DD</td>
+<td>En caso de publicidad televisiva o radial, indica la cantidad de avisajes en la tanda publicitaria</td>
 </tr>
 <tr>
 <td>failure</td>
@@ -1903,24 +1780,9 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <td>Descripción de falla</td>
 </tr>
 <tr>
-<td>failure_id</td>
-<td>Integer</td>
-<td>ID Falla</td>
-</tr>
-<tr>
 <td>is_sponsor</td>
-<td>Boolean</td>
-<td>Indica si es auspicio</td>
-</tr>
-<tr>
-<td>location</td>
 <td>String</td>
-<td>En caso de Via pública, indica la dirección. En caso de Metro, indica el lugar donde se encuentra dentro de la estación</td>
-</tr>
-<tr>
-<td>location_id</td>
-<td>Integer</td>
-<td>ID Ubicación</td>
+<td>Indica si es auspicio</td>
 </tr>
 <tr>
 <td>program</td>
@@ -1928,49 +1790,104 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <td>Para publicidad televisiva y radial indica el nombre del Programa</td>
 </tr>
 <tr>
-<td>program_id</td>
-<td>Integer</td>
-<td>ID Programa</td>
-</tr>
-<tr>
-<td>centimeter</td>
+<td>press_centimeter</td>
 <td>Integer</td>
 <td>En caso de ser publicidad en papel, indica los centimetros que abarca</td>
 </tr>
 <tr>
-<td>columns</td>
+<td>press_columns</td>
 <td>Integer</td>
-<td>En caso de ser publicidad en papel, indica el número de columnas</td>
+<td>En caso de ser publicidad en papel, indica el número de la columna</td>
 </tr>
 <tr>
-<td>impressions</td>
+<td>press_page</td>
 <td>Integer</td>
-<td>En caso de ser publicidad en papel, indica el número de impresiones</td>
+<td>En caso de ser publicidad en papel, indica el número de la pagina</td>
 </tr>
 <tr>
-<td>station_id</td>
+<td>press_size</td>
 <td>Integer</td>
-<td>ID Estación de Metro</td>
+<td>En caso de ser publicidad en papel, indica el tamaño físico de la página</td>
 </tr>
 <tr>
-<td>station</td>
+<td>press_module</td>
+<td>String</td>
+<td>En caso de ser publicidad en papel, indica el tipo de hoja</td>
+</tr>
+<tr>
+<td>press_supplement_id</td>
+<td>Integer</td>
+<td>ID Suplemento</td>
+</tr>
+<tr>
+<td>press_supplement</td>
+<td>String</td>
+<td>Suplemento (Prensa)</td>
+</tr>
+<tr>
+<td>press_section_id</td>
+<td>Integer</td>
+<td>ID Sección</td>
+</tr>
+<tr>
+<td>press_section</td>
+<td>String</td>
+<td>En caso de ser publicidad en papel, indica en que sección de la página se encuentra</td>
+</tr>
+<tr>
+<td>ooh_element</td>
+<td>String</td>
+<td>En caso de publicidad vial, indica el elemento donde se encuentra montada la publicidad</td>
+</tr>
+<tr>
+<td>ooh_location</td>
+<td>String</td>
+<td>En caso de Via pública, indica la dirección. En caso de Metro, indica el lugar donde se encuentra dentro de la estación</td>
+</tr>
+<tr>
+<td>ooh_station</td>
 <td>String</td>
 <td>En caso de publicidad en Metro, indica el nombre de la Estación</td>
 </tr>
 <tr>
-<td>code</td>
-<td>String</td>
-<td>Codigo interno para identificación de multimedia</td>
-</tr>
-<tr>
-<td>banner_URL</td>
-<td>String</td>
-<td>En caso de publicidad de Internet, indica la url del banner</td>
+<td>internet_impressions</td>
+<td>Integer</td>
+<td>En caso de ser publicidad en internet, indica el número de impresiones estimadas. Dato entregado por Admetricks</td>
 </tr>
 <tr>
 <td>internet_campaign</td>
 <td>String</td>
-<td>En caso de publicidad de Internet, indica el nombre de su campaña</td>
+<td>En caso de publicidad en Internet, indica el nombre de su campaña. Dato entregado por Admetricks.</td>
+</tr>
+<tr>
+<td>internet_device</td>
+<td>String</td>
+<td>En caso de publicidad en Internet, indica el dispositivo de visualización de la pieza publicitaria. Dato entregado por Admetricks.</td>
+</tr>
+<tr>
+<td>internet_impact</td>
+<td>Integer</td>
+<td>En caso de publicidad en Internet, indica el porcentaje de pantalla que ocupa la pieza publicitaria. Dato entregado por Admetricks.</td>
+</tr>
+<tr>
+<td>media_agency_id</td>
+<td>Integer</td>
+<td>ID Agrencia de medios</td>
+</tr>
+<tr>
+<td>media_agency</td>
+<td>String</td>
+<td>Nombre de la Agencia de medios</td>
+</tr>
+<tr>
+<td>creative_agency_id</td>
+<td>Integer</td>
+<td>ID Agencia creativa</td>
+</tr>
+<tr>
+<td>creative_agency</td>
+<td>String</td>
+<td>Nombre de la Agencia creativa</td>
 </tr>
 </tbody></table>
 <h2 id='obtener-avisos-con-actividad'>Obtener Avisos con actividad</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
