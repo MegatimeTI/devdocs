@@ -327,9 +327,6 @@
                     <a href="#obtener-pauta" class="toc-h2 toc-link" data-title="Obtener Pauta">Obtener Pauta</a>
                   </li>
                   <li>
-                    <a href="#obtener-verificador" class="toc-h2 toc-link" data-title="Obtener Verificador">Obtener Verificador</a>
-                  </li>
-                  <li>
                     <a href="#obtener-avisos-con-actividad" class="toc-h2 toc-link" data-title="Obtener Avisos con actividad">Obtener Avisos con actividad</a>
                   </li>
                   <li>
@@ -838,7 +835,8 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
       </span><span class="nl">"ad_group_quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
       </span><span class="nl">"failure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s/f"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"is_sponsor"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GENESIS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MEA CULPA CLASICOS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apoyo"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"press_centimeter"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nl">"press_column"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nl">"press_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -1013,7 +1011,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 
 <aside class="warning-yellow">
 Debe existir al menos un parámetro de los siguientes, para que los demas sean opcionales: 
-<b>brands, companies, industries, sub_industries, products, categories, qualities, creative_agencies, media_agencies, group.</b>
+<b>brands, companies, industries, sub_industries, products, categories, qualities, creative_agencies, media_agencies, supports, group.</b>
 </aside>
 
 <aside class="warning-yellow">
@@ -1252,6 +1250,11 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 <td>Para publicidad televisiva y radial indica el nombre del Programa</td>
 </tr>
 <tr>
+<td>event</td>
+<td>String</td>
+<td>Para publicidad televisiva y radial indica su tipo de evento</td>
+</tr>
+<tr>
 <td>press_centimeter</td>
 <td>Integer</td>
 <td>En caso de ser publicidad en papel, indica los centimetros que abarca</td>
@@ -1415,481 +1418,6 @@ Para <b>start_date y end_date</b>  existe un máximo de 31 dias
 <td>Nombre Opción</td>
 </tr>
 </tbody></table>
-<h2 id='obtener-verificador'>Obtener Verificador</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/verifier?media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021"</span>
-
-<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span>
-<span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/verifier?media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/verifier?media=1,2,3,4,5&amp;start_date=10-03-2021&amp;end_date=10-03-2021</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">};</span>
-<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div>
-<blockquote>
-<p>Ejemplo de retorno en formato JSON:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"media_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"media"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TV Abierta"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02-02-2022"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"second"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"weekday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jueves"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"daypart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Noticiero Central"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ad_first_appearance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01-05-2021"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"support_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1013</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"support"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UC13"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"advertisement_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">572187</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"advertisement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARIEL,DETERGENTE CONCENTRADO,MARCAS DEL AHORRO-C.RIQUELME"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">121125</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARIEL,DETERGENTE LIQUIDO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"brand_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1563</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARIEL"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1182</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P&amp;G CHILE"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"sub_industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">623</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"sub_industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DETERGENTE LIQUIDO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"industry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">117</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIMPIEZA DE VESTUARIO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HIGIENE DOMESTICA"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"quality_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"quality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIDEO COLOR"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ad_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">6794118</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"universal_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">386713</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"universal_program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ad_supplier"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"support_kantar_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ad_group_location"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ad_group_spot_location"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ad_group_quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"failure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s/f"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"is_sponsor"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TELETRECE CENTRAL"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"press_centimeter"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"press_column"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"press_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"press_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"press_module"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"press_supplement_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"press_supplement"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"press_section_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"press_section"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ooh_element"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DESCONOCIDO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ooh_station"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ooh_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"internet_impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"internet_campaign"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"internet_device"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"internet_impact"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"media_agency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">537</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"media_agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUBLICIS GROUP MEDIA"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"creative_agency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"creative_agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUBLICIS U"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xd00d919dea2b0a902618b4d670b2fb83"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<blockquote>
-<p>Ejemplo de retorno en formato JSON con error:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\"</span><span class="s2">end_date</span><span class="se">\"</span><span class="s2"> is required"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>Retorna una lista con todos los avisajes del día o intervalo indicado.</p>
-<h3 id='llamada-http-3'>Llamada HTTP</h3>
-<p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/verifier</code></p>
-<h3 id='parametros-url-2'>Parámetros URL</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-<th>Requerido</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>media</td>
-<td>Array</td>
-<td>Lista de ID de Medios</td>
-<td>Si</td>
-</tr>
-<tr>
-<td>start_date</td>
-<td>String</td>
-<td>Fecha de formato dd-mm-yyyy</td>
-<td>Si</td>
-</tr>
-<tr>
-<td>end_date</td>
-<td>String</td>
-<td>Fecha de formato dd-mm-yyyy</td>
-<td>Si</td>
-</tr>
-</tbody></table>
-
-<aside class="warning-yellow">
-El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias 
-</aside>
-<h3 id='atributos-respuesta-3'>Atributos Respuesta</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ok</td>
-<td>Boolean</td>
-<td>Verificador de respuesta</td>
-</tr>
-<tr>
-<td>result</td>
-<td>Array</td>
-<td>Lista de objetos tipo Verificador</td>
-</tr>
-</tbody></table>
-<h3 id='atributos-verificador'>Atributos Verificador</h3>
-<table><thead>
-<tr>
-<th>Nombre</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>uuid</td>
-<td>Integer</td>
-<td>Identificador único del Avisaje</td>
-</tr>
-<tr>
-<td>media_id</td>
-<td>Integer</td>
-<td>ID Medio</td>
-</tr>
-<tr>
-<td>media</td>
-<td>String</td>
-<td>Nombre del Medio donde fue encontrado</td>
-</tr>
-<tr>
-<td>date</td>
-<td>String</td>
-<td>Fecha de exhibición, en formato DD-MM-YYYY</td>
-</tr>
-<tr>
-<td>hour</td>
-<td>Integer</td>
-<td>Hora de exhibición</td>
-</tr>
-<tr>
-<td>minute</td>
-<td>Integer</td>
-<td>Minuto de exhibición</td>
-</tr>
-<tr>
-<td>second</td>
-<td>Integer</td>
-<td>Segundo de exhibición</td>
-</tr>
-<tr>
-<td>weekday</td>
-<td>String</td>
-<td>Día de la semana de su aparición</td>
-</tr>
-<tr>
-<td>daypart</td>
-<td>String</td>
-<td>Franja de exhibición</td>
-</tr>
-<tr>
-<td>ad_first_appearance</td>
-<td>String</td>
-<td>Primera aparición del aviso, en formato YYYY-MM-DD</td>
-</tr>
-<tr>
-<td>support_id</td>
-<td>Integer</td>
-<td>ID Soporte</td>
-</tr>
-<tr>
-<td>support</td>
-<td>String</td>
-<td>Soporte</td>
-</tr>
-<tr>
-<td>advertisement_id</td>
-<td>Integer</td>
-<td>ID Aviso asociado</td>
-</tr>
-<tr>
-<td>advertisement</td>
-<td>String</td>
-<td>Aviso asocicado</td>
-</tr>
-<tr>
-<td>product_id</td>
-<td>Integer</td>
-<td>ID Producto</td>
-</tr>
-<tr>
-<td>product</td>
-<td>String</td>
-<td>Nombre del Producto asignado al aviso</td>
-</tr>
-<tr>
-<td>brand_id</td>
-<td>Integer</td>
-<td>ID Marca</td>
-</tr>
-<tr>
-<td>brand</td>
-<td>String</td>
-<td>Marca asociada al producto</td>
-</tr>
-<tr>
-<td>company_id</td>
-<td>Integer</td>
-<td>ID Empresa</td>
-</tr>
-<tr>
-<td>company</td>
-<td>String</td>
-<td>Nombre de la Empresa asignada al aviso</td>
-</tr>
-<tr>
-<td>sub_industry_id</td>
-<td>Integer</td>
-<td>ID Sub-Rubro</td>
-</tr>
-<tr>
-<td>sub_industry</td>
-<td>String</td>
-<td>Nombre del Sub-Rubro asignado al Rubro</td>
-</tr>
-<tr>
-<td>industry_id</td>
-<td>Integer</td>
-<td>ID Rubro</td>
-</tr>
-<tr>
-<td>industry</td>
-<td>String</td>
-<td>Nombre del Rubro asignado al aviso</td>
-</tr>
-<tr>
-<td>category_id</td>
-<td>Integer</td>
-<td>ID Categoria</td>
-</tr>
-<tr>
-<td>category</td>
-<td>String</td>
-<td>Indica la categoria del Rubro</td>
-</tr>
-<tr>
-<td>quality_id</td>
-<td>String</td>
-<td>ID Calidad</td>
-</tr>
-<tr>
-<td>quality</td>
-<td>String</td>
-<td>Calidad / Tipo del aviso</td>
-</tr>
-<tr>
-<td>duration</td>
-<td>Integer</td>
-<td>Duración real del avisaje</td>
-</tr>
-<tr>
-<td>ad_duration</td>
-<td>Integer</td>
-<td>Duración normal del aviso</td>
-</tr>
-<tr>
-<td>value</td>
-<td>Integer</td>
-<td>Valor del avisaje</td>
-</tr>
-<tr>
-<td>universal_id</td>
-<td>Integer</td>
-<td>Código universal</td>
-</tr>
-<tr>
-<td>universal_program_id</td>
-<td>Integer</td>
-<td>Código de programa universal</td>
-</tr>
-<tr>
-<td>ad_supplier</td>
-<td>String</td>
-<td>En caso de ser publicidad televisiva, indica el nombre del comercializador</td>
-</tr>
-<tr>
-<td>support_kantar_id</td>
-<td>Integer</td>
-<td>ID Soporte de la empresa Kantar</td>
-</tr>
-<tr>
-<td>ad_group_location</td>
-<td>Integer</td>
-<td>En caso de publicidad televisiva o radial, indica el número de la tanda publicitaria</td>
-</tr>
-<tr>
-<td>ad_group_spot_location</td>
-<td>Integer</td>
-<td>En caso de publicidad televisiva o radial, indica la posición del avisaje en la tanda publicitaria</td>
-</tr>
-<tr>
-<td>ad_group_quantity</td>
-<td>Integer</td>
-<td>En caso de publicidad televisiva o radial, indica la cantidad de avisajes en la tanda publicitaria</td>
-</tr>
-<tr>
-<td>failure</td>
-<td>String</td>
-<td>Descripción de falla</td>
-</tr>
-<tr>
-<td>is_sponsor</td>
-<td>String</td>
-<td>Indica si es auspicio</td>
-</tr>
-<tr>
-<td>program</td>
-<td>String</td>
-<td>Para publicidad televisiva y radial indica el nombre del Programa</td>
-</tr>
-<tr>
-<td>press_centimeter</td>
-<td>Integer</td>
-<td>En caso de ser publicidad en papel, indica los centimetros que abarca</td>
-</tr>
-<tr>
-<td>press_columns</td>
-<td>Integer</td>
-<td>En caso de ser publicidad en papel, indica el número de la columna</td>
-</tr>
-<tr>
-<td>press_page</td>
-<td>Integer</td>
-<td>En caso de ser publicidad en papel, indica el número de la pagina</td>
-</tr>
-<tr>
-<td>press_size</td>
-<td>Integer</td>
-<td>En caso de ser publicidad en papel, indica el tamaño físico de la página</td>
-</tr>
-<tr>
-<td>press_module</td>
-<td>String</td>
-<td>En caso de ser publicidad en papel, indica el tipo de hoja</td>
-</tr>
-<tr>
-<td>press_supplement_id</td>
-<td>Integer</td>
-<td>ID Suplemento</td>
-</tr>
-<tr>
-<td>press_supplement</td>
-<td>String</td>
-<td>Suplemento (Prensa)</td>
-</tr>
-<tr>
-<td>press_section_id</td>
-<td>Integer</td>
-<td>ID Sección</td>
-</tr>
-<tr>
-<td>press_section</td>
-<td>String</td>
-<td>En caso de ser publicidad en papel, indica en que sección de la página se encuentra</td>
-</tr>
-<tr>
-<td>ooh_element</td>
-<td>String</td>
-<td>En caso de publicidad vial, indica el elemento donde se encuentra montada la publicidad</td>
-</tr>
-<tr>
-<td>ooh_location</td>
-<td>String</td>
-<td>En caso de Via pública, indica la dirección. En caso de Metro, indica el lugar donde se encuentra dentro de la estación</td>
-</tr>
-<tr>
-<td>ooh_station</td>
-<td>String</td>
-<td>En caso de publicidad en Metro, indica el nombre de la Estación</td>
-</tr>
-<tr>
-<td>internet_impressions</td>
-<td>Integer</td>
-<td>En caso de ser publicidad en internet, indica el número de impresiones estimadas. Dato entregado por Admetricks</td>
-</tr>
-<tr>
-<td>internet_campaign</td>
-<td>String</td>
-<td>En caso de publicidad en Internet, indica el nombre de su campaña. Dato entregado por Admetricks.</td>
-</tr>
-<tr>
-<td>internet_device</td>
-<td>String</td>
-<td>En caso de publicidad en Internet, indica el dispositivo de visualización de la pieza publicitaria. Dato entregado por Admetricks.</td>
-</tr>
-<tr>
-<td>internet_impact</td>
-<td>Integer</td>
-<td>En caso de publicidad en Internet, indica el porcentaje de pantalla que ocupa la pieza publicitaria. Dato entregado por Admetricks.</td>
-</tr>
-<tr>
-<td>media_agency_id</td>
-<td>Integer</td>
-<td>ID Agrencia de medios</td>
-</tr>
-<tr>
-<td>media_agency</td>
-<td>String</td>
-<td>Nombre de la Agencia de medios</td>
-</tr>
-<tr>
-<td>creative_agency_id</td>
-<td>Integer</td>
-<td>ID Agencia creativa</td>
-</tr>
-<tr>
-<td>creative_agency</td>
-<td>String</td>
-<td>Nombre de la Agencia creativa</td>
-</tr>
-</tbody></table>
 <h2 id='obtener-avisos-con-actividad'>Obtener Avisos con actividad</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/advertisement?media=1,2,3,4,5,6,7,8&amp;start_date=01-10-2021&amp;end_date=31-10-2021&amp;industries=1,2,3,4,5&amp;brands=1,2,3,4,5&amp;companies=1,2,3,4,5&amp;sub_industries=1,2,3,4,5&amp;products=1,2,3,4,5&amp;group=1"</span>
@@ -1944,9 +1472,9 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista con todos los Avisos con actividad</p>
-<h3 id='llamada-http-4'>Llamada HTTP</h3>
+<h3 id='llamada-http-3'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/advertisement</code></p>
-<h3 id='parametros-url-3'>Parámetros URL</h3>
+<h3 id='parametros-url-2'>Parámetros URL</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -2010,7 +1538,7 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <td>No</td>
 </tr>
 </tbody></table>
-<h3 id='atributos-respuesta-4'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-3'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -2158,9 +1686,9 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista con todos los Medios.</p>
-<h3 id='llamada-http-5'>Llamada HTTP</h3>
+<h3 id='llamada-http-4'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/media</code></p>
-<h3 id='atributos-respuesta-5'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-4'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -2239,9 +1767,9 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista con todas las marcas</p>
-<h3 id='llamada-http-6'>Llamada HTTP</h3>
+<h3 id='llamada-http-5'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/brands</code></p>
-<h3 id='atributos-respuesta-6'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-5'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -2320,9 +1848,9 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista con todas las Empresas</p>
-<h3 id='llamada-http-7'>Llamada HTTP</h3>
+<h3 id='llamada-http-6'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/companies</code></p>
-<h3 id='atributos-respuesta-7'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-6'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -2401,9 +1929,9 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista con todos los Rubros</p>
-<h3 id='llamada-http-8'>Llamada HTTP</h3>
+<h3 id='llamada-http-7'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/industries</code></p>
-<h3 id='atributos-respuesta-8'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-7'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -2483,9 +2011,9 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista con todos los Sub-Rubros</p>
-<h3 id='llamada-http-9'>Llamada HTTP</h3>
+<h3 id='llamada-http-8'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/sub_industries</code></p>
-<h3 id='atributos-respuesta-9'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-8'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -2572,9 +2100,9 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista con todos los Productos</p>
-<h3 id='llamada-http-10'>Llamada HTTP</h3>
+<h3 id='llamada-http-9'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/products</code></p>
-<h3 id='atributos-respuesta-10'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-9'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -2668,9 +2196,9 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista con todas las Categorias</p>
-<h3 id='llamada-http-11'>Llamada HTTP</h3>
+<h3 id='llamada-http-10'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/categories</code></p>
-<h3 id='atributos-respuesta-11'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-10'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -2751,9 +2279,9 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista con todas las Calidades</p>
-<h3 id='llamada-http-12'>Llamada HTTP</h3>
+<h3 id='llamada-http-11'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/qualities</code></p>
-<h3 id='atributos-respuesta-12'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-11'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -2843,9 +2371,9 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista con todas las Agencias Creativas</p>
-<h3 id='llamada-http-13'>Llamada HTTP</h3>
+<h3 id='llamada-http-12'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/creativeagencies</code></p>
-<h3 id='atributos-respuesta-13'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-12'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -2930,9 +2458,9 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista con todas las Agencias de Medios</p>
-<h3 id='llamada-http-14'>Llamada HTTP</h3>
+<h3 id='llamada-http-13'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/mediaagencies</code></p>
-<h3 id='atributos-respuesta-14'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-13'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -3018,9 +2546,9 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista con todas las Agencias de Medios</p>
-<h3 id='llamada-http-15'>Llamada HTTP</h3>
+<h3 id='llamada-http-14'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/supports</code></p>
-<h3 id='atributos-respuesta-15'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-14'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -3110,9 +2638,9 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista con todos los Grupos personalizados por el cliente</p>
-<h3 id='llamada-http-16'>Llamada HTTP</h3>
+<h3 id='llamada-http-15'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/groups</code></p>
-<h3 id='atributos-respuesta-16'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-15'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -3215,7 +2743,7 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <p>Request para crear un nuevo Grupo Personalizado, responde con el ID del nuevo grupo.</p>
 
 <p>Para asignar <code>Clasificadores y Opciones</code>, debe dirigirse a <a href="https://clasificador.megatime.cl">clasificador.megatime.cl</a></p>
-<h3 id='llamada-http-17'>Llamada HTTP</h3>
+<h3 id='llamada-http-16'>Llamada HTTP</h3>
 <p><span style="color: rgb(170, 117, 28);"> <strong>POST</strong></span> <code>datasuite.megatime.cl/filters/groups</code></p>
 <h3 id='parametros-body-2'>Párametros Body</h3>
 <table><thead>
@@ -3245,7 +2773,7 @@ El intervalo de <b>start_date y end_date</b> tiene como máximo 31 dias
 <td>Si</td>
 </tr>
 </tbody></table>
-<h3 id='atributos-respuesta-17'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-16'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -3391,9 +2919,9 @@ Retorna una lista con todos los Grupos Objetivos Rating
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna una lista de las últimas publicaciones de registros con fecha y medio</p>
-<h3 id='llamada-http-18'>Llamada HTTP</h3>
+<h3 id='llamada-http-17'>Llamada HTTP</h3>
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/spots/loads</code></p>
-<h3 id='parametros-url-4'>Parámetros URL</h3>
+<h3 id='parametros-url-3'>Parámetros URL</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
@@ -3407,7 +2935,7 @@ Retorna una lista con todos los Grupos Objetivos Rating
 <td>Filtro de Fecha-Tiempo en formato dd-mm-yyyyThh:mi:ss:mmm. Permite mostrar sólo publicaciones de cargas mayores a la fecha ingresada</td>
 </tr>
 </tbody></table>
-<h3 id='atributos-respuesta-18'>Atributos Respuesta</h3>
+<h3 id='atributos-respuesta-17'>Atributos Respuesta</h3>
 <table><thead>
 <tr>
 <th>Nombre</th>
