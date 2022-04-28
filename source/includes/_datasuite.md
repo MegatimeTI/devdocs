@@ -269,14 +269,14 @@ Retorna una lista de avisajes con aviso asignado asociados a los filtros que se 
 
 <!--
 | target            | Integer | ID Grupo Objetivo Rating                                                    | No        |
--->
 <aside class="warning-yellow">
-Debe existir al menos un parámetro de los siguientes, para que los demas sean opcionales: 
-<b>brands, companies, industries, sub_industries, products, categories, qualities, creative_agencies, media_agencies, supports, group.</b>
+  Debe existir al menos un parámetro de los siguientes, para que los demas sean opcionales: 
+  <b>brands, companies, industries, sub_industries, products, categories, qualities, creative_agencies, media_agencies, supports, group.</b>
 </aside>
+-->
 
 <aside class="warning-yellow">
-Para <b>start_date y end_date</b>  existe un máximo de 31 dias
+Para <b>start_date y end_date</b> existe un máximo de 31 dias
 </aside>
 
 ### Atributos Respuesta
