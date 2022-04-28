@@ -251,7 +251,7 @@ Retorna una lista de avisajes con aviso asignado asociados a los filtros que se 
 
 | Nombre            | Tipo    | Descripción                                                                 | Requerido |
 | ----------------- | ------- | --------------------------------------------------------------------------- | --------- |
-| include           | Integer | <b>(Por defecto: 0)</b> 0 incluir Avisos y PNTs, 1 solo Avisos, 2 solo PNTs | No        |
+| include           | Integer | <b>(Por defecto: 0)</b> 0 incluir Avisos y PNTs, 1 solo Avisos, 2 solo PNTs, 3 Todos los eventos | No        |
 | media             | Array   | Lista de ID de Medios                                                       | Si        |
 | start_date        | String  | Fecha de formato dd-mm-yyyy                                                 | Si        |
 | end_date          | String  | Fecha de formato dd-mm-yyyy                                                 | Si        |
