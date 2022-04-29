@@ -56,7 +56,7 @@ request(options, function (error, response) {
 ```json
 {
   "ok": true,
-  "key": "0x71e1db8n090am63ca69606c4slb8b6ta"
+  "key": "71e1db8n090am63ca69606c4slb8b6ta"
 }
 ```
 

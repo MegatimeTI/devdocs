@@ -56,7 +56,7 @@ request(options, function (error, response) {
 ```json
 {
   "ok": true,
-  "key": "0x48e1db8n090am63ca69606c4slb8b6ta"
+  "key": "71e1db8n090am63ca69606c4slb8b6ta"
 }
 ```
 
@@ -127,12 +127,12 @@ curl --location --request GET 'multimedia.megatime.cl/file/spot/0xea3e07b0ef1e6e
 
 > Retorno de multimedia Video, Audio o Imagen
 
-<span style="color: rgb(33, 120, 52);"> **GET**</span> `multimedia.megatime.cl/file/spot/{codigo}`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `multimedia.megatime.cl/file/spot/{uuid}`
 
-La variable `codigo` corresponde al código único de cada avisaje.
+La variable `uuid` corresponde al identificador único de cada avisaje.
 
 <aside class="success">
-En forma alternativa, se puede usar la variable <code>TagMultimedia</code> que es proporcionada como columna en SP del Verificador Diario. Es equivalente a la composición <code>spot/{codigo}</code>.
+En forma alternativa, se puede usar la variable <code>TagMultimedia</code> que es proporcionada como campo de API Verificador Diario. Es equivalente a la composición <code>spot/{uuid}</code>.
 <br>
 <br>
 Luego la llamada a la API queda: <code>GET multimedia.megatime.cl/file/{TagMultimedia}</code>
