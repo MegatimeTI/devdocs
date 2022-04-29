@@ -705,8 +705,7 @@ This endpoint deletes a specific kitten.
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xbundle exec middleman server
-71e1db8n090am63ca69606c4slb8b6ta"</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71e1db8n090am63ca69606c4slb8b6ta"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna key que permite el acceso al API del clasificador.</p>
@@ -3028,7 +3027,7 @@ Retorna una lista con todos los Grupos Objetivos Rating
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x48e1db8n090am63ca69606c4slb8b6ta"</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71e1db8n090am63ca69606c4slb8b6ta"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna key que permite el acceso al API del clasificador.</p>
@@ -3112,12 +3111,12 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <p>Retorno de multimedia Video, Audio o Imagen</p>
 </blockquote>
 
-<p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>multimedia.megatime.cl/file/spot/{codigo}</code></p>
+<p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>multimedia.megatime.cl/file/spot/{uuid}</code></p>
 
-<p>La variable <code>codigo</code> corresponde al código único de cada avisaje.</p>
+<p>La variable <code>uuid</code> corresponde al identificador único de cada avisaje.</p>
 
 <aside class="success">
-En forma alternativa, se puede usar la variable <code>TagMultimedia</code> que es proporcionada como columna en SP del Verificador Diario. Es equivalente a la composición <code>spot/{codigo}</code>.
+En forma alternativa, se puede usar la variable <code>TagMultimedia</code> que es proporcionada como campo de API Verificador Diario. Es equivalente a la composición <code>spot/{uuid}</code>.
 <br>
 <br>
 Luego la llamada a la API queda: <code>GET multimedia.megatime.cl/file/{TagMultimedia}</code>
@@ -3195,7 +3194,7 @@ Luego la llamada a la API queda: <code>GET multimedia.megatime.cl/file/{TagMulti
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x71e1db8n090am63ca69606c4slb8b6ta"</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71e1db8n090am63ca69606c4slb8b6ta"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna key que permite el acceso al API del clasificador.</p>
@@ -3947,7 +3946,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SECRET_API_KEY"</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71e1db8n090am63ca69606c4slb8b6ta"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retorna key del usuario, para tener acceso a las consultas de radios regionales.</p>
