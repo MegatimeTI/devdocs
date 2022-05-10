@@ -449,6 +449,17 @@
               </ul>
           </li>
           <li>
+            <a href="#comercializador" class="toc-h1 toc-link" data-title="Comercializador">Comercializador</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#obtener-api-key" class="toc-h2 toc-link" data-title="Obtener API Key">Obtener API Key</a>
+                  </li>
+                  <li>
+                    <a href="#insercion-spots" class="toc-h2 toc-link" data-title="Inserción Spots">Inserción Spots</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errores" class="toc-h1 toc-link" data-title="Errores">Errores</a>
           </li>
       </ul>
@@ -6022,6 +6033,303 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 en el Authorization header:</p>
 
 <p><code>Authorization: SECRET_API_KEY</code></p>
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
+<h1 id='comercializador'>Comercializador</h1><h2 id='obtener-api-key'>Obtener API Key</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">iimport</span> <span class="n">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"cuenta.megatime.cl/api/auth/key"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"email"</span><span class="p">:</span> <span class="s">"user@example.com"</span><span class="p">,</span>
+  <span class="s">"password"</span><span class="p">:</span> <span class="s">"**********"</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'cuenta.megatime.cl/api/auth/key'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "email": "user@example.com",
+    "password": "**********"
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">cuenta.megatime.cl/api/auth/key</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">Content-Type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="na">email</span><span class="p">:</span> <span class="dl">"</span><span class="s2">user@example.com</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">password</span><span class="p">:</span> <span class="dl">"</span><span class="s2">**********</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">}),</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71e1db8n090am63ca69606c4slb8b6ta"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retorna key que permite el acceso al API.</p>
+<h3 id='llamada-http'>Llamada HTTP</h3>
+<p><span style="color: rgb(170, 117, 28);"> <strong>POST</strong></span> <code>cuenta.megatime.cl/api/auth/key</code></p>
+<h3 id='parametros-body'>Parámetros Body</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Requerido</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>Correo asociado a credencial de Megatime</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>password</td>
+<td>String</td>
+<td>Contraseña asociado a credencial de Megatime</td>
+<td>Sí</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-respuesta'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>key</td>
+<td>String</td>
+<td>Llave de acceso a API</td>
+</tr>
+</tbody></table>
+
+<p>La API espera que todas las llamadas estén autenticadas con la Api key
+en el Authorization header:</p>
+
+<p><code>Authorization: SECRET_API_KEY</code></p>
+
+<aside class="notice">
+En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
+</aside>
+<h2 id='insercion-spots'>Inserción Spots</h2>
+<p>Insertar spots para su posterior asignación del comercializador en data Megatime</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'comercializador.megatime.cl/api/spots'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "data": [{
+        "date_supplier": "2022-01-23",
+        "time_supplier": "25:56:49",
+        "date": "2022-01-23",
+        "time": "25:56:58",
+        "support_id": 6013,
+        "advertisement_id": 598610,
+        "is_match": true
+    }, {
+        "date_supplier": "2022-03-03",
+        "time_supplier": "18:12:35",
+        "date": "2022-03-03",
+        "time": "18:12:44",
+        "support_id": 6001,
+        "advertisement_id": 601035,
+        "is_match": true
+    }]
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"comercializador.megatime.cl/api/spots"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"data"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s">"date_supplier"</span><span class="p">:</span> <span class="s">"2022-01-23"</span><span class="p">,</span>
+      <span class="s">"time_supplier"</span><span class="p">:</span> <span class="s">"25:56:49"</span><span class="p">,</span>
+      <span class="s">"date"</span><span class="p">:</span> <span class="s">"2022-01-23"</span><span class="p">,</span>
+      <span class="s">"time"</span><span class="p">:</span> <span class="s">"25:56:58"</span><span class="p">,</span>
+      <span class="s">"support_id"</span><span class="p">:</span> <span class="mi">6013</span><span class="p">,</span>
+      <span class="s">"advertisement_id"</span><span class="p">:</span> <span class="mi">598610</span><span class="p">,</span>
+      <span class="s">"is_match"</span><span class="p">:</span> <span class="bp">True</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s">"date_supplier"</span><span class="p">:</span> <span class="s">"2022-03-03"</span><span class="p">,</span>
+      <span class="s">"time_supplier"</span><span class="p">:</span> <span class="s">"18:12:35"</span><span class="p">,</span>
+      <span class="s">"date"</span><span class="p">:</span> <span class="s">"2022-03-03"</span><span class="p">,</span>
+      <span class="s">"time"</span><span class="p">:</span> <span class="s">"18:12:44"</span><span class="p">,</span>
+      <span class="s">"support_id"</span><span class="p">:</span> <span class="mi">6001</span><span class="p">,</span>
+      <span class="s">"advertisement_id"</span><span class="p">:</span> <span class="mi">601035</span><span class="p">,</span>
+      <span class="s">"is_match"</span><span class="p">:</span> <span class="bp">True</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'SECRET_API_KEY'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">comercializador.megatime.cl/api/spots</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">Content-Type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="na">data</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">date_supplier</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-01-23</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">time_supplier</span><span class="p">:</span> <span class="dl">"</span><span class="s2">25:56:49</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">date</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-01-23</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">time</span><span class="p">:</span> <span class="dl">"</span><span class="s2">25:56:58</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">support_id</span><span class="p">:</span> <span class="mi">6013</span><span class="p">,</span>
+        <span class="na">advertisement_id</span><span class="p">:</span> <span class="mi">598610</span><span class="p">,</span>
+        <span class="na">is_match</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">date_supplier</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-03-03</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">time_supplier</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18:12:35</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">date</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-03-03</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">time</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18:12:44</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">support_id</span><span class="p">:</span> <span class="mi">6001</span><span class="p">,</span>
+        <span class="na">advertisement_id</span><span class="p">:</span> <span class="mi">601035</span><span class="p">,</span>
+        <span class="na">is_match</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="p">},</span>
+    <span class="p">],</span>
+  <span class="p">}),</span>
+<span class="p">};</span>
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de retorno en formato JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 spots inserted"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='llamada-http-2'>Llamada HTTP</h3>
+<p><span style="color: rgb(170, 117, 28);"><strong>POST</strong></span> <code>https://comercializador.megatime.cl/api/spots</code></p>
+<h3 id='parametros-body-2'>Parametros Body</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Requerido</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>Array</td>
+<td>Lista de objetos tipo <code>Spot</code></td>
+<td>Si</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-spot'>Atributos Spot</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Requerido</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date_supplier</td>
+<td>String</td>
+<td>Fecha exhibición del spot por Comercializador en formato YYYY-MM-DD</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>time_supplier</td>
+<td>String</td>
+<td>Tiempo exhibición del spot por Comercializador en formato HH:MM:SS</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>date</td>
+<td>String</td>
+<td>Fecha exhibición del spot publicado por Megatime en formato YYYY-MM-DD. Debe ir con valor null en caso de no match</td>
+<td>No</td>
+</tr>
+<tr>
+<td>time</td>
+<td>String</td>
+<td>Tiempo exhibición del spot publicado por Megatime en formato HH:MM:SS. Debe ir con valor null en caso de no match</td>
+<td>No</td>
+</tr>
+<tr>
+<td>support_id</td>
+<td>Integer</td>
+<td>ID del soporte / canal de exhibición</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>advertisement_id</td>
+<td>Integer</td>
+<td>ID del aviso exhibido</td>
+<td>Si</td>
+</tr>
+<tr>
+<td>is_match</td>
+<td>Boolean</td>
+<td>Indicador si spot inyectado contiene correlación con spot megatime</td>
+<td>Si</td>
+</tr>
+</tbody></table>
+<h3 id='atributos-respuesta-2'>Atributos Respuesta</h3>
+<table><thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Boolean</td>
+<td>Verificador de respuesta</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td>Mensaje de estado indicando cuantos spots se insertaron en caso de éxito</td>
+</tr>
+</tbody></table>
 
 <aside class="notice">
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
