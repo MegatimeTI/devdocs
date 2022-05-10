@@ -15,6 +15,7 @@ includes:
   - multimedia
   - clasificador
   - radioRegional
+  - comercializador
   - errores
 
 search: true
