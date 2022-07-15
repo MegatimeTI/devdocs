@@ -1744,7 +1744,7 @@ Para <b>start_date y end_date</b> existe un máximo de 31 dias
 </tbody></table>
 <h2 id='obtener-marcas'>Obtener Marcas</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/brands?startDate=02-04-2022&amp;endDate=08-06-2022&amp;media=1,2,3&amp;industry=1,2,3&amp;subIndustry=1,2,3&amp;company=1,2,3&amp;category=1,2,3"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/brands?start_date=02-04-2022&amp;end_date=08-06-2022&amp;media=1,2,3&amp;industry=1,2,3&amp;sub_industry=1,2,3&amp;company=1,2,3&amp;category=1,2,3"</span>
 
 <span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -1754,12 +1754,12 @@ Para <b>start_date y end_date</b> existe un máximo de 31 dias
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/brands?startDate=02-04-2022&amp;endDate=08-06-2022&amp;media=1,2,3&amp;industry=1,2,3&amp;subIndustry=1,2,3&amp;company=1,2,3&amp;category=1,2,3'</span> <span class="se">\</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/brands?start_date=02-04-2022&amp;end_date=08-06-2022&amp;media=1,2,3&amp;industry=1,2,3&amp;sub_industry=1,2,3&amp;company=1,2,3&amp;category=1,2,3'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/brands?startDate=02-04-2022&amp;endDate=08-06-2022&amp;media=1,2,3&amp;industry=1,2,3&amp;subIndustry=1,2,3&amp;company=1,2,3&amp;category=1,2,3</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/brands?start_date=02-04-2022&amp;end_date=08-06-2022&amp;media=1,2,3&amp;industry=1,2,3&amp;sub_industry=1,2,3&amp;company=1,2,3&amp;category=1,2,3</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
   <span class="p">},</span>
@@ -1787,7 +1787,7 @@ Para <b>start_date y end_date</b> existe un máximo de 31 dias
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/brands</code></p>
 
 <aside class="notice">
-Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <strong>startDate</strong> y <strong>endDate</strong> son requeridos.
+Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <strong>start_date</strong> y <strong>end_date</strong> son requeridos.
 </aside>
 <h3 id='parametros-url-3'>Parámetros URL</h3>
 <table><thead>
@@ -1798,12 +1798,12 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 </tr>
 </thead><tbody>
 <tr>
-<td>startDate</td>
+<td>start_date</td>
 <td>String</td>
 <td>Fecha de formato dd-mm-yyyy</td>
 </tr>
 <tr>
-<td>endDate</td>
+<td>end_date</td>
 <td>String</td>
 <td>Fecha de formato dd-mm-yyyy</td>
 </tr>
@@ -1818,7 +1818,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 <td>Lista de ID de Medios</td>
 </tr>
 <tr>
-<td>subIndustry</td>
+<td>sub_industry</td>
 <td>Array</td>
 <td>Lista de ID de Sub-Rubros</td>
 </tr>
@@ -1873,7 +1873,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 </tbody></table>
 <h2 id='obtener-empresas'>Obtener Empresas</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/companies?startDate=01-03-2022&amp;endDate=07-06-2022&amp;media=1,2,3&amp;industry=1,2,3&amp;subIndustry=1,2,3&amp;category=1,2,3"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/companies?start_date=01-03-2022&amp;end_date=07-06-2022&amp;media=1,2,3&amp;industry=1,2,3&amp;sub_industry=1,2,3&amp;category=1,2,3"</span>
 
 <span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -1883,12 +1883,12 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/companies?startDate=01-03-2022&amp;endDate=07-06-2022&amp;media=1,2,3&amp;industry=1,2,3&amp;subIndustry=1,2,3&amp;category=1,2,3'</span> <span class="se">\</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/companies?start_date=01-03-2022&amp;end_date=07-06-2022&amp;media=1,2,3&amp;industry=1,2,3&amp;sub_industry=1,2,3&amp;category=1,2,3'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/companies?startDate=01-03-2022&amp;endDate=07-06-2022&amp;media=1,2,3&amp;industry=1,2,3&amp;subIndustry=1,2,3&amp;category=1,2,3</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/companies?start_date=01-03-2022&amp;end_date=07-06-2022&amp;media=1,2,3&amp;industry=1,2,3&amp;sub_industry=1,2,3&amp;category=1,2,3</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
   <span class="p">},</span>
@@ -1916,7 +1916,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/companies</code></p>
 
 <aside class="notice">
-Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <strong>startDate</strong> y <strong>endDate</strong> son requeridos.
+Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <strong>start_date</strong> y <strong>end_date</strong> son requeridos.
 </aside>
 <h3 id='parametros-url-4'>Parámetros URL</h3>
 <table><thead>
@@ -1927,12 +1927,12 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 </tr>
 </thead><tbody>
 <tr>
-<td>startDate</td>
+<td>start_date</td>
 <td>String</td>
 <td>Fecha de formato dd-mm-yyyy</td>
 </tr>
 <tr>
-<td>endDate</td>
+<td>end_date</td>
 <td>String</td>
 <td>Fecha de formato dd-mm-yyyy</td>
 </tr>
@@ -1947,7 +1947,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 <td>Lista de ID de Medios</td>
 </tr>
 <tr>
-<td>subIndustry</td>
+<td>sub_industry</td>
 <td>Array</td>
 <td>Lista de ID de Sub-Rubros</td>
 </tr>
@@ -1997,7 +1997,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 </tbody></table>
 <h2 id='obtener-rubros'>Obtener Rubros</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/industries?startDate=01-04-2022&amp;endDate=07-06-2022&amp;category=1,2,3&amp;media=1,2,3"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/industries?start_date=01-04-2022&amp;end_date=07-06-2022&amp;category=1,2,3&amp;media=1,2,3"</span>
 
 <span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -2007,12 +2007,12 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/industries?startDate=01-04-2022&amp;endDate=07-06-2022&amp;category=1,2,3&amp;media=1,2,3'</span> <span class="se">\</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/industries?start_date=01-04-2022&amp;end_date=07-06-2022&amp;category=1,2,3&amp;media=1,2,3'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/industries?startDate=01-04-2022&amp;endDate=07-06-2022&amp;category=1,2,3&amp;media=1,2,3</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/industries?start_date=01-04-2022&amp;end_date=07-06-2022&amp;category=1,2,3&amp;media=1,2,3</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
   <span class="p">},</span>
@@ -2040,7 +2040,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/industries</code></p>
 
 <aside class="notice">
-Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <strong>startDate</strong> y <strong>endDate</strong> son requeridos.
+Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <strong>start_date</strong> y <strong>end_date</strong> son requeridos.
 </aside>
 <h3 id='parametros-url-5'>Parámetros URL</h3>
 <table><thead>
@@ -2051,12 +2051,12 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 </tr>
 </thead><tbody>
 <tr>
-<td>startDate</td>
+<td>start_date</td>
 <td>String</td>
 <td>Fecha de formato dd-mm-yyyy</td>
 </tr>
 <tr>
-<td>endDate</td>
+<td>end_date</td>
 <td>String</td>
 <td>Fecha de formato dd-mm-yyyy</td>
 </tr>
@@ -2111,7 +2111,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 </tbody></table>
 <h2 id='obtener-sub-rubros'>Obtener Sub-Rubros</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/subindustries?startDate=01-04-2022&amp;endDate=07-06-2022&amp;category=1,2,3&amp;media=1,2,3&amp;company=1,2,3"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/subindustries?start_date=01-04-2022&amp;end_date=07-06-2022&amp;category=1,2,3&amp;media=1,2,3&amp;company=1,2,3"</span>
 
 <span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -2121,12 +2121,12 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/subindustries?startDate=01-04-2022&amp;endDate=07-06-2022&amp;category=1,2,3&amp;media=1,2,3&amp;company=1,2,3'</span> <span class="se">\</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/subindustries?start_date=01-04-2022&amp;end_date=07-06-2022&amp;category=1,2,3&amp;media=1,2,3&amp;company=1,2,3'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/subindustries?startDate=01-04-2022&amp;endDate=07-06-2022&amp;category=1,2,3&amp;media=1,2,3&amp;company=1,2,3</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/subindustries?start_date=01-04-2022&amp;end_date=07-06-2022&amp;category=1,2,3&amp;media=1,2,3&amp;company=1,2,3</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
   <span class="p">},</span>
@@ -2155,7 +2155,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/subindustries</code></p>
 
 <aside class="notice">
-Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <strong>startDate</strong> y <strong>endDate</strong> son requeridos.
+Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <strong>start_date</strong> y <strong>end_date</strong> son requeridos.
 </aside>
 <h3 id='parametros-url-6'>Parámetros URL</h3>
 <table><thead>
@@ -2166,12 +2166,12 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 </tr>
 </thead><tbody>
 <tr>
-<td>startDate</td>
+<td>start_date</td>
 <td>String</td>
 <td>Fecha de formato dd-mm-yyyy</td>
 </tr>
 <tr>
-<td>endDate</td>
+<td>end_date</td>
 <td>String</td>
 <td>Fecha de formato dd-mm-yyyy</td>
 </tr>
@@ -2236,7 +2236,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 </tbody></table>
 <h2 id='obtener-productos'>Obtener Productos</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/products?brand=1,2,3&amp;media=1,2,3&amp;startDate=01-01-2021&amp;endDate=12-07-2022&amp;company=1,2,3&amp;subIndustry=1,2,3&amp;category=1,2,3&amp;industry=1,2,3"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"datasuite.megatime.cl/filters/products?brand=1,2,3&amp;media=1,2,3&amp;start_date=01-01-2021&amp;end_date=12-07-2022&amp;company=1,2,3&amp;sub_industry=1,2,3&amp;category=1,2,3&amp;industry=1,2,3"</span>
 
 <span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -2246,12 +2246,12 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/products?brand=1,2,3&amp;media=1,2,3&amp;startDate=01-01-2021&amp;endDate=12-07-2022&amp;company=1,2,3&amp;subIndustry=1,2,3&amp;category=1,2,3&amp;industry=1,2,3'</span> <span class="se">\</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'datasuite.megatime.cl/filters/products?brand=1,2,3&amp;media=1,2,3&amp;start_date=01-01-2021&amp;end_date=12-07-2022&amp;company=1,2,3&amp;sub_industry=1,2,3&amp;category=1,2,3&amp;industry=1,2,3'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: SECRET_API_KEY'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/products?brand=1,2,3&amp;media=1,2,3&amp;startDate=01-01-2021&amp;endDate=12-07-2022&amp;company=1,2,3&amp;subIndustry=1,2,3&amp;category=1,2,3&amp;industry=1,2,3</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">datasuite.megatime.cl/filters/products?brand=1,2,3&amp;media=1,2,3&amp;start_date=01-01-2021&amp;end_date=12-07-2022&amp;company=1,2,3&amp;sub_industry=1,2,3&amp;category=1,2,3&amp;industry=1,2,3</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">Authorization</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SECRET_API_KEY</span><span class="dl">"</span><span class="p">,</span>
   <span class="p">},</span>
@@ -2282,7 +2282,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 <p><span style="color: rgb(33, 120, 52);"> <strong>GET</strong></span> <code>datasuite.megatime.cl/filters/products</code></p>
 
 <aside class="notice">
-Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <strong>startDate</strong> y <strong>endDate</strong> son requeridos.
+Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <strong>start_date</strong> y <strong>end_date</strong> son requeridos.
 </aside>
 <h3 id='parametros-url-7'>Parámetros URL</h3>
 <table><thead>
@@ -2293,12 +2293,12 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 </tr>
 </thead><tbody>
 <tr>
-<td>startDate</td>
+<td>start_date</td>
 <td>String</td>
 <td>Fecha de formato dd-mm-yyyy</td>
 </tr>
 <tr>
-<td>endDate</td>
+<td>end_date</td>
 <td>String</td>
 <td>Fecha de formato dd-mm-yyyy</td>
 </tr>
@@ -2313,7 +2313,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 <td>Lista de ID de Medios</td>
 </tr>
 <tr>
-<td>subIndustry</td>
+<td>sub_industry</td>
 <td>Array</td>
 <td>Lista de ID de Sub-Rubros</td>
 </tr>
