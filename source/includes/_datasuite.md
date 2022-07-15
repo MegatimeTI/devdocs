@@ -569,7 +569,7 @@ Retorna una lista con todos los Medios.
 ```python
 import requests
 
-url = "datasuite.megatime.cl/filters/brands?start_date=02-04-2022&end_date=08-06-2022&media=1,2,3&industry=1,2,3&sub_industry=1,2,3&company=1,2,3&category=1,2,3"
+url = "datasuite.megatime.cl/filters/brands?start_date=02-04-2022&end_date=08-06-2022&media=1,2,3&industries=1,2,3&sub_industries=1,2,3&companies=1,2,3&categories=1,2,3"
 
 payload={}
 headers = {
@@ -582,7 +582,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'datasuite.megatime.cl/filters/brands?start_date=02-04-2022&end_date=08-06-2022&media=1,2,3&industry=1,2,3&sub_industry=1,2,3&company=1,2,3&category=1,2,3' \
+curl --location --request GET 'datasuite.megatime.cl/filters/brands?start_date=02-04-2022&end_date=08-06-2022&media=1,2,3&industries=1,2,3&sub_industries=1,2,3&companies=1,2,3&categories=1,2,3' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -590,7 +590,7 @@ curl --location --request GET 'datasuite.megatime.cl/filters/brands?start_date=0
 var request = require("request");
 var options = {
   method: "GET",
-  url: "datasuite.megatime.cl/filters/brands?start_date=02-04-2022&end_date=08-06-2022&media=1,2,3&industry=1,2,3&sub_industry=1,2,3&company=1,2,3&category=1,2,3",
+  url: "datasuite.megatime.cl/filters/brands?start_date=02-04-2022&end_date=08-06-2022&media=1,2,3&industries=1,2,3&sub_industries=1,2,3&companies=1,2,3&categories=1,2,3",
   headers: {
     Authorization: "SECRET_API_KEY",
   },
@@ -631,11 +631,11 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 | ------        | -------  | ---------------------------    |
 | start_date     | String   | Fecha de formato dd-mm-yyyy    |
 | end_date       | String   | Fecha de formato dd-mm-yyyy    |
-| industry      | Array    | Lista de ID de Rubros          |
+| industries      | Array    | Lista de ID de Rubros          |
 | media         | Array    | Lista de ID de Medios          |
-| sub_industry   | Array    | Lista de ID de Sub-Rubros      |
-| company       | Array    | Lista de ID de Empresas        |
-| category      | Array    | Lista de ID de Categorias      |
+| sub_industries   | Array    | Lista de ID de Sub-Rubros      |
+| companies       | Array    | Lista de ID de Empresas        |
+| categories      | Array    | Lista de ID de Categorias      |
 
 
 ### Atributos Respuesta
@@ -657,7 +657,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 ```python
 import requests
 
-url = "datasuite.megatime.cl/filters/companies?start_date=01-03-2022&end_date=07-06-2022&media=1,2,3&industry=1,2,3&sub_industry=1,2,3&category=1,2,3"
+url = "datasuite.megatime.cl/filters/companies?start_date=01-03-2022&end_date=07-06-2022&media=1,2,3&industries=1,2,3&sub_industries=1,2,3&categories=1,2,3"
 
 payload={}
 headers = {
@@ -670,7 +670,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'datasuite.megatime.cl/filters/companies?start_date=01-03-2022&end_date=07-06-2022&media=1,2,3&industry=1,2,3&sub_industry=1,2,3&category=1,2,3' \
+curl --location --request GET 'datasuite.megatime.cl/filters/companies?start_date=01-03-2022&end_date=07-06-2022&media=1,2,3&industries=1,2,3&sub_industries=1,2,3&categories=1,2,3' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -678,7 +678,7 @@ curl --location --request GET 'datasuite.megatime.cl/filters/companies?start_dat
 var request = require("request");
 var options = {
   method: "GET",
-  url: "datasuite.megatime.cl/filters/companies?start_date=01-03-2022&end_date=07-06-2022&media=1,2,3&industry=1,2,3&sub_industry=1,2,3&category=1,2,3",
+  url: "datasuite.megatime.cl/filters/companies?start_date=01-03-2022&end_date=07-06-2022&media=1,2,3&industries=1,2,3&sub_industries=1,2,3&categories=1,2,3",
   headers: {
     Authorization: "SECRET_API_KEY",
   },
@@ -719,10 +719,10 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 | ------        | -------  | ---------------------------    |
 | start_date     | String   | Fecha de formato dd-mm-yyyy    |
 | end_date       | String   | Fecha de formato dd-mm-yyyy    |
-| industry      | Array    | Lista de ID de Rubros          |
+| industries      | Array    | Lista de ID de Rubros          |
 | media         | Array    | Lista de ID de Medios          |
-| sub_industry   | Array    | Lista de ID de Sub-Rubros      |
-| category      | Array    | Lista de ID de Categorias      |
+| sub_industries   | Array    | Lista de ID de Sub-Rubros      |
+| categories      | Array    | Lista de ID de Categorias      |
 
 ### Atributos Respuesta
 
@@ -743,7 +743,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 ```python
 import requests
 
-url = "datasuite.megatime.cl/filters/industries?start_date=01-04-2022&end_date=07-06-2022&category=1,2,3&media=1,2,3"
+url = "datasuite.megatime.cl/filters/industries?start_date=01-04-2022&end_date=07-06-2022&categories=1,2,3&media=1,2,3"
 
 payload={}
 headers = {
@@ -756,7 +756,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'datasuite.megatime.cl/filters/industries?start_date=01-04-2022&end_date=07-06-2022&category=1,2,3&media=1,2,3' \
+curl --location --request GET 'datasuite.megatime.cl/filters/industries?start_date=01-04-2022&end_date=07-06-2022&categories=1,2,3&media=1,2,3' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -764,7 +764,7 @@ curl --location --request GET 'datasuite.megatime.cl/filters/industries?start_da
 var request = require("request");
 var options = {
   method: "GET",
-  url: "datasuite.megatime.cl/filters/industries?start_date=01-04-2022&end_date=07-06-2022&category=1,2,3&media=1,2,3",
+  url: "datasuite.megatime.cl/filters/industries?start_date=01-04-2022&end_date=07-06-2022&categories=1,2,3&media=1,2,3",
   headers: {
     Authorization: "SECRET_API_KEY",
   },
@@ -806,7 +806,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 | start_date     | String   | Fecha de formato dd-mm-yyyy    |
 | end_date       | String   | Fecha de formato dd-mm-yyyy    |
 | media         | Array    | Lista de ID de Medios          |
-| category      | Array    | Lista de ID de Categorias      |
+| categories      | Array    | Lista de ID de Categorias      |
 
 ### Atributos Respuesta
 
@@ -827,7 +827,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 ```python
 import requests
 
-url = "datasuite.megatime.cl/filters/subindustries?start_date=01-04-2022&end_date=07-06-2022&category=1,2,3&media=1,2,3&company=1,2,3"
+url = "datasuite.megatime.cl/filters/subindustries?start_date=01-04-2022&end_date=07-06-2022&categories=1,2,3&media=1,2,3&companies=1,2,3"
 
 payload={}
 headers = {
@@ -840,7 +840,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'datasuite.megatime.cl/filters/subindustries?start_date=01-04-2022&end_date=07-06-2022&category=1,2,3&media=1,2,3&company=1,2,3' \
+curl --location --request GET 'datasuite.megatime.cl/filters/subindustries?start_date=01-04-2022&end_date=07-06-2022&categories=1,2,3&media=1,2,3&companies=1,2,3' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -848,7 +848,7 @@ curl --location --request GET 'datasuite.megatime.cl/filters/subindustries?start
 var request = require("request");
 var options = {
   method: "GET",
-  url: "datasuite.megatime.cl/filters/subindustries?start_date=01-04-2022&end_date=07-06-2022&category=1,2,3&media=1,2,3&company=1,2,3",
+  url: "datasuite.megatime.cl/filters/subindustries?start_date=01-04-2022&end_date=07-06-2022&categories=1,2,3&media=1,2,3&companies=1,2,3",
   headers: {
     Authorization: "SECRET_API_KEY",
   },
@@ -891,8 +891,8 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 | start_date     | String   | Fecha de formato dd-mm-yyyy    |
 | end_date       | String   | Fecha de formato dd-mm-yyyy    |
 | media         | Array    | Lista de ID de Medios          |
-| category      | Array    | Lista de ID de Categorias      |
-| company       | Arrat    | Lista de ID de Empresas        |
+| categories      | Array    | Lista de ID de Categorias      |
+| companies       | Arrat    | Lista de ID de Empresas        |
 
 ### Atributos Respuesta
 
@@ -914,7 +914,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 ```python
 import requests
 
-url = "datasuite.megatime.cl/filters/products?brand=1,2,3&media=1,2,3&start_date=01-01-2021&end_date=12-07-2022&company=1,2,3&sub_industry=1,2,3&category=1,2,3&industry=1,2,3"
+url = "datasuite.megatime.cl/filters/products?brands=1,2,3&media=1,2,3&start_date=01-01-2021&end_date=12-07-2022&companies=1,2,3&sub_industries=1,2,3&categories=1,2,3&industries=1,2,3"
 
 payload={}
 headers = {
@@ -927,7 +927,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'datasuite.megatime.cl/filters/products?brand=1,2,3&media=1,2,3&start_date=01-01-2021&end_date=12-07-2022&company=1,2,3&sub_industry=1,2,3&category=1,2,3&industry=1,2,3' \
+curl --location --request GET 'datasuite.megatime.cl/filters/products?brands=1,2,3&media=1,2,3&start_date=01-01-2021&end_date=12-07-2022&companies=1,2,3&sub_industries=1,2,3&categories=1,2,3&industries=1,2,3' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -935,7 +935,7 @@ curl --location --request GET 'datasuite.megatime.cl/filters/products?brand=1,2,
 var request = require("request");
 var options = {
   method: "GET",
-  url: "datasuite.megatime.cl/filters/products?brand=1,2,3&media=1,2,3&start_date=01-01-2021&end_date=12-07-2022&company=1,2,3&sub_industry=1,2,3&category=1,2,3&industry=1,2,3",
+  url: "datasuite.megatime.cl/filters/products?brands=1,2,3&media=1,2,3&start_date=01-01-2021&end_date=12-07-2022&companies=1,2,3&sub_industries=1,2,3&categories=1,2,3&industries=1,2,3",
   headers: {
     Authorization: "SECRET_API_KEY",
   },
@@ -979,12 +979,12 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 | ------        | -------  | ---------------------------    |
 | start_date     | String   | Fecha de formato dd-mm-yyyy    |
 | end_date       | String   | Fecha de formato dd-mm-yyyy    |
-| industry      | Array    | Lista de ID de Rubros          |
+| industries      | Array    | Lista de ID de Rubros          |
 | media         | Array    | Lista de ID de Medios          |
-| sub_industry   | Array    | Lista de ID de Sub-Rubros      |
-| category      | Array    | Lista de ID de Categorias      |
-| company       | Array    | Lista de ID de Empresas        |
-| brand         | Array    | Lista de ID de Marcas          |
+| sub_industries   | Array    | Lista de ID de Sub-Rubros      |
+| categories      | Array    | Lista de ID de Categorias      |
+| companies       | Array    | Lista de ID de Empresas        |
+| brands         | Array    | Lista de ID de Marcas          |
 
 ### Atributos Respuesta
 
