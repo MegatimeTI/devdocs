@@ -60,7 +60,7 @@ request(options, function (error, response) {
 }
 ```
 
-Retorna key que permite el acceso al API.
+Retorna key que permite el acceso a la API.
 
 ### Llamada HTTP
 
