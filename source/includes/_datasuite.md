@@ -437,7 +437,8 @@ request(options, function (error, response) {
       "brand": "ED",
       "brand_id": 7426,
       "product": "ED,BAZAR ED,CYBERMONDAY",
-      "product_id": 321910
+      "product_id": 321910,
+      "spot_uuid": "0xebf0e4909cc81815f05c114998db7f28"
     }
   ]
 }
@@ -491,6 +492,7 @@ Retorna una lista con todos los Avisos con actividad
 | product_id       | Integer | ID Producto                            |
 | sub_industry_id | Integer | ID Sub-Rubro |
 | sub_industry | String | Nombre del Sub-Rubro asignado al Rubro |
+| spot_uuid        | String  | Identificador único del Avisaje |
 
 ## Obtener Medios
 
@@ -1634,7 +1636,7 @@ curl --location --request GET 'datasuite.megatime.cl/spots/loads?date=17-02-2022
 var request = require("request");
 var options = {
   method: "GET",
-  url: "datasuite.megatime.cl/spots/loads?date=17-02-2022T16:41:10:240",
+  url: "datasuite.megatime.cl/spots/loads?date=17-02-2022T16:41:10:240?media=1,6",
   headers: {
     Authorization: "SECRET_API_KEY",
   },
@@ -1678,6 +1680,7 @@ Retorna una lista de las últimas publicaciones de registros con fecha y medio
 | Nombre | Requerido | Descripción                                                                                                                          |
 | ------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | date   | No        | Filtro de Fecha-Tiempo en formato dd-mm-yyyyThh:mi:ss:mmm. Permite mostrar sólo publicaciones de cargas mayores a la fecha ingresada |
+| media  | No        | Lista de ID de Medios |
 
 ### Atributos Respuesta
 
