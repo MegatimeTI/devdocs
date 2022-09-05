@@ -1615,7 +1615,7 @@ Retorna una lista con todos los Grupos Objetivos Rating
 ```python
 import requests
 
-url = "datasuite.megatime.cl/spots/loads?date=17-02-2022T16:41:10:240"
+url = "datasuite.megatime.cl/spots/loads?date=17-02-2022T16:41:10:240&media=1,6"
 
 payload={}
 headers = {
@@ -1628,7 +1628,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'datasuite.megatime.cl/spots/loads?date=17-02-2022T16:41:10:240' \
+curl --location --request GET 'datasuite.megatime.cl/spots/loads?date=17-02-2022T16:41:10:240&media=1,6' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -1636,7 +1636,7 @@ curl --location --request GET 'datasuite.megatime.cl/spots/loads?date=17-02-2022
 var request = require("request");
 var options = {
   method: "GET",
-  url: "datasuite.megatime.cl/spots/loads?date=17-02-2022T16:41:10:240?media=1,6",
+  url: "datasuite.megatime.cl/spots/loads?date=17-02-2022T16:41:10:240&media=1,6",
   headers: {
     Authorization: "SECRET_API_KEY",
   },
