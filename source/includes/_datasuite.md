@@ -144,7 +144,6 @@ request(options, function (error, response) {
       "ad_first_appearance": "10-01-2022",
       "support_id": 1007,
       "support": "TVN",
-      "support_program": 1002079269,
       "advertisement_id": 597715,
       "advertisement": "LIDER,SUPERMERCADO,MUJER,COMPRANDO,PARRILLEANDO",
       "product_id": 98833,
@@ -352,7 +351,7 @@ Para <b>start_date y end_date</b> existe un máximo de 31 dias
 | media_agency           | String  | Nombre de la Agencia de medios                                                                                                      |
 | creative_agency_id     | Integer | ID Agencia creativa                                                                                                                 |
 | creative_agency        | String  | Nombre de la Agencia creativa                                                                                                       |
-| support_program        | Integer  | ID del programa al que se le da soporte                                                                                                       |
+
 
 <!---
 | rating                 | Float   | <b>(Opcional)</b> Solo se devuelve en caso de entregar un parámetro `target`. Indica el rating para el grupo objetivo                                              |
