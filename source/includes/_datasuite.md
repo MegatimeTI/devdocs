@@ -163,6 +163,7 @@ request(options, function (error, response) {
       "duration": 21,
       "ad_duration": 21,
       "value": 2867059,
+      "public_value": 1879488,
       "universal_id": 0,
       "universal_program_id": 83052,
       "ad_supplier": "",
@@ -248,28 +249,28 @@ Retorna una lista de avisajes con aviso asignado asociados a los filtros que se 
 
 ### Parámetros URL
 
-| Nombre            | Tipo    | Descripción                                                                 | Requerido |
-| ----------------- | ------- | --------------------------------------------------------------------------- | --------- |
+| Nombre            | Tipo    | Descripción                                                                                      | Requerido |
+| ----------------- | ------- | ------------------------------------------------------------------------------------------------ | --------- |
 | include           | Integer | <b>(Por defecto: 0)</b> 0 incluir Avisos y PNTs, 1 solo Avisos, 2 solo PNTs, 3 Todos los eventos | No        |
-| media             | Array   | Lista de ID de Medios                                                       | Si        |
-| start_date        | String  | Fecha de formato dd-mm-yyyy                                                 | Si        |
-| end_date          | String  | Fecha de formato dd-mm-yyyy                                                 | Si        |
-| brands            | Array   | Lista de ID de Marcas                                                       | No        |
-| companies         | Array   | Lista de ID de Empresas                                                     | No        |
-| industries        | Array   | Lista de ID de Rubros                                                       | No        |
-| sub_industries    | Array   | Lista de ID de Sub-Rubros                                                   | No        |
-| products          | Array   | Lista de ID de Productos                                                    | No        |
-| categories        | Array   | Lista de ID de Categorias                                                   | No        |
-| qualities         | Array   | Lista de ID de Calidades                                                    | No        |
-| creative_agencies | Array   | Lista de ID de Agencias Creativas                                           | No        |
-| media_agencies    | Array   | Lista de ID de Agencias de Medios                                           | No        |
-| supports          | Array   | Lista de ID de Soportes                                                     | No        |
-| group             | Integer | ID Grupo                                                                    | No        |
+| media             | Array   | Lista de ID de Medios                                                                            | Si        |
+| start_date        | String  | Fecha de formato dd-mm-yyyy                                                                      | Si        |
+| end_date          | String  | Fecha de formato dd-mm-yyyy                                                                      | Si        |
+| brands            | Array   | Lista de ID de Marcas                                                                            | No        |
+| companies         | Array   | Lista de ID de Empresas                                                                          | No        |
+| industries        | Array   | Lista de ID de Rubros                                                                            | No        |
+| sub_industries    | Array   | Lista de ID de Sub-Rubros                                                                        | No        |
+| products          | Array   | Lista de ID de Productos                                                                         | No        |
+| categories        | Array   | Lista de ID de Categorias                                                                        | No        |
+| qualities         | Array   | Lista de ID de Calidades                                                                         | No        |
+| creative_agencies | Array   | Lista de ID de Agencias Creativas                                                                | No        |
+| media_agencies    | Array   | Lista de ID de Agencias de Medios                                                                | No        |
+| supports          | Array   | Lista de ID de Soportes                                                                          | No        |
+| group             | Integer | ID Grupo                                                                                         | No        |
 
 <!--
 | target            | Integer | ID Grupo Objetivo Rating                                                    | No        |
 <aside class="warning-yellow">
-  Debe existir al menos un parámetro de los siguientes, para que los demas sean opcionales: 
+  Debe existir al menos un parámetro de los siguientes, para que los demas sean opcionales:
   <b>brands, companies, industries, sub_industries, products, categories, qualities, creative_agencies, media_agencies, supports, group.</b>
 </aside>
 -->
@@ -319,7 +320,8 @@ Para <b>start_date y end_date</b> existe un máximo de 31 dias
 | quality                | String  | Calidad / Tipo del aviso                                                                                                            |
 | duration               | Integer | Duración real del avisaje                                                                                                           |
 | ad_duration            | Integer | Duración normal del aviso                                                                                                           |
-| value                  | Integer | Valor del avisaje                                                                                                                   |
+| value                  | Integer | Valor Tarifa del avisaje                                                                                                            |
+| public_value           | Integer | Valor Público del avisaje                                                                                                           |
 | universal_id           | Integer | Código universal                                                                                                                    |
 | universal_program_id   | Integer | Código de programa universal                                                                                                        |
 | ad_supplier            | String  | En caso de ser publicidad televisiva, indica el nombre del comercializador                                                          |
@@ -351,7 +353,6 @@ Para <b>start_date y end_date</b> existe un máximo de 31 dias
 | media_agency           | String  | Nombre de la Agencia de medios                                                                                                      |
 | creative_agency_id     | Integer | ID Agencia creativa                                                                                                                 |
 | creative_agency        | String  | Nombre de la Agencia creativa                                                                                                       |
-
 
 <!---
 | rating                 | Float   | <b>(Opcional)</b> Solo se devuelve en caso de entregar un parámetro `target`. Indica el rating para el grupo objetivo                                              |
@@ -491,9 +492,9 @@ Retorna una lista con todos los Avisos con actividad
 | brand_id         | Integer | ID Marca                               |
 | product          | String  | Nombre del Producto asignado al aviso  |
 | product_id       | Integer | ID Producto                            |
-| sub_industry_id | Integer | ID Sub-Rubro |
-| sub_industry | String | Nombre del Sub-Rubro asignado al Rubro |
-| spot_uuid        | String  | Identificador único del Avisaje |
+| sub_industry_id  | Integer | ID Sub-Rubro                           |
+| sub_industry     | String  | Nombre del Sub-Rubro asignado al Rubro |
+| spot_uuid        | String  | Identificador único del Avisaje        |
 
 ## Obtener Medios
 
@@ -630,16 +631,15 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 
 ### Parámetros URL
 
-| Nombre        | Tipo     | Descripción                    |
-| ------        | -------  | ---------------------------    |
-| start_date     | String   | Fecha de formato dd-mm-yyyy    |
-| end_date       | String   | Fecha de formato dd-mm-yyyy    |
-| industries      | Array    | Lista de ID de Rubros          |
-| media         | Array    | Lista de ID de Medios          |
-| sub_industries   | Array    | Lista de ID de Sub-Rubros      |
-| companies       | Array    | Lista de ID de Empresas        |
-| categories      | Array    | Lista de ID de Categorias      |
-
+| Nombre         | Tipo   | Descripción                 |
+| -------------- | ------ | --------------------------- |
+| start_date     | String | Fecha de formato dd-mm-yyyy |
+| end_date       | String | Fecha de formato dd-mm-yyyy |
+| industries     | Array  | Lista de ID de Rubros       |
+| media          | Array  | Lista de ID de Medios       |
+| sub_industries | Array  | Lista de ID de Sub-Rubros   |
+| companies      | Array  | Lista de ID de Empresas     |
+| categories     | Array  | Lista de ID de Categorias   |
 
 ### Atributos Respuesta
 
@@ -718,14 +718,14 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 
 ### Parámetros URL
 
-| Nombre        | Tipo     | Descripción                    |
-| ------        | -------  | ---------------------------    |
-| start_date     | String   | Fecha de formato dd-mm-yyyy    |
-| end_date       | String   | Fecha de formato dd-mm-yyyy    |
-| industries      | Array    | Lista de ID de Rubros          |
-| media         | Array    | Lista de ID de Medios          |
-| sub_industries   | Array    | Lista de ID de Sub-Rubros      |
-| categories      | Array    | Lista de ID de Categorias      |
+| Nombre         | Tipo   | Descripción                 |
+| -------------- | ------ | --------------------------- |
+| start_date     | String | Fecha de formato dd-mm-yyyy |
+| end_date       | String | Fecha de formato dd-mm-yyyy |
+| industries     | Array  | Lista de ID de Rubros       |
+| media          | Array  | Lista de ID de Medios       |
+| sub_industries | Array  | Lista de ID de Sub-Rubros   |
+| categories     | Array  | Lista de ID de Categorias   |
 
 ### Atributos Respuesta
 
@@ -804,12 +804,12 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 
 ### Parámetros URL
 
-| Nombre        | Tipo     | Descripción                    |
-| ------        | -------  | ---------------------------    |
-| start_date     | String   | Fecha de formato dd-mm-yyyy    |
-| end_date       | String   | Fecha de formato dd-mm-yyyy    |
-| media         | Array    | Lista de ID de Medios          |
-| categories      | Array    | Lista de ID de Categorias      |
+| Nombre     | Tipo   | Descripción                 |
+| ---------- | ------ | --------------------------- |
+| start_date | String | Fecha de formato dd-mm-yyyy |
+| end_date   | String | Fecha de formato dd-mm-yyyy |
+| media      | Array  | Lista de ID de Medios       |
+| categories | Array  | Lista de ID de Categorias   |
 
 ### Atributos Respuesta
 
@@ -889,13 +889,13 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 
 ### Parámetros URL
 
-| Nombre        | Tipo     | Descripción                    |
-| ------        | -------  | ---------------------------    |
-| start_date     | String   | Fecha de formato dd-mm-yyyy    |
-| end_date       | String   | Fecha de formato dd-mm-yyyy    |
-| media         | Array    | Lista de ID de Medios          |
-| categories      | Array    | Lista de ID de Categorias      |
-| companies       | Arrat    | Lista de ID de Empresas        |
+| Nombre     | Tipo   | Descripción                 |
+| ---------- | ------ | --------------------------- |
+| start_date | String | Fecha de formato dd-mm-yyyy |
+| end_date   | String | Fecha de formato dd-mm-yyyy |
+| media      | Array  | Lista de ID de Medios       |
+| categories | Array  | Lista de ID de Categorias   |
+| companies  | Arrat  | Lista de ID de Empresas     |
 
 ### Atributos Respuesta
 
@@ -978,16 +978,16 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 
 ### Parámetros URL
 
-| Nombre        | Tipo     | Descripción                    |
-| ------        | -------  | ---------------------------    |
-| start_date     | String   | Fecha de formato dd-mm-yyyy    |
-| end_date       | String   | Fecha de formato dd-mm-yyyy    |
-| industries      | Array    | Lista de ID de Rubros          |
-| media         | Array    | Lista de ID de Medios          |
-| sub_industries   | Array    | Lista de ID de Sub-Rubros      |
-| categories      | Array    | Lista de ID de Categorias      |
-| companies       | Array    | Lista de ID de Empresas        |
-| brands         | Array    | Lista de ID de Marcas          |
+| Nombre         | Tipo   | Descripción                 |
+| -------------- | ------ | --------------------------- |
+| start_date     | String | Fecha de formato dd-mm-yyyy |
+| end_date       | String | Fecha de formato dd-mm-yyyy |
+| industries     | Array  | Lista de ID de Rubros       |
+| media          | Array  | Lista de ID de Medios       |
+| sub_industries | Array  | Lista de ID de Sub-Rubros   |
+| categories     | Array  | Lista de ID de Categorias   |
+| companies      | Array  | Lista de ID de Empresas     |
+| brands         | Array  | Lista de ID de Marcas       |
 
 ### Atributos Respuesta
 
@@ -1681,7 +1681,7 @@ Retorna una lista de las últimas publicaciones de registros con fecha y medio
 | Nombre | Requerido | Descripción                                                                                                                          |
 | ------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | date   | No        | Filtro de Fecha-Tiempo en formato dd-mm-yyyyThh:mi:ss:mmm. Permite mostrar sólo publicaciones de cargas mayores a la fecha ingresada |
-| media  | No        | Lista de ID de Medios |
+| media  | No        | Lista de ID de Medios                                                                                                                |
 
 ### Atributos Respuesta
 
