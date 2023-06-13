@@ -836,6 +836,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
       </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
       </span><span class="nl">"ad_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
       </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2867059</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"public_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1879488</span><span class="p">,</span><span class="w">
       </span><span class="nl">"universal_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nl">"universal_program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">83052</span><span class="p">,</span><span class="w">
       </span><span class="nl">"ad_supplier"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1018,7 +1019,7 @@ En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code
 <!--
 | target            | Integer | ID Grupo Objetivo Rating                                                    | No        |
 <aside class="warning-yellow">
-  Debe existir al menos un parámetro de los siguientes, para que los demas sean opcionales: 
+  Debe existir al menos un parámetro de los siguientes, para que los demas sean opcionales:
   <b>brands, companies, industries, sub_industries, products, categories, qualities, creative_agencies, media_agencies, supports, group.</b>
 </aside>
 -->
@@ -1206,7 +1207,12 @@ Para <b>start_date y end_date</b> existe un máximo de 31 dias
 <tr>
 <td>value</td>
 <td>Integer</td>
-<td>Valor del avisaje</td>
+<td>Valor Tarifa del avisaje</td>
+</tr>
+<tr>
+<td>public_value</td>
+<td>Integer</td>
+<td>Valor Público del avisaje</td>
 </tr>
 <tr>
 <td>universal_id</td>
