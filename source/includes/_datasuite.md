@@ -167,7 +167,6 @@ request(options, function (error, response) {
       "universal_id": 0,
       "universal_program_id": 83052,
       "ad_supplier": "",
-      "support_kantar_id": 4,
       "ad_group_location": 7,
       "ad_group_spot_location": 14,
       "ad_group_quantity": 16,
@@ -324,8 +323,7 @@ Para <b>start_date y end_date</b> existe un máximo de 31 dias
 | public_value           | Integer | Valor Público del avisaje                                                                                                           |
 | universal_id           | Integer | Código universal                                                                                                                    |
 | universal_program_id   | Integer | Código de programa universal                                                                                                        |
-| ad_supplier            | String  | En caso de ser publicidad televisiva, indica el nombre del comercializador                                                          |
-| support_kantar_id      | Integer | ID Soporte de la empresa Kantar                                                                                                     |
+| ad_supplier            | String  | En caso de ser publicidad televisiva, indica el nombre del comercializador                                                          |                                                                                                     |
 | ad_group_location      | Integer | En caso de publicidad televisiva o radial, indica el número de la tanda publicitaria                                                |
 | ad_group_spot_location | Integer | En caso de publicidad televisiva o radial, indica la posición del avisaje en la tanda publicitaria                                  |
 | ad_group_quantity      | Integer | En caso de publicidad televisiva o radial, indica la cantidad de avisajes en la tanda publicitaria                                  |
