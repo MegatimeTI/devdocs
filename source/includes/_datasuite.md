@@ -275,7 +275,7 @@ Retorna una lista de avisajes con aviso asignado asociados a los filtros que se 
 -->
 
 <aside class="warning-yellow">
-Para <b>start_date y end_date</b> existe un máximo de 31 dias
+Para el rango <b>start_date</b> y <b>end_date</b> existe un límite máximo de hasta 2 días de diferencia
 </aside>
 
 ### Atributos Respuesta
