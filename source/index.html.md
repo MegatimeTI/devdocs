@@ -12,6 +12,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 includes:
   - datasuite
+  - datasuite_v2
   - multimedia
   - clasificador
   - radioRegional
