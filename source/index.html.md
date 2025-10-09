@@ -17,6 +17,7 @@ includes:
   - clasificador
   - radioRegional
   - comercializador
+  - rating_radio
   - errores
 
 search: true

@@ -1,0 +1,15 @@
+services:
+  devdocs:
+    build:
+      context: .
+      dockerfile: Dockerfile.simple
+    ports:
+      - "8080:4567"
+    volumes:
+      - .:/app
+      - gem_cache:/usr/local/bundle
+    environment:
+      - BUNDLE_PATH=/usr/local/bundle
+    
+volumes:
+  gem_cache:

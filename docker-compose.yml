@@ -1,0 +1,42 @@
+services:
+  # Development service
+  docs-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - "4568:4567"
+    volumes:
+      - .:/srv/slate
+      - bundle_cache:/usr/local/bundle
+    environment:
+      - BUNDLE_PATH=/usr/local/bundle
+    command: ["serve"]
+    stdin_open: true
+    tty: true
+
+  # Production build service
+  docs-build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    volumes:
+      - ./build:/srv/slate/build
+    command: ["build"]
+
+  # Nginx service for serving built docs
+  docs-serve:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./build:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - docs-build
+    restart: unless-stopped
+
+volumes:
+  bundle_cache:

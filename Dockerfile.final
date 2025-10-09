@@ -1,0 +1,21 @@
+FROM ruby:3.1-bullseye
+
+# Install Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs
+
+WORKDIR /app
+
+# Copy and install dependencies
+COPY Gemfile* ./
+RUN bundle install
+
+# Copy source
+COPY . .
+
+# Make executable
+RUN chmod +x slate.sh
+
+EXPOSE 4567
+
+CMD ["bundle", "exec", "middleman", "serve", "--bind-address=0.0.0.0"]
