@@ -83,7 +83,7 @@ Para usar la API, primero necesitas obtener tu API Key desde DataSuite.
 ```python
 import requests
 
-url = "https://ratingradio.megatime.cl/api/ratings"
+url = "https://ratingradio.megatime.cl/ratings"
 headers = {
     "Content-Type": "application/json",
     "API-Key": "71e1db8n090am63ca69606c4slb8b6ta"
@@ -105,7 +105,7 @@ print(response.json())
 
 ```shell
 # Ejemplo básico (un rating)
-curl -X POST https://ratingradio.megatime.cl/api/ratings \
+curl -X POST https://ratingradio.megatime.cl/ratings \
   -H "Content-Type: application/json" \
   -H "API-Key: 71e1db8n090am63ca69606c4slb8b6ta" \
   -d '{
@@ -118,7 +118,7 @@ curl -X POST https://ratingradio.megatime.cl/api/ratings \
   }'
 
 # Ejemplo múltiple (varios ratings)
-curl -X POST https://ratingradio.megatime.cl/api/ratings \
+curl -X POST https://ratingradio.megatime.cl/ratings \
   -H "Content-Type: application/json" \
   -H "API-Key: 71e1db8n090am63ca69606c4slb8b6ta" \
   -d '[
@@ -147,7 +147,7 @@ const axios = require('axios');
 // Ejemplo básico (un rating)
 async function createRating() {
   try {
-    const response = await axios.post('https://ratingradio.megatime.cl/api/ratings', {
+    const response = await axios.post('https://ratingradio.megatime.cl/ratings', {
       date_month: 202412,
       radio_id: 101,
       time_slot_id: 5,
@@ -189,7 +189,7 @@ async function createMultipleRatings() {
   ];
 
   try {
-    const response = await axios.post('https://ratingradio.megatime.cl/api/ratings', ratings, {
+    const response = await axios.post('https://ratingradio.megatime.cl/ratings', ratings, {
       headers: {
         'Content-Type': 'application/json',
         'API-Key': '71e1db8n090am63ca69606c4slb8b6ta'
@@ -239,7 +239,7 @@ Crea uno o múltiples ratings de radio.
 
 ### Llamada HTTP
 
-<span style="color: rgb(170, 117, 28);"> **POST**</span> `https://ratingradio.megatime.cl/api/ratings`
+<span style="color: rgb(170, 117, 28);"> **POST**</span> `https://ratingradio.megatime.cl/ratings`
 
 ### Campos requeridos
 
