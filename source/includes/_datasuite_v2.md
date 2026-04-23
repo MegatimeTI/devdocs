@@ -6,10 +6,27 @@ DataSuite V2 mantiene la misma funcionalidad que V1 con mejoras significativas e
 
 ### Diferencias clave con V1 en endpoint "Obtener Pauta":
 
-- **Parámetros de fecha**: Usa solo `date` (fecha única) en lugar de `start_date` y `end_date`
-- **Parámetro media**: Requiere un solo ID de medio en lugar de una lista
-- **Respuesta extendida**: Incluye nuevos campos específicos por tipo de medio
-- **Performance optimizada**: Consultas SQL más eficientes
+**Parámetros de consulta:**
+
+- `date` reemplaza a `start_date` y `end_date` — se consulta una sola fecha por llamada
+- `media` acepta un solo ID de medio en lugar de una lista — se consulta un medio por llamada
+
+**Nuevos campos en la respuesta:**
+
+- `program_id` y `program_name` — ID y nombre del programa (TV Abierta, Cable, Radio)
+- `schedule_id` y `schedule_name` — ID y nombre de la franja horaria (TV Abierta, Cable)
+- `event_id` — Código del tipo de evento: `A` (Aviso), `U` (Auspicio), `S` (Sobreimpreso)
+- `vp_location_id`, `vp_element_id`, `commune_id`, `commune` — Detalles de ubicación en Vía Pública
+- `metro_location_id`, `metro_element_id`, `station_id` — Detalles de ubicación en Metro
+- `internet_banner_id`, `campaign_id` — IDs de banner y campaña en Internet
+
+**Campos eliminados:**
+
+- `ID` — Se elimina el identificador numérico interno. Se usa `uuid` (hexadecimal) como identificador único del avisaje
+
+**Performance:**
+
+- Consultas SQL optimizadas sobre tabla `AvisajeSTAR` (modelo estrella) en lugar de `AvisajeALL`
 
 <aside class="notice">
 Todos los demás endpoints (Obtener API Key, Obtener Avisos con actividad, Filtros, etc.) funcionan exactamente igual que en V1.
@@ -69,7 +86,7 @@ for media_id in [1, 2, 3]:
 </ul>
 </aside>
 
-## Obtener API Key DataSuite
+## Obtener API Key DataSuite V2
 
 ```python
 import requests
@@ -158,7 +175,7 @@ en el Authorization header:
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
 
-## Obtener Pauta
+## Obtener Pauta V2
 
 ```python
 import requests
@@ -202,7 +219,6 @@ request(options, function (error, response) {
   "ok": true,
   "result": [
     {
-      "ID": 123456789,
       "media_id": 1,
       "media": "TV Abierta",
       "date": "02-02-2022",
@@ -322,7 +338,6 @@ Además de todos los campos de V1, V2 incluye:
 
 | Nombre                 | Tipo    | Descripción                                                     |
 | ---------------------- | ------- | --------------------------------------------------------------- |
-| ID                     | Integer | Identificador único interno del avisaje                        |
 | program_id             | Integer | ID del programa (TV/Cable/Radio)                               |
 | program_name           | String  | Nombre del programa (TV/Cable)                                 |
 | schedule_id            | Integer | ID del horario (TV/Cable)                                      |
@@ -338,7 +353,7 @@ Además de todos los campos de V1, V2 incluye:
 | internet_banner_id     | Integer | ID banner (internet)                                           |
 | campaign_id            | Integer | ID campaña (internet)                                          |
 
-## Obtener Avisos con actividad
+## Obtener Avisos con actividad V2
 
 ```python
 import requests
@@ -453,7 +468,7 @@ Retorna una lista con todos los Avisos con actividad
 | sub_industry     | String  | Nombre del Sub-Rubro asignado al Rubro |
 | spot_uuid        | String  | Identificador único del Avisaje        |
 
-## Obtener Medios
+## Obtener Medios V2
 
 ```python
 import requests
@@ -525,7 +540,7 @@ Retorna una lista con todos los Medios.
 | ID     | Integer | ID          |
 | name   | String  | Nombre      |
 
-## Obtener Marcas
+## Obtener Marcas V2
 
 ```python
 import requests
@@ -612,7 +627,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 | ID     | Integer | ID          |
 | name   | String  | Nombre      |
 
-## Obtener Empresas
+## Obtener Empresas V2
 
 ```python
 import requests
@@ -698,7 +713,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 | ID     | Integer | ID          |
 | name   | String  | Nombre      |
 
-## Obtener Rubros
+## Obtener Rubros V2
 
 ```python
 import requests
@@ -782,7 +797,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 | ID     | Integer | ID          |
 | name   | String  | Nombre      |
 
-## Obtener Sub-Rubros
+## Obtener Sub-Rubros V2
 
 ```python
 import requests
@@ -869,7 +884,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 | name        | String  | Nombre            |
 | industry_id | String  | ID Rubro asociado |
 
-## Obtener Productos
+## Obtener Productos V2
 
 ```python
 import requests
@@ -963,7 +978,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 | brand_id        | Integer | ID Marca asociada     |
 | sub_industry_id | String  | ID Sub-Rubro asociado |
 
-## Obtener Categorias
+## Obtener Categorias V2
 
 ```python
 import requests
@@ -1034,7 +1049,7 @@ Retorna una lista con todas las Categorias
 | ID     | Integer | ID          |
 | name   | String  | Nombre      |
 
-## Obtener Calidades
+## Obtener Calidades V2
 
 ```python
 import requests
@@ -1109,7 +1124,7 @@ Retorna una lista con todas las Calidades
 | short    | String  | Abreviación |
 | medio_id | String  | ID Medio    |
 
-## Obtener Agencias Creativas
+## Obtener Agencias Creativas V2
 
 ```python
 import requests
@@ -1182,7 +1197,7 @@ Retorna una lista con todas las Agencias Creativas
 | name   | String  | Nombre      |
 | short  | String  | Abreviación |
 
-## Obtener Agencias de Medios
+## Obtener Agencias de Medios V2
 
 ```python
 import requests
@@ -1255,7 +1270,7 @@ Retorna una lista con todas las Agencias de Medios
 | name   | String  | Nombre      |
 | short  | String  | Abreviación |
 
-## Obtener Soportes
+## Obtener Soportes V2
 
 ```python
 import requests
@@ -1330,7 +1345,7 @@ Retorna una lista con todas las Agencias de Medios
 | short    | String  | Abreviación |
 | media_id | String  | ID Medio    |
 
-## Obtener Grupos personalizados
+## Obtener Grupos personalizados V2
 
 ```python
 import requests
@@ -1403,7 +1418,7 @@ Retorna una lista con todos los Grupos personalizados por el cliente
 | name   | String  | Nombre      |
 | obs    | String  | Observación |
 
-## Crear Grupo personalizado
+## Crear Grupo personalizado V2
 
 ```python
 import requests
@@ -1495,7 +1510,7 @@ Para asignar `Clasificadores y Opciones`, debe dirigirse a [clasificador.megatim
 | ID      | Integer | ID grupo creado          |
 | message | String  | Mensaje de estado        |
 
-## Obtener Registro Cargas
+## Obtener Registro Cargas V2
 
 ```python
 import requests

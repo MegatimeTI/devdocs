@@ -289,7 +289,7 @@ Para el rango <b>start_date</b> y <b>end_date</b> existe un límite máximo de h
 
 | Nombre                 | Tipo    | Descripción                                                                                                                         |
 | ---------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------- | --- |
-| uuid                   | Integer | Identificador único del Avisaje                                                                                                     |
+| uuid                   | String  | Identificador único del Avisaje (hexadecimal)                                                                                       |
 | media_id               | Integer | ID Medio                                                                                                                            |
 | media                  | String  | Nombre del Medio donde fue encontrado                                                                                               |     |
 | date                   | String  | Fecha de exhibición, en formato DD-MM-YYYY                                                                                          |
