@@ -26,7 +26,7 @@ DataSuite V2 mantiene la misma funcionalidad que V1 con mejoras significativas e
 
 **Performance:**
 
-- Consultas SQL optimizadas sobre tabla `AvisajeSTAR` (modelo estrella) en lugar de `AvisajeALL`
+- Consultas optimizadas para mejor rendimiento en consultas específicas por medio y fecha
 
 <aside class="notice">
 Todos los demás endpoints (Obtener API Key, Obtener Avisos con actividad, Filtros, etc.) funcionan exactamente igual que en V1.
@@ -71,7 +71,7 @@ for media_id in [1, 2, 3]:
 <strong>Ventajas de V2:</strong>
 <ul>
 <li>Información más detallada por tipo de medio</li>
-<li>Consultas SQL optimizadas para mejor performance</li>
+<li>Mejor rendimiento en consultas específicas</li>
 <li>Estructura de datos más clara y específica</li>
 <li>Mejor manejo de campos condicionales</li>
 </ul>
