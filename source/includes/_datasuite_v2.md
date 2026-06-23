@@ -1515,7 +1515,7 @@ Para asignar `Clasificadores y Opciones`, debe dirigirse a [clasificador.megatim
 ```python
 import requests
 
-url = "datasuite.megatime.cl/spots/loads?date=17-02-2022T16:41:10:240&media=1,6"
+url = "datasuite.megatime.cl/v2/spots/loads?date=17-02-2022T16:41:10:240&media=1,6"
 
 payload={}
 headers = {
@@ -1528,7 +1528,7 @@ print(response.text)
 ```
 
 ```shell
-curl --location --request GET 'datasuite.megatime.cl/spots/loads?date=17-02-2022T16:41:10:240&media=1,6' \
+curl --location --request GET 'datasuite.megatime.cl/v2/spots/loads?date=17-02-2022T16:41:10:240&media=1,6' \
 --header 'Authorization: SECRET_API_KEY'
 ```
 
@@ -1536,7 +1536,7 @@ curl --location --request GET 'datasuite.megatime.cl/spots/loads?date=17-02-2022
 var request = require("request");
 var options = {
   method: "GET",
-  url: "datasuite.megatime.cl/spots/loads?date=17-02-2022T16:41:10:240&media=1,6",
+  url: "datasuite.megatime.cl/v2/spots/loads?date=17-02-2022T16:41:10:240&media=1,6",
   headers: {
     Authorization: "SECRET_API_KEY",
   },
@@ -1573,7 +1573,7 @@ Retorna una lista de las últimas publicaciones de registros con fecha y medio
 
 ### Llamada HTTP
 
-<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/spots/loads`
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/v2/spots/loads`
 
 ### Parámetros URL
 
