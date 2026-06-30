@@ -1,0 +1,60 @@
+name: Sunset docs v1 (publicar solo V2)
+
+# Se ejecuta en el corte de v1: 2026-07-02 16:00 UTC = 12:00 hora de Chile.
+# Mergea la rama v1-sunset-docs en main (fuente durable) y publica a gh-pages.
+# El cron de GitHub es best-effort (puede atrasarse); workflow_dispatch queda como
+# disparo manual de respaldo. Tras el corte, este workflow se puede eliminar.
+on:
+  schedule:
+    - cron: '0 16 2 7 *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      ruby-version: '2.7'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Merge rama sunset en main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch origin v1-sunset-docs
+          git merge --no-ff origin/v1-sunset-docs -m "docs: corte v1, publicar solo V2 (2026-07-02)"
+          git push origin main
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.ruby-version }}
+
+      - uses: actions/cache@v4
+        with:
+          path: vendor/bundle
+          key: gems-${{ runner.os }}-${{ env.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            gems-${{ runner.os }}-${{ env.ruby-version }}-
+            gems-${{ runner.os }}-
+
+      - run: bundle config set deployment 'true'
+
+      - name: bundle install
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+
+      - run: bundle exec middleman build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          keep_files: true
