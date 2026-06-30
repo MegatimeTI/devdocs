@@ -11,7 +11,6 @@ language_tabs: # must be one of https://git.io/vQNgJ
 #   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - datasuite
   - datasuite_v2
   - multimedia
   - clasificador
