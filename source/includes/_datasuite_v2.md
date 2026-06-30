@@ -2,6 +2,24 @@
 
 DataSuite es la API de Megatime para consultar pauta publicitaria, avisos, filtros y datos relacionados.
 
+## Migración desde V1
+
+El endpoint de pauta cambió: ahora se consulta **un medio y una fecha por llamada** (antes aceptaba lista de medios y rango de fechas) y usa el prefijo `/v2/`.
+
+**Antes:**
+
+```
+GET /spots?media=1,2,3&start_date=10-03-2021&end_date=10-03-2021
+```
+
+**Ahora:**
+
+```
+GET /v2/spots?media=1&date=10-03-2021
+```
+
+Para obtener varios medios o un rango de fechas, realiza una llamada por cada combinación de medio y fecha. El registro de cargas se consulta en `/v2/spots/loads` (acepta lista de medios + fecha).
+
 ## Obtener API Key DataSuite
 
 ```python
