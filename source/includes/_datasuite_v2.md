@@ -1,92 +1,26 @@
-# DataSuite V2
+# DataSuite
 
-DataSuite V2 mantiene la misma funcionalidad que V1 con mejoras significativas en el endpoint de obtener pauta.
-
-## Cambios principales
-
-### Diferencias clave con V1 en endpoint "Obtener Pauta":
-
-**Parámetros de consulta:**
-
-- `date` reemplaza a `start_date` y `end_date` — se consulta una sola fecha por llamada
-- `media` acepta un solo ID de medio en lugar de una lista — se consulta un medio por llamada
-
-**Nuevos campos en la respuesta:**
-
-- `program_id` y `program_name` — ID y nombre del programa (TV Abierta, Cable, Radio)
-- `schedule_id` y `schedule_name` — ID y nombre de la franja horaria (TV Abierta, Cable)
-- `event_id` — Código del tipo de evento: `A` (Aviso), `U` (Auspicio), `S` (Sobreimpreso)
-- `vp_location_id`, `vp_element_id`, `commune_id`, `commune` — Detalles de ubicación en Vía Pública
-- `metro_location_id`, `metro_element_id`, `station_id` — Detalles de ubicación en Metro
-- `internet_banner_id`, `campaign_id` — IDs de banner y campaña en Internet
-
-**Campos eliminados:**
-
-- `ID` — Se elimina el identificador numérico interno. Se usa `uuid` (hexadecimal) como identificador único del avisaje
-
-**Performance:**
-
-- Consultas optimizadas para mejor rendimiento en consultas específicas por medio y fecha
-
-<aside class="notice">
-Todos los demás endpoints (Obtener API Key, Obtener Avisos con actividad, Filtros, etc.) funcionan exactamente igual que en V1.
-</aside>
+DataSuite es la API de Megatime para consultar pauta publicitaria, avisos, filtros y datos relacionados.
 
 ## Migración desde V1
 
-### Cambios en parámetros
+El endpoint de pauta cambió: ahora se consulta **un medio y una fecha por llamada** (antes aceptaba lista de medios y rango de fechas) y usa el prefijo `/v2/`.
 
-**V1:**
-```
-GET /spots?media=1,2,3&start_date=10-03-2021&end_date=10-03-2021&brands=1,2,3
-```
+**Antes:**
 
-**V2:**
 ```
-GET /v2/spots?media=1&date=10-03-2021&brands=1,2,3
+GET /spots?media=1,2,3&start_date=10-03-2021&end_date=10-03-2021
 ```
 
-### Consideraciones de migración
+**Ahora:**
 
-1. **Múltiples medios**: En V2 debes hacer una llamada por cada medio
-2. **Rango de fechas**: En V2 debes hacer una llamada por cada fecha
-3. **Campos adicionales**: V2 incluye más información detallada
-4. **Performance**: V2 es más eficiente para consultas específicas
-
-### Ejemplo de migración
-
-```python
-# V1 - Una llamada para múltiples medios y fechas
-response_v1 = requests.get('datasuite.megatime.cl/spots?media=1,2,3&start_date=10-03-2021&end_date=12-03-2021&brands=1,2,3')
-
-# V2 - Múltiples llamadas más específicas
-results_v2 = []
-for media_id in [1, 2, 3]:
-    for date in ['10-03-2021', '11-03-2021', '12-03-2021']:
-        response = requests.get(f'datasuite.megatime.cl/v2/spots?media={media_id}&date={date}&brands=1,2,3')
-        results_v2.extend(response.json()['result'])
+```
+GET /v2/spots?media=1&date=10-03-2021
 ```
 
-<aside class="notice">
-<strong>Ventajas de V2:</strong>
-<ul>
-<li>Información más detallada por tipo de medio</li>
-<li>Mejor rendimiento en consultas específicas</li>
-<li>Estructura de datos más clara y específica</li>
-<li>Mejor manejo de campos condicionales</li>
-</ul>
-</aside>
+Para obtener varios medios o un rango de fechas, realiza una llamada por cada combinación de medio y fecha. El registro de cargas se consulta en `/v2/spots/loads` (acepta lista de medios + fecha).
 
-<aside class="warning-yellow">
-<strong>Consideraciones:</strong>
-<ul>
-<li>V2 requiere más llamadas para obtener rangos de datos</li>
-<li>Los campos nuevos pueden ser null para algunos medios</li>
-<li>Revisa la lógica de paginación si consumes grandes volúmenes</li>
-</ul>
-</aside>
-
-## Obtener API Key DataSuite V2
+## Obtener API Key DataSuite
 
 ```python
 import requests
@@ -175,7 +109,7 @@ en el Authorization header:
 En cada ejemplo de la documentación debes reemplazar <code>SECRET_API_KEY</code> con tu API key.
 </aside>
 
-## Obtener Pauta V2
+## Obtener Pauta
 
 ```python
 import requests
@@ -334,7 +268,7 @@ Retorna una lista de avisajes para una fecha y medio específico.
 
 ### Nuevos Atributos Spot
 
-Además de todos los campos de V1, V2 incluye:
+Atributos adicionales del spot:
 
 | Nombre                 | Tipo    | Descripción                                                     |
 | ---------------------- | ------- | --------------------------------------------------------------- |
@@ -353,7 +287,7 @@ Además de todos los campos de V1, V2 incluye:
 | internet_banner_id     | Integer | ID banner (internet)                                           |
 | campaign_id            | Integer | ID campaña (internet)                                          |
 
-## Obtener Avisos con actividad V2
+## Obtener Avisos con actividad
 
 ```python
 import requests
@@ -468,7 +402,7 @@ Retorna una lista con todos los Avisos con actividad
 | sub_industry     | String  | Nombre del Sub-Rubro asignado al Rubro |
 | spot_uuid        | String  | Identificador único del Avisaje        |
 
-## Obtener Medios V2
+## Obtener Medios
 
 ```python
 import requests
@@ -540,7 +474,7 @@ Retorna una lista con todos los Medios.
 | ID     | Integer | ID          |
 | name   | String  | Nombre      |
 
-## Obtener Marcas V2
+## Obtener Marcas
 
 ```python
 import requests
@@ -627,7 +561,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 | ID     | Integer | ID          |
 | name   | String  | Nombre      |
 
-## Obtener Empresas V2
+## Obtener Empresas
 
 ```python
 import requests
@@ -713,7 +647,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 | ID     | Integer | ID          |
 | name   | String  | Nombre      |
 
-## Obtener Rubros V2
+## Obtener Rubros
 
 ```python
 import requests
@@ -797,7 +731,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 | ID     | Integer | ID          |
 | name   | String  | Nombre      |
 
-## Obtener Sub-Rubros V2
+## Obtener Sub-Rubros
 
 ```python
 import requests
@@ -884,7 +818,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 | name        | String  | Nombre            |
 | industry_id | String  | ID Rubro asociado |
 
-## Obtener Productos V2
+## Obtener Productos
 
 ```python
 import requests
@@ -978,7 +912,7 @@ Todos los Parámetros URL son opcionales, pero si se quiere utilizar alguno, <st
 | brand_id        | Integer | ID Marca asociada     |
 | sub_industry_id | String  | ID Sub-Rubro asociado |
 
-## Obtener Categorias V2
+## Obtener Categorias
 
 ```python
 import requests
@@ -1049,7 +983,7 @@ Retorna una lista con todas las Categorias
 | ID     | Integer | ID          |
 | name   | String  | Nombre      |
 
-## Obtener Calidades V2
+## Obtener Calidades
 
 ```python
 import requests
@@ -1124,7 +1058,7 @@ Retorna una lista con todas las Calidades
 | short    | String  | Abreviación |
 | medio_id | String  | ID Medio    |
 
-## Obtener Agencias Creativas V2
+## Obtener Agencias Creativas
 
 ```python
 import requests
@@ -1197,7 +1131,7 @@ Retorna una lista con todas las Agencias Creativas
 | name   | String  | Nombre      |
 | short  | String  | Abreviación |
 
-## Obtener Agencias de Medios V2
+## Obtener Agencias de Medios
 
 ```python
 import requests
@@ -1270,7 +1204,7 @@ Retorna una lista con todas las Agencias de Medios
 | name   | String  | Nombre      |
 | short  | String  | Abreviación |
 
-## Obtener Soportes V2
+## Obtener Soportes
 
 ```python
 import requests
@@ -1345,7 +1279,7 @@ Retorna una lista con todas las Agencias de Medios
 | short    | String  | Abreviación |
 | media_id | String  | ID Medio    |
 
-## Obtener Grupos personalizados V2
+## Obtener Grupos personalizados
 
 ```python
 import requests
@@ -1418,7 +1352,7 @@ Retorna una lista con todos los Grupos personalizados por el cliente
 | name   | String  | Nombre      |
 | obs    | String  | Observación |
 
-## Crear Grupo personalizado V2
+## Crear Grupo personalizado
 
 ```python
 import requests
@@ -1510,7 +1444,7 @@ Para asignar `Clasificadores y Opciones`, debe dirigirse a [clasificador.megatim
 | ID      | Integer | ID grupo creado          |
 | message | String  | Mensaje de estado        |
 
-## Obtener Registro Cargas V2
+## Obtener Registro Cargas
 
 ```python
 import requests
