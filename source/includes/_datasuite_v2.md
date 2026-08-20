@@ -286,6 +286,150 @@ Atributos adicionales del spot:
 | station_id             | Integer | ID estación (metro)                                            |
 | internet_banner_id     | Integer | ID banner (internet)                                           |
 | campaign_id            | Integer | ID campaña (internet)                                          |
+| public_value_usd       | Decimal | Valor público expresado en dólares. Siempre es el último campo de cada spot |
+
+<aside class="notice">
+<code>public_value_usd</code> se entrega como último atributo de cada spot, después de cualquier
+campo opcional que agreguen los parámetros <code>target</code> o <code>group</code>. Si el aviso
+no tiene valor asociado, se devuelve <code>0</code>.
+</aside>
+
+## Obtener Programación
+
+```python
+import requests
+
+url = "datasuite.megatime.cl/v2/programming?media=1&date=19-08-2026"
+
+payload={}
+headers = {
+  'Authorization': 'SECRET_API_KEY'
+}
+
+response = requests.request("GET", url, headers=headers, data=payload)
+
+print(response.text)
+```
+
+```shell
+curl --location --request GET 'datasuite.megatime.cl/v2/programming?media=1&date=19-08-2026' \
+--header 'Authorization: SECRET_API_KEY'
+```
+
+```javascript
+var request = require("request");
+var options = {
+  method: "GET",
+  url: "datasuite.megatime.cl/v2/programming?media=1&date=19-08-2026",
+  headers: {
+    Authorization: "SECRET_API_KEY",
+  },
+};
+request(options, function (error, response) {
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
+
+> Ejemplo de retorno en formato JSON:
+
+```json
+{
+  "ok": true,
+  "result": [
+    {
+      "media": "TV Abierta",
+      "support_id": 1,
+      "channel": "CANAL 13",
+      "date": "19-08-2026",
+      "start": "07:00:00",
+      "start_datetime": "2026-08-19 07:00:00",
+      "end": "09:30:00",
+      "end_datetime": "2026-08-19 09:30:00",
+      "program_id": 4521,
+      "program": "BIENVENIDOS"
+    },
+    {
+      "media": "TV Abierta",
+      "support_id": 1,
+      "channel": "CANAL 13",
+      "date": "19-08-2026",
+      "start": "25:15:00",
+      "start_datetime": "2026-08-20 01:15:00",
+      "end": null,
+      "end_datetime": null,
+      "program_id": 4677,
+      "program": "TRASNOCHE"
+    }
+  ]
+}
+```
+
+Retorna la grilla de programación de un día para un medio determinado. Devuelve solo programas:
+no incluye avisos ni PNTs.
+
+### Llamada HTTP
+
+<span style="color: rgb(33, 120, 52);"> **GET**</span> `datasuite.megatime.cl/v2/programming`
+
+### Parámetros URL
+
+| Nombre | Tipo    | Descripción                                    | Requerido |
+| ------ | ------- | ---------------------------------------------- | --------- |
+| media  | Integer | ID de Medio. Valores admitidos: 1, 6 y 7       | Si        |
+| date   | String  | Fecha de formato dd-mm-yyyy. No puede ser futura | Si        |
+
+Los medios con programación son **1 (TV Abierta)**, **6 (TV Paga)** y **7 (Radio)**.
+Cualquier otro valor devuelve error.
+
+### Códigos de error
+
+| Código | Motivo                                                  |
+| ------ | ------------------------------------------------------- |
+| 400    | Parámetros faltantes o inválidos                        |
+| 403    | El cliente no tiene contratado el medio solicitado      |
+
+### Atributos Respuesta
+
+| Nombre | Tipo    | Descripción                     |
+| ------ | ------- | ------------------------------- |
+| ok     | Boolean | Verificador de respuesta        |
+| result | Array   | Lista de objetos tipo `Programa` |
+
+### Atributos Programa
+
+| Nombre         | Tipo    | Descripción                                                         |
+| -------------- | ------- | ------------------------------------------------------------------- |
+| media          | String  | Nombre del medio                                                    |
+| support_id     | Integer | ID del soporte: canal o emisora                                     |
+| channel        | String  | Nombre del soporte                                                  |
+| date           | String  | Día en formato dd-mm-yyyy                                           |
+| start          | String  | Hora de inicio en notación de día publicitario (HH:MM:SS)           |
+| start_datetime | String  | Instante real de inicio (YYYY-MM-DD HH:MM:SS)                       |
+| end            | String  | Hora de término en notación de día publicitario, o `null`           |
+| end_datetime   | String  | Instante real de término, o `null`                                  |
+| program_id     | Integer | ID del programa                                                     |
+| program        | String  | Nombre del programa                                                 |
+
+<aside class="notice">
+<b>Día publicitario.</b> La jornada va de las 06:00 a las 29:59. Los campos <code>start</code> y
+<code>end</code> usan esa notación, por lo que pueden mostrar horas iguales o mayores a 24
+(por ejemplo <code>25:15:00</code>), que corresponden a la madrugada del día calendario
+siguiente. Los campos <code>start_datetime</code> y <code>end_datetime</code> entregan el
+instante real ya convertido, y son los que conviene usar para ordenar o calcular duraciones.
+</aside>
+
+<aside class="warning">
+<b>Radio.</b> En el medio 7 solo se registra el inicio de cada programa, por lo que
+<code>end</code> y <code>end_datetime</code> vienen siempre en <code>null</code>. Además su
+cobertura es parcial: no todos los días tienen programación cargada ni están todas las emisoras.
+</aside>
+
+<aside class="notice">
+Los marcadores de control de transmisión (INICIO y TÉRMINO DE CONTROL o DE TRANSMISIONES) no se
+incluyen en el resultado. Cuando un programa no registra evento de término, <code>end</code> y
+<code>end_datetime</code> quedan en <code>null</code>.
+</aside>
 
 ## Obtener Avisos con actividad
 

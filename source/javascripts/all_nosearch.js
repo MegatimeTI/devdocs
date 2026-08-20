@@ -1,5 +1,6 @@
 //= require ./lib/_energize
 //= require ./app/_copy
+//= require ./app/_llm_copy
 //= require ./app/_toc
 //= require ./app/_lang
 
@@ -11,6 +12,7 @@ function adjustLanguageSelectorWidth() {
 $(function() {
   loadToc($('#toc'), '.toc-link', '.toc-list-h2', 10);
   setupLanguages($('body').data('languages'));
+  setupLlmCopy();
   $('.content').imagesLoaded( function() {
     window.recacheHeights();
     window.refreshToc();
