@@ -228,7 +228,8 @@ request(options, function (error, response) {
       "media_agency": "OMG",
       "creative_agency_id": 1,
       "creative_agency": "BBDO",
-      "uuid": "0x6c5de827c6dc28e1e5056e8d5e7f79d9"
+      "uuid": "0x6c5de827c6dc28e1e5056e8d5e7f79d9",
+      "public_value_usd": 2349.36
     }
   ]
 }
