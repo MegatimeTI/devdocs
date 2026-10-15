@@ -348,7 +348,9 @@ request(options, function (error, response) {
       "end": "09:30:00",
       "end_datetime": "2026-08-19 09:30:00",
       "program_id": 4521,
-      "program": "BIENVENIDOS"
+      "program": "BIENVENIDOS",
+      "episode_name": "BIENVENIDOS",
+      "genre": "DIVERSION-ENTRETENCION"
     },
     {
       "media": "TV Abierta",
@@ -360,7 +362,9 @@ request(options, function (error, response) {
       "end": null,
       "end_datetime": null,
       "program_id": 4677,
-      "program": "TRASNOCHE"
+      "program": "SUPER CINE",
+      "episode_name": "UNA NOCHE EN EL MUSEO",
+      "genre": "FICCION"
     }
   ]
 }
@@ -410,7 +414,9 @@ Cualquier otro valor devuelve error.
 | end            | String  | Hora de término en notación de día publicitario, o `null`           |
 | end_datetime   | String  | Instante real de término, o `null`                                  |
 | program_id     | Integer | ID del programa                                                     |
-| program        | String  | Nombre del programa                                                 |
+| program        | String  | Nombre del programa, sin el episodio                                |
+| episode_name   | String  | Nombre del episodio. Si el programa no tiene episodio, repite `program` |
+| genre          | String  | Género del programa, o `null` si no tiene género asignado          |
 
 <aside class="notice">
 <b>Día publicitario.</b> La jornada va de las 06:00 a las 29:59. Los campos <code>start</code> y
@@ -418,6 +424,21 @@ Cualquier otro valor devuelve error.
 (por ejemplo <code>25:15:00</code>), que corresponden a la madrugada del día calendario
 siguiente. Los campos <code>start_datetime</code> y <code>end_datetime</code> entregan el
 instante real ya convertido, y son los que conviene usar para ordenar o calcular duraciones.
+</aside>
+
+<aside class="notice">
+<b>Programa y episodio.</b> Cuando la glosa del programa incluye un episodio, viene separada
+en dos campos: <code>program</code> trae el nombre del programa y <code>episode_name</code>
+el del episodio (por ejemplo, <code>LIGA DE PRIMERA MERCADO LIBRE 2026</code> y
+<code>PALESTINO V/S UNIVERSIDAD CATOLICA</code>). Si no hay episodio, <code>episode_name</code>
+repite el valor de <code>program</code>.
+</aside>
+
+<aside class="notice">
+<b>Géneros.</b> Los valores posibles de <code>genre</code> son <code>PERIODISTICO</code>,
+<code>DIVERSION-ENTRETENCION</code>, <code>FICCION</code>, <code>CULTURAL-EDUCATIVO</code>,
+<code>INFANTIL</code> y <code>OTROS</code>. Los programas sin género asignado devuelven
+<code>null</code>.
 </aside>
 
 <aside class="warning">
